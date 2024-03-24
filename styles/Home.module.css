@@ -4,6 +4,10 @@
   font-family: "LineSeedJp";
 }
 
+.content {
+  margin-bottom: 100px;
+}
+
 .content h2 {
   margin-bottom: 1rem;
   line-height: 3rem;
@@ -23,4 +27,9 @@
     width: 94vw;
     margin: 10vh 3vw;
   }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }

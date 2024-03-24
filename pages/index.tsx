@@ -27,7 +27,7 @@ type Data = {
     url: string;
     height: number;
     width: number;
-  };
+  } | null;
 };
 
 // Homeコンポーネント。props経由でデータを受け取る
@@ -60,42 +60,47 @@ const Home = () => {
     );
   return (
     <main className={styles.main}>
-      {(() => {
-        const res = [];
-        for (const elem of data) {
-          console.log(elem.OGP);
-          res.push(
-            <>
-              <h1 style={{ marginBottom: "3rem" }}>{elem.title}</h1>
-              <div
-                style={{
-                  width: "100%",
-                  height: "300px",
-                  marginBottom: "2rem",
-                  position: "relative",
-                  border: "1px solid #eee",
-                }}
-              >
-                <Image
-                  src={elem.OGP.url}
-                  fill
-                  priority
-                  style={{
-                    objectFit: "contain",
-                  }}
-                  alt="ogp-image"
-                />
-              </div>
+      <div className={styles.container}>
+        {(() => {
+          const res = [];
+          for (const elem of data) {
+            res.push(
+              <>
+                <h1 style={{ marginBottom: "3rem" }}>{elem.title}</h1>
+                {elem.OGP ? (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "300px",
+                      marginBottom: "2rem",
+                      position: "relative",
+                      border: "1px solid #eee",
+                    }}
+                  >
+                    <Image
+                      src={elem.OGP.url}
+                      fill
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                      alt="ogp-image"
+                    />
+                  </div>
+                ) : (
+                  <></>
+                )}
 
-              <div
-                className={styles.content}
-                dangerouslySetInnerHTML={{ __html: elem.content }}
-              />
-            </>
-          );
-        }
-        return res;
-      })()}
+                <div
+                  className={styles.content}
+                  dangerouslySetInnerHTML={{ __html: elem.content }}
+                />
+              </>
+            );
+          }
+          return res;
+        })()}
+      </div>
     </main>
   );
 };
