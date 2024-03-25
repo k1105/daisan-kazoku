@@ -4,32 +4,43 @@
   font-family: var(--line-seed);
 }
 
-.content {
-  margin-bottom: 100px;
+.container {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1;
+  height: 85vh;
+  overflow: scroll;
 }
 
-.content h2 {
-  margin-bottom: 1rem;
-  line-height: 3rem;
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  z-index: 10;
+  position: fixed;
+  width: 40vw;
+  font-size: 1.5rem;
+  font-weight: 100;
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
   border-bottom: 1px solid #ccc;
-}
-
-.content p {
-  margin-bottom: 1rem;
-}
-
-.content a {
-  color: #92d7ca;
+  background-color: #fafafa;
 }
 
 @media screen and (max-width: 600px) {
   .main {
     width: 94vw;
-    margin: 10vh 3vw;
+    margin: 5vh 3vw;
   }
-}
 
-.container {
-  display: flex;
-  flex-direction: column;
+  .header {
+    width: 94vw;
+  }
+  .container {
+    width: 94vw;
+  }
 }

@@ -1,7 +1,7 @@
 import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
 import { client } from "@/libs/client";
-import Image from "next/image";
+import { AnnouncementItem } from "@/components/AnnouncementItem";
 
 type Data = {
   id: string;
@@ -57,45 +57,19 @@ const Home = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        {(() => {
-          const res = [];
-          for (const elem of data) {
-            res.push(
-              <>
-                <h1 style={{ marginBottom: "3rem" }}>{elem.title}</h1>
-                {elem.OGP ? (
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "300px",
-                      marginBottom: "2rem",
-                      position: "relative",
-                      border: "1px solid #eee",
-                    }}
-                  >
-                    <Image
-                      src={elem.OGP.url}
-                      fill
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                      alt="ogp-image"
-                    />
-                  </div>
-                ) : (
-                  <></>
-                )}
-
-                <div
-                  className={styles.content}
-                  dangerouslySetInnerHTML={{ __html: elem.content }}
-                />
-              </>
-            );
-          }
-          return res;
-        })()}
+        <div className={styles.header}>
+          <p>お知らせ</p>
+          <p>×</p>
+        </div>
+        <div style={{ paddingTop: "3rem" }}>
+          {(() => {
+            const res = [];
+            for (const elem of data) {
+              res.push(<AnnouncementItem key={elem.id} elem={elem} />);
+            }
+            return res;
+          })()}
+        </div>
       </div>
     </main>
   );
