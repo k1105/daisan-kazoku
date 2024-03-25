@@ -89,6 +89,11 @@
   dependencies:
     glob "10.3.10"
 
+"@next/font@^14.1.4":
+  version "14.1.4"
+  resolved "https://registry.yarnpkg.com/@next/font/-/font-14.1.4.tgz#f522e0aa941421e07a83ea026bd6ed773c4cf3ea"
+  integrity sha512-a7CnpjEA3zXsKpCB7JX92mNiDYvjDImLfRjK+szi/q64vwbNrrs54up2xgFE1T4K1OE8GaI/eQ3zrZFWIbOJ1Q==
+
 "@next/swc-darwin-arm64@14.1.4":
   version "14.1.4"
   resolved "https://registry.yarnpkg.com/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.1.4.tgz#a3bca0dc4393ac4cf3169bbf24df63441de66bb7"
@@ -2082,6 +2087,7 @@ streamsearch@^1.1.0:
   integrity sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==

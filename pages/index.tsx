@@ -1,11 +1,7 @@
-import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
-// クライアントのインポート（コメントアウト解除）
 import { client } from "@/libs/client";
 import Image from "next/image";
-
-const inter = Inter({ subsets: ["latin"] });
 
 type Data = {
   id: string;
