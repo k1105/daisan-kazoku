@@ -1,5 +1,5 @@
 import React from "react";
-import { Tag } from "../../components/Tag";
+import { Tag } from "./Tag";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
@@ -30,7 +30,7 @@ type Props = {
   elem: Data;
 };
 
-const AnnouncementItem = ({ elem }: Props) => {
+export const AnnouncementItem = ({ elem }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null); // コンテンツの ref
@@ -180,5 +180,3 @@ const AnnouncementItem = ({ elem }: Props) => {
     </>
   );
 };
-
-export default AnnouncementItem;
