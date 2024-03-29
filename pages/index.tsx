@@ -22,35 +22,69 @@ const Home = () => {
 
   const isScrolling = useRef<boolean>(false);
 
+  const handleScroll = (e: WheelEvent) => {
+    e.preventDefault();
+    if (Math.abs(e.deltaY) < 10 || isScrolling.current) return;
+
+    isScrolling.current = true;
+    state.current =
+      e.deltaY > 0
+        ? (state.current + 1) % stateList.length
+        : Math.max(state.current - 1, 0);
+
+    console.log(e.deltaY);
+    if (mainRef.current) {
+      mainRef.current.style.transform = `translate(0, -${
+        stateList[state.current] * 100
+      }vh)`;
+    }
+    // 一定時間後にフラグをリセット
+    setTimeout(() => {
+      isScrolling.current = false;
+    }, 500); // 300ms後に再びスクロールを許可
+  };
+
+  const startY = useRef<number>(0); // タッチ開始時のY座標
+
+  const handleTouchStart = (e: TouchEvent) => {
+    startY.current = e.touches[0].clientY; // タッチ開始時のY座標を記録
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    e.preventDefault();
+    const moveY = e.touches[0].clientY; // 現在のタッチ位置のY座標
+    const deltaY = moveY - startY.current; // 開始点からの変位
+
+    if (Math.abs(deltaY) < 10 || isScrolling.current) return;
+
+    isScrolling.current = true;
+    state.current =
+      deltaY < 0
+        ? (state.current + 1) % stateList.length
+        : Math.max(state.current - 1, 0);
+
+    if (mainRef.current) {
+      mainRef.current.style.transform = `translate(0, -${
+        stateList[state.current] * 100
+      }vh)`;
+    }
+
+    setTimeout(() => {
+      isScrolling.current = false;
+    }, 500);
+  };
+
   useEffect(() => {
-    const handleScroll = (e: WheelEvent) => {
-      e.preventDefault();
-      if (Math.abs(e.deltaY) < 10 || isScrolling.current) return;
-
-      isScrolling.current = true;
-      state.current =
-        e.deltaY > 0
-          ? (state.current + 1) % stateList.length
-          : Math.max(state.current - 1, 0);
-
-      console.log(e.deltaY);
-      if (mainRef.current) {
-        mainRef.current.style.transform = `translate(0, -${
-          stateList[state.current] * 100
-        }vh)`;
-      }
-      // 一定時間後にフラグをリセット
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 500); // 300ms後に再びスクロールを許可
-    };
-
     if (mainRef.current) mainRef.current.style.opacity = "1";
     window.addEventListener("wheel", handleScroll, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart, { passive: false });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
     // クリーンアップ関数でリスナーを削除
     return () => {
       window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
   return (
