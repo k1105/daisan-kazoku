@@ -19,56 +19,29 @@ const Home = () => {
         />
       </div>
       <div className="link">
-        <Link
-          href="/announcement"
-          style={{
-            textDecoration: "none",
-            color: "black",
-            borderLeft: "1px solid #ccc",
-            marginBottom: "1rem",
-            paddingLeft: "1rem",
-          }}
-        >
+        <Link href="/announcement" className={styles.pageLink}>
           活動報告
         </Link>
-        <Link
-          href="#"
-          style={{
-            textDecoration: "none",
-            color: "black",
-            borderLeft: "1px solid #ccc",
-            marginBottom: "1rem",
-            paddingLeft: "1rem",
-          }}
-        >
-          クリエイティブ事業
+        <Link href="/service" className={styles.pageLink}>
+          サービス
         </Link>
-        <Link
-          href="#"
-          style={{
-            textDecoration: "none",
-            color: "black",
-            borderLeft: "1px solid #ccc",
-            marginBottom: "1rem",
-            paddingLeft: "1rem",
-          }}
-        >
+        <Link href="#" className={styles.pageLink}>
           効果
         </Link>
       </div>
+      <Link href="#" className={styles.pageLink}>
+        pdf
+      </Link>
 
       <style jsx>
         {`
           .logo {
             width: 50%;
-            height: 200px;
-            margin-bottom: 2rem;
+            height: 100px;
+            margin-bottom: 1rem;
             position: relative;
           }
           .link {
-            text-decoration: none;
-            color: black;
-            font-weight: 100;
             font-size: 1.2rem;
             display: flex;
             flex-direction: column;

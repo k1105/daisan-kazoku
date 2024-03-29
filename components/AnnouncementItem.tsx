@@ -48,23 +48,28 @@ export const AnnouncementItem = ({ elem }: Props) => {
     <>
       <div
         className={`content-wrapper ${isOpen ? "open-effect" : "hover-effect"}`}
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
       >
-        <div className="content-header">
-          <p>{elem.title}</p>
-          <p style={{ fontSize: "0.8rem", color: "gray" }}>2024/03/25</p>
+        <div
+          className={`content-header-box ${
+            isOpen ? "open-effect" : "hover-effect"
+          }`}
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        >
+          <div className="content-header">
+            <p>{elem.title}</p>
+            <p style={{ fontSize: "0.8rem", color: "gray" }}>2024/03/25</p>
+          </div>
+          <Tag text="団体活動" />
         </div>
-
-        <Tag text="団体活動" />
 
         <div
           ref={contentRef} // このdivのrefを設定
           style={{
             height: isOpen ? `${contentHeight}px` : "0px",
             overflow: "hidden",
-            transition: "height 0.3s ease",
+            transition: "height ease 0.3s",
           }}
         >
           {elem.OGP && (
@@ -93,26 +98,47 @@ export const AnnouncementItem = ({ elem }: Props) => {
             className="content"
             dangerouslySetInnerHTML={{ __html: elem.content }}
           />
+          <div className="close-button-wrapper">
+            <a
+              className="close-button"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              閉じる
+            </a>
+          </div>
         </div>
       </div>
       <style jsx>{`
         .content-wrapper {
-          padding-top: 3rem;
           padding-left: 10px;
           padding-right: 10px;
           border-bottom: 0.5px solid #ccc;
           overflow: hidden;
           transition: all ease 0.3s;
         }
-        .content-wrapper.open-effect {
-          padding-top: 3.5rem;
+
+        .content-header-box {
+          padding-top: 3rem;
+          transition: all ease 0.3s;
         }
 
         @media (pointer: fine) {
           .content-wrapper.hover-effect:hover {
-            padding-top: 3.5rem;
             background-color: white;
           }
+          .content-header-box.hover-effect:hover {
+            padding-top: 3.5rem;
+          }
+        }
+
+        .content-wrapper.open-effect {
+          background-color: white;
+        }
+
+        .content-header-box.open-effect {
+          padding-top: 3.5rem;
         }
 
         .content-header {
@@ -135,6 +161,19 @@ export const AnnouncementItem = ({ elem }: Props) => {
           a {
             color: #92d7ca;
           }
+        }
+
+        .close-button-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .close-button {
+          text-align: right;
+          margin-bottom: 1rem;
+          color: #ccc;
+          cursor: pointer;
         }
       `}</style>
     </>
