@@ -1,5 +1,5 @@
 import React from "react";
-import { Tag } from "./Tag";
+import { Tag } from "../../components/Tag";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
@@ -120,6 +120,7 @@ export const AnnouncementItem = ({ elem }: Props) => {
         }
 
         .content-header-box {
+          cursor: pointer;
           padding-top: 3rem;
           transition: all ease 0.3s;
         }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { client } from "@/libs/client";
-import { AnnouncementItem } from "@/components/AnnouncementItem";
+import { AnnouncementItem } from "@/pages/announcement/AnnouncementItem";
 import Link from "next/link";
 
 type Data = {
@@ -107,6 +107,9 @@ const Announcement = () => {
         @media screen and (max-width: 600px) {
           .header {
             width: 94vw;
+          }
+          .header p {
+            font-size: 1.5rem;
           }
           .container {
             width: 94vw;

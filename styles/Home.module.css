@@ -1,7 +1,10 @@
 .main {
-  width: 40vw;
-  margin: 15vh 5vw;
+  width: 100vw;
+  /* height: 100vh; */
+  overflow: hidden;
+  opacity: 0;
   font-family: var(--line-seed);
+  transition: opacity 0.3s ease, transform 1s ease;
 }
 
 .container {
@@ -18,20 +21,6 @@
   display: none;
 }
 
-.pageLink {
-  text-decoration: none;
-  color: black;
-  font-weight: 100;
-  border-left: 1px solid #ccc;
-  margin-bottom: 1rem;
-  padding-left: 1rem;
-  transition: all ease 0.5s;
-}
-
-.pageLink:hover {
-  filter: blur(0.5px);
-}
-
 .header {
   z-index: 10;
   position: fixed;
@@ -46,11 +35,6 @@
 }
 
 @media screen and (max-width: 600px) {
-  .main {
-    width: 94vw;
-    margin: 5vh 3vw;
-  }
-
   .header {
     width: 94vw;
   }
