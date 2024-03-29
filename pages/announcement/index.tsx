@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { client } from "@/libs/client";
-import { AnnouncementItem } from "@/pages/announcement/AnnouncementItem";
+import AnnouncementItem from "@/pages/announcement/AnnouncementItem";
 import Link from "next/link";
 
 type Data = {
