@@ -1,9 +1,9 @@
 import styles from "@/styles/Home.module.css";
 // import { Announcement } from "@/components/Announcement";
 import Image from "next/image";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 // Homeコンポーネント。props経由でデータを受け取る
 const Home = () => {
@@ -88,105 +88,113 @@ const Home = () => {
     };
   }, []);
   return (
-    <main className={styles.main} ref={mainRef}>
-      <div className="view-wrapper">
-        <div className="first-view">
-          <div className="logo">
-            <Image
-              src="/logo.svg"
-              fill
-              priority
-              style={{
-                objectFit: "contain",
-              }}
-              alt="第３の家族"
-            />
+    <>
+      <Head>
+        <title>NPO法人 第３の家族</title>
+      </Head>
+      <main className={styles.main} ref={mainRef}>
+        <div className="view-wrapper">
+          <div className="first-view">
+            <div className="logo">
+              <Image
+                src="/logo.svg"
+                fill
+                priority
+                style={{
+                  objectFit: "contain",
+                }}
+                alt="第３の家族"
+              />
+            </div>
+            <div className="link">
+              <a
+                className="page-link"
+                onClick={() => delayRedirectTo("/announcement")}
+              >
+                活動報告
+              </a>
+              <a
+                className="page-link"
+                onClick={() => delayRedirectTo("/service")}
+              >
+                サービス
+              </a>
+              <a
+                className="page-link"
+                onClick={() => delayRedirectTo("/impact")}
+              >
+                効果
+              </a>
+            </div>
+            <a href="#" className="page-link">
+              pdf
+            </a>
           </div>
-          <div className="link">
-            <a
-              className="page-link"
-              onClick={() => delayRedirectTo("/announcement")}
-            >
-              活動報告
-            </a>
-            <a
-              className="page-link"
-              onClick={() => delayRedirectTo("/service")}
-            >
-              サービス
-            </a>
-            <a className="page-link" onClick={() => delayRedirectTo("/impact")}>
-              効果
-            </a>
+          <div className="first-view">
+            <p>
+              ここには、
+              <br />
+              テキストが入ります。
+            </p>
           </div>
-          <a href="#" className="page-link">
-            pdf
-          </a>
+          <div className="first-view">
+            <p>
+              そして、
+              <br />
+              次のテキストです。
+            </p>
+          </div>
         </div>
-        <div className="first-view">
-          <p>
-            ここには、
-            <br />
-            テキストが入ります。
-          </p>
-        </div>
-        <div className="first-view">
-          <p>
-            そして、
-            <br />
-            次のテキストです。
-          </p>
-        </div>
-      </div>
 
-      <style jsx>
-        {`
-          .first-view {
-            width: 40vw;
-            height: 100vh;
-            margin: 15vh 5vw;
-          }
-          .logo {
-            width: 50%;
-            height: 100px;
-            margin-bottom: 1rem;
-            position: relative;
-          }
-          .link {
-            font-size: 1.2rem;
-            display: flex;
-            flex-direction: column;
-          }
-
-          .page-link {
-            cursor: pointer;
-            text-decoration: none;
-            color: black;
-            font-weight: 100;
-            border-left: 1px solid #ccc;
-            margin-bottom: 1rem;
-            padding-left: 1rem;
-            transition: all ease 0.5s;
-          }
-
-          .page-link:hover {
-            filter: blur(0.5px);
-          }
-
-          @media screen and (max-width: 600px) {
-            .logo {
-              margin-top: 20vh;
-              width: 70%;
-            }
-
+        <style jsx>
+          {`
             .first-view {
-              width: 94vw;
-              margin: 5vh 3vw;
+              width: 40vw;
+              height: 100vh;
+              margin: 15vh 5vw;
             }
-          }
-        `}
-      </style>
-    </main>
+            .logo {
+              width: 50%;
+              height: 100px;
+              margin-bottom: 1rem;
+              position: relative;
+            }
+            .link {
+              font-size: 1.2rem;
+              display: flex;
+              flex-direction: column;
+            }
+
+            .page-link {
+              cursor: pointer;
+              text-decoration: none;
+              color: black;
+              font-weight: 100;
+              border-left: 1px solid #ccc;
+              margin-bottom: 1rem;
+              padding-left: 1rem;
+              transition: all ease 0.5s;
+            }
+
+            .page-link:hover {
+              filter: blur(0.5px);
+            }
+
+            @media screen and (max-width: 600px) {
+              .logo {
+                margin-top: 20vh;
+                width: 70%;
+              }
+
+              .first-view {
+                width: 94vw;
+                margin: 5vh 3vw;
+              }
+            }
+          `}
+        </style>
+      </main>
+    </>
   );
 };
 
