@@ -4,29 +4,6 @@ import { client } from "@/libs/client";
 import { AnnouncementItem } from "@/components/AnnouncementItem";
 import Link from "next/link";
 
-type Data = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  title: string;
-  content: string;
-  category: {
-    id: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    revisedAt: string;
-    name: string;
-  };
-  OGP: {
-    url: string;
-    height: number;
-    width: number;
-  } | null;
-};
-
 const Announcement = () => {
   const [data, setData] = useState<Data[] | null>(null);
   // propsからデータを使用

@@ -3,29 +3,6 @@ import { Tag } from "./Tag";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
-type Data = {
-  id: string;
-  createdAt: string;
-  updatedAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  title: string;
-  content: string;
-  category: {
-    id: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    revisedAt: string;
-    name: string;
-  };
-  OGP: {
-    url: string;
-    height: number;
-    width: number;
-  } | null;
-};
-
 type Props = {
   elem: Data;
 };
@@ -59,9 +36,11 @@ export const AnnouncementItem = ({ elem }: Props) => {
         >
           <div className="content-header">
             <p>{elem.title}</p>
-            <p style={{ fontSize: "0.8rem", color: "gray" }}>2024/03/25</p>
+            <p style={{ fontSize: "0.8rem", color: "gray" }}>
+              {elem.releaseDate.split("T")[0]}
+            </p>
           </div>
-          <Tag text="団体活動" />
+          <Tag text={elem.category.name} />
         </div>
 
         <div
@@ -72,7 +51,7 @@ export const AnnouncementItem = ({ elem }: Props) => {
             transition: "height ease 0.3s",
           }}
         >
-          {elem.OGP && (
+          {elem.ogp && (
             <div
               style={{
                 width: "100%",
@@ -83,7 +62,7 @@ export const AnnouncementItem = ({ elem }: Props) => {
               }}
             >
               <Image
-                src={elem.OGP.url}
+                src={elem.ogp.url}
                 fill
                 priority
                 style={{
