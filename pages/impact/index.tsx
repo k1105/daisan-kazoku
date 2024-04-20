@@ -1,5 +1,11 @@
+import Layout from "../layout";
+
 const Impact = () => {
-  return <></>;
+  return (
+    <>
+      <Layout>hoge</Layout>
+    </>
+  );
 };
 
 export default Impact;
