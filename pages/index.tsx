@@ -122,9 +122,9 @@ const Home = () => {
               </a>
               <a
                 className="page-link"
-                onClick={() => delayRedirectTo("/impact")}
+                onClick={() => delayRedirectTo("/contact")}
               >
-                効果
+                お問い合わせ
               </a>
             </div>
             <a href="#" className="page-link">
