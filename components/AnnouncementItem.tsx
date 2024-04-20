@@ -36,11 +36,19 @@ export const AnnouncementItem = ({ elem }: Props) => {
         >
           <div className="content-header">
             <p>{elem.title}</p>
-            <p style={{ fontSize: "0.8rem", color: "gray" }}>
+          </div>
+          <div className="property">
+            <Tag text={elem.category.name} />
+            <p
+              style={{
+                fontSize: "0.8rem",
+                color: "gray",
+                lineHeight: "1.6rem",
+              }}
+            >
               {elem.releaseDate.split("T")[0]}
             </p>
           </div>
-          <Tag text={elem.category.name} />
         </div>
 
         <div
@@ -122,13 +130,19 @@ export const AnnouncementItem = ({ elem }: Props) => {
         }
 
         .content-header {
+          font-size: 1.2rem;
           margin-bottom: 0.5rem;
+          margin-left: 0.5rem;
+        }
+
+        .property {
           display: flex;
-          justify-content: space-between;
+          gap: 20px;
         }
 
         .content {
           padding: 3rem 0;
+          margin: 0 1rem;
           h2 {
             margin-bottom: 1rem;
             line-height: 2rem;
@@ -137,6 +151,7 @@ export const AnnouncementItem = ({ elem }: Props) => {
           }
           p {
             margin-bottom: 1rem;
+            line-height: 2rem;
           }
           a {
             color: #92d7ca;

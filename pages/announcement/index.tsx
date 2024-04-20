@@ -10,7 +10,6 @@ const Announcement = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await client.get({ endpoint: "news" });
-      console.log(response.contents);
       setData(response.contents);
     }
 
