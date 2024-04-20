@@ -106,6 +106,8 @@ export async function getStaticProps() {
     endpoint: "news",
   });
 
+  console.log(data);
+
   // 取得したデータをpropsとしてページコンポーネントに渡す
   return {
     props: { data }, // 注意: 実際にこのデータ構造がclient.getから返されるかはAPIの設計に依存します
