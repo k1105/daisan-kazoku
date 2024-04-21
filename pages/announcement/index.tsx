@@ -1,34 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { client } from "@/libs/client";
-import { AnnouncementItem } from "@/components/AnnouncementItem";
+
+import { AnnouncementItem } from "@/pages/announcement/AnnouncementItem";
 import Link from "next/link";
 import Layout from "../layout";
+import { AnnouncementTable } from "./AnnoucementTable";
 
 const Announcement = () => {
-  const [data, setData] = useState<Data[] | null>(null);
-  // propsからデータを使用
-  useEffect(() => {
-    async function fetchData() {
-      const response = await client.get({ endpoint: "news" });
-      setData(response.contents);
-    }
-
-    fetchData();
-  }, []);
-  if (!data)
-    return (
-      <>
-        <div
-          style={{
-            width: "100%",
-            textAlign: "center",
-          }}
-        >
-          <p>loading...</p>
-        </div>
-      </>
-    );
   return (
     <Layout>
       <div className="main">
@@ -39,15 +17,7 @@ const Announcement = () => {
               ×
             </Link>
           </div>
-          <div style={{ paddingTop: "10vh" }}>
-            {(() => {
-              const res = [];
-              for (const elem of data) {
-                res.push(<AnnouncementItem key={elem.id} elem={elem} />);
-              }
-              return res;
-            })()}
-          </div>
+          <AnnouncementTable />
         </div>
         <style jsx>{`
           .main {
@@ -88,6 +58,7 @@ const Announcement = () => {
             }
             .header p {
               font-size: 1.5rem;
+              line-height: 6rem;
             }
             .container {
               width: 94vw;
@@ -101,18 +72,3 @@ const Announcement = () => {
 };
 
 export default Announcement;
-
-// getStaticProps関数。ビルド時に実行される
-export async function getStaticProps() {
-  // データの取得
-  const data = await client.get({
-    endpoint: "news",
-  });
-
-  console.log(data);
-
-  // 取得したデータをpropsとしてページコンポーネントに渡す
-  return {
-    props: { data }, // 注意: 実際にこのデータ構造がclient.getから返されるかはAPIの設計に依存します
-  };
-}
