@@ -51,6 +51,20 @@
 
 @media screen and (max-width: 600px) {
   .nav {
+    position: relative;
+    width: 8rem;
+    margin: 0 3vw;
+    top: 0;
+    left: 0;
+  }
+
+  .logo {
+    width: 8rem;
+    height: 60px;
+    margin: 0;
+  }
+
+  .navLink {
     display: none;
   }
 }

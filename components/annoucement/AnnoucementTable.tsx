@@ -29,7 +29,7 @@ export const AnnouncementTable = () => {
     );
   return (
     <>
-      <div style={{ paddingTop: "6rem" }}>
+      <div className="table">
         {(() => {
           const res = [];
           for (const elem of data) {
@@ -38,6 +38,17 @@ export const AnnouncementTable = () => {
           return res;
         })()}
       </div>
+      <style jsx>{`
+        .table {
+          padding-top: 6rem;
+        }
+
+        @media screen and (max-width: 600px) {
+          .table {
+            padding-top: 3rem;
+          }
+        }
+      `}</style>
     </>
   );
 };

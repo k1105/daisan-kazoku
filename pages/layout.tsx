@@ -52,7 +52,7 @@ export default function Layout({
             />
           </Link>
         </div>
-        <ul>
+        <ul className={classes.navLink}>
           <li className={classes.list}>第3の家族とは</li>
           <li className={classes.list}>
             <Link

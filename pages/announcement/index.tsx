@@ -10,9 +10,6 @@ const Announcement = () => {
         <div className="container">
           <div className="header">
             <p>活動報告</p>
-            <Link href=".." style={{ color: "black", textDecoration: "none" }}>
-              ×
-            </Link>
           </div>
           <AnnouncementTable />
         </div>
@@ -52,10 +49,11 @@ const Announcement = () => {
           @media screen and (max-width: 600px) {
             .header {
               width: 94vw;
+              height: 3rem;
             }
             .header p {
               font-size: 1.5rem;
-              line-height: 6rem;
+              line-height: 3rem;
             }
             .container {
               width: 94vw;
