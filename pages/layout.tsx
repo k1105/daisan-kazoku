@@ -18,6 +18,22 @@ export default function Layout({
     <>
       <Head>
         <title>{pageTitle} | NPO法人 第３の家族</title>
+        <meta property="og:title" content={pageTitle} />
+        <meta
+          property="og:description"
+          content="一人でも解決に近づけるような実用的サービス。 家庭環境問題のはざまで悩む少年少女に。 "
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://daisan-kazoku.vercel.app" />
+        <meta
+          property="og:image"
+          content="https://daisan-kazoku.vercel.app/ogp.png"
+        />
+        <meta property="og:site_name" content="NPO法人 第３の家族" />
+        <meta property="og:locale" content="ja_JP" />
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@daisan_kazoku" />
       </Head>
       <nav className={classes.nav}>
         <div className={classes.logo}>
