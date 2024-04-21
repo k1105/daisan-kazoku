@@ -107,26 +107,6 @@ export default function Layout({
           <li className={classes.list}>少年少女はこちら</li>
         </ul>
       </nav>
-      <div className={classes.menuButton}>
-        <div
-          style={{
-            width: "30px",
-            height: "30px",
-            position: "relative",
-            margin: "10px",
-          }}
-        >
-          <Image
-            src="/menu-button.svg"
-            fill
-            priority
-            style={{
-              objectFit: "contain",
-            }}
-            alt="menu"
-          />
-        </div>
-      </div>
       <div className={classes.childrenWrapper}>{children}</div>
 
       <footer></footer>
