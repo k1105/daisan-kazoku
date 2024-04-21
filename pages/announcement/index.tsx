@@ -1,7 +1,4 @@
 import React from "react";
-import { useEffect, useState } from "react";
-
-import { AnnouncementItem } from "@/pages/announcement/AnnouncementItem";
 import Link from "next/link";
 import Layout from "../layout";
 import { AnnouncementTable } from "./AnnoucementTable";

@@ -29,7 +29,7 @@ export const AnnouncementTable = () => {
     );
   return (
     <>
-      <div style={{ paddingTop: "10vh" }}>
+      <div style={{ paddingTop: "6rem" }}>
         {(() => {
           const res = [];
           for (const elem of data) {
