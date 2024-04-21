@@ -1,5 +1,5 @@
 import React from "react";
-import { Tag } from "../Tag";
+import { Tag } from "./Tag";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
