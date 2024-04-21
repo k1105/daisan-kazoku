@@ -18,7 +18,10 @@ export default function Layout({
     <>
       <Head>
         <title>{pageTitle} | NPO法人 第３の家族</title>
-        <meta property="og:title" content={pageTitle} />
+        <meta
+          property="og:title"
+          content={`${pageTitle} | NPO法人 第３の家族`}
+        />
         <meta
           property="og:description"
           content="一人でも解決に近づけるような実用的サービス。 家庭環境問題のはざまで悩む少年少女に。 "
