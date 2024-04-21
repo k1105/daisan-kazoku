@@ -2,6 +2,7 @@
   position: fixed;
   top: 3vh;
   left: 3vw;
+  z-index: 99;
 }
 
 .logo {
@@ -15,6 +16,10 @@
 .link {
   text-decoration: none;
   color: black;
+}
+
+.menuButton {
+  display: none;
 }
 
 .active {
@@ -51,20 +56,40 @@
 
 @media screen and (max-width: 600px) {
   .nav {
-    position: relative;
+    position: fixed;
     width: 8rem;
     margin: 0 3vw;
     top: 0;
     left: 0;
+    transition: all 300ms ease;
+    mix-blend-mode: difference;
   }
 
   .logo {
     width: 8rem;
     height: 60px;
     margin: 0;
+    top: 30px;
   }
 
   .navLink {
     display: none;
+  }
+
+  .menuButton {
+    position: fixed;
+    bottom: 50px;
+    right: 3vw;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: var(--light-green);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  .childrenWrapper {
+    margin-top: 90px;
   }
 }

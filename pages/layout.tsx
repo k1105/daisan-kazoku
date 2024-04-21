@@ -5,6 +5,8 @@ import Link from "next/link";
 import classes from "../styles/Layout.module.css";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { useEffect, useRef, useState } from "react";
+import { Logo } from "@/components/Logo";
 
 export default function Layout({
   children,
@@ -14,6 +16,30 @@ export default function Layout({
   pageTitle: string;
 }) {
   const router = useRouter();
+  const [headerStyle, setHeaderStyle] = useState({
+    opacity: 1,
+    filter: "blur(0px)",
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth < 600) {
+        const currentScrollY = window.scrollY;
+        setHeaderStyle({
+          opacity: currentScrollY > lastScrollY ? 0 : 1,
+          filter: currentScrollY > lastScrollY ? "blur(30px)" : "blur(0px)",
+        });
+        lastScrollY = window.scrollY;
+      }
+    };
+
+    let lastScrollY = window.scrollY;
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <>
       <Head>
@@ -38,18 +64,10 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@daisan_kazoku" />
       </Head>
-      <nav className={classes.nav}>
+      <nav className={classes.nav} style={headerStyle}>
         <div className={classes.logo}>
           <Link href="/">
-            <Image
-              src="/logo.svg"
-              fill
-              priority
-              style={{
-                objectFit: "contain",
-              }}
-              alt="第３の家族"
-            />
+            <Logo />
           </Link>
         </div>
         <ul className={classes.navLink}>
@@ -89,8 +107,30 @@ export default function Layout({
           <li className={classes.list}>少年少女はこちら</li>
         </ul>
       </nav>
-      {children}
+      <div className={classes.menuButton}>
+        <div
+          style={{
+            width: "30px",
+            height: "30px",
+            position: "relative",
+            margin: "10px",
+          }}
+        >
+          <Image
+            src="/menu-button.svg"
+            fill
+            priority
+            style={{
+              objectFit: "contain",
+            }}
+            alt="menu"
+          />
+        </div>
+      </div>
+      <div className={classes.childrenWrapper}>{children}</div>
+
       <footer></footer>
+      <style jsx>{``}</style>
     </>
   );
 }
