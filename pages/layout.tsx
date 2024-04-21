@@ -2,12 +2,15 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import classes from "../styles/Layout.module.css";
+import { useRouter } from "next/router";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
   return (
     <>
-      <nav>
-        <div className="logo">
+      <nav className={classes.nav}>
+        <div className={classes.logo}>
           <Link href="/">
             <Image
               src="/logo.svg"
@@ -21,48 +24,44 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
         </div>
         <ul>
-          <li>第3の家族とは</li>
-          <li>
-            <Link href="/service">サービス</Link>
+          <li className={classes.list}>第3の家族とは</li>
+          <li className={classes.list}>
+            <Link
+              href="/service"
+              className={`${classes.link} ${
+                router.pathname === "/service" ? classes.active : ""
+              }`}
+            >
+              サービス
+            </Link>
           </li>
-          <li>
-            <Link href="/announcement">お知らせ</Link>
+          <li className={classes.list}>
+            <Link
+              href="/announcement"
+              className={`${classes.link} ${
+                router.pathname === "/announcement" ? classes.active : ""
+              }`}
+            >
+              お知らせ
+            </Link>
           </li>
-          <li>応援</li>
-          <li>デザインエンジニアリング</li>
-          <li>
-            <Link href="/contact">お問い合わせ</Link>
+          <li className={classes.list}>応援</li>
+          <li className={classes.list}>デザインエンジニアリング</li>
+          <li className={classes.list}>
+            <Link
+              href="/contact"
+              className={`${classes.link} ${
+                router.pathname === "/contact" ? classes.active : ""
+              }`}
+            >
+              お問い合わせ
+            </Link>
           </li>
-          <li>少年少女はこちら</li>
+          <li className={classes.list}>少年少女はこちら</li>
         </ul>
       </nav>
       {children}
       <footer></footer>
-      <style jsx>{`
-        nav {
-          position: fixed;
-          top: 5vh;
-          left: 5vw;
-        }
-
-        li {
-          list-style: none;
-          font-weight: 100;
-        }
-
-        .logo {
-          width: 100%;
-          height: 100px;
-          margin-bottom: 1rem;
-          position: relative;
-        }
-
-        @media screen and (max-width: 600px) {
-          nav {
-            display: none;
-          }
-        }
-      `}</style>
     </>
   );
 }

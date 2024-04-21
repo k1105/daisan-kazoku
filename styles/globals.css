@@ -5,6 +5,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+:root {
+  --light-green: #92d7ca;
+}
+
 body {
   background-color: #fafafa;
   overscroll-behavior-y: none;
