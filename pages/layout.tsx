@@ -4,11 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import classes from "../styles/Layout.module.css";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({
+  children,
+  pageTitle,
+}: {
+  children: React.ReactNode;
+  pageTitle: string;
+}) {
   const router = useRouter();
   return (
     <>
+      <Head>
+        <title>{pageTitle} | NPO法人 第３の家族</title>
+      </Head>
       <nav className={classes.nav}>
         <div className={classes.logo}>
           <Link href="/">

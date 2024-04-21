@@ -4,7 +4,7 @@ import Layout from "../layout";
 const Service = () => {
   return (
     <>
-      <Layout>
+      <Layout pageTitle="サービス">
         <div className="main">
           <div className="service">
             <h1>nigeruno</h1>

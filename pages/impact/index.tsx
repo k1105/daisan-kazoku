@@ -3,7 +3,7 @@ import Layout from "../layout";
 const Impact = () => {
   return (
     <>
-      <Layout>hoge</Layout>
+      <Layout pageTitle="効果">hoge</Layout>
     </>
   );
 };

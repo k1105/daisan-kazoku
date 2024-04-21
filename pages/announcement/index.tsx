@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import Layout from "../layout";
-import { AnnouncementTable } from "./AnnoucementTable";
+import { AnnouncementTable } from "../../components/annoucement/AnnoucementTable";
 
 const Announcement = () => {
   return (
-    <Layout>
+    <Layout pageTitle="お知らせ">
       <div className="main">
         <div className="container">
           <div className="header">

@@ -3,7 +3,7 @@ import Layout from "../layout";
 const Contact = () => {
   return (
     <>
-      <Layout>
+      <Layout pageTitle="お問い合わせ">
         <div className="main">
           <h1>お問い合わせ</h1>
           <form
