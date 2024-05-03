@@ -71,7 +71,16 @@ export default function Layout({
           </Link>
         </div>
         <ul className={classes.navLink}>
-          <li className={classes.list}>第3の家族とは</li>
+          <li className={classes.list}>
+            <Link
+              href="/about"
+              className={`${classes.link} ${
+                router.pathname === "/about" ? classes.active : ""
+              }`}
+            >
+              第３の家族とは
+            </Link>
+          </li>
           <li className={classes.list}>
             <Link
               href="/service"
@@ -79,7 +88,7 @@ export default function Layout({
                 router.pathname === "/service" ? classes.active : ""
               }`}
             >
-              サービス
+              事業内容
             </Link>
           </li>
           <li className={classes.list}>
@@ -93,7 +102,26 @@ export default function Layout({
             </Link>
           </li>
           <li className={classes.list}>応援</li>
-          <li className={classes.list}>デザインエンジニアリング</li>
+          <li className={classes.list}>
+            <Link
+              href="/report"
+              className={`${classes.link} ${
+                router.pathname === "/report" ? classes.active : ""
+              }`}
+            >
+              レポート
+            </Link>
+          </li>
+          <li className={classes.list}>
+            <Link
+              href="/data"
+              className={`${classes.link} ${
+                router.pathname === "/data" ? classes.active : ""
+              }`}
+            >
+              データ
+            </Link>
+          </li>
           <li className={classes.list}>
             <Link
               href="/contact"
@@ -104,10 +132,19 @@ export default function Layout({
               お問い合わせ
             </Link>
           </li>
-          <li className={classes.list}>少年少女はこちら</li>
         </ul>
+        <div className={classes.navBottom}>
+          <Link href="#" className={classes.link}>
+            <div className={classes.navButton}>寄付する</div>
+          </Link>
+          <Link href="#" className={classes.link}>
+            <div className={classes.navButton}>少年少女はこちら</div>
+          </Link>
+        </div>
       </nav>
-      <div className={classes.childrenWrapper}>{children}</div>
+      <div className={classes.childrenWrapper}>
+        <div className={classes.main}>{children}</div>
+      </div>
 
       <footer></footer>
       <style jsx>{``}</style>

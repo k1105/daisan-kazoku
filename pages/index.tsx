@@ -126,21 +126,9 @@ const Home = () => {
             <div className="link">
               <a
                 className="page-link"
-                onClick={() => delayRedirectTo("/announcement")}
+                onClick={() => delayRedirectTo("/about")}
               >
-                活動報告
-              </a>
-              <a
-                className="page-link"
-                onClick={() => delayRedirectTo("/service")}
-              >
-                サービス
-              </a>
-              <a
-                className="page-link"
-                onClick={() => delayRedirectTo("/contact")}
-              >
-                お問い合わせ
+                詳細はこちら
               </a>
             </div>
             <a href="#" className="page-link">

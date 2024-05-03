@@ -9,6 +9,29 @@
   height: 100vh;
 }
 
+.navBottom {
+  margin-top: 10rem;
+  height: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navButton {
+  border: 1px solid var(--light-green);
+  width: 200px;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 1.5rem;
+  color: var(--light-green);
+}
+
+.main {
+  width: 40vw;
+  margin: 3rem auto;
+}
+
 .logo {
   width: 200px;
   height: 100px;
@@ -69,6 +92,10 @@
     mix-blend-mode: difference;
   }
 
+  .main {
+    width: 90vw;
+  }
+
   .logo {
     width: 8rem;
     height: 60px;
@@ -76,7 +103,8 @@
     top: 30px;
   }
 
-  .navLink {
+  .navLink,
+  .navButton {
     display: none;
   }
 
