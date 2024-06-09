@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Table = () => {
+const Table = () => {
   return (
     <>
       <table>
@@ -71,3 +71,5 @@ export const Table = () => {
     </>
   );
 };
+
+export default Table;

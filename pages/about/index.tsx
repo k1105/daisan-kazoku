@@ -1,9 +1,9 @@
 import Layout from "../layout";
 import Link from "next/link";
 
-import { Table } from "./Table";
+import Table from "./Table";
 import { CardContainer } from "./CardContainer";
-import { ArticleCard } from "../ArticleCard";
+import ArticleCard from "../ArticleCard";
 
 const About = () => {
   return (

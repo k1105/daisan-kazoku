@@ -5,7 +5,7 @@ type Props = {
   examples: string[];
 };
 
-export const Card = ({ headline, examples }: Props) => {
+const Card = ({ headline, examples }: Props) => {
   return (
     <>
       <div
@@ -39,3 +39,5 @@ export const Card = ({ headline, examples }: Props) => {
     </>
   );
 };
+
+export default Card;

@@ -7,7 +7,7 @@ type Props = {
   url: string;
 };
 
-export const ArticleCard = ({ headline, image, url }: Props) => {
+const ArticleCard = ({ headline, image, url }: Props) => {
   return (
     <>
       <a href={url} className="container">
@@ -59,3 +59,5 @@ export const ArticleCard = ({ headline, image, url }: Props) => {
     </>
   );
 };
+
+export default ArticleCard;
