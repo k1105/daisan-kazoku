@@ -2,6 +2,7 @@
   width: 100vw;
   /* height: 100vh; */
   overflow: hidden;
+  overscroll-behavior-y: none;
   opacity: 0;
   font-family: var(--line-seed);
   transition: opacity 0.3s ease, transform 1s ease;
