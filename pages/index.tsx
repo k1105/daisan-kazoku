@@ -77,16 +77,16 @@ const Home = () => {
     };
 
     if (mainRef.current) mainRef.current.style.opacity = "1";
-    window.addEventListener("wheel", handleScroll, { passive: false });
-    window.addEventListener("touchstart", handleTouchStart, { passive: false });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    // window.addEventListener("wheel", handleScroll, { passive: false });
+    // window.addEventListener("touchstart", handleTouchStart, { passive: false });
+    // window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
-    // クリーンアップ関数でリスナーを削除
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
-    };
+    // // クリーンアップ関数でリスナーを削除
+    // return () => {
+    //   window.removeEventListener("wheel", handleScroll);
+    //   window.removeEventListener("touchstart", handleTouchStart);
+    //   window.removeEventListener("touchmove", handleTouchMove);
+    // };
   }, []);
   return (
     <>
@@ -128,14 +128,29 @@ const Home = () => {
                 className="page-link"
                 onClick={() => delayRedirectTo("/about")}
               >
-                詳細はこちら
+                第３の家族とは
+              </a>
+              <a
+                className="page-link"
+                onClick={() => delayRedirectTo("/service")}
+              >
+                事業内容
+              </a>
+              <a
+                className="page-link"
+                onClick={() => delayRedirectTo("/announcement")}
+              >
+                お知らせ
+              </a>
+              <a className="page-link" onClick={() => delayRedirectTo("/data")}>
+                データ
               </a>
             </div>
-            <a href="#" className="page-link">
+            {/* <a href="#" className="page-link">
               pdf
-            </a>
+            </a> */}
           </div>
-          <div className="first-view">
+          {/* <div className="first-view">
             <p>
               ここには、
               <br />
@@ -148,7 +163,7 @@ const Home = () => {
               <br />
               次のテキストです。
             </p>
-          </div>
+          </div> */}
         </div>
 
         <style jsx>

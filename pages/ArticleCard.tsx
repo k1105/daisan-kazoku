@@ -3,14 +3,15 @@ import Image from "next/image";
 
 type Props = {
   headline: string;
-  image: string;
-  url: string;
+  image: string | null;
+  url: string | null;
+  date: string | null;
 };
 
-const ArticleCard = ({ headline, image, url }: Props) => {
+const ArticleCard = ({ headline, image, url, date }: Props) => {
   return (
     <>
-      <a href={url} className="container">
+      <a href={url ? url : "#"} className="container">
         <div>
           <div
             style={{
@@ -21,7 +22,7 @@ const ArticleCard = ({ headline, image, url }: Props) => {
             }}
           >
             <Image
-              src={image}
+              src={image ? image : "/ogp.png"}
               fill
               priority
               style={{
@@ -30,7 +31,7 @@ const ArticleCard = ({ headline, image, url }: Props) => {
               alt="thumbnail"
             />
           </div>
-
+          <p className="date">{date}</p>
           <p>{headline}</p>
         </div>
       </a>
@@ -54,6 +55,11 @@ const ArticleCard = ({ headline, image, url }: Props) => {
         a {
           text-decoration: none;
           color: black;
+        }
+
+        .date {
+          font-size: 0.8rem;
+          color: #ccc;
         }
       `}</style>
     </>

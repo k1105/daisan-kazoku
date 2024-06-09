@@ -3,7 +3,7 @@ import { client } from "@/libs/client";
 import { useState, useEffect } from "react";
 
 export const AnnouncementTable = () => {
-  const [data, setData] = useState<Data[] | null>(null);
+  const [data, setData] = useState<News[] | null>(null);
   // propsからデータを使用
   useEffect(() => {
     async function fetchData() {

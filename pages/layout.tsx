@@ -123,7 +123,7 @@ export default function Layout({
           </li>
           <li className={classes.list}>
             <Link
-              href="/contact"
+              href="mailto:info@daisan-kazoku.net" //href="/contact"
               className={`${classes.link} ${
                 router.pathname === "/contact" ? classes.active : ""
               }`}

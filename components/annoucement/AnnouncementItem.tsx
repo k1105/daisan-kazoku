@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 
 type Props = {
-  elem: Data;
+  elem: News;
 };
 
 export const AnnouncementItem = ({ elem }: Props) => {

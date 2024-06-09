@@ -4,6 +4,8 @@ import Link from "next/link";
 import Table from "./Table";
 import CardContainer from "./CardContainer";
 import ArticleCard from "../ArticleCard";
+import Statement from "./Statement";
+import DepartmentCard from "./DepartmentCard";
 
 const About = () => {
   return (
@@ -25,91 +27,85 @@ const About = () => {
 
           <div className="article-container">
             <h1 className="headline">対象者</h1>
-
-            <h2>家庭環境問題のはざまで悩む少年少女</h2>
-            <ul>
-              <li>家庭が居場所でない少年少女は4人に1人</li>
-              <li>虐待まではいかず、既存の支援の枠組みに当てはめにくい</li>
-              <li>中学生〜大学生くらいの男女</li>
-            </ul>
-
-            <h2>対象者の悩み</h2>
-            <CardContainer />
-
-            <h2>将来のリスク</h2>
-            <p>
-              はざまだから何もしなくていいわけではなく、以下のようなリスクがあります。早期介入が重要です。
-            </p>
-            <ol>
-              <li>自己肯定感の低下</li>
-              <li>心の病気</li>
-              <li>依存症（特に人間関係）</li>
-              <li>自傷行為</li>
-              <li>非行（夜の街・薬）</li>
-              <li>働くことが困難（体調・コミュニケーションの不得手）</li>
-              <li>自殺</li>
-            </ol>
-
-            <h2>問題の難しさ</h2>
-
-            <h3>少年少女の複雑な心境</h3>
-            <p>
-              問題の程度としてもはざまであり、思春期やモラトリアム期間の少年少女たちには、以下のような複雑な心境があります。
-            </p>
-            <ul>
-              <li>
-                「大事にしたくない」「友達に知られたくない」「心配かけたくない」
-              </li>
-              <li>
-                「自分は支援してもらうほどではない」「自分よりつらい子はもっといる」
-              </li>
-              <li>「大人は信用できない」「どうせ助けてくれない」</li>
-            </ul>
-
-            <h3>親が悪いわけではない</h3>
-            <p>
-              子を育てるのが親だけになりやすい社会、ステータスや評価が求められやすい社会など、親が悪い訳ではなく多様な社会課題に起因しています。親子関係に直接介入することだけが正解ではないでしょう。
-            </p>
+            <section>
+              <h2>家庭環境問題のはざまで悩む少年少女</h2>
+              <ul>
+                <li>家庭が居場所でない少年少女は4人に1人</li>
+                <li>虐待まではいかず、既存の支援の枠組みに当てはめにくい</li>
+                <li>中学生〜大学生くらいの男女</li>
+              </ul>
+            </section>
+            <section>
+              <h2>対象者の悩み</h2>
+              <CardContainer />
+            </section>
+            <section>
+              <h2>将来のリスク</h2>
+              <p>
+                はざまだから何もしなくていいわけではなく、以下のようなリスクがあります。早期介入が重要です。
+              </p>
+              <ol>
+                <li>自己肯定感の低下</li>
+                <li>心の病気</li>
+                <li>依存症（特に人間関係）</li>
+                <li>自傷行為</li>
+                <li>非行（夜の街・薬）</li>
+                <li>働くことが困難（体調・コミュニケーションの不得手）</li>
+                <li>自殺</li>
+              </ol>
+            </section>
+            <section>
+              <h2>問題の難しさ</h2>
+              <h3>少年少女の複雑な心境</h3>
+              <p>
+                問題の程度としてもはざまであり、思春期やモラトリアム期間の少年少女たちには、以下のような複雑な心境があります。
+              </p>
+              <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+                <Statement state="大ごとにしたくない" />
+                <Statement state="友達に知られたくない" />
+                <br />
+                <Statement state="心配かけたくない" />
+                <Statement state="自分は支援してもらうほどではない" />
+                <Statement state="自分よりつらい子はもっといる" />
+                <Statement state="大人は信用できない" />
+                <Statement state="どうせ助けてくれない" />
+              </div>
+              <h3>親が悪いわけではない</h3>
+              <p>
+                子を育てるのが親だけになりやすい社会、ステータスや評価が求められやすい社会など、親が悪い訳ではなく多様な社会課題に起因しています。親子関係に直接介入することだけが正解ではないでしょう。
+              </p>
+            </section>
           </div>
 
           <div className="article-container">
             <h1 className="headline">やること</h1>
-
-            <h2>居場所を見つけるためのプラットフォーム</h2>
-            <p>
-              第1の家族（本人の家族）か第2の家族（友達・学校・地域）のどこかに居場所を見つけてもらうためのプラットフォームを運営します。
-            </p>
+            <section>
+              <h2>居場所を見つけるためのプラットフォーム</h2>
+              <p>
+                第1の家族（本人の家族）か第2の家族（友達・学校・地域）のどこかに居場所を見つけてもらうためのプラットフォームを運営します。
+              </p>
+            </section>
 
             <h3>1：Web事業</h3>
             <p>デザイン・テクノロジーによって日常を支えます。</p>
-            <p>
-              <a href="https://www.notion.so/3-gedokun-990f591210494fddb0b24820be9a7759?pvs=21">
-                3：gedokun
-              </a>
-            </p>
-            <p>
-              <a href="https://www.notion.so/3-nigeruno-3c5478ba9b424859b370102e69fe8b24?pvs=21">
-                3：nigeruno
-              </a>
-            </p>
+            <div
+              className="article-card-container"
+              style={{ margin: "20px 0" }}
+            >
+              <ArticleCard headline="gedokun" url="#" image="" date="" />
+              <ArticleCard headline="nigeruno" url="#" image="" date="" />
+            </div>
 
             <h3>2：イベント事業</h3>
             <p>アートによって支援らしくない入り口をつくります。</p>
-            <p>
-              <a href="https://www.notion.so/3-de296cc7f63c4d09920c3ed70af74f3d?pvs=21">
-                3：家庭環境データ
-              </a>
-            </p>
-            <p>
-              <a href="https://www.notion.so/3-86d73005b87543528d4ed96dc62b7f34?pvs=21">
-                3：裏母の日
-              </a>
-            </p>
-            <p>
-              <a href="https://www.notion.so/3-6004e652d72f447fb683a3a18edfb1cd?pvs=21">
-                3：音楽ライブ
-              </a>
-            </p>
+            <div
+              className="article-card-container"
+              style={{ margin: "20px 0" }}
+            >
+              <ArticleCard headline="家庭環境データ" url="#" image="" date="" />
+              <ArticleCard headline="裏母の日" url="#" image="" date="" />
+              <ArticleCard headline="音楽ライブ" url="#" image="" date="" />
+            </div>
           </div>
 
           <div className="article-container">
@@ -156,21 +152,33 @@ const About = () => {
               </a>
             </p>
 
-            <h2>デザインチーム</h2>
-            <p>
-              グラフィック・サイトのデザイン（UI）・イベントのディレクションなどを行います。
-            </p>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+              }}
+            >
+              <DepartmentCard
+                name="デザインチーム"
+                description="グラフィック・サイトのデザイン（UI）・イベントのディレクションなどを行います。"
+              />
 
-            <h2>開発チーム</h2>
-            <p>サイトの開発・データ分析を行います。論文発表も行います。</p>
+              <DepartmentCard
+                name="開発チーム"
+                description="サイトの開発・データ分析を行います。論文発表も行います。"
+              />
 
-            <h2>元当事者チーム</h2>
-            <p>
-              自分たちの経験から、今悩む少年少女たちに何ができるかを考えます。
-            </p>
+              <DepartmentCard
+                name="元当事者チーム"
+                description="自分たちの経験から、今悩む少年少女たちに何ができるかを考えます。"
+              />
 
-            <h2>事務局</h2>
-            <p>第3の家族のバックオフィスを担当します。</p>
+              <DepartmentCard
+                name="事務局"
+                description="第3の家族のバックオフィスを担当します。"
+              />
+            </div>
           </div>
 
           <div className="article-container">
@@ -231,36 +239,33 @@ const About = () => {
 
           <div className="article-container">
             <h1 className="headline">メディア・登壇・出展</h1>
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                flexWrap: "wrap",
-                justifyContent: "space-between",
-              }}
-            >
+            <div className="article-card-container">
               <ArticleCard
-                headline="2023.08 Forbes
+                date="2023.08"
+                headline="Forbes
                   JAPAN「自分の居場所はほかにもある。家庭環境に悩む若者を支える」"
                 url="https://forbesjapan.com/articles/detail/65699"
                 image="/img/article-thumbnail/forbesJP.webp"
               />
               <ArticleCard
-                headline="2023.12 NHK NEWS
+                date="2023.12"
+                headline="NHK NEWS
                   おはよう日本「”家にいると苦しい”から脱出するための「あなたを助ける手札」」"
                 url="https://www.nhk.jp/p/ohayou/ts/QLP4RZ8ZY3/blog/bl/pzvl7wDPqn/bp/pkZZqxOXmk/"
                 image="/img/article-thumbnail/nhk.png"
               />
               <ArticleCard
-                headline='2024.02 Yahoo! JAPAN
+                date="2024.02"
+                headline='Yahoo! JAPAN
                   SDGs「4人に1人の若者が「家に居場所がない」。"寄り添わない"支援で生き抜くための手札を
                   #豊かな未来を創る人」'
                 url="https://sdgs.yahoo.co.jp/originals/198.html"
                 image="/img/article-thumbnail/yahoo.jpeg"
               />
               <ArticleCard
+                date=""
                 headline="メディア・登壇・出展一覧"
-                url="https://www.notion.so/bad373b1695743c08ca221c3103e2ae6?pvs=21"
+                url="/about/media"
                 image="/ogp.png"
               />
             </div>
@@ -322,6 +327,39 @@ const About = () => {
             border-bottom: 1px solid #ccc;
             margin-bottom: 30px;
             font-weight: normal;
+          }
+
+          h2 {
+            font-weight: normal;
+            margin-bottom: 1.2rem;
+          }
+
+          h3 {
+            font-weight: normal;
+            margin-bottom: 1rem;
+          }
+
+          section {
+            margin-bottom: 5rem;
+          }
+        }
+
+        .article-card-container {
+          display: flex;
+          width: 100%;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        @media screen and (max-width: 600px) {
+          .jumbotron {
+            margin-bottom: 100px;
+            h2 {
+              font-size: 2.5rem;
+            }
+            p {
+              width: 100%;
+            }
           }
         }
       `}</style>

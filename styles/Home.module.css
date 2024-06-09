@@ -1,4 +1,5 @@
 .main {
+  position: fixed; /* 暫定 */
   width: 100vw;
   /* height: 100vh; */
   overflow: hidden;
