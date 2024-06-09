@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-export const CardContainer = () => {
+const CardContainer = () => {
   return (
     <>
       <div className="card-container">
@@ -86,3 +86,5 @@ export const CardContainer = () => {
     </>
   );
 };
+
+export default CardContainer;

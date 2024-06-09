@@ -101,16 +101,15 @@ export default function Layout({
               お知らせ
             </Link>
           </li>
-          <li className={classes.list}>応援</li>
           <li className={classes.list}>
-            <Link
+            {/* <Link
               href="/report"
               className={`${classes.link} ${
                 router.pathname === "/report" ? classes.active : ""
               }`}
             >
               レポート
-            </Link>
+            </Link> */}
           </li>
           <li className={classes.list}>
             <Link
@@ -134,10 +133,13 @@ export default function Layout({
           </li>
         </ul>
         <div className={classes.navBottom}>
-          <Link href="#" className={classes.link}>
+          <Link
+            href="https://syncable.biz/associate/daisan-kazoku"
+            className={classes.link}
+          >
             <div className={classes.navButton}>寄付する</div>
           </Link>
-          <Link href="#" className={classes.link}>
+          <Link href="https://daisan-kazoku.net" className={classes.link}>
             <div className={classes.navButton}>少年少女はこちら</div>
           </Link>
         </div>

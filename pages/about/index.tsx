@@ -2,7 +2,7 @@ import Layout from "../layout";
 import Link from "next/link";
 
 import Table from "./Table";
-import { CardContainer } from "./CardContainer";
+import CardContainer from "./CardContainer";
 import ArticleCard from "../ArticleCard";
 
 const About = () => {
@@ -278,10 +278,10 @@ const About = () => {
           <div className="article-container">
             <h1 className="headline">収支報告</h1>
             <ul>
-              <li>2023年度（第1期）活動計算書等.pdf</li>
-              <li>2023年度（第1期）事業報告書.pdf</li>
-              <li>2024年度（第2期）活動計算書等.pdf</li>
-              <li>2024年度（第2期）事業報告書.pdf</li>
+              <li>2022年度（第1期）活動計算書等.pdf</li>
+              <li>2022年度（第1期）事業報告書.pdf</li>
+              {/* <li>2024年度（第2期）活動計算書等.pdf</li>
+              <li>2024年度（第2期）事業報告書.pdf</li> */}
             </ul>
           </div>
 
