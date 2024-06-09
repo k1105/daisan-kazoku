@@ -28,13 +28,8 @@ const Card = ({ headline, examples }: Props) => {
         >
           {headline}
         </h1>
-        {(() => {
-          const elem = [];
-          for (const example of examples) {
-            elem.push(<p>{example}</p>);
-          }
-          return elem;
-        })()}
+        {examples &&
+          examples.map((example, index) => <p key={index}>{example}</p>)}
       </div>
     </>
   );
