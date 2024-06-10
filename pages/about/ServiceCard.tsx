@@ -51,14 +51,19 @@ const ServiceCard = ({
           background-color: rgba(146, 215, 202, 0.8);
           padding: 15px;
           font-weight: 300;
-          font-size: 2rem;
           color: white;
           opacity: 0;
           transition: all 0.3s ease;
+          p {
+            font-size: 2rem;
+          }
         }
 
         .wrapper:hover {
           opacity: 1;
+        }
+
+        @media screen and (max-width: 600px) {
         }
       `}</style>
     </>
