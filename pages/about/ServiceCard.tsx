@@ -21,8 +21,12 @@ const ServiceCard = ({ title, image, path }: Props) => {
             }}
             alt={title}
           />
+          <div className="wrapper">
+            <p>{title}</p>
+          </div>
         </div>
       </Link>
+
       <style jsx>{`
         .container {
           position: relative;
@@ -33,13 +37,12 @@ const ServiceCard = ({ title, image, path }: Props) => {
           background-color: #eee;
         }
 
-        .container::after {
+        .wrapper {
           position: absolute;
           top: 0;
           left: 0;
-          content: "${title}";
-          width: 100%;
-          height: 100%;
+          width: 300px;
+          height: 170px;
           box-sizing: border-box;
           background-color: rgba(146, 215, 202, 0.8);
           padding: 15px;
@@ -50,7 +53,7 @@ const ServiceCard = ({ title, image, path }: Props) => {
           transition: all 0.3s ease;
         }
 
-        .container:hover::after {
+        .wrapper:hover {
           opacity: 1;
         }
       `}</style>
