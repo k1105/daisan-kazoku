@@ -7,7 +7,11 @@ type Props = {
   path: string;
 };
 
-const ServiceCard = ({ title, image, path }: Props) => {
+const ServiceCard = ({
+  title = "Default Title",
+  image = "/ogp.png",
+  path = "/",
+}: Props) => {
   return (
     <>
       <Link href={path}>
