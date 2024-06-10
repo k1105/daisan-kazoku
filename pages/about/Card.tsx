@@ -23,13 +23,16 @@ const Card = ({ headline, examples }: Props) => {
       </div>
       <style jsx>{`
         .container {
-          width: calc(50% - 10px);
+          display: inline-block;
+          width: 300px;
           height: 200px;
           margin-bottom: 20px;
+          margin-right: 30px;
           padding: 10px;
           padding-bottom: 30px;
           border-radius: 5px;
           background-color: white;
+          filter: drop-shadow(#eee 5px 5px 3px);
         }
 
         @media screen and (max-width: 600px) {

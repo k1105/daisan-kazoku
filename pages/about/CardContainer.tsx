@@ -12,7 +12,6 @@ const CardContainer = () => {
             "「産まなきゃよかったと言われる」",
           ]}
         />
-
         <Card
           headline="過保護"
           examples={[
@@ -20,12 +19,10 @@ const CardContainer = () => {
             "「何から何まで親が干渉してくる」",
           ]}
         />
-
         <Card
           headline="家族の不仲"
           examples={["「両親が揉めている」", "「きょうだいの反抗期が過激」"]}
         />
-
         <Card
           headline="病気への無理解"
           examples={[
@@ -33,7 +30,6 @@ const CardContainer = () => {
             "「病気を軽蔑・軽視される」",
           ]}
         />
-
         <Card
           headline="理想や価値観の押し付け"
           examples={[
@@ -41,7 +37,6 @@ const CardContainer = () => {
             "「昔の価値観を押し付けられる」",
           ]}
         />
-
         <Card
           headline="子ども間差別"
           examples={[
@@ -49,7 +44,6 @@ const CardContainer = () => {
             "「きょうだいと比較される」",
           ]}
         />
-
         <Card
           headline="激しい気分の浮き沈み"
           examples={[
@@ -57,7 +51,6 @@ const CardContainer = () => {
             "「わざとらしく弱っているように見せる」",
           ]}
         />
-
         <Card
           headline="雑に扱われる・無視"
           examples={[
@@ -65,12 +58,10 @@ const CardContainer = () => {
             "「自分に興味がない」",
           ]}
         />
-
         <Card
           headline="監視・管理"
           examples={["「GPSで管理されている」", "「友達関係を制限される」"]}
         />
-
         <Card
           headline="生活に必要なことをしない"
           examples={["「部屋の中が汚い」", "「家事を過剰に任される」"]}
@@ -78,9 +69,10 @@ const CardContainer = () => {
       </div>
       <style jsx>{`
         .card-container {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
+          padding-top: 30px;
+          padding-left: 30px;
+          overflow-x: auto;
+          white-space: nowrap;
         }
       `}</style>
     </>
