@@ -48,7 +48,7 @@ const CardContainer = () => {
           headline="激しい気分の浮き沈み"
           examples={[
             "「怒ると話し合いができない」",
-            "「わざとらしく弱っているように見せる」",
+            "「わざと弱っているように見せる」",
           ]}
         />
         <Card
@@ -73,6 +73,13 @@ const CardContainer = () => {
           padding-left: 30px;
           overflow-x: auto;
           white-space: nowrap;
+        }
+
+        @media screen and (max-width: 600px) {
+          .card-container {
+            padding-top: 0px;
+            padding-left: 0px;
+          }
         }
       `}</style>
     </>

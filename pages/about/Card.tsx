@@ -37,13 +37,6 @@ const Card = ({ headline, examples }: Props) => {
 
         @media screen and (max-width: 600px) {
           .container {
-            width: 100%;
-            height: 200px;
-            margin-bottom: 20px;
-            padding: 10px;
-            padding-bottom: 30px;
-            border-radius: 5px;
-            background-color: white;
           }
         }
       `}</style>

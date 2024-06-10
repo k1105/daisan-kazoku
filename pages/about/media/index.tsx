@@ -1,7 +1,7 @@
 import Layout from "@/pages/layout";
 import { client } from "@/libs/client";
 import { useState, useEffect } from "react";
-import ArticleCard from "@/pages/ArticleCard";
+import ArticleCard from "@/pages/about/ArticleCard";
 
 const Media = () => {
   const [data, setData] = useState<Media[] | null>(null);

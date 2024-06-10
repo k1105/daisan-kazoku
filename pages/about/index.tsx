@@ -3,9 +3,10 @@ import Link from "next/link";
 
 import Table from "./Table";
 import CardContainer from "./CardContainer";
-import ArticleCard from "../ArticleCard";
+import ArticleCard from "./ArticleCard";
 import Statement from "./Statement";
 import DepartmentCard from "./DepartmentCard";
+import ServiceCard from "./ServiceCard";
 
 const About = () => {
   return (
@@ -89,22 +90,22 @@ const About = () => {
             <h3>1：Web事業</h3>
             <p>デザイン・テクノロジーによって日常を支えます。</p>
             <div
-              className="article-card-container"
+              className="service-card-container"
               style={{ margin: "20px 0" }}
             >
-              <ArticleCard headline="gedokun" url="#" image="" date="" />
-              <ArticleCard headline="nigeruno" url="#" image="" date="" />
+              <ServiceCard title="gedokun" path="#" image="/ogp.png" />
+              <ServiceCard title="nigeruno" path="#" image="/ogp.png" />
             </div>
 
             <h3>2：イベント事業</h3>
             <p>アートによって支援らしくない入り口をつくります。</p>
             <div
-              className="article-card-container"
+              className="service-card-container"
               style={{ margin: "20px 0" }}
             >
-              <ArticleCard headline="家庭環境データ" url="#" image="" date="" />
-              <ArticleCard headline="裏母の日" url="#" image="" date="" />
-              <ArticleCard headline="音楽ライブ" url="#" image="" date="" />
+              <ServiceCard title="家庭環境データ" path="#" image="/ogp.png" />
+              <ServiceCard title="裏母の日" path="#" image="/img/urahaha.png" />
+              <ServiceCard title="音楽ライブ" path="#" image="/ogp.png" />
             </div>
           </div>
 
@@ -349,6 +350,11 @@ const About = () => {
           width: 100%;
           flex-wrap: wrap;
           justify-content: space-between;
+        }
+
+        .service-card-container {
+          overflow-x: auto;
+          white-space: nowrap;
         }
 
         @media screen and (max-width: 600px) {
