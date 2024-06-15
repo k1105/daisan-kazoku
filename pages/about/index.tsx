@@ -93,8 +93,16 @@ const About = () => {
               className="service-card-container"
               style={{ margin: "20px 0" }}
             >
-              <ServiceCard title="gedokun" path="/" image="/ogp.png" />
-              <ServiceCard title="nigeruno" path="/" image="/ogp.png" />
+              <ServiceCard
+                title="gedokun"
+                path="/"
+                image="/img/gedokun_mv.png"
+              />
+              <ServiceCard
+                title="nigeruno"
+                path="/"
+                image="/img/nigeruno_mv.png"
+              />
             </div>
 
             <h3>2：イベント事業</h3>
@@ -103,9 +111,13 @@ const About = () => {
               className="service-card-container"
               style={{ margin: "20px 0" }}
             >
-              <ServiceCard title="家庭環境データ" path="/" image="/ogp.png" />
+              <ServiceCard
+                title="家庭環境データ"
+                path="/"
+                image="/img/katei-data.jpg"
+              />
               <ServiceCard title="裏母の日" path="/" image="/img/urahaha.png" />
-              <ServiceCard title="音楽ライブ" path="/" image="/ogp.png" />
+              <ServiceCard title="音楽ライブ" path="/" image="/img/live.png" />
             </div>
           </div>
 
