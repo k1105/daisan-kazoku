@@ -3,7 +3,7 @@ import Link from "next/link";
 
 type Props = {
   title: string;
-  image: string;
+  image?: string;
   path: string;
 };
 

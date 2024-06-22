@@ -4,8 +4,7 @@ import Image from "next/image";
 const Data = () => {
   return (
     <>
-      <Layout pageTitle="データ">
-        <h1 style={{ fontWeight: "100", marginBottom: "3rem" }}>データ</h1>
+      <Layout pageTitle="データ" headline="データ">
         <div className="container">
           <div className="article-container">
             <h1 className="headline">ユーザー数</h1>

@@ -1,21 +1,45 @@
 import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
+import Link from "next/link";
+import Image from "next/image";
 
 const Urahaha = () => {
   return (
     <>
-      <Layout pageTitle="裏母の日">
+      <Layout pageTitle="裏母の日" headline="裏母の日">
         <div className={styles.articleContainer}>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              marginBottom: "2rem",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/urahaha.png"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="裏母の日のサムネイル画像"
+            />
+          </div>
           <p>母の日をどんな気持ちで迎えたらいいのかわからない人のための日。</p>
-          <p>サイトへのボタン</p>
+          <Link href="#">
+            <div className={styles.innerLinkWrapper}>
+              <p>Webサイトへ</p>
+            </div>
+          </Link>
         </div>
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>コンセプト</h1>
           <h2>母の日の裏にある居場所</h2>
           <p>
             家庭環境に悩んだ人の中には、過去の傷つきやトラウマから、母の日をどんな気持ちで迎えたら良いかわからない人たちもいます。
-          </p>
-          <p>
+            <br />
             既存の母の日や親子関係を否定するものではなく、心にぽっかり穴が空いた一日に、みんなで過ごす時間をつくることを目指します。
           </p>
         </div>
@@ -42,6 +66,15 @@ const Urahaha = () => {
             <li>2024.05 渋谷・オンライン</li>
           </ul>
         </div>
+        <style jsx>{`
+          ul {
+            margin-top: 0;
+            margin-bottom: 3rem;
+          }
+          p {
+            margin-bottom: 3rem;
+          }
+        `}</style>
       </Layout>
     </>
   );

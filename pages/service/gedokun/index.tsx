@@ -1,15 +1,40 @@
 import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
+import Image from "next/image";
+import Link from "next/link";
 
 const Gedokun = () => {
   return (
     <>
-      <Layout pageTitle="gedokun">
+      <Layout pageTitle="gedokun" headline="gedokun">
         <div className={styles.articleContainer}>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              marginBottom: "2rem",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/gedokun_mv.png"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="gedokunのサムネイル画像"
+            />
+          </div>
           <p>
             匿名で悩みを投稿し、共感のボタンで励まし合うことができる掲示板サイト。
           </p>
-          <p>サイトへのボタン</p>
+          <Link href="https://daisan-kazoku.net/gedokun">
+            <div className={styles.innerLinkWrapper}>
+              <p>Webサイトへ</p>
+            </div>
+          </Link>
         </div>
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>コンセプト</h1>
@@ -63,6 +88,15 @@ const Gedokun = () => {
             <li>0時以降からの利用者が多い</li>
           </ul>
         </div>
+        <style jsx>{`
+          ul {
+            margin-top: 0;
+            margin-bottom: 3rem;
+          }
+          p {
+            margin-bottom: 3rem;
+          }
+        `}</style>
       </Layout>
     </>
   );

@@ -1,13 +1,38 @@
 import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
+import Link from "next/link";
+import Image from "next/image";
 
 const DaisanLive = () => {
   return (
     <>
-      <Layout pageTitle="音楽ライブ">
+      <Layout pageTitle="音楽ライブ" headline="音楽ライブ">
         <div className={styles.articleContainer}>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              marginBottom: "2rem",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/live.png"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="音楽ライブのサムネイル画像"
+            />
+          </div>
           <p>次の一歩に繋げるための音楽ライブ。</p>
-          <p>サイトへのボタン</p>
+          <Link href="#">
+            <div className={styles.innerLinkWrapper}>
+              <p>Webサイトへ</p>
+            </div>
+          </Link>
         </div>
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>コンセプト</h1>
@@ -36,12 +61,21 @@ const DaisanLive = () => {
             <li>「ライブの後、親にやめて欲しいことを言えた」</li>
           </ul>
         </div>
-        <div className={styles.articleContainer}>
+        {/* <div className={styles.articleContainer}>
           <h2>開催実績</h2>
           <h3>第一回目</h3>
           <p>2024.05 渋谷 参加者26名</p>
           <p>Youtube埋め込み</p>
-        </div>
+        </div> */}
+        <style jsx>{`
+          ul {
+            margin-top: 0;
+            margin-bottom: 3rem;
+          }
+          p {
+            margin-bottom: 3rem;
+          }
+        `}</style>
       </Layout>
     </>
   );

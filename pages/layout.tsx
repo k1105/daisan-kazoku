@@ -11,9 +11,11 @@ import { Logo } from "@/components/Logo";
 export default function Layout({
   children,
   pageTitle,
+  headline,
 }: {
   children: React.ReactNode;
   pageTitle: string;
+  headline?: string;
 }) {
   const router = useRouter();
   const [headerStyle, setHeaderStyle] = useState({
@@ -145,7 +147,14 @@ export default function Layout({
         </div>
       </nav>
       <div className={classes.childrenWrapper}>
-        <div className={classes.main}>{children}</div>
+        <div className={classes.main}>
+          {headline && (
+            <h1 style={{ fontWeight: "100", marginBottom: "3rem" }}>
+              {headline}
+            </h1>
+          )}
+          {children}
+        </div>
       </div>
 
       <footer></footer>

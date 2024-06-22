@@ -7,8 +7,7 @@ import styles from "../../styles/Article.module.scss";
 const Service = () => {
   return (
     <>
-      <Layout pageTitle="サービス">
-        <h1 style={{ fontWeight: "100", marginBottom: "3rem" }}>事業内容</h1>
+      <Layout pageTitle="事業内容" headline="事業内容">
         <div className={styles.articleContainer}>
           <h3>1：Web事業</h3>
           <p>デザイン・テクノロジーによって日常を支えます。</p>

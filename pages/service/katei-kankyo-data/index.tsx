@@ -1,13 +1,38 @@
 import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
+import Link from "next/link";
+import Image from "next/image";
 
 const KateiKankyoData = () => {
   return (
     <>
-      <Layout pageTitle="家庭環境データ">
+      <Layout pageTitle="家庭環境データ" headline="家庭環境データ">
         <div className={styles.articleContainer}>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              marginBottom: "2rem",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/katei-data_mv.png"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="家庭環境データのサムネイル画像"
+            />
+          </div>
           <p>家庭環境問題のリアルをクリエイティブに表現する。</p>
-          <p>サイトへのボタン</p>
+          <Link href="https://katei-data.daisan-kazoku.net/">
+            <div className={styles.innerLinkWrapper}>
+              <p>Webサイトへ</p>
+            </div>
+          </Link>
         </div>
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>コンセプト</h1>
@@ -15,6 +40,25 @@ const KateiKankyoData = () => {
           <p>
             家の話は身近すぎるが故に自分の傷に気付かないことがあります。実際のデータを「少し気になる」ような表現に落とし込み、立ち止まって考えるきっかけをつくることを目指します。
           </p>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              marginBottom: "2rem",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/katei-data_map.png"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="家庭環境データの画像"
+            />
+          </div>
         </div>
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>特徴</h1>
@@ -40,6 +84,25 @@ const KateiKankyoData = () => {
             <li>「友達がこういう状況にいそうなので、詳しく知れて良かった」</li>
           </ul>
           <h2>展示実績</h2>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              marginBottom: "2rem",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/katei-data.jpg"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="家庭環境データの展示のようす"
+            />
+          </div>
           <ul className={styles.list}>
             <li>2023.11 渋谷100BANCH</li>
             <li>2024.01 横浜市立横浜総合高等学校</li>
@@ -54,6 +117,15 @@ const KateiKankyoData = () => {
             </a>
           </p>
         </div>
+        <style jsx>{`
+          ul {
+            margin-top: 0;
+            margin-bottom: 3rem;
+          }
+          p {
+            margin-bottom: 3rem;
+          }
+        `}</style>
       </Layout>
     </>
   );
