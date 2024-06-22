@@ -95,12 +95,12 @@ const About = () => {
             >
               <ServiceCard
                 title="gedokun"
-                path="/"
+                path="/service/gedokun"
                 image="/img/gedokun_mv.png"
               />
               <ServiceCard
                 title="nigeruno"
-                path="/"
+                path="/service/nigeruno"
                 image="/img/nigeruno_mv.png"
               />
             </div>
@@ -113,11 +113,19 @@ const About = () => {
             >
               <ServiceCard
                 title="家庭環境データ"
-                path="/"
+                path="/service/katei-kankyo-data"
                 image="/img/katei-data.jpg"
               />
-              <ServiceCard title="裏母の日" path="/" image="/img/urahaha.png" />
-              <ServiceCard title="音楽ライブ" path="/" image="/img/live.png" />
+              <ServiceCard
+                title="裏母の日"
+                path="/service/urahaha"
+                image="/img/urahaha.png"
+              />
+              <ServiceCard
+                title="音楽ライブ"
+                path="/service/daisan-live"
+                image="/img/live.png"
+              />
             </div>
           </div>
 

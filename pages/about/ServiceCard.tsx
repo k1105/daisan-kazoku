@@ -14,34 +14,59 @@ const ServiceCard = ({
 }: Props) => {
   return (
     <>
-      <Link href={path}>
-        <div className="container">
-          <Image
-            src={image}
-            fill
-            priority
-            style={{
-              objectFit: "cover",
-            }}
-            alt={title}
-          />
-          <div className="wrapper">
-            <p>{title}</p>
+      <div className="container">
+        <Link href={path}>
+          <div className="image-wrapper">
+            <Image
+              src={image}
+              fill
+              priority
+              style={{
+                objectFit: "cover",
+              }}
+              alt={title}
+            />
+            <div className="hover-effect">
+              <p>{title}</p>
+            </div>
           </div>
-        </div>
-      </Link>
+
+          <p>{title}</p>
+        </Link>
+      </div>
 
       <style jsx>{`
         .container {
+          width: 300px;
+          display: inline-block;
+          margin-right: 20px;
+          p {
+            width: 100%;
+          }
+
+          a {
+            color: #aaa;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+          }
+
+          a:hover {
+            color: black;
+          }
+        }
+
+        .image-wrapper {
           position: relative;
           width: 300px;
           height: 170px;
-          margin-right: 20px;
-          display: inline-block;
           background-color: #eee;
+          margin-bottom: 0.5rem;
         }
 
-        .wrapper {
+        .hover-effect {
           position: absolute;
           top: 0;
           left: 0;
@@ -59,7 +84,7 @@ const ServiceCard = ({
           }
         }
 
-        .wrapper:hover {
+        .hover-effect:hover {
           opacity: 1;
         }
 
