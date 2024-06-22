@@ -322,17 +322,26 @@ const About = () => {
             <h1 className={styles.headline}>定款・諸規程</h1>
             <ul className={styles.list}>
               <li>
-                <a href="#" className={styles.pdfLink}>
+                <a
+                  href="https://drive.google.com/file/d/1C5H_esZlLQjJUlRDy-NKEo8CVFQUiuwh/view"
+                  className={styles.pdfLink}
+                >
                   定款
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.pdfLink}>
+                <a
+                  href="https://drive.google.com/file/d/1Pd-YaX4j6XSO6mgTSyGQFf6xQQ94yFDP/view"
+                  className={styles.pdfLink}
+                >
                   サービス利用規約
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.pdfLink}>
+                <a
+                  href="https://drive.google.com/file/d/1IX0AHYZBKvxX5DllXdJH3gMyXv_-0UGm/view"
+                  className={styles.pdfLink}
+                >
                   プライバシーポリシー
                 </a>
               </li>
@@ -343,12 +352,18 @@ const About = () => {
             <h1 className={styles.headline}>収支報告</h1>
             <ul className={styles.list}>
               <li>
-                <a href="#" className={styles.pdfLink}>
+                <a
+                  href="https://drive.google.com/file/d/1FrUFNWx2S5hh1CRSPyCXEgaSZl6Zvier/view"
+                  className={styles.pdfLink}
+                >
                   2022年度（第1期）活動計算書等
                 </a>
               </li>
               <li>
-                <a href="#" className={styles.pdfLink}>
+                <a
+                  href="https://drive.google.com/file/d/1lkr0S-2GXQ-HHljjkHNB1q6NeapmgA0W/view"
+                  className={styles.pdfLink}
+                >
                   2022年度（第1期）事業報告書
                 </a>
               </li>
