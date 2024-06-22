@@ -12,7 +12,7 @@ const Data = () => {
             <p>のべユーザー3万人、固定ユーザー5千人</p>
             <div className="image-wrapper">
               <Image
-                src="/data/user-amount.png"
+                src="/img/data/user-amount.png"
                 fill
                 priority
                 style={{
@@ -27,7 +27,7 @@ const Data = () => {
             <p>夜の利用割合が高い</p>
             <div className="image-wrapper">
               <Image
-                src="/data/time.png"
+                src="/img/data/time.png"
                 fill
                 priority
                 style={{
@@ -42,7 +42,7 @@ const Data = () => {
             <p>全国から満遍なく利用されている</p>
             <div className="image-wrapper">
               <Image
-                src="/data/user-area.png"
+                src="/img/data/user-area.png"
                 fill
                 priority
                 style={{
@@ -57,7 +57,7 @@ const Data = () => {
             <p>学校のPCやタブレットからアクセスする人も</p>
             <div className="image-wrapper">
               <Image
-                src="/data/user-device.png"
+                src="/img/data/user-device.png"
                 fill
                 priority
                 style={{

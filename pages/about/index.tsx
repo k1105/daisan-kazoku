@@ -211,17 +211,26 @@ const About = () => {
             <h1 className={styles.headline}>受賞・採択</h1>
             <ul className={styles.list}>
               <li>
-                <a href="https://newhope.g-mark.org/award2022.html">
+                <a
+                  href="https://newhope.g-mark.org/award2022.html"
+                  className={styles.externalLink}
+                >
                   GOOD DESIGN NEW HOPE AWARD 2022 最優秀賞
                 </a>
               </li>
               <li>
-                <a href="https://forbesjapan.com/feat/30under30/2023/honorees/">
+                <a
+                  href="https://forbesjapan.com/feat/30under30/2023/honorees/"
+                  className={styles.externalLink}
+                >
                   Forbes JAPAN 30 UNDER 30 2023「世界を変える30歳未満」
                 </a>
               </li>
               <li>
-                <a href="https://100banch.com/projects/daisan-no-kazoku">
+                <a
+                  href="https://100banch.com/projects/daisan-no-kazoku"
+                  className={styles.externalLink}
+                >
                   100BANCH 74期
                 </a>
               </li>
@@ -232,10 +241,21 @@ const About = () => {
             <h1 className={styles.headline}>ネットワーク</h1>
             <ul className={styles.list}>
               <li>
-                <a href="https://www.shinkoren.or.jp/">新公益連盟</a> 加盟団体
+                <a
+                  href="https://www.shinkoren.or.jp/"
+                  className={styles.externalLink}
+                >
+                  新公益連盟
+                </a>{" "}
+                加盟団体
               </li>
               <li>
-                <a href="https://icf.mri.co.jp/">未来共創イニシアティブ</a>{" "}
+                <a
+                  href="https://icf.mri.co.jp/"
+                  className={styles.externalLink}
+                >
+                  未来共創イニシアティブ
+                </a>
                 一般会員
               </li>
             </ul>
@@ -252,7 +272,10 @@ const About = () => {
               </li>
             </ul>
             <p>
-              <a href="https://www.notion.so/5deec649874d4b028d01fc49c81628da?pvs=21">
+              <a
+                href="https://www.notion.so/5deec649874d4b028d01fc49c81628da?pvs=21"
+                className={styles.externalLink}
+              >
                 助成金情報詳細
               </a>
             </p>
@@ -295,29 +318,40 @@ const About = () => {
           <div className={styles.articleContainer}>
             <h1 className={styles.headline}>定款・諸規程</h1>
             <ul className={styles.list}>
-              <li>定款.pdf</li>
-              <li>サービス利用規約.pdf</li>
-              <li>プライバシーポリシー.pdf</li>
+              <li>
+                <a href="#" className={styles.pdfLink}>
+                  定款
+                </a>
+              </li>
+              <li>
+                <a href="#" className={styles.pdfLink}>
+                  サービス利用規約
+                </a>
+              </li>
+              <li>
+                <a href="#" className={styles.pdfLink}>
+                  プライバシーポリシー
+                </a>
+              </li>
             </ul>
           </div>
 
           <div className={styles.articleContainer}>
             <h1 className={styles.headline}>収支報告</h1>
             <ul className={styles.list}>
-              <li>2022年度（第1期）活動計算書等.pdf</li>
-              <li>2022年度（第1期）事業報告書.pdf</li>
+              <li>
+                <a href="#" className={styles.pdfLink}>
+                  2022年度（第1期）活動計算書等
+                </a>
+              </li>
+              <li>
+                <a href="#" className={styles.pdfLink}>
+                  2022年度（第1期）事業報告書
+                </a>
+              </li>
               {/* <li>2024年度（第2期）活動計算書等.pdf</li>
               <li>2024年度（第2期）事業報告書.pdf</li> */}
             </ul>
-          </div>
-
-          <div className={styles.articleContainer}>
-            <h1 className={styles.headline}>問い合わせ</h1>
-            <p>
-              <a href="https://www.notion.so/defa00b5a53f450cb3a588caae5fdbc5?pvs=21">
-                お問い合わせ
-              </a>
-            </p>
           </div>
         </div>
       </Layout>
