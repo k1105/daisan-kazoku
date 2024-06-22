@@ -1,5 +1,5 @@
 import Layout from "../layout";
-import Link from "next/link";
+import styles from "../../styles/Article.module.scss";
 
 import Table from "./Table";
 import CardContainer from "./CardContainer";
@@ -13,7 +13,7 @@ const About = () => {
     <>
       <Layout pageTitle="第3の家族とは">
         <div>
-          <div className="jumbotron">
+          <div className={styles.jumbotron}>
             <h1>Vision</h1>
 
             <h2>
@@ -26,8 +26,8 @@ const About = () => {
             </p>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">対象者</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>対象者</h1>
             <section>
               <h2>家庭環境問題のはざまで悩む少年少女</h2>
               <ul>
@@ -78,8 +78,8 @@ const About = () => {
             </section>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">やること</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>やること</h1>
             <section>
               <h2>居場所を見つけるためのプラットフォーム</h2>
               <p>
@@ -90,7 +90,7 @@ const About = () => {
             <h3>1：Web事業</h3>
             <p>デザイン・テクノロジーによって日常を支えます。</p>
             <div
-              className="service-card-container"
+              className={styles.serviceCardContainer}
               style={{ margin: "20px 0" }}
             >
               <ServiceCard
@@ -108,7 +108,7 @@ const About = () => {
             <h3>2：イベント事業</h3>
             <p>アートによって支援らしくない入り口をつくります。</p>
             <div
-              className="service-card-container"
+              className={styles.serviceCardContainer}
               style={{ margin: "20px 0" }}
             >
               <ServiceCard
@@ -121,8 +121,8 @@ const About = () => {
             </div>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">コンセプト</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>コンセプト</h1>
 
             <h2>「第3の家族」という存在をつくる</h2>
             <p>
@@ -133,8 +133,8 @@ const About = () => {
             </p>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">少年少女のその後</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>少年少女のその後</h1>
             <p>
               ゴールは人それぞれです。見つける居場所は人でもモノでも自分自身でも。
             </p>
@@ -152,8 +152,8 @@ const About = () => {
             </ul>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">組織体制</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>組織体制</h1>
 
             <h2>代表 奥村春香</h2>
             <p>
@@ -194,13 +194,13 @@ const About = () => {
             </div>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">団体概要</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>団体概要</h1>
             <Table />
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">受賞・採択</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>受賞・採択</h1>
             <ul>
               <li>
                 <a href="https://newhope.g-mark.org/award2022.html">
@@ -220,8 +220,8 @@ const About = () => {
             </ul>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">ネットワーク</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>ネットワーク</h1>
             <ul>
               <li>
                 <a href="https://www.shinkoren.or.jp/">新公益連盟</a> 加盟団体
@@ -233,8 +233,8 @@ const About = () => {
             </ul>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">助成金情報</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>助成金情報</h1>
             <ul>
               <li>2023年度 花王社会起業塾</li>
               <li>2023年度 SVP東京 投資・協働先</li>
@@ -250,9 +250,9 @@ const About = () => {
             </p>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">メディア・登壇・出展</h1>
-            <div className="article-card-container">
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>メディア・登壇・出展</h1>
+            <div className={styles.articleCardContainer}>
               <ArticleCard
                 date="2023.08"
                 headline="Forbes
@@ -284,8 +284,8 @@ const About = () => {
             </div>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">定款・諸規程</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>定款・諸規程</h1>
             <ul>
               <li>定款.pdf</li>
               <li>サービス利用規約.pdf</li>
@@ -293,8 +293,8 @@ const About = () => {
             </ul>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">収支報告</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>収支報告</h1>
             <ul>
               <li>2022年度（第1期）活動計算書等.pdf</li>
               <li>2022年度（第1期）事業報告書.pdf</li>
@@ -303,8 +303,8 @@ const About = () => {
             </ul>
           </div>
 
-          <div className="article-container">
-            <h1 className="headline">問い合わせ</h1>
+          <div className={styles.articleContainer}>
+            <h1 className={styles.headline}>問い合わせ</h1>
             <p>
               <a href="https://www.notion.so/defa00b5a53f450cb3a588caae5fdbc5?pvs=21">
                 お問い合わせ
@@ -313,74 +313,6 @@ const About = () => {
           </div>
         </div>
       </Layout>
-      <style jsx>{`
-        .jumbotron {
-          margin-bottom: 200px;
-
-          h1 {
-            font-size: 1rem;
-            font-weight: normal;
-            color: #aaa;
-          }
-
-          h2 {
-            font-weight: 300;
-            font-size: 5rem;
-            margin-bottom: 30px;
-          }
-
-          p {
-            width: 70%;
-          }
-        }
-
-        .article-container {
-          margin-bottom: 100px;
-          .headline {
-            border-bottom: 1px solid #ccc;
-            margin-bottom: 30px;
-            font-weight: normal;
-          }
-
-          h2 {
-            font-weight: normal;
-            margin-bottom: 1.2rem;
-          }
-
-          h3 {
-            font-weight: normal;
-            margin-bottom: 1rem;
-          }
-
-          section {
-            margin-bottom: 5rem;
-          }
-        }
-
-        .article-card-container {
-          display: flex;
-          width: 100%;
-          flex-wrap: wrap;
-          justify-content: space-between;
-        }
-
-        .service-card-container {
-          overflow-x: auto;
-          white-space: nowrap;
-        }
-
-        @media screen and (max-width: 600px) {
-          .jumbotron {
-            margin-bottom: 100px;
-            h2 {
-              font-size: 2.5rem;
-            }
-            p {
-              width: 100%;
-            }
-          }
-        }
-      `}</style>
     </>
   );
 };
