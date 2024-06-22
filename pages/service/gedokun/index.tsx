@@ -40,7 +40,7 @@ const Gedokun = () => {
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>投稿内容の例</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>普通の家に産まれれば幸せだったのかな。なんか毎日が憂鬱。</li>
             <li>
               きょうだいが帰ってくると一段と扱いの差を感じる。両親ともに。
@@ -52,13 +52,13 @@ const Gedokun = () => {
             </li>
           </ul>
           <h2>少年少女からの声</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>「ここなら悩みを吐き出せる」</li>
             <li>「自分を応援してくれる人がいるんだと思うと涙が出た」</li>
             <li>「スマホの利用制限かけられているけどこれなら使える」</li>
           </ul>
           <h2>利用者数</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>月間3,000人</li>
             <li>0時以降からの利用者が多い</li>
           </ul>

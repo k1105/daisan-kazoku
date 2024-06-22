@@ -34,13 +34,13 @@ const KateiKankyoData = () => {
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>参加者からの声</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>「私だけじゃなかったんだ」</li>
             <li>「普通に可愛い」</li>
             <li>「友達がこういう状況にいそうなので、詳しく知れて良かった」</li>
           </ul>
           <h2>展示実績</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>2023.11 渋谷100BANCH</li>
             <li>2024.01 横浜市立横浜総合高等学校</li>
             <li>2024.03 横浜市立戸塚高等学校</li>

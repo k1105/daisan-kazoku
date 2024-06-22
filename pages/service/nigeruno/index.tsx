@@ -30,7 +30,7 @@ const Nigeruno = () => {
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>少年少女から声</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>「生きてて良かった」</li>
             <li>「人生が急上昇した！」</li>
             <li>「ライブの後、親にやめて欲しいことを言えた」</li>

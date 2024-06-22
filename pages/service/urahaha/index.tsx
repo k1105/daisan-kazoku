@@ -31,13 +31,13 @@ const Urahaha = () => {
         <div className={styles.articleContainer}>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>参加者からの声</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>「母の日がいつもと違う思い出の日になった」</li>
             <li>「自分の想いを話せて良かった」</li>
             <li>「ワークショップが楽しかった」</li>
           </ul>
           <h2>開催実績</h2>
-          <ul>
+          <ul className={styles.list}>
             <li>2023.05 渋谷・オンライン</li>
             <li>2024.05 渋谷・オンライン</li>
           </ul>

@@ -30,7 +30,7 @@ const About = () => {
             <h1 className={styles.headline}>対象者</h1>
             <section>
               <h2>家庭環境問題のはざまで悩む少年少女</h2>
-              <ul>
+              <ul className={styles.list}>
                 <li>家庭が居場所でない少年少女は4人に1人</li>
                 <li>虐待まではいかず、既存の支援の枠組みに当てはめにくい</li>
                 <li>中学生〜大学生くらいの男女</li>
@@ -45,7 +45,7 @@ const About = () => {
               <p>
                 はざまだから何もしなくていいわけではなく、以下のようなリスクがあります。早期介入が重要です。
               </p>
-              <ol>
+              <ul className={styles.list}>
                 <li>自己肯定感の低下</li>
                 <li>心の病気</li>
                 <li>依存症（特に人間関係）</li>
@@ -53,7 +53,7 @@ const About = () => {
                 <li>非行（夜の街・薬）</li>
                 <li>働くことが困難（体調・コミュニケーションの不得手）</li>
                 <li>自殺</li>
-              </ol>
+              </ul>
             </section>
             <section>
               <h2>問題の難しさ</h2>
@@ -146,7 +146,7 @@ const About = () => {
             <p>
               ゴールは人それぞれです。見つける居場所は人でもモノでも自分自身でも。
             </p>
-            <ul>
+            <ul className={styles.list}>
               <li>
                 受験合格しました。今は親とも落ち着いて話せるようになりました。
               </li>
@@ -209,7 +209,7 @@ const About = () => {
 
           <div className={styles.articleContainer}>
             <h1 className={styles.headline}>受賞・採択</h1>
-            <ul>
+            <ul className={styles.list}>
               <li>
                 <a href="https://newhope.g-mark.org/award2022.html">
                   GOOD DESIGN NEW HOPE AWARD 2022 最優秀賞
@@ -230,7 +230,7 @@ const About = () => {
 
           <div className={styles.articleContainer}>
             <h1 className={styles.headline}>ネットワーク</h1>
-            <ul>
+            <ul className={styles.list}>
               <li>
                 <a href="https://www.shinkoren.or.jp/">新公益連盟</a> 加盟団体
               </li>
@@ -243,7 +243,7 @@ const About = () => {
 
           <div className={styles.articleContainer}>
             <h1 className={styles.headline}>助成金情報</h1>
-            <ul>
+            <ul className={styles.list}>
               <li>2023年度 花王社会起業塾</li>
               <li>2023年度 SVP東京 投資・協働先</li>
               <li>
@@ -294,7 +294,7 @@ const About = () => {
 
           <div className={styles.articleContainer}>
             <h1 className={styles.headline}>定款・諸規程</h1>
-            <ul>
+            <ul className={styles.list}>
               <li>定款.pdf</li>
               <li>サービス利用規約.pdf</li>
               <li>プライバシーポリシー.pdf</li>
@@ -303,7 +303,7 @@ const About = () => {
 
           <div className={styles.articleContainer}>
             <h1 className={styles.headline}>収支報告</h1>
-            <ul>
+            <ul className={styles.list}>
               <li>2022年度（第1期）活動計算書等.pdf</li>
               <li>2022年度（第1期）事業報告書.pdf</li>
               {/* <li>2024年度（第2期）活動計算書等.pdf</li>
