@@ -17,7 +17,7 @@ const ArticleCard = ({ headline, image, url, date }: Props) => {
             style={{
               width: "100%",
               height: "250px",
-              marginBottom: "2rem",
+              marginBottom: "1rem",
               position: "relative",
             }}
           >
@@ -32,7 +32,7 @@ const ArticleCard = ({ headline, image, url, date }: Props) => {
             />
           </div>
           <p className="date">{date}</p>
-          <p>{headline}</p>
+          <p className="headline">{headline}</p>
         </div>
       </a>
       <style jsx>{`
@@ -41,11 +41,10 @@ const ArticleCard = ({ headline, image, url, date }: Props) => {
           display: block;
           width: 400px;
           margin-bottom: 20px;
-          height: 400px;
-          background-color: white;
         }
 
-        .thumbnail-wrapper {
+        .headline {
+          font-size: 0.9rem;
         }
 
         p {
@@ -60,6 +59,7 @@ const ArticleCard = ({ headline, image, url, date }: Props) => {
         .date {
           font-size: 0.8rem;
           color: #ccc;
+          text-align: right;
         }
       `}</style>
     </>

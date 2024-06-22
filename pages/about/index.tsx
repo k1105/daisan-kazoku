@@ -7,6 +7,7 @@ import ArticleCard from "./ArticleCard";
 import Statement from "./Statement";
 import DepartmentCard from "./DepartmentCard";
 import ServiceCard from "./ServiceCard";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -58,7 +59,7 @@ const About = () => {
             <section>
               <h2>問題の難しさ</h2>
               <h3>少年少女の複雑な心境</h3>
-              <p>
+              <p style={{ marginBottom: "3rem" }}>
                 問題の程度としてもはざまであり、思春期やモラトリアム期間の少年少女たちには、以下のような複雑な心境があります。
               </p>
               <div style={{ textAlign: "center", marginBottom: "2rem" }}>
@@ -163,15 +164,18 @@ const About = () => {
           <div className={styles.articleContainer}>
             <h1 className={styles.headline}>組織体制</h1>
 
-            <h2>代表 奥村春香</h2>
-            <p>
-              活動のきっかけは、大学3年生の時に家庭環境問題が原因で弟を自死で亡くしたことです。私の受験失敗を機に家庭が壊れ、親子喧嘩が絶えない中での出来事でした。1年間は何もできなかったのですが、もとからものづくりが好きだったので、家庭環境に悩む人のための掲示板を試しに作ってみたところ、想像以上に人が集まりました。「つくってくれてありがとう」という嬉しい言葉をもらう一方、集まる悩みの重大さを実感し「もっとやらなければ」と思い、新卒で入社したLINE株式会社を退職し、NPO法人第3の家族を立ち上げました。今は、自身の過去のために活動をやっているという気持ちはなく、はざまの少年少女たちと一緒に揺られながら、より良い状態をつくって行くことに没頭しています。
-            </p>
-            <p>
-              <a href="https://www.notion.so/a9d939d6d27e4ff4bc9e849fc92c6e08?pvs=21">
-                詳細プロフィール
-              </a>
-            </p>
+            <div className="profile-container">
+              <p className="position">代表</p>
+              <h2>奥村春香</h2>
+              <p className="description">
+                活動のきっかけは、大学3年生の時に家庭環境問題が原因で弟を自死で亡くしたことです。私の受験失敗を機に家庭が壊れ、親子喧嘩が絶えない中での出来事でした。1年間は何もできなかったのですが、もとからものづくりが好きだったので、家庭環境に悩む人のための掲示板を試しに作ってみたところ、想像以上に人が集まりました。「つくってくれてありがとう」という嬉しい言葉をもらう一方、集まる悩みの重大さを実感し「もっとやらなければ」と思い、新卒で入社したLINE株式会社を退職し、NPO法人第3の家族を立ち上げました。今は、自身の過去のために活動をやっているという気持ちはなく、はざまの少年少女たちと一緒に揺られながら、より良い状態をつくって行くことに没頭しています。
+              </p>
+              <Link href="https://www.notion.so/a9d939d6d27e4ff4bc9e849fc92c6e08?pvs=21">
+                <div className={styles.innerLinkWrapper}>
+                  <p>詳細プロフィール</p>
+                </div>
+              </Link>
+            </div>
 
             <div
               style={{
@@ -306,13 +310,12 @@ const About = () => {
                 url="https://sdgs.yahoo.co.jp/originals/198.html"
                 image="/img/article-thumbnail/yahoo.jpeg"
               />
-              <ArticleCard
-                date=""
-                headline="メディア・登壇・出展一覧"
-                url="/about/media"
-                image="/ogp.png"
-              />
             </div>
+            <Link href="/about/media">
+              <div className={styles.innerLinkWrapper}>
+                <p>メディア・登壇・出展一覧</p>
+              </div>
+            </Link>
           </div>
 
           <div className={styles.articleContainer}>
@@ -354,6 +357,29 @@ const About = () => {
             </ul>
           </div>
         </div>
+        <style jsx>
+          {`
+            .profile-container {
+              margin-bottom: 5rem;
+              .position {
+                font-size: 0.8rem;
+              }
+              .description {
+                line-height: 1.8rem;
+                margin-bottom: 2rem;
+              }
+            }
+
+            @media screen and (max-width: 600px) {
+              .profile-container {
+                width: 100%;
+                .description {
+                  line-height: 1.5rem;
+                }
+              }
+            }
+          `}
+        </style>
       </Layout>
     </>
   );

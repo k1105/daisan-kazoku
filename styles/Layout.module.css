@@ -18,13 +18,20 @@
 }
 
 .navButton {
-  border: 1px solid var(--light-green);
+  border: 2px solid var(--light-green);
   width: 200px;
   height: 3rem;
   text-align: center;
   line-height: 3rem;
   border-radius: 1.5rem;
   color: var(--light-green);
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  background-color: var(--light-green);
+  color: white;
 }
 
 .main {
