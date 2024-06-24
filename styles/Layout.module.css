@@ -111,8 +111,10 @@
   }
 
   .navLink,
-  .navButton {
+  .navButton,
+  .navBottom {
     display: none;
+    pointer-events: none;
   }
 
   .menuButton {

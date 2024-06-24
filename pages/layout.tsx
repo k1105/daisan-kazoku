@@ -18,9 +18,10 @@ export default function Layout({
   headline?: string;
 }) {
   const router = useRouter();
-  const [headerStyle, setHeaderStyle] = useState({
+  const [headerStyle, setHeaderStyle] = useState<React.CSSProperties>({
     opacity: 1,
     filter: "blur(0px)",
+    pointerEvents: "auto",
   });
 
   useEffect(() => {
@@ -30,6 +31,7 @@ export default function Layout({
         setHeaderStyle({
           opacity: currentScrollY > lastScrollY ? 0 : 1,
           filter: currentScrollY > lastScrollY ? "blur(30px)" : "blur(0px)",
+          pointerEvents: currentScrollY > lastScrollY ? "none" : "auto",
         });
         lastScrollY = window.scrollY;
       }
