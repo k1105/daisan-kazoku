@@ -2,12 +2,13 @@ import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
 import Link from "next/link";
 import Image from "next/image";
+import BlockContainer from "@/components/BlockContainer";
 
 const DaisanLive = () => {
   return (
     <>
       <Layout pageTitle="音楽ライブ" headline="音楽ライブ">
-        <div className={styles.articleContainer}>
+        <BlockContainer>
           <div
             style={{
               width: "100%",
@@ -33,15 +34,15 @@ const DaisanLive = () => {
               <p>Webサイトへ</p>
             </div>
           </Link>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>コンセプト</h1>
           <h2>家のこと忘れて音楽で集まろう</h2>
           <p>
             家庭環境問題や支援など、堅苦しいことはまずは置いといて、楽しむ場を作ります。そして、次の一歩に繋げるアーティストとの出会いをつくることを目指します。
           </p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>特徴</h1>
           <h2>アーティストならではの支援</h2>
           <p>
@@ -51,8 +52,8 @@ const DaisanLive = () => {
           <p>
             イベントはチャリティーで行うため、「少年少女たちに何かしてあげたい」人たちで構成されています。そういった場をつくること自体が、少年少女たちに味方がいることの証明でもあります。
           </p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>少年少女から声</h2>
           <ul className={styles.list}>
@@ -60,8 +61,8 @@ const DaisanLive = () => {
             <li>「人生が急上昇した！」</li>
             <li>「ライブの後、親にやめて欲しいことを言えた」</li>
           </ul>
-        </div>
-        {/* <div className={styles.articleContainer}>
+        </BlockContainer>
+        {/* <BlockContainer>
           <h2>開催実績</h2>
           <h3>第一回目</h3>
           <p>2024.05 渋谷 参加者26名</p>

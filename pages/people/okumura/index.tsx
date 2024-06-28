@@ -1,5 +1,6 @@
 import Layout from "../../layout";
 import styles from "../../../styles/Article.module.scss";
+import BlockContainer from "@/components/BlockContainer";
 
 export default function Okumura() {
   return (
@@ -13,23 +14,23 @@ export default function Okumura() {
               活動のきっかけは、大学3年生の時に家庭環境問題が原因で弟を自死で亡くしたことです。私の受験失敗を機に家庭が壊れ、親子喧嘩が絶えない中での出来事でした。1年間は何もできなかったのですが、もとからものづくりが好きだったので、家庭環境に悩む人のための掲示板を試しに作ってみたところ、想像以上に人が集まりました。「つくってくれてありがとう」という嬉しい言葉をもらう一方、集まる悩みの重大さを実感し「もっとやらなければ」と思い、新卒で入社したLINE株式会社を退職し、NPO法人第3の家族を立ち上げました。今は、自身の過去のために活動をやっているという気持ちはなく、はざまの少年少女たちと一緒に揺られながら、より良い状態をつくって行くことに没頭しています。
             </p>
           </div>
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>受賞</h1>
             <ul className={styles.list}>
               <li>Forbes JAPAN 30 UNDER 30「世界を変える30歳未満」2023</li>
               <li>Asia Digital Award Fukuoka 2021 入賞</li>
               <li>法政大学理系同窓会成績優秀者</li>
             </ul>
-          </div>
-          <div className={styles.articleContainer}>
+          </BlockContainer>
+          <BlockContainer>
             <h1 className={styles.headline}>経歴</h1>
             <ul className={styles.list}>
               <li>花王社会起業塾卒業</li>
               <li>LINE株式会社 Product Designer</li>
               <li>法政大学デザイン工学部卒業（学士：工学）</li>
             </ul>
-          </div>
-          <div className={styles.articleContainer}>
+          </BlockContainer>
+          <BlockContainer>
             <h1 className={styles.headline}>インタビュー記事</h1>
             <ul className={styles.list}>
               <li>
@@ -60,8 +61,8 @@ export default function Okumura() {
                 </a>
               </li>
             </ul>
-          </div>
-          <div className={styles.articleContainer}>
+          </BlockContainer>
+          <BlockContainer>
             <h1 className={styles.headline}>趣味</h1>
             <p>展示会巡りと野外ロックフェス</p>
             <p>
@@ -73,7 +74,7 @@ export default function Okumura() {
                 @oku_sanpo
               </a>
             </p>
-          </div>
+          </BlockContainer>
           <style jsx>
             {`
               .profile-container {

@@ -3,12 +3,13 @@ import Layout from "../layout";
 import Link from "next/link";
 import ServiceCard from "../about/ServiceCard";
 import styles from "../../styles/Article.module.scss";
+import BlockContainer from "@/components/BlockContainer";
 
 const Service = () => {
   return (
     <>
       <Layout pageTitle="事業内容" headline="事業内容">
-        <div className={styles.articleContainer}>
+        <BlockContainer>
           <h3>1：Web事業</h3>
           <p>デザイン・テクノロジーによって日常を支えます。</p>
           <div
@@ -49,7 +50,7 @@ const Service = () => {
               image="/img/live.png"
             />
           </div>
-        </div>
+        </BlockContainer>
       </Layout>
     </>
   );

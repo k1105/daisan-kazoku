@@ -2,6 +2,7 @@ import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
 import Image from "next/image";
 import Link from "next/link";
+import BlockContainer from "@/components/BlockContainer";
 
 const Nigeruno = () => {
   return (
@@ -26,22 +27,22 @@ const Nigeruno = () => {
             alt="nigerunoのサムネイル画像"
           />
         </div>
-        <div className={styles.articleContainer}>
+        <BlockContainer>
           <p>社会資源と経験者の人生を集めた情報サイト。</p>
           <Link href="https://daisan-kazoku.net/nigeruno">
             <div className={styles.innerLinkWrapper}>
               <p>Webサイトへ</p>
             </div>
           </Link>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>コンセプト</h1>
           <h2>使える手札を見つけよう</h2>
           <p>
             多様な社会資源や経験者の情報を集め、自分の居場所を見つけるための一歩を踏み出せるようにすることを目指します。
           </p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>特徴</h1>
           <h2>社会資源の紹介</h2>
           <p>公的な支援から身近な頼れる人まで、幅広く紹介しています。</p>
@@ -73,8 +74,8 @@ const Nigeruno = () => {
           <p>
             自分の悩んでいる状況を入力すると、自分に合ったページが紹介されます。
           </p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>少年少女から声</h2>
           <ul className={styles.list}>
@@ -89,7 +90,7 @@ const Nigeruno = () => {
             <li>月1,500人</li>
             <li>ライフステージの変わり目の春頃の利用が多い</li>
           </ul>
-        </div>
+        </BlockContainer>
         <style jsx>{`
           ul {
             margin-top: 0;
