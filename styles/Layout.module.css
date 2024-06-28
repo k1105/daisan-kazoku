@@ -135,13 +135,15 @@
     display: block;
     margin: 0 auto;
     width: 90vw;
-    height: 2rem;
+    height: 2.5rem;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
-    background-color: #e6e6e6;
+    background-color: white;
+    filter: drop-shadow(#ccc 0px 0px 5px);
+
     color: #858585;
     font-size: 0.8rem;
-    line-height: 2rem;
+    line-height: 2.5rem;
   }
 
   .topicPath a {
