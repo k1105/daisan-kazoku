@@ -8,6 +8,37 @@ import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/Logo";
 
+const useParentPageInfo = (path: string) => {
+  const segments = path.split("/").filter((segment) => segment);
+
+  if (segments.length === 0) {
+    return null; // ルートパスの場合は親が存在しない
+  }
+
+  // 親のパスを生成
+  const parentPath = "/" + segments.slice(0, -1).join("/");
+
+  // 親のタイトルを取得するためのロジックを実装（仮の実装例）
+  const parentTitle = getTitleFromPath(parentPath); // ここは自分で実装する必要があります
+
+  return { parentTitle, parentPath };
+};
+
+const getTitleFromPath = (path: string): string => {
+  // ここにパスからタイトルを取得するロジックを実装
+  // 例えば、静的に定義するか、ルックアップテーブルを使用するなど
+  const titleMap: { [key: string]: string } = {
+    "/": "トップ",
+    "/about": "第３の家族とは",
+    "/announcement": "お知らせ",
+    "/poeple": "メンバー",
+    "/media": "メディア",
+    "/service": "事業内容",
+  };
+
+  return titleMap[path] || "Unknown Title";
+};
+
 export default function Layout({
   children,
   pageTitle,
@@ -18,10 +49,17 @@ export default function Layout({
   headline?: string;
 }) {
   const router = useRouter();
+  const path = router.pathname;
+  const parentPageInfo = useParentPageInfo(path);
+
   const [headerStyle, setHeaderStyle] = useState<React.CSSProperties>({
     opacity: 1,
     filter: "blur(0px)",
     pointerEvents: "auto",
+  });
+
+  const [footerStyle, setFooterStyle] = useState<React.CSSProperties>({
+    transform: "translateY(0)",
   });
 
   useEffect(() => {
@@ -32,6 +70,11 @@ export default function Layout({
           opacity: currentScrollY > lastScrollY ? 0 : 1,
           filter: currentScrollY > lastScrollY ? "blur(30px)" : "blur(0px)",
           pointerEvents: currentScrollY > lastScrollY ? "none" : "auto",
+        });
+
+        setFooterStyle({
+          transform:
+            currentScrollY > lastScrollY ? "translateY(3rem)" : "translateY(0)",
         });
         lastScrollY = window.scrollY;
       }
@@ -159,7 +202,18 @@ export default function Layout({
         </div>
       </div>
 
-      <footer></footer>
+      <footer>
+        {parentPageInfo && (
+          <div className={classes.topicPath} style={footerStyle}>
+            <p>
+              <Link href={parentPageInfo!.parentPath}>
+                {parentPageInfo?.parentTitle}
+              </Link>{" "}
+              &gt; {pageTitle}
+            </p>
+          </div>
+        )}
+      </footer>
       <style jsx>{``}</style>
     </>
   );
