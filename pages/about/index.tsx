@@ -268,7 +268,7 @@ const About = () => {
 
           <BlockContainer>
             <h1 className={styles.headline}>助成金情報</h1>
-            <ul className={styles.list}>
+            <ul className={styles.list} style={{ marginBottom: "2rem" }}>
               <li>2023年度 花王社会起業塾</li>
               <li>2023年度 SVP東京 投資・協働先</li>
               <li>
@@ -276,14 +276,11 @@ const About = () => {
                 ポスト・コロナ（新型感染症）社会に向けた福祉活動応援キャンペーン(第8回)
               </li>
             </ul>
-            <p>
-              <a
-                href="https://www.notion.so/5deec649874d4b028d01fc49c81628da?pvs=21"
-                className={styles.externalLink}
-              >
-                助成金情報詳細
-              </a>
-            </p>
+            <Link href="/about/grant">
+              <div className={styles.innerLinkWrapper}>
+                <p>助成金情報詳細</p>
+              </div>
+            </Link>
           </BlockContainer>
 
           <BlockContainer>
