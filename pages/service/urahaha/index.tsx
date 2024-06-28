@@ -2,12 +2,13 @@ import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
 import Link from "next/link";
 import Image from "next/image";
+import BlockContainer from "@/components/BlockContainer";
 
 const Urahaha = () => {
   return (
     <>
       <Layout pageTitle="裏母の日" headline="裏母の日">
-        <div className={styles.articleContainer}>
+        <BlockContainer>
           <div
             style={{
               width: "100%",
@@ -33,8 +34,8 @@ const Urahaha = () => {
               <p>Webサイトへ</p>
             </div>
           </Link>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>コンセプト</h1>
           <h2>母の日の裏にある居場所</h2>
           <p>
@@ -42,8 +43,8 @@ const Urahaha = () => {
             <br />
             既存の母の日や親子関係を否定するものではなく、心にぽっかり穴が空いた一日に、みんなで過ごす時間をつくることを目指します。
           </p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>特徴</h1>
           <h2>当事者同士のゆる座談会</h2>
           <p>
@@ -51,8 +52,8 @@ const Urahaha = () => {
           </p>
           <h2>ありがとうを誰かに伝えるワークショップ</h2>
           <p>大切な人・動物・モノに向けて、手紙を書きます。</p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>参加者からの声</h2>
           <ul className={styles.list}>
@@ -65,7 +66,7 @@ const Urahaha = () => {
             <li>2023.05 渋谷・オンライン</li>
             <li>2024.05 渋谷・オンライン</li>
           </ul>
-        </div>
+        </BlockContainer>
         <style jsx>{`
           ul {
             margin-top: 0;

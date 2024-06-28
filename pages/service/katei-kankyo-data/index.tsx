@@ -2,12 +2,13 @@ import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
 import Link from "next/link";
 import Image from "next/image";
+import BlockContainer from "@/components/BlockContainer";
 
 const KateiKankyoData = () => {
   return (
     <>
       <Layout pageTitle="家庭環境データ" headline="家庭環境データ">
-        <div className={styles.articleContainer}>
+        <BlockContainer>
           <div
             style={{
               width: "100%",
@@ -33,8 +34,8 @@ const KateiKankyoData = () => {
               <p>Webサイトへ</p>
             </div>
           </Link>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>コンセプト</h1>
           <h2>立ち止まって考えてみる</h2>
           <p>
@@ -59,8 +60,8 @@ const KateiKankyoData = () => {
               alt="家庭環境データの画像"
             />
           </div>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>特徴</h1>
           <h2>視覚比喩で表現する</h2>
           <p>
@@ -74,8 +75,8 @@ const KateiKankyoData = () => {
           <p>
             家庭環境問題の実態をわかりやすく発信することで、少年少女の周囲にいる人たちが手を差し伸べるようなきっかけをつくることを目指します。
           </p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>参加者からの声</h2>
           <ul className={styles.list}>
@@ -116,7 +117,7 @@ const KateiKankyoData = () => {
               お問い合わせ
             </a>
           </p>
-        </div>
+        </BlockContainer>
         <style jsx>{`
           ul {
             margin-top: 0;

@@ -2,12 +2,13 @@ import styles from "../../../styles/Article.module.scss";
 import Layout from "../../layout";
 import Image from "next/image";
 import Link from "next/link";
+import BlockContainer from "@/components/BlockContainer";
 
 const Gedokun = () => {
   return (
     <>
       <Layout pageTitle="gedokun" headline="gedokun">
-        <div className={styles.articleContainer}>
+        <BlockContainer>
           <div
             style={{
               width: "100%",
@@ -35,15 +36,15 @@ const Gedokun = () => {
               <p>Webサイトへ</p>
             </div>
           </Link>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>コンセプト</h1>
           <h2>家の悩みを励ましあおう</h2>
           <p>
             まずは一人で悩まずに悩みを吐き出してみたり、同じような人の存在を遠くに感じることを目指します。
           </p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>特徴</h1>
           <h2>ユーザー登録・返信機能なし</h2>
           <p>
@@ -61,8 +62,8 @@ const Gedokun = () => {
           <p>
             投稿内容を分析して自分に近い悩みの投稿が表示されるようにし、より共感が集まるような場所にしています。
           </p>
-        </div>
-        <div className={styles.articleContainer}>
+        </BlockContainer>
+        <BlockContainer>
           <h1 className={styles.headline}>利用者の様子</h1>
           <h2>投稿内容の例</h2>
           <ul className={styles.list}>
@@ -87,7 +88,7 @@ const Gedokun = () => {
             <li>月間3,000人</li>
             <li>0時以降からの利用者が多い</li>
           </ul>
-        </div>
+        </BlockContainer>
         <style jsx>{`
           ul {
             margin-top: 0;

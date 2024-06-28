@@ -8,7 +8,7 @@
   }
 
   h2 {
-    font-weight: 300;
+    font-weight: normal;
     font-size: 3rem;
     margin-bottom: 30px;
   }
@@ -85,30 +85,13 @@
   background-image: url("../public/img/svg/external-link.svg");
 }
 
-.articleContainer {
-  margin-bottom: 100px;
-  .headline {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #777;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 30px;
-    font-weight: normal;
-  }
-
-  h2 {
-    font-weight: normal;
-    margin-bottom: 1.2rem;
-  }
-
-  h3 {
-    font-weight: normal;
-    margin-bottom: 1rem;
-  }
-
-  section {
-    margin-bottom: 5rem;
-  }
+.headline {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #777;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+  font-weight: normal;
 }
 
 .articleCardContainer {

@@ -8,6 +8,7 @@ import Statement from "./Statement";
 import DepartmentCard from "./DepartmentCard";
 import ServiceCard from "./ServiceCard";
 import Link from "next/link";
+import BlockContainer from "@/components/BlockContainer";
 
 const About = () => {
   return (
@@ -18,9 +19,9 @@ const About = () => {
             <h1>Vision</h1>
 
             <h2>
-              「虐待ほどではない」ときの
+              家で色々あっても
               <br />
-              支援を確立する
+              なんとかなる社会
             </h2>
             <p>
               虐待ほどではないケースでは、周囲から気づきにくく、本人も助けを求めることが少ないです。そのため、今まで確立された支援はなく、虐待・精神疾患・非行・孤独孤立・自殺などに発展してからの介入となっていました。
@@ -29,7 +30,18 @@ const About = () => {
             </p>
           </div>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
+            <h1 className={styles.headline}>コンセプト</h1>
+
+            <h2>「第3の家族」という存在を作る</h2>
+            <p>
+              第1の家族（本人の家族）か第2の家族（友達・学校・地域）のどこかに居場所を見つけてもらえるように。第3の家族は、それをサポートする裏方です。
+              <br />
+              第3の家族は居場所ではありません。なるべく早く第3の家族を卒業して、大人になったら忘れて欲しいです。
+            </p>
+          </BlockContainer>
+
+          <BlockContainer>
             <h1 className={styles.headline}>対象者</h1>
             <section>
               <h2>家庭環境問題のはざまで悩む少年少女</h2>
@@ -79,14 +91,14 @@ const About = () => {
                 子を育てるのが親だけになりやすい社会、ステータスや評価が求められやすい社会など、親が悪い訳ではなく多様な社会課題に起因しています。親子関係に直接介入することだけが正解ではないでしょう。
               </p>
             </section>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>やること</h1>
             <section>
-              <h2>居場所を見つけるためのプラットフォーム</h2>
+              <h2>「虐待ほどではない」ときの支援を確立する</h2>
               <p>
-                第1の家族（本人の家族）か第2の家族（友達・学校・地域）のどこかに居場所を見つけてもらうためのプラットフォームを運営します。
+                「虐待は189、虐待でないときは第3の家族」というような、虐待ほどでないときの支援プラットフォームの確立を目指します。
               </p>
             </section>
 
@@ -130,20 +142,9 @@ const About = () => {
                 image="/img/live.png"
               />
             </div>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
-            <h1 className={styles.headline}>コンセプト</h1>
-
-            <h2>「第3の家族」という存在を作る</h2>
-            <p>
-              第1の家族（本人の家族）か第2の家族（友達・学校・地域）のどこかに居場所を見つけてもらえるように。第3の家族は、それをサポートする裏方です。
-              <br />
-              第3の家族は居場所ではありません。なるべく早く第3の家族を卒業して、大人になったら忘れて欲しいです。
-            </p>
-          </div>
-
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>少年少女のその後</h1>
             <p>
               ゴールは人それぞれです。見つける居場所は人でもモノでも自分自身でも。
@@ -160,11 +161,11 @@ const About = () => {
               </li>
               <li>身の危険を感じたので公的な支援にお世話になりました。</li>
             </ul>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
+            {" "}
             <h1 className={styles.headline}>組織体制</h1>
-
             <div className="profile-container">
               <p className="position">代表</p>
               <h2>奥村春香</h2>
@@ -177,7 +178,6 @@ const About = () => {
                 </div>
               </Link>
             </div>
-
             <div
               style={{
                 display: "flex",
@@ -205,14 +205,14 @@ const About = () => {
                 description="第3の家族のバックオフィスを担当します。"
               />
             </div>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>団体概要</h1>
             <Table />
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>受賞・採択</h1>
             <ul className={styles.list}>
               <li>
@@ -240,9 +240,9 @@ const About = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>ネットワーク</h1>
             <ul className={styles.list}>
               <li>
@@ -264,9 +264,9 @@ const About = () => {
                 一般会員
               </li>
             </ul>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>助成金情報</h1>
             <ul className={styles.list}>
               <li>2023年度 花王社会起業塾</li>
@@ -284,9 +284,9 @@ const About = () => {
                 助成金情報詳細
               </a>
             </p>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>メディア・登壇・出展</h1>
             <div className={styles.articleCardContainer}>
               <ArticleCard
@@ -317,9 +317,9 @@ const About = () => {
                 <p>メディア・登壇・出展一覧</p>
               </div>
             </Link>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>定款・諸規程</h1>
             <ul className={styles.list}>
               <li>
@@ -347,9 +347,9 @@ const About = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </BlockContainer>
 
-          <div className={styles.articleContainer}>
+          <BlockContainer>
             <h1 className={styles.headline}>収支報告</h1>
             <ul className={styles.list}>
               <li>
@@ -371,7 +371,7 @@ const About = () => {
               {/* <li>2024年度（第2期）活動計算書等.pdf</li>
               <li>2024年度（第2期）事業報告書.pdf</li> */}
             </ul>
-          </div>
+          </BlockContainer>
         </div>
         <style jsx>
           {`
