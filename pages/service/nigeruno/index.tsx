@@ -45,7 +45,9 @@ const Nigeruno = () => {
         <BlockContainer>
           <h1 className={styles.headline}>特徴</h1>
           <h2>社会資源の紹介</h2>
-          <p>公的な支援から身近な頼れる人まで、幅広く紹介しています。</p>
+          <p>
+            公的な支援から身近な頼れる人まで、幅広く紹介しています。以下は紹介する情報の一例です。
+          </p>
           <h3>公的な支援</h3>
           <ul className={styles.list}>
             <li>児童相談所</li>

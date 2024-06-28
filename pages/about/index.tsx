@@ -103,7 +103,7 @@ const About = () => {
             </section>
 
             <h3>1：Web事業</h3>
-            <p>デザイン・テクノロジーによって日常を支えます。</p>
+            <p>社会資源に繋げるプラットフォーム。</p>
             <div
               className={styles.serviceCardContainer}
               style={{ margin: "20px 0" }}
@@ -121,7 +121,7 @@ const About = () => {
             </div>
 
             <h3>2：イベント事業</h3>
-            <p>アートによって支援らしくない入り口をつくります。</p>
+            <p>ハレの裏に居場所を作る対面イベント。</p>
             <div
               className={styles.serviceCardContainer}
               style={{ margin: "20px 0" }}
