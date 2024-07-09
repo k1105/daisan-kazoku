@@ -65,15 +65,6 @@ export default function Okumura() {
           <BlockContainer>
             <h1 className={styles.headline}>趣味</h1>
             <p>展示会巡りと野外ロックフェス</p>
-            <p>
-              趣味Instagram：
-              <a
-                href="https://www.instagram.com/oku_sanpo/"
-                className={styles.externalLink}
-              >
-                @oku_sanpo
-              </a>
-            </p>
           </BlockContainer>
           <style jsx>
             {`
