@@ -24,11 +24,14 @@ const Home = () => {
   const startY = useRef<number>(0); // タッチ開始時のY座標
 
   useEffect(() => {
-    const stateList = [0, 1, 2]; //number * 100 vh;
+    const stateList = [0, 1, 2, 3, 4, 5, 6, 7]; //number * 100 vh;
 
     const handleScroll = (e: WheelEvent) => {
+      console.log("called");
       e.preventDefault();
-      if (Math.abs(e.deltaY) < 10 || isScrolling.current) return;
+      if (Math.abs(e.deltaY) < 50 || isScrolling.current) return;
+
+      console.log("excuted");
 
       isScrolling.current = true;
       state.current =
@@ -58,7 +61,6 @@ const Home = () => {
       const deltaY = moveY - startY.current; // 開始点からの変位
 
       if (Math.abs(deltaY) < 10 || isScrolling.current) return;
-
       isScrolling.current = true;
       state.current =
         deltaY < 0
@@ -77,16 +79,16 @@ const Home = () => {
     };
 
     if (mainRef.current) mainRef.current.style.opacity = "1";
-    // window.addEventListener("wheel", handleScroll, { passive: false });
-    // window.addEventListener("touchstart", handleTouchStart, { passive: false });
-    // window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    window.addEventListener("wheel", handleScroll, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart, { passive: false });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
-    // // クリーンアップ関数でリスナーを削除
-    // return () => {
-    //   window.removeEventListener("wheel", handleScroll);
-    //   window.removeEventListener("touchstart", handleTouchStart);
-    //   window.removeEventListener("touchmove", handleTouchMove);
-    // };
+    // クリーンアップ関数でリスナーを削除
+    return () => {
+      window.removeEventListener("wheel", handleScroll);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+    };
   }, []);
   return (
     <>
@@ -150,20 +152,58 @@ const Home = () => {
               pdf
             </a> */}
           </div>
-          {/* <div className="first-view">
+          <div className="first-view">
             <p>
-              ここには、
+              「家に居場所がない」と答える少年少女は4人に1人。
               <br />
-              テキストが入ります。
+              意外に多いはずなのに明るみに出ないのは、周囲から気づきにくく、本人も助けを求めないからです。
             </p>
           </div>
           <div className="first-view">
             <p>
-              そして、
+              虐待をされている訳ではない。
               <br />
-              次のテキストです。
+              でも、親との関係に違和感を感じたり、傷ついている。
+              <br />
+              でも、嫌いとは言い切れない。自分の親だし…。
             </p>
-          </div> */}
+          </div>
+          <div className="first-view">
+            <p>
+              虐待ではないから放っておいて良いわけではなく、
+              <br />
+              その後に虐待・精神疾患・非行・孤独孤立・自殺につながる可能性があります。
+            </p>
+          </div>
+          <div className="first-view">
+            <p>
+              代表の奥村の家庭環境もはざまにあり
+              <br />
+              大学3年生の時に弟が自死をしました。
+            </p>
+          </div>
+
+          <div className="first-view">
+            <p>
+              第1の家族（本人の家族）を居場所に感じられず、
+              <br />
+              第2の家族（友達・学校・地域）は既にあっても、
+              <br />
+              人に頼ることを知らなかったり、支援情報を知らなかったりします。
+            </p>
+          </div>
+          <div className="first-view">
+            そこで第3の家族は、多様な選択肢を提示し
+            <br />
+            それらを掴み取りやすい状態をつくることで、
+            <br />
+            最終的には第1か第2の家族に帰着してもらうことを目指します。
+          </div>
+          <div className="first-view">
+            第3の家族は「いつか忘れる」居場所になります。
+            <br />
+            忘れたときが、彼ら彼女らが居場所を見つけたとき。
+          </div>
         </div>
 
         <style jsx>
@@ -171,7 +211,7 @@ const Home = () => {
             .first-view {
               width: 40vw;
               height: 100vh;
-              margin: 15vh 5vw;
+              padding: 40vh 5vw;
             }
             .logo {
               width: 50%;
