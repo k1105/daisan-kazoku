@@ -1,12 +1,11 @@
 // app/posts/layout.tsx
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import classes from "../styles/Layout.module.css";
 import { useRouter } from "next/router";
 import Head from "next/head";
-import { useEffect, useRef, useState } from "react";
-import { Logo } from "@/components/Logo";
+import { CSSProperties, useEffect, useState } from "react";
+import HamburgerMenu from "@/components/HamburgerMenu";
 
 const useParentPageInfo = (path: string) => {
   const segments = path.split("/").filter((segment) => segment);
@@ -31,7 +30,7 @@ const getTitleFromPath = (path: string): string => {
     "/": "トップ",
     "/about": "第３の家族とは",
     "/announcement": "お知らせ",
-    "/poeple": "メンバー",
+    "/people": "メンバー",
     "/media": "メディア",
     "/service": "事業内容",
   };
@@ -52,13 +51,13 @@ export default function Layout({
   const path = router.pathname;
   const parentPageInfo = useParentPageInfo(path);
 
-  const [headerStyle, setHeaderStyle] = useState<React.CSSProperties>({
+  const [headerStyle, setHeaderStyle] = useState<CSSProperties>({
     opacity: 1,
     filter: "blur(0px)",
     pointerEvents: "auto",
   });
 
-  const [footerStyle, setFooterStyle] = useState<React.CSSProperties>({
+  const [footerStyle, setFooterStyle] = useState<CSSProperties>({
     transform: "translateY(0)",
   });
 
@@ -111,86 +110,8 @@ export default function Layout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@daisan_kazoku" />
       </Head>
-      <nav className={classes.nav} style={headerStyle}>
-        <div className={classes.logo}>
-          <Link href="/">
-            <Logo />
-          </Link>
-        </div>
-        <ul className={classes.navLink}>
-          <li className={classes.list}>
-            <Link
-              href="/about"
-              className={`${classes.link} ${
-                router.pathname === "/about" ? classes.active : ""
-              }`}
-            >
-              第３の家族とは
-            </Link>
-          </li>
-          <li className={classes.list}>
-            <Link
-              href="/service"
-              className={`${classes.link} ${
-                router.pathname === "/service" ? classes.active : ""
-              }`}
-            >
-              事業内容
-            </Link>
-          </li>
-          <li className={classes.list}>
-            <Link
-              href="/announcement"
-              className={`${classes.link} ${
-                router.pathname === "/announcement" ? classes.active : ""
-              }`}
-            >
-              お知らせ
-            </Link>
-          </li>
-          <li className={classes.list}>
-            {/* <Link
-              href="/report"
-              className={`${classes.link} ${
-                router.pathname === "/report" ? classes.active : ""
-              }`}
-            >
-              レポート
-            </Link> */}
-          </li>
-          <li className={classes.list}>
-            <Link
-              href="/data"
-              className={`${classes.link} ${
-                router.pathname === "/data" ? classes.active : ""
-              }`}
-            >
-              データ
-            </Link>
-          </li>
-          <li className={classes.list}>
-            <Link
-              href="mailto:info@daisan-kazoku.net" //href="/contact"
-              className={`${classes.link} ${
-                router.pathname === "/contact" ? classes.active : ""
-              }`}
-            >
-              お問い合わせ
-            </Link>
-          </li>
-        </ul>
-        <div className={classes.navBottom}>
-          <Link
-            href="https://syncable.biz/associate/daisan-kazoku"
-            className={classes.link}
-          >
-            <div className={classes.navButton}>寄付する</div>
-          </Link>
-          <Link href="https://daisan-kazoku.net" className={classes.link}>
-            <div className={classes.navButton}>少年少女はこちら</div>
-          </Link>
-        </div>
-      </nav>
+
+      <HamburgerMenu />
       <div className={classes.childrenWrapper}>
         <div className={classes.main}>
           {headline && (
