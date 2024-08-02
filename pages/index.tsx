@@ -1,7 +1,7 @@
 import styles from "@/styles/Home.module.css";
 // import { Announcement } from "@/components/Announcement";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -22,6 +22,12 @@ const Home = () => {
   const isScrolling = useRef<boolean>(false);
 
   const startY = useRef<number>(0); // タッチ開始時のY座標
+
+  const [imageSrc, setImageSrc] = useState<string>(
+    "/img/diagram/status01/frame_0.png"
+  );
+
+  const imageFrameNumerRef = useRef<number>(0);
 
   useEffect(() => {
     const stateList = [0, 1, 2, 3, 4, 5, 6, 7]; //number * 100 vh;
@@ -77,6 +83,13 @@ const Home = () => {
         isScrolling.current = false;
       }, 500);
     };
+
+    setInterval(() => {
+      imageFrameNumerRef.current = (imageFrameNumerRef.current + 1) % 63;
+      setImageSrc(
+        `/img/diagram/status01/frame_${imageFrameNumerRef.current}.png`
+      );
+    }, 50);
 
     if (mainRef.current) mainRef.current.style.opacity = "1";
     window.addEventListener("wheel", handleScroll, { passive: false });
@@ -152,6 +165,7 @@ const Home = () => {
               pdf
             </a> */}
           </div>
+
           <div className="first-view">
             <p>
               「家に居場所がない」と答える少年少女は4人に1人。
@@ -208,6 +222,13 @@ const Home = () => {
 
         <style jsx>
           {`
+            .image {
+              position: fixed;
+              z-index: -1;
+              top: 20vh;
+              right: 0;
+              text-align: right;
+            }
             .first-view {
               width: 40vw;
               height: 100vh;
@@ -254,6 +275,9 @@ const Home = () => {
           `}
         </style>
       </main>
+      <div className="image">
+        <Image src={imageSrc} alt="diagram/status01" width={500} height={500} />
+      </div>
     </>
   );
 };

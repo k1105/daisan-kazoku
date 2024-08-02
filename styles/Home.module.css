@@ -6,7 +6,7 @@
   overscroll-behavior-y: none;
   opacity: 0;
   font-family: var(--line-seed);
-  transition: opacity 0.3s ease, transform 1s ease;
+  transition: opacity 0.3s ease, transform 0.7s ease;
 }
 
 .container {

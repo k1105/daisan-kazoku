@@ -51,7 +51,7 @@ export const Logo = () => {
 
         @media screen and (max-width: 600px) {
           #daisan {
-            fill: white;
+            // fill: white;
           }
         }
       `}</style>
