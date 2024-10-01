@@ -33,11 +33,8 @@ const Home = () => {
     const stateList = [0, 1, 2, 3, 4, 5, 6, 7]; //number * 100 vh;
 
     const handleScroll = (e: WheelEvent) => {
-      console.log("called");
       e.preventDefault();
       if (Math.abs(e.deltaY) < 50 || isScrolling.current) return;
-
-      console.log("excuted");
 
       isScrolling.current = true;
       state.current =
@@ -207,16 +204,20 @@ const Home = () => {
             </p>
           </div>
           <div className="first-view">
-            そこで第3の家族は、多様な選択肢を提示し
-            <br />
-            それらを掴み取りやすい状態をつくることで、
-            <br />
-            最終的には第1か第2の家族に帰着してもらうことを目指します。
+            <p>
+              そこで第3の家族は、多様な選択肢を提示し
+              <br />
+              それらを掴み取りやすい状態をつくることで、
+              <br />
+              最終的には第1か第2の家族に帰着してもらうことを目指します。
+            </p>
           </div>
           <div className="first-view">
-            第3の家族は「いつか忘れる」居場所になります。
-            <br />
-            忘れたときが、彼ら彼女らが居場所を見つけたとき。
+            <p>
+              第3の家族は「いつか忘れる」居場所になります。
+              <br />
+              忘れたときが、彼ら彼女らが居場所を見つけたとき。
+            </p>
           </div>
         </div>
 
@@ -263,21 +264,21 @@ const Home = () => {
 
             @media screen and (max-width: 600px) {
               .logo {
-                margin-top: 20vh;
                 width: 70%;
               }
 
               .first-view {
-                width: 94vw;
-                margin: 5vh 3vw;
+                width: 100vw;
+                height: 100vh;
+                padding-top: 30vh;
               }
             }
           `}
         </style>
       </main>
-      <div className="image">
+      {/* <div className="image">
         <Image src={imageSrc} alt="diagram/status01" width={500} height={500} />
-      </div>
+      </div> */}
     </>
   );
 };

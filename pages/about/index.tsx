@@ -13,7 +13,7 @@ import BlockContainer from "@/components/BlockContainer";
 const About = () => {
   return (
     <>
-      <Layout pageTitle="第3の家族とは">
+      <Layout pageTitle="第3の家族とは" headline="第3の家族とは">
         <div>
           <div className={styles.jumbotron}>
             <h1>Vision</h1>

@@ -32,8 +32,18 @@
 }
 
 .main {
-  width: 50vw;
-  margin: 3rem auto;
+  width: 90vw;
+  margin: 0 auto;
+}
+
+.headlineContainer {
+  height: 60vh;
+}
+
+.headline {
+  line-height: 60vh;
+  font-weight: 100;
+  font-size: 4rem;
 }
 
 .logo {
@@ -111,6 +121,16 @@
 
   .main {
     width: 90vw;
+  }
+
+  .headlineContainer {
+    height: 50vh;
+  }
+
+  .headline {
+    line-height: 50vh;
+    font-weight: 100;
+    font-size: 3rem;
   }
 
   .logo {

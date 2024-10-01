@@ -16,7 +16,6 @@ export const AnnouncementItem = ({ elem }: Props) => {
   useEffect(() => {
     if (isOpen && contentRef.current) {
       setContentHeight(contentRef.current.scrollHeight);
-      console.log(elem.id);
     } else {
       setContentHeight(0);
     }

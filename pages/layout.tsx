@@ -114,11 +114,10 @@ export default function Layout({
       <HamburgerMenu />
       <div className={classes.childrenWrapper}>
         <div className={classes.main}>
-          {headline && (
-            <h1 style={{ fontWeight: "100", marginBottom: "3rem" }}>
-              {headline}
-            </h1>
-          )}
+          <div className={classes.headlineContainer}>
+            {headline && <h1 className={classes.headline}>{headline}</h1>}
+          </div>
+
           {children}
         </div>
       </div>
