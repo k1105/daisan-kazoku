@@ -157,6 +157,12 @@ const Home = () => {
               <a className="page-link" onClick={() => delayRedirectTo("/data")}>
                 データ
               </a>
+              <a
+                className="page-link"
+                href="mailto:info@daisan-kazoku.net" //href="/contact"
+              >
+                お問い合わせ
+              </a>
             </div>
             {/* <a href="#" className="page-link">
               pdf
