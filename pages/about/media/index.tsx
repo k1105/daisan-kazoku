@@ -48,19 +48,4 @@ const Media = () => {
   );
 };
 
-// getStaticProps関数。ビルド時に実行される
-export async function getStaticProps() {
-  // データの取得
-  const data = await client.get({
-    endpoint: "media",
-  });
-
-  console.log(data);
-
-  // 取得したデータをpropsとしてページコンポーネントに渡す
-  return {
-    props: { data }, // 注意: 実際にこのデータ構造がclient.getから返されるかはAPIの設計に依存します
-  };
-}
-
 export default Media;
