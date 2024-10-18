@@ -1,9 +1,7 @@
 // pages/works/[slug].tsx
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { useRouter } from "next/router";
 import { client } from "@/libs/client";
 import Layout from "../layout";
-import Image from "next/image";
 import { Open_Sans } from "next/font/google";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
 import { AnnouncementItem } from "@/components/annoucement/AnnouncementItem";
@@ -16,12 +14,6 @@ interface WorkPageProps {
 }
 
 const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <Layout pageTitle={work.title} headline="お知らせ">
       <AnnouncementItem elem={work} />
@@ -73,7 +65,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: { slug: work.id },
   }));
 
-  return { paths, fallback: true };
+  return { paths, fallback: false };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
@@ -89,7 +81,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return { notFound: true };
   }
 
-  return { props: { work }, revalidate: 10 };
+  return { props: { work } };
 };
 
 export default WorkPage;
