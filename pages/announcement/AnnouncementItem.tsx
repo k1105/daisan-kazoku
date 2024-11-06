@@ -23,77 +23,82 @@ const AnnouncementItem = ({ elem }: Props) => {
 
   return (
     <>
-      <div
-        className={`content-wrapper ${isOpen ? "open-effect" : "hover-effect"}`}
-      >
+      {elem.title && (
         <div
-          className={`content-header-box ${
+          className={`content-wrapper ${
             isOpen ? "open-effect" : "hover-effect"
           }`}
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
         >
-          <p className="content-header">{elem.title}</p>
-          <div className="property">
-            <Tag text={elem.category.name} />
-            <p
-              style={{
-                fontSize: "0.8rem",
-                color: "gray",
-                lineHeight: "1.6rem",
-              }}
-            >
-              {elem.releaseDate.split("T")[0]}
-            </p>
-          </div>
-        </div>
-
-        <div
-          ref={contentRef} // このdivのrefを設定
-          style={{
-            height: isOpen ? `${contentHeight}px` : "0px",
-            overflow: "hidden",
-            transition: "height ease 0.3s",
-          }}
-        >
-          {elem.ogp && (
-            <div
-              style={{
-                width: "100%",
-                height: "300px",
-                marginBottom: "2rem",
-                position: "relative",
-              }}
-            >
-              <Image
-                src={elem.ogp.url}
-                fill
-                priority
+          <div
+            className={`content-header-box ${
+              isOpen ? "open-effect" : "hover-effect"
+            }`}
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            <p className="content-header">{elem.title}</p>
+            <div className="property">
+              <Tag text={elem.category.name} />
+              <p
                 style={{
-                  objectFit: "contain",
+                  fontSize: "0.8rem",
+                  color: "gray",
+                  lineHeight: "1.6rem",
                 }}
-                alt="ogp-image"
-              />
+              >
+                {elem.releaseDate.split("T")[0]}
+              </p>
             </div>
-          )}
+          </div>
 
           <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: elem.content }}
-          />
-          <div className="close-button-wrapper">
-            <a
-              className="close-button"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-              閉じる
-            </a>
+            ref={contentRef} // このdivのrefを設定
+            style={{
+              height: isOpen ? `${contentHeight}px` : "0px",
+              overflow: "hidden",
+              transition: "height ease 0.3s",
+            }}
+          >
+            {elem.ogp && (
+              <div
+                style={{
+                  width: "100%",
+                  height: "300px",
+                  marginBottom: "2rem",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={elem.ogp.url}
+                  fill
+                  priority
+                  style={{
+                    objectFit: "contain",
+                  }}
+                  alt="ogp-image"
+                />
+              </div>
+            )}
+
+            <div
+              className="content"
+              dangerouslySetInnerHTML={{ __html: elem.content }}
+            />
+            <div className="close-button-wrapper">
+              <a
+                className="close-button"
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
+                閉じる
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
       <style jsx>{`
         .content-wrapper {
           padding-left: 10px;
