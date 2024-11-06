@@ -34,9 +34,7 @@ export const AnnouncementItem = ({ elem }: Props) => {
             setIsOpen(!isOpen);
           }}
         >
-          <div className="content-header">
-            <p>{elem.title}</p>
-          </div>
+          <p className="content-header">{elem.title}</p>
           <div className="property">
             <Tag text={elem.category.name} />
             <p
@@ -66,7 +64,6 @@ export const AnnouncementItem = ({ elem }: Props) => {
                 height: "300px",
                 marginBottom: "2rem",
                 position: "relative",
-                border: "1px solid #eee",
               }}
             >
               <Image
@@ -106,6 +103,13 @@ export const AnnouncementItem = ({ elem }: Props) => {
           transition: all ease 0.3s;
         }
 
+        .content-header {
+          font-size: 1.5rem;
+          font-weight: 100;
+          margin-bottom: 3rem;
+          margin-left: 0.5rem;
+        }
+
         .content-header-box {
           cursor: pointer;
           padding-top: 3rem;
@@ -129,18 +133,13 @@ export const AnnouncementItem = ({ elem }: Props) => {
           padding-top: 3.5rem;
         }
 
-        .content-header {
-          font-size: 1.2rem;
-          margin-bottom: 0.5rem;
-          margin-left: 0.5rem;
-        }
-
         .property {
           display: flex;
           gap: 20px;
         }
 
         .content {
+          max-width: 32rem;
           padding: 3rem 0;
           margin: 0 1rem;
           h2 {
@@ -149,12 +148,17 @@ export const AnnouncementItem = ({ elem }: Props) => {
             font-size: 1rem;
             border-bottom: 0.5px solid #ccc;
           }
-          p {
+          p,
+          li {
             margin-bottom: 1rem;
             line-height: 2rem;
           }
           a {
             color: #92d7ca;
+          }
+          img {
+            width: 100%;
+            height: auto;
           }
         }
 
@@ -169,6 +173,13 @@ export const AnnouncementItem = ({ elem }: Props) => {
           margin-bottom: 1rem;
           color: #ccc;
           cursor: pointer;
+        }
+
+        @media screen and (max-width: 600px) {
+          .content-header {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+          }
         }
       `}</style>
     </>

@@ -67,6 +67,17 @@ export const AnnouncementTable = () => {
       >
         {isLoading && hasMore && <p>loading...</p>}
       </div>
+      <style jsx>{`
+        .table {
+          margin-left: 20rem;
+        }
+
+        @media screen and (max-width: 600px) {
+          .table {
+            margin-left: 0;
+          }
+        }
+      `}</style>
     </>
   );
 };

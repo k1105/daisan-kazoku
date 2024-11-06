@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../layout";
-import { AnnouncementTable } from "../../components/annoucement/AnnoucementTable";
+import { AnnouncementTable } from "./AnnoucementTable";
 
 const Announcement = () => {
   return (

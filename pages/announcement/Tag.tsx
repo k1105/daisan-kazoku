@@ -8,14 +8,15 @@ export const Tag = ({ text }: Props) => {
       <span
         style={{
           display: "inline-block",
-          height: "1.6rem",
-          fontSize: "0.8rem",
-          width: "5rem",
+          height: "1.4rem",
+          fontSize: "0.7rem",
+          width: "4.5rem",
           marginBottom: "1rem",
-          border: "1px solid #eee",
-          borderRadius: "0.8rem",
-          lineHeight: "1.6rem",
+          color: "white",
+          borderRadius: "5px",
+          lineHeight: "1.4rem",
           textAlign: "center",
+          backgroundColor: "#9a9a9a",
         }}
       >
         {text}
