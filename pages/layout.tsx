@@ -1,11 +1,12 @@
 // app/posts/layout.tsx
 "use client";
 import Link from "next/link";
-import classes from "../styles/Layout.module.css";
+import styles from "../styles/Layout.module.css";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { CSSProperties, useEffect, useState } from "react";
 import HamburgerMenu from "@/components/HamburgerMenu";
+import { Logo } from "@/components/Logo";
 
 const useParentPageInfo = (path: string) => {
   const segments = path.split("/").filter((segment) => segment);
@@ -63,20 +64,18 @@ export default function Layout({
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerWidth < 600) {
-        const currentScrollY = window.scrollY;
-        setHeaderStyle({
-          opacity: currentScrollY > lastScrollY ? 0 : 1,
-          filter: currentScrollY > lastScrollY ? "blur(30px)" : "blur(0px)",
-          pointerEvents: currentScrollY > lastScrollY ? "none" : "auto",
-        });
+      const currentScrollY = window.scrollY;
+      setHeaderStyle({
+        opacity: currentScrollY > lastScrollY ? 0 : 1,
+        filter: currentScrollY > lastScrollY ? "blur(30px)" : "blur(0px)",
+        pointerEvents: currentScrollY > lastScrollY ? "none" : "auto",
+      });
 
-        setFooterStyle({
-          transform:
-            currentScrollY > lastScrollY ? "translateY(3rem)" : "translateY(0)",
-        });
-        lastScrollY = window.scrollY;
-      }
+      setFooterStyle({
+        transform:
+          currentScrollY > lastScrollY ? "translateY(3rem)" : "translateY(0)",
+      });
+      lastScrollY = window.scrollY;
     };
 
     let lastScrollY = window.scrollY;
@@ -111,12 +110,29 @@ export default function Layout({
         <meta name="twitter:site" content="@daisan_kazoku" />
       </Head>
 
-      <HamburgerMenu />
-      <div className={classes.childrenWrapper}>
-        <div className={classes.main}>
-          <div className={classes.headlineContainer}>
-            {headline && <h1 className={classes.headline}>{headline}</h1>}
-          </div>
+      <div className="header">
+        <div className="header-left" style={headerStyle}>
+          <Logo />
+        </div>
+        <div className="header-right">
+          <Link href={"/donation"}>
+            <p className="header-link">寄付する</p>
+          </Link>
+          <Link href={"https://daisan-kazoku.net/gedokun"}>
+            <p className="header-link">少年少女はこちら</p>
+          </Link>
+          <HamburgerMenu />
+        </div>
+      </div>
+      <div className={styles.childrenWrapper}>
+        <div className={styles.main}>
+          {headline ? (
+            <div className={styles.headlineContainer}>
+              <h1 className={styles.headline}>{headline}</h1>
+            </div>
+          ) : (
+            <div style={{ marginTop: "20rem" }}></div>
+          )}
 
           {children}
         </div>
@@ -124,17 +140,56 @@ export default function Layout({
 
       <footer>
         {parentPageInfo && (
-          <div className={classes.topicPath} style={footerStyle}>
+          <div className={styles.topicPath} style={footerStyle}>
             <p>
               <Link href={parentPageInfo!.parentPath}>
                 {parentPageInfo?.parentTitle}
-              </Link>{" "}
+              </Link>
               &gt; {pageTitle}
             </p>
           </div>
         )}
       </footer>
-      <style jsx>{``}</style>
+      <style jsx>{`
+        .header {
+          display: flex;
+          width: 94vw;
+          z-index: 120;
+          position: fixed;
+          top: 30px;
+          right: 3vw;
+          justify-content: space-between;
+
+          .header-left {
+            width: 200px;
+            margin-top: 10px;
+            transition: all 500ms ease;
+          }
+
+          .header-right {
+            display: flex;
+            gap: 2rem;
+            line-height: 40px;
+            a {
+              text-decoration: none;
+              color: black;
+            }
+          }
+        }
+
+        @media screen and (max-width: 600px) {
+          .header-link {
+            display: none;
+          }
+
+          .header {
+            .header-left {
+              width: 150px;
+              z-index: 99;
+            }
+          }
+        }
+      `}</style>
     </>
   );
 }

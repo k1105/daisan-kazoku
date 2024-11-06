@@ -29,6 +29,7 @@ const CardContainer = () => {
       <style jsx>{`
         .card-container {
           display: flex;
+          flex-wrap: wrap;
           padding-top: 30px;
           padding-left: 30px;
           overflow-x: auto;

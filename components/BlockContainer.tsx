@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import styles from "@/styles/Article.module.scss";
 
 const BlockContainer: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -28,29 +29,13 @@ const BlockContainer: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <div
-      className={`main fade-in-section ${isVisible ? "is-visible" : ""}`}
+      className={`${styles.blockContainer} fade-in-section ${
+        isVisible ? "is-visible" : ""
+      }`}
       ref={domRef}
     >
       {children}
       <style jsx>{`
-        .main {
-          margin-bottom: 100px;
-
-          h2 {
-            font-weight: normal;
-            margin-bottom: 1.2rem;
-          }
-
-          h3 {
-            font-weight: normal;
-            margin-bottom: 1rem;
-          }
-
-          section {
-            margin-bottom: 5rem;
-          }
-        }
-
         .fade-in-section {
           opacity: 0;
           transform: translateY(20px);

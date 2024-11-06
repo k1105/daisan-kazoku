@@ -2,8 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import classes from "@/styles/Layout.module.css";
+import classes from "@/styles/HamburgerMenu.module.scss";
 import { Logo } from "./Logo";
+import { ExternalLinkIcon } from "./icons/ExternalLinkIcon";
 
 export default function HamburgerMenu() {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +43,6 @@ export default function HamburgerMenu() {
                   <Logo />
                 </Link>
               </div>
-
               <ul className={classes.navLink}>
                 <li className={classes.list}>
                   <Link
@@ -110,10 +110,10 @@ export default function HamburgerMenu() {
                   href="https://syncable.biz/associate/daisan-kazoku"
                   className={classes.link}
                 >
-                  <div className={classes.navButton}>寄付する</div>
+                  寄付する <ExternalLinkIcon />
                 </Link>
                 <Link href="https://daisan-kazoku.net" className={classes.link}>
-                  <div className={classes.navButton}>少年少女はこちら</div>
+                  少年少女はこちら <ExternalLinkIcon />
                 </Link>
               </div>
             </nav>
@@ -122,16 +122,13 @@ export default function HamburgerMenu() {
       </div>
       <style jsx>{`
         .menu-button {
-          position: fixed;
-          top: 30px;
-          right: 3vw;
           width: 40px;
           height: 40px;
           border-radius: 50%;
           background: #ddd;
           cursor: pointer;
-          z-index: 120;
           transition: background-color 1s ease-in;
+          z-index: 10;
         }
 
         .menu-button.open {
@@ -148,7 +145,7 @@ export default function HamburgerMenu() {
           display: flex;
           justify-content: center;
           align-items: center;
-          z-index: 110;
+          z-index: 1;
           clip-path: circle(0% at calc(97vw - 20px) 55px);
           transition: clip-path 1s ease-in-out;
         }
@@ -163,41 +160,10 @@ export default function HamburgerMenu() {
         }
 
         .first-view {
-          margin: 5vw 30px;
-        }
-        .logo {
-          width: 200px;
-          height: 100px;
-          margin-bottom: 1rem;
-          position: relative;
-        }
-        .link {
-          font-size: 1.2rem;
-          display: flex;
-          flex-direction: column;
-        }
-
-        .page-link {
-          cursor: pointer;
-          text-decoration: none;
-          color: black;
-          font-weight: 100;
-          border-left: 1px solid #ccc;
-          margin-bottom: 1rem;
-          padding-left: 1rem;
-          transition: all ease 0.5s;
-        }
-
-        .page-link:hover {
-          filter: blur(0.5px);
+          margin: 35vh 10vw 0;
         }
 
         @media screen and (max-width: 600px) {
-          .logo {
-            margin-top: 20vh;
-            width: 70%;
-          }
-
           .first-view {
             width: 94vw;
             margin: 5vh 3vw;

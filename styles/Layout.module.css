@@ -1,53 +1,20 @@
-.nav {
-  padding-top: 3vh;
-  padding-left: 3vw;
-  /* background-color: #ddd; */
-  width: 300px;
-  height: 100vh;
-}
-
-.navBottom {
-  margin-top: 10rem;
-  height: 7rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.navButton {
-  border: 2px solid var(--light-green);
-  width: 200px;
-  height: 3rem;
-  text-align: center;
-  line-height: 3rem;
-  border-radius: 1.5rem;
-  color: var(--light-green);
-  font-weight: 700;
-  transition: all 0.3s ease;
-}
-
-.navButton:hover {
-  background-color: var(--light-green);
-  color: white;
-}
-
 .main {
   width: 90vw;
   margin: 0 auto;
 }
 
 .headlineContainer {
-  height: 60vh;
+  height: 70vh;
 }
 
 .headline {
-  line-height: 60vh;
-  font-weight: 100;
-  font-size: 4rem;
+  line-height: 70vh;
+  font-weight: 400;
+  font-size: 3rem;
 }
 
 .logo {
-  width: 200px;
+  width: 400px;
   height: 100px;
   margin-bottom: 1rem;
   margin-left: -1rem;
@@ -63,11 +30,6 @@
   border-radius: 50%;
 }
 
-.link {
-  text-decoration: none;
-  color: black;
-}
-
 .menuButton {
   display: none;
 }
@@ -77,48 +39,11 @@
   font-weight: normal;
 }
 
-.list {
-  position: relative;
-  list-style: none;
-  font-weight: 100;
-  transition: all 100ms ease;
-}
-
-.list::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -1rem;
-  height: 2rem;
-  border-left: 1px solid #ddd;
-}
-
-.list.active::before {
-  border-color: var(--light-green);
-}
-
-.list:hover::before {
-  border-color: var(--light-green);
-}
-.list:hover {
-  filter: blur(0.5px);
-}
-
 .topicPath {
   display: none;
 }
 
 @media screen and (max-width: 600px) {
-  .nav {
-    position: fixed;
-    width: 100vw;
-    margin: 0;
-    padding: 20vh 5vw;
-    top: 0;
-    left: 0;
-    transition: all 500ms ease-in-out;
-  }
-
   .main {
     width: 90vw;
   }
@@ -137,19 +62,7 @@
     width: 50vw;
     height: 60px;
     margin: 0;
-  }
-
-  .navButton {
-    border: 2px solid var(--light-green);
-    width: 200px;
-    height: 3rem;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 3rem;
-    border-radius: 1.5rem;
-    color: var(--light-green);
-    font-weight: 700;
-    transition: all 0.3s ease;
+    display: none;
   }
 
   .topicPath {
