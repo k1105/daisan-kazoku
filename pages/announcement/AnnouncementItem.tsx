@@ -7,7 +7,7 @@ type Props = {
   elem: News;
 };
 
-export const AnnouncementItem = ({ elem }: Props) => {
+const AnnouncementItem = ({ elem }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null); // コンテンツの ref
@@ -185,3 +185,5 @@ export const AnnouncementItem = ({ elem }: Props) => {
     </>
   );
 };
+
+export default AnnouncementItem;

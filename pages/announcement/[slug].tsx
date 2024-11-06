@@ -4,7 +4,7 @@ import { client } from "@/libs/client";
 import Layout from "../layout";
 import { Open_Sans } from "next/font/google";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
-import { AnnouncementItem } from "./AnnouncementItem";
+import AnnouncementItem from "./AnnouncementItem";
 
 const EnTitle = Open_Sans({ weight: "700", subsets: ["latin"] });
 const JaTitle = Zen_Kaku_Gothic_New({ weight: "700", subsets: ["latin-ext"] });

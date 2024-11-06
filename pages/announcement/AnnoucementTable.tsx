@@ -1,8 +1,8 @@
-import { AnnouncementItem } from "./AnnouncementItem";
+import AnnouncementItem from "./AnnouncementItem";
 import { client } from "@/libs/client";
 import { useState, useEffect, useRef, useCallback } from "react";
 
-export const AnnouncementTable = () => {
+const AnnouncementTable = () => {
   const [data, setData] = useState<News[]>([]);
   const [offset, setOffset] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -81,3 +81,5 @@ export const AnnouncementTable = () => {
     </>
   );
 };
+
+export default AnnouncementTable;
