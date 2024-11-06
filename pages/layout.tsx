@@ -89,10 +89,8 @@ export default function Layout({
     <>
       <Head>
         <title>
-          <title>
-            {typeof pageTitle === "string" ? pageTitle : "Unknown Title"}
-          </title>
-          | NPO法人 第３の家族
+          {typeof pageTitle === "string" ? pageTitle : "Unknown Title"} |
+          NPO法人 第３の家族
         </title>
         <meta
           property="og:title"
