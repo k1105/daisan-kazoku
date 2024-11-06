@@ -2,7 +2,7 @@ type Props = {
   text: string;
 };
 
-export const Tag = ({ text }: Props) => {
+const Tag = ({ text }: Props) => {
   return (
     <>
       <span
@@ -24,3 +24,5 @@ export const Tag = ({ text }: Props) => {
     </>
   );
 };
+
+export default Tag;
