@@ -88,7 +88,12 @@ export default function Layout({
   return (
     <>
       <Head>
-        <title>{pageTitle} | NPO法人 第３の家族</title>
+        <title>
+          {typeof pageTitle === "string"
+            ? pageTitle
+            : (pageTitle as string[]).join(" ")}
+          | NPO法人 第３の家族
+        </title>
         <meta
           property="og:title"
           content={`${pageTitle} | NPO法人 第３の家族`}

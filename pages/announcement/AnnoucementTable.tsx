@@ -2,15 +2,20 @@ import AnnouncementItem from "./AnnouncementItem";
 import { client } from "@/libs/client";
 import { useState, useEffect, useRef, useCallback } from "react";
 
-const AnnouncementTable = () => {
-  const [data, setData] = useState<News[]>([]);
-  const [offset, setOffset] = useState(0);
+type Props = {
+  initialData: News[];
+  totalCount: number;
+};
+
+const AnnouncementTable = ({ initialData, totalCount }: Props) => {
+  const [data, setData] = useState<News[]>(initialData);
+  const [offset, setOffset] = useState(initialData.length);
   const [isLoading, setIsLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true); // 追加コンテンツがあるかどうかのフラグ
+  const [hasMore, setHasMore] = useState(initialData.length < totalCount);
   const loader = useRef<HTMLDivElement | null>(null);
 
   const fetchMoreData = useCallback(async () => {
-    if (!hasMore || isLoading) return; // 既にロード完了またはロード中なら何もしない
+    if (!hasMore || isLoading) return;
 
     setIsLoading(true);
     const response = await client.get({
@@ -22,15 +27,10 @@ const AnnouncementTable = () => {
     setOffset((prevOffset) => prevOffset + 10);
     setIsLoading(false);
 
-    // すべてのコンテンツを取得したらロードを停止
-    if (response.contents.length === 0 || response.totalCount <= offset + 10) {
-      setHasMore(false); // 追加データがないことを示す
+    if (response.contents.length === 0 || totalCount <= offset + 10) {
+      setHasMore(false);
     }
-  }, [offset, hasMore, isLoading]);
-
-  useEffect(() => {
-    fetchMoreData();
-  }, [fetchMoreData]); // 初回ロード
+  }, [offset, hasMore, isLoading, totalCount]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,11 +65,16 @@ const AnnouncementTable = () => {
         ref={loader}
         style={{ height: "20px", backgroundColor: "transparent" }}
       >
-        {isLoading && hasMore && <p>loading...</p>}
+        {isLoading && hasMore && <p className="loading">loading...</p>}
       </div>
       <style jsx>{`
         .table {
           margin-left: 20rem;
+        }
+
+        .loading {
+          line-height: 10rem;
+          text-align: center;
         }
 
         @media screen and (max-width: 600px) {
