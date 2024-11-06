@@ -27,7 +27,10 @@ const AnnouncementTable = ({ initialData, totalCount }: Props) => {
     setOffset((prevOffset) => prevOffset + 10);
     setIsLoading(false);
 
-    if (response.contents.length === 0 || totalCount <= offset + 10) {
+    if (
+      (response.contents && response.contents.length === 0) ||
+      totalCount <= offset + 10
+    ) {
       setHasMore(false);
     }
   }, [offset, hasMore, isLoading, totalCount]);
