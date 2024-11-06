@@ -57,9 +57,9 @@ const AnnouncementTable = ({ initialData, totalCount }: Props) => {
   return (
     <>
       <div className="table">
-        {data.map((elem) => (
-          <AnnouncementItem key={elem.id} elem={elem} />
-        ))}
+        {data &&
+          data.length > 0 &&
+          data.map((elem) => <AnnouncementItem key={elem.id} elem={elem} />)}
       </div>
       <div
         ref={loader}

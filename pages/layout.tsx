@@ -89,9 +89,9 @@ export default function Layout({
     <>
       <Head>
         <title>
-          {typeof pageTitle === "string"
-            ? pageTitle
-            : (pageTitle as string[]).join(" ")}
+          <title>
+            {typeof pageTitle === "string" ? pageTitle : "Unknown Title"}
+          </title>
           | NPO法人 第３の家族
         </title>
         <meta
