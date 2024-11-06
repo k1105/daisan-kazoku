@@ -51,7 +51,7 @@ const Table = () => {
         }
         th,
         td {
-          border: 1px solid #ccc;
+          border-bottom: 1px solid var(--gray);
           padding: 10px;
         }
 
@@ -65,7 +65,16 @@ const Table = () => {
           width: 20%;
           vertical-align: top;
           text-align: left;
-          background-color: #eee;
+          color: #9a9a9a;
+        }
+
+        @media screen and (max-width: 600px) {
+          table {
+            font-size: 0.8rem;
+          }
+          th {
+            font-size: 0.6rem;
+          }
         }
       `}</style>
     </>

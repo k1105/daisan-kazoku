@@ -7,11 +7,13 @@
 
 :root {
   --light-green: #92d7ca;
+  --green: #38b69e;
   --blue: #5fb7d6;
+  --gray: #d9d9d9;
 }
 
 body {
-  background-color: #fafafa;
+  background-color: white;
 }
 
 @media screen and (max-width: 600px) {

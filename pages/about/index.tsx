@@ -42,7 +42,7 @@ const About = () => {
             </div>
           </BlockContainer>
 
-          <BlockContainer>
+          <BlockContainer color={"gray"}>
             <div className={styles.leftSideItem}>
               <h1 className={styles.headline}>対象者</h1>
             </div>
@@ -98,7 +98,7 @@ const About = () => {
             </div>
           </BlockContainer>
 
-          <BlockContainer>
+          <BlockContainer color={"green"}>
             <div className={styles.leftSideItem}>
               <h1 className={styles.headline}>やること</h1>
             </div>
@@ -183,43 +183,42 @@ const About = () => {
             <div className={styles.rightSideItem}>
               <div className="profile-container">
                 <p className="position">代表</p>
-                <h2>奥村春香</h2>
-                <p className="description">
-                  活動のきっかけは、大学3年生の時に家庭環境問題が原因で弟を自死で亡くしたことです。私の受験失敗を機に家庭が壊れ、親子喧嘩が絶えない中での出来事でした。1年間は何もできなかったのですが、もとからものづくりが好きだったので、家庭環境に悩む人のための掲示板を試しに作ってみたところ、想像以上に人が集まりました。「つくってくれてありがとう」という嬉しい言葉をもらう一方、集まる悩みの重大さを実感し「もっとやらなければ」と思い、新卒で入社したLINE株式会社を退職し、NPO法人第3の家族を立ち上げました。今は、自身の過去のために活動をやっているという気持ちはなく、はざまの少年少女たちと一緒に揺られながら、より良い状態をつくって行くことに没頭しています。
-                </p>
-                <Link href="/people/okumura">
-                  <div className={styles.innerLinkWrapper}>
-                    <p>詳細プロフィール</p>
-                  </div>
-                </Link>
+                <div>
+                  <h2>奥村春香</h2>
+                  <p className="description">
+                    活動のきっかけは、大学3年生の時に家庭環境問題が原因で弟を自死で亡くしたことです。私の受験失敗を機に家庭が壊れ、親子喧嘩が絶えない中での出来事でした。1年間は何もできなかったのですが、もとからものづくりが好きだったので、家庭環境に悩む人のための掲示板を試しに作ってみたところ、想像以上に人が集まりました。「つくってくれてありがとう」という嬉しい言葉をもらう一方、集まる悩みの重大さを実感し「もっとやらなければ」と思い、新卒で入社したLINE株式会社を退職し、NPO法人第3の家族を立ち上げました。今は、自身の過去のために活動をやっているという気持ちはなく、はざまの少年少女たちと一緒に揺られながら、より良い状態をつくって行くことに没頭しています。
+                  </p>
+                  <Link href="/people/okumura">
+                    <div className={styles.innerLinkWrapper}>
+                      <p>詳細プロフィール</p>
+                    </div>
+                  </Link>
+                </div>
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  justifyContent: "space-between",
-                }}
-              >
-                <DepartmentCard
-                  name="デザインチーム"
-                  description="グラフィック・サイトのデザイン（UI）・イベントのディレクションなどを行います。"
-                />
 
-                <DepartmentCard
-                  name="開発チーム"
-                  description="サイトの開発・データ分析を行います。論文発表も行います。"
-                />
+              <DepartmentCard
+                en="Designer"
+                name="デザインチーム"
+                description="グラフィック・サイトのデザイン（UI）・イベントのディレクションなどを行います。"
+              />
 
-                <DepartmentCard
-                  name="元当事者チーム"
-                  description="自分たちの経験から、今悩む少年少女たちに何ができるかを考えます。"
-                />
+              <DepartmentCard
+                en="Engineer"
+                name="開発チーム"
+                description="サイトの開発・データ分析を行います。論文発表も行います。"
+              />
 
-                <DepartmentCard
-                  name="事務局"
-                  description="第3の家族のバックオフィスを担当します。"
-                />
-              </div>
+              <DepartmentCard
+                en="Former Suffer"
+                name="元当事者チーム"
+                description="自分たちの経験から、今悩む少年少女たちに何ができるかを考えます。"
+              />
+
+              <DepartmentCard
+                en="Back Office"
+                name="事務局"
+                description="第3の家族のバックオフィスを担当します。"
+              />
             </div>
           </BlockContainer>
 
@@ -416,8 +415,11 @@ const About = () => {
         <style jsx>
           {`
             .profile-container {
+              display: flex;
+              gap: 5rem;
               margin-bottom: 5rem;
               .position {
+                width: 5rem;
                 font-size: 0.8rem;
               }
               .description {

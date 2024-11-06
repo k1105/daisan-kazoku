@@ -49,13 +49,12 @@
   }
 
   .headlineContainer {
-    height: 50vh;
+    height: 40vh;
   }
 
   .headline {
-    line-height: 50vh;
-    font-weight: 100;
-    font-size: 3rem;
+    line-height: 40vh;
+    font-size: 2rem;
   }
 
   .logo {

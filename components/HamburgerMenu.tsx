@@ -125,14 +125,14 @@ export default function HamburgerMenu() {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          background: #ddd;
+          background: #a9a9a9;
           cursor: pointer;
           transition: background-color 1s ease-in;
           z-index: 10;
         }
 
         .menu-button.open {
-          background-color: white;
+          background-color: #ddd;
         }
 
         .nav-overlay {
@@ -141,7 +141,7 @@ export default function HamburgerMenu() {
           left: 0;
           width: 100vw;
           height: 100vh;
-          background: #eee;
+          background: white;
           display: flex;
           justify-content: center;
           align-items: center;

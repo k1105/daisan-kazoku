@@ -16,7 +16,7 @@ const ArticleCard = ({ headline, image, url, date }: Props) => {
           <div
             style={{
               width: "100%",
-              height: "250px",
+              height: "220px",
               marginBottom: "1rem",
               position: "relative",
             }}
@@ -39,7 +39,7 @@ const ArticleCard = ({ headline, image, url, date }: Props) => {
         .container {
           border-radius: 10px;
           display: block;
-          width: 400px;
+          width: 350px;
           margin-bottom: 20px;
         }
 

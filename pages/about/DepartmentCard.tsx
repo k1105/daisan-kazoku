@@ -1,32 +1,47 @@
 type Props = {
   name: string;
   description: string;
+  en: string;
 };
 
-const DepartmentCard = ({ name, description }: Props) => {
+const DepartmentCard = ({ en, name, description }: Props) => {
   return (
     <>
-      <div>
-        <h1>{name}</h1>
-        <p>{description}</p>
+      <div className="container">
+        <div className="position">
+          <p>{en}</p>
+        </div>
+        <div>
+          <h1>{name}</h1>
+          <p>{description}</p>
+        </div>
       </div>
       <style jsx>{`
-        div {
-          width: 49%;
-          height: 200px;
-          border-radius: 10px;
+        .container {
+          display: flex;
+          gap: 0rem;
+          margin-bottom: 5rem;
+        }
+        .position {
+          width: 10rem;
+          font-size: 0.8rem;
+          line-height: 0.5rem;
         }
 
         h1 {
           font-weight: normal;
-          border-bottom: 1px solid #ccc;
-          font-size: 1.5rem;
-          margin-bottom: 1.5rem;
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
         }
 
         @media screen and (max-width: 600px) {
-          div {
-            width: 45%;
+          .container {
+            flex-direction: column;
+            margin-bottom: 3rem;
+          }
+          .position {
+            font-size: 0.6rem;
+            color: #9a9a9a;
           }
           h1 {
             font-size: 1.2rem;

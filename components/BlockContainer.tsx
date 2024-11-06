@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "@/styles/Article.module.scss";
 
-const BlockContainer: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+const BlockContainer: React.FC<{
+  children: React.ReactNode;
+  color?: "green" | "gray";
+}> = ({ children, color }) => {
   const [isVisible, setIsVisible] = useState(false);
   const domRef = useRef<HTMLDivElement | null>(null);
 
@@ -31,6 +32,8 @@ const BlockContainer: React.FC<{ children: React.ReactNode }> = ({
     <div
       className={`${styles.blockContainer} fade-in-section ${
         isVisible ? "is-visible" : ""
+      } ${color == "gray" ? styles.gray : ""} ${
+        color == "green" ? styles.green : ""
       }`}
       ref={domRef}
     >
