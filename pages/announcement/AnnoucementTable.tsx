@@ -18,22 +18,24 @@ const AnnouncementTable = ({ initialData, totalCount }: Props) => {
     if (!hasMore || isLoading) return;
 
     setIsLoading(true);
-    const response = await client.get({
-      endpoint: "news",
-      queries: { offset, limit: 10 },
-    });
+    try {
+      const response = await client.get({
+        endpoint: "news",
+        queries: { offset, limit: 10 },
+      });
 
-    setData((prevData) => [...prevData, ...response.contents]);
-    setOffset((prevOffset) => prevOffset + 10);
-    setIsLoading(false);
-
-    if (
-      (response.contents && response.contents.length === 0) ||
-      totalCount <= offset + 10
-    ) {
-      setHasMore(false);
+      if (response.contents && response.contents.length > 0) {
+        setData((prevData) => [...prevData, ...response.contents]);
+        setOffset((prevOffset) => prevOffset + 10);
+      } else {
+        setHasMore(false);
+      }
+    } catch (error) {
+      console.error("データの取得に失敗しました:", error);
+    } finally {
+      setIsLoading(false);
     }
-  }, [offset, hasMore, isLoading, totalCount]);
+  }, [offset, hasMore, isLoading]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
