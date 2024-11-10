@@ -91,7 +91,92 @@ const AnnouncementItem = ({ elem }: Props) => {
       </div>
 
       <style jsx>{`
-        /* CSS styles here */
+        .content-wrapper {
+          padding-left: 10px;
+          padding-right: 10px;
+          border-bottom: 0.5px solid #ccc;
+          overflow: hidden;
+          transition: all ease 0.3s;
+        }
+
+        .content-header {
+          font-size: 1.5rem;
+          font-weight: 100;
+          margin-bottom: 3rem;
+          margin-left: 0.5rem;
+        }
+
+        .content-header-box {
+          cursor: pointer;
+          padding-top: 3rem;
+          transition: all ease 0.3s;
+        }
+
+        @media (pointer: fine) {
+          .content-wrapper.hover-effect:hover {
+            background-color: white;
+          }
+          .content-header-box.hover-effect:hover {
+            padding-top: 3.5rem;
+          }
+        }
+
+        .content-wrapper.open-effect {
+          background-color: white;
+        }
+
+        .content-header-box.open-effect {
+          padding-top: 3.5rem;
+        }
+
+        .property {
+          display: flex;
+          gap: 20px;
+        }
+
+        .content {
+          max-width: 32rem;
+          padding: 3rem 0;
+          margin: 0 1rem;
+          h2 {
+            margin-bottom: 1rem;
+            line-height: 2rem;
+            font-size: 1rem;
+            border-bottom: 0.5px solid #ccc;
+          }
+          p,
+          li {
+            margin-bottom: 1rem;
+            line-height: 2rem;
+          }
+          a {
+            color: #92d7ca;
+          }
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .close-button-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .close-button {
+          text-align: right;
+          margin-bottom: 1rem;
+          color: #ccc;
+          cursor: pointer;
+        }
+
+        @media screen and (max-width: 600px) {
+          .content-header {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+          }
+        }
       `}</style>
     </>
   );
