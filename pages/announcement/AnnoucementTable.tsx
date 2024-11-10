@@ -26,7 +26,7 @@ const AnnouncementTable = ({ initialData, totalCount }: Props) => {
         queries: { offset, limit: 10 },
       });
 
-      if (response && response.contents && response.contents.length > 0) {
+      if (response?.contents && response.contents.length > 0) {
         setData((prevData) => [...prevData, ...response.contents]);
         setOffset((prevOffset) => prevOffset + 10);
       } else {
@@ -64,7 +64,7 @@ const AnnouncementTable = ({ initialData, totalCount }: Props) => {
   return (
     <>
       <div className="table">
-        {data && data.length > 0 ? (
+        {data.length > 0 ? (
           data.map((elem) => <AnnouncementItem key={elem.id} elem={elem} />)
         ) : (
           <p>データがありません</p>
