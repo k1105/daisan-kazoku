@@ -103,11 +103,11 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>NPO法人 第３の家族</title>
+        <title>NPO法人第3の家族 | どんな家族も生きやすい社会を構築する</title>
         <meta property="og:title" content="NPO法人 第３の家族" />
         <meta
           property="og:description"
-          content="一人でも解決に近づけるような実用的サービス。 家庭環境問題のはざまで悩む少年少女に。 "
+          content="どんな家族も生きやすい社会を構築する。家庭環境問題のはざまの少年少女が自分の居場所を見つけるための、寄り添わない支援。 "
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://daisan-kazoku.vercel.app" />

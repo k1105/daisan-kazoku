@@ -2,6 +2,7 @@ import Layout from "../layout";
 import styles from "@/styles/Article.module.scss";
 import BlockContainer from "@/components/BlockContainer";
 import Link from "next/link";
+import { PieChart } from "@/components/PieChart";
 
 export default function Donation() {
   return (
@@ -44,8 +45,10 @@ export default function Donation() {
           <BlockContainer>
             <div className={styles.leftSideItem}></div>
             <div className={styles.rightSideItem}>
-              <h2>「別に殴られてないし、虐待ってほどではない」</h2>
-              <p>虐待ほどではない「はざま」があります。</p>
+              <div className="section">
+                <h2>「別に殴られてないし、虐待ってほどではない」</h2>
+                <p>虐待ほどではない「はざま」があります。</p>
+              </div>
               <ol>
                 <li>
                   <b>厳しい理想</b>
@@ -70,8 +73,84 @@ export default function Donation() {
               </ol>
             </div>
           </BlockContainer>
+          <BlockContainer>
+            <div className={styles.leftSideItem}></div>
+            <div className={styles.rightSideItem}>
+              <h2>誰にも相談しない間に、極端な選択肢の可能性</h2>
+              <p>
+                第3の家族には、既存の支援を使っていない少年少女が多くいます。
+                <br />
+                そして、彼ら・彼女らは将来に困難を抱えうるリスクを抱えています。
+              </p>
+              <div className="diagram-list">
+                <div className="diagram-container">
+                  <PieChart numberList={[80, 20]} />
+                  <p>
+                    第3の家族のユーザーのうち、公的支援を使っていない人は約8割
+                  </p>
+                </div>
+              </div>
+            </div>
+          </BlockContainer>
+          <BlockContainer>
+            <div className={styles.leftSideItem}></div>
+            <div className={styles.rightSideItem}>
+              <h2>どんな家族も生きやすい社会を構築するために</h2>
+              <div className="section">
+                <p>
+                  第3の家族は、親が悪いとも思っていません。
+                  <br />
+                  一方で、「親ガチャ」「毒親」といった言葉が流行るのは、若者から見てそういった社会になっているからでしょう。
+                  <br />
+                  親も子も揺らぎがあり、それを受け止められるような社会構築を目指します。
+                </p>
+              </div>
+              <div className="section">
+                <h3>居場所を見つけるためのプラットフォーム</h3>
+                <p>
+                  はざまの少年少女たちが居場所を見つけるためのプラットフォームを運営しています。
+                </p>
+              </div>
+              <div className="section">
+                <h3>問題を根本的に解決するための社会構築</h3>
+                <p>
+                  <b>はざまの声を集める</b>
+                </p>
+                <p>
+                  今まで一人一人が抱えていた声を、第3の家族のプラットフォームを通じてかたちにします。見えなかった社会問題を可視化します。
+                </p>
+                <p>
+                  <b>政策・文化提言</b>
+                </p>
+                <p>
+                  はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
+                </p>
+              </div>
+            </div>
+          </BlockContainer>
         </>
       </Layout>
+      <style jsx>{`
+        .section {
+          margin-bottom: 4rem;
+        }
+        .diagram-list {
+          display: flex;
+          justify-content: space-between;
+        }
+        .diagram-container {
+          margin: 4rem 0 0;
+          width: 45%;
+          p {
+            margin: 1.5rem auto 0;
+            text-align: center;
+            width: 80%;
+            font-size: 0.8rem;
+            line-height: 1rem;
+            color: var(--dark-gray);
+          }
+        }
+      `}</style>
     </>
   );
 }

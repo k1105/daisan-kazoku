@@ -5,6 +5,9 @@ import Link from "next/link";
 import classes from "@/styles/HamburgerMenu.module.scss";
 import { Logo } from "./Logo";
 import { ExternalLinkIcon } from "./icons/ExternalLinkIcon";
+import { SocialFacebook } from "./icons/SocialFacebook";
+import { SocialX } from "./icons/SocialX";
+import { SocialInstagram } from "./icons/SocialInstagram";
 
 export default function HamburgerMenu() {
   const [isVisible, setIsVisible] = useState(false);
@@ -115,6 +118,17 @@ export default function HamburgerMenu() {
                 <Link href="https://daisan-kazoku.net" className={classes.link}>
                   少年少女はこちら <ExternalLinkIcon />
                 </Link>
+                <div className="social-icons">
+                  <Link href="https://x.com/daisan_kazoku">
+                    <SocialX />
+                  </Link>
+                  <Link href="https://www.instagram.com/daisan_kazoku/">
+                    <SocialInstagram />
+                  </Link>
+                  <Link href="https://www.facebook.com/profile.php?id=61550918296580">
+                    <SocialFacebook />
+                  </Link>
+                </div>
               </div>
             </nav>
           </div>
@@ -125,7 +139,7 @@ export default function HamburgerMenu() {
           width: 40px;
           height: 40px;
           border-radius: 50%;
-          background: #a9a9a9;
+          background: var(--dark-gray);
           cursor: pointer;
           transition: background-color 1s ease-in;
           z-index: 10;
@@ -163,10 +177,24 @@ export default function HamburgerMenu() {
           margin: 35vh 10vw 0;
         }
 
+        .social-icons {
+          margin-top: 7rem;
+          font-size: 2rem;
+          display: flex;
+          gap: 0.8rem;
+          color: #777;
+        }
+
         @media screen and (max-width: 600px) {
           .first-view {
             width: 94vw;
             margin: 5vh 3vw;
+          }
+
+          .social-icons {
+            font-size: 1.5rem;
+            gap: 0.6rem;
+            margin-top: 2rem;
           }
         }
       `}</style>
