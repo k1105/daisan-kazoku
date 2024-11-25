@@ -1,7 +1,7 @@
 import Tag from "./Tag";
 import styles from "@/styles/Announcement.module.scss";
 
-export const ArticleHeader = ({
+const ArticleHeader = ({
   isOpen,
   title,
   categoryName,
@@ -28,3 +28,5 @@ export const ArticleHeader = ({
     </div>
   );
 };
+
+export default ArticleHeader;

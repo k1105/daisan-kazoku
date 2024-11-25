@@ -5,8 +5,8 @@ import Layout from "../layout";
 import { Open_Sans } from "next/font/google";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
 import styles from "@/styles/Announcement.module.scss";
-import { ArticleBody } from "./ArticleBody";
-import { ArticleHeader } from "./ArticleHeader";
+import ArticleBody from "./ArticleBody";
+import ArticleHeader from "./ArticleHeader";
 
 const EnTitle = Open_Sans({ weight: "700", subsets: ["latin"] });
 const JaTitle = Zen_Kaku_Gothic_New({ weight: "700", subsets: ["latin-ext"] });

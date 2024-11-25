@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "@/styles/Announcement.module.scss";
 
-export const ArticleBody = ({
+const ArticleBody = ({
   imageUrl,
   content,
 }: {
@@ -37,3 +37,5 @@ export const ArticleBody = ({
     </div>
   );
 };
+
+export default ArticleBody;

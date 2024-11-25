@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { CopyLink } from "@/components/CopyLink";
 import styles from "@/styles/Announcement.module.scss";
-import { ArticleHeader } from "./ArticleHeader";
-import { ArticleBody } from "./ArticleBody";
+import ArticleHeader from "./ArticleHeader";
+import ArticleBody from "./ArticleBody";
 
 type Props = {
   elem: News;
