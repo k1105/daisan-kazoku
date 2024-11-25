@@ -332,7 +332,7 @@ const About = () => {
                   headline="NHK NEWS
                   おはよう日本「”家にいると苦しい”から脱出するための「あなたを助ける手札」」"
                   url="https://www.nhk.jp/p/ohayou/ts/QLP4RZ8ZY3/blog/bl/pzvl7wDPqn/bp/pkZZqxOXmk/"
-                  image="/img/article-thumbnail/nhk.png"
+                  image="https://daisan-kazoku.vercel.app/ogp.png"
                 />
                 <ArticleCard
                   date="2024.02"
@@ -340,7 +340,7 @@ const About = () => {
                   SDGs「4人に1人の若者が「家に居場所がない」。"寄り添わない"支援で生き抜くための手札を
                   #豊かな未来を創る人」'
                   url="https://sdgs.yahoo.co.jp/originals/198.html"
-                  image="/img/article-thumbnail/yahoo.jpeg"
+                  image="https://daisan-kazoku.vercel.app/ogp.png"
                 />
               </div>
               <Link href="/about/media">
