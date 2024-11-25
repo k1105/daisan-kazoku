@@ -358,7 +358,7 @@ const About = () => {
               <ul className={styles.list}>
                 <li>
                   <a
-                    href="https://drive.google.com/file/d/1C5H_esZlLQjJUlRDy-NKEo8CVFQUiuwh/view"
+                    href="https://drive.google.com/file/d/1l7ols46aMudmrzikGKUFP3qcmhx3JJz5/view"
                     className={styles.pdfLink}
                   >
                     定款
