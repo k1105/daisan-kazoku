@@ -1,0 +1,104 @@
+.icon {
+  font-size: 1.5rem;
+  margin: -0.5rem 0.2rem 0;
+  transform: translate(0, 0.3rem);
+}
+
+.table {
+  margin-left: 20rem;
+}
+
+.loading {
+  line-height: 10rem;
+  text-align: center;
+}
+
+.contentWrapper {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 0.5px solid #ccc;
+  overflow: hidden;
+  transition: all ease 0.3s;
+}
+
+.contentHeader {
+  font-size: 1.5rem;
+  font-weight: 100;
+  padding-top: 2rem;
+  margin-bottom: 3rem;
+  margin-left: 0.5rem;
+}
+
+.contentHeaderBox {
+  cursor: pointer;
+  padding-top: 3rem;
+  transition: all ease 0.3s;
+}
+
+@media (pointer: fine) {
+  .hoverEffect:hover {
+    padding-top: 0.5rem;
+  }
+}
+
+.openEffect {
+  padding-top: 0.5rem;
+}
+
+.property {
+  display: flex;
+  gap: 20px;
+}
+
+.releaseDate {
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+  line-height: 1.6rem;
+}
+
+.content {
+  max-width: 32rem;
+  padding: 3rem 0;
+  margin: 0 1rem;
+  h2 {
+    margin-bottom: 1rem;
+    line-height: 2rem;
+    font-size: 1rem;
+    border-bottom: 0.5px solid #ccc;
+  }
+  p,
+  li {
+    margin-bottom: 1rem;
+    line-height: 2rem;
+  }
+  a {
+    color: #92d7ca;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.optionsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  a {
+    text-align: right;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .contentHeader {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .table {
+    margin-left: 0;
+  }
+}

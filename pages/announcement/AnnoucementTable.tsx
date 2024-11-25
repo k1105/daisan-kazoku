@@ -1,6 +1,7 @@
 import AnnouncementItem from "./AnnouncementItem";
 import { client } from "@/libs/client";
 import { useState, useEffect, useRef, useCallback } from "react";
+import styles from "@/styles/Announcement.module.scss";
 
 type Props = {
   initialData: News[];
@@ -14,6 +15,7 @@ const AnnouncementTable = ({ initialData, totalCount }: Props) => {
   const [hasMore, setHasMore] = useState(
     initialData ? initialData.length < totalCount : false
   );
+  const [openItemId, setOpenItemId] = useState<string>(""); // 現在開かれているアイテムのID
   const loader = useRef<HTMLDivElement | null>(null);
 
   const fetchMoreData = useCallback(async () => {
@@ -61,11 +63,23 @@ const AnnouncementTable = ({ initialData, totalCount }: Props) => {
     };
   }, [fetchMoreData, isLoading, hasMore]);
 
+  // `onToggle` ハンドラー
+  const handleToggle = (id: string) => {
+    setOpenItemId((prevId) => (prevId === id ? "" : id)); // 同じIDなら閉じる
+  };
+
   return (
     <>
-      <div className="table">
+      <div className={styles.table}>
         {data.length > 0 ? (
-          data.map((elem) => <AnnouncementItem key={elem.id} elem={elem} />)
+          data.map((elem) => (
+            <AnnouncementItem
+              key={elem.id}
+              elem={elem}
+              isOpen={openItemId === elem.id} // 現在開いているかどうか
+              onToggle={handleToggle} // トグル処理
+            />
+          ))
         ) : (
           <p>データがありません</p>
         )}
@@ -74,24 +88,8 @@ const AnnouncementTable = ({ initialData, totalCount }: Props) => {
         ref={loader}
         style={{ height: "20px", backgroundColor: "transparent" }}
       >
-        {isLoading && hasMore && <p className="loading">loading...</p>}
+        {isLoading && hasMore && <p className={styles.loading}>loading...</p>}
       </div>
-      <style jsx>{`
-        .table {
-          margin-left: 20rem;
-        }
-
-        .loading {
-          line-height: 10rem;
-          text-align: center;
-        }
-
-        @media screen and (max-width: 600px) {
-          .table {
-            margin-left: 0;
-          }
-        }
-      `}</style>
     </>
   );
 };

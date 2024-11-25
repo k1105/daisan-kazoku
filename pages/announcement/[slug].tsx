@@ -4,7 +4,9 @@ import { client } from "@/libs/client";
 import Layout from "../layout";
 import { Open_Sans } from "next/font/google";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
-import AnnouncementItem from "./AnnouncementItem";
+import styles from "@/styles/Announcement.module.scss";
+import { ArticleBody } from "./ArticleBody";
+import { ArticleHeader } from "./ArticleHeader";
 
 const EnTitle = Open_Sans({ weight: "700", subsets: ["latin"] });
 const JaTitle = Zen_Kaku_Gothic_New({ weight: "700", subsets: ["latin-ext"] });
@@ -16,44 +18,23 @@ interface WorkPageProps {
 const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
   return (
     <Layout pageTitle={work.title}>
-      <AnnouncementItem elem={work} />
-      <style jsx>{`
-        .image-container {
-          margin-bottom: 3rem;
-          display: block;
-        }
-        .headline {
-          font-size: 1.5rem;
-          margin-bottom: 0.5rem;
-        }
-        .info {
-          color: gray;
-          margin-bottom: 2rem;
-          display: flex;
-          gap: 30px;
-        }
+      <>
+        <div className={styles.contentWrapper}>
+          <ArticleHeader
+            isOpen
+            title={work.title}
+            categoryName={work.category.name}
+            releaseDate={work.releaseDate}
+          />
 
-        .description {
-          margin-bottom: 2rem;
-          width: 70%;
-          line-height: 1.5rem;
-        }
-
-        @media screen and (max-width: 600px) {
-          .headline {
-            font-size: 1.2rem;
-          }
-          .info {
-            font-size: 0.8rem;
-          }
-
-          .description {
-            width: 100%;
-            font-size: 0.8rem;
-            line-height: 1.2rem;
-          }
-        }
-      `}</style>
+          <div>
+            <ArticleBody
+              imageUrl={work.ogp ? work.ogp.url : null}
+              content={work.content}
+            />
+          </div>
+        </div>
+      </>
     </Layout>
   );
 };

@@ -3,13 +3,17 @@ import Tag from "./Tag";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { CopyLink } from "@/components/CopyLink";
+import styles from "@/styles/Announcement.module.scss";
+import { ArticleHeader } from "./ArticleHeader";
+import { ArticleBody } from "./ArticleBody";
 
 type Props = {
-  elem: News | undefined;
+  elem: News;
+  isOpen: boolean;
+  onToggle: (id: string) => void;
 };
 
-const AnnouncementItem = ({ elem }: Props) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+const AnnouncementItem = ({ elem, isOpen, onToggle }: Props) => {
   const [contentHeight, setContentHeight] = useState<number>(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -28,27 +32,17 @@ const AnnouncementItem = ({ elem }: Props) => {
   return (
     <>
       <div
-        className={`content-wrapper ${isOpen ? "open-effect" : "hover-effect"}`}
+        className={`${styles.contentWrapper} ${
+          isOpen ? styles.openEffect : styles.hoverEffect
+        }`}
       >
-        <div
-          className={`content-header-box ${
-            isOpen ? "open-effect" : "hover-effect"
-          }`}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <p className="content-header">{elem.title ?? "no title"}</p>
-          <div className="property">
-            <Tag text={elem.category?.name ?? "カテゴリなし"} />
-            <p
-              style={{
-                fontSize: "0.8rem",
-                color: "gray",
-                lineHeight: "1.6rem",
-              }}
-            >
-              {elem.releaseDate?.split("T")[0] ?? "日付不明"}
-            </p>
-          </div>
+        <div onClick={() => onToggle(elem.id)}>
+          <ArticleHeader
+            isOpen
+            title={elem.title}
+            categoryName={elem.category.name}
+            releaseDate={elem.releaseDate}
+          />
         </div>
 
         <div
@@ -59,129 +53,18 @@ const AnnouncementItem = ({ elem }: Props) => {
             transition: "height ease 0.3s",
           }}
         >
-          {elem.ogp && (
-            <div
-              style={{
-                width: "100%",
-                height: "300px",
-                marginBottom: "2rem",
-                position: "relative",
-              }}
-            >
-              <Image
-                src={elem.ogp.url}
-                fill
-                priority
-                style={{
-                  objectFit: "contain",
-                }}
-                alt="ogp-image"
-              />
-            </div>
-          )}
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: elem.content ?? "" }}
+          <ArticleBody
+            imageUrl={elem.ogp ? elem.ogp.url : null}
+            content={elem.content}
           />
-          <div className="close-button-wrapper">
+          <div className={styles.optionsWrapper}>
             <CopyLink
               link={`https://daisan-kazoku.com/announcement/${elem.id}`}
             />
-            <a className="close-button" onClick={() => setIsOpen(false)}>
-              閉じる
-            </a>
+            <a onClick={() => onToggle("")}>閉じる</a>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .content-wrapper {
-          padding-left: 10px;
-          padding-right: 10px;
-          border-bottom: 0.5px solid #ccc;
-          overflow: hidden;
-          transition: all ease 0.3s;
-        }
-
-        .content-header {
-          font-size: 1.5rem;
-          font-weight: 100;
-          margin-bottom: 3rem;
-          margin-left: 0.5rem;
-        }
-
-        .content-header-box {
-          cursor: pointer;
-          padding-top: 3rem;
-          transition: all ease 0.3s;
-        }
-
-        @media (pointer: fine) {
-          .content-wrapper.hover-effect:hover {
-            background-color: white;
-          }
-          .content-header-box.hover-effect:hover {
-            padding-top: 3.5rem;
-          }
-        }
-
-        .content-wrapper.open-effect {
-          background-color: white;
-        }
-
-        .content-header-box.open-effect {
-          padding-top: 3.5rem;
-        }
-
-        .property {
-          display: flex;
-          gap: 20px;
-        }
-
-        .content {
-          max-width: 32rem;
-          padding: 3rem 0;
-          margin: 0 1rem;
-          h2 {
-            margin-bottom: 1rem;
-            line-height: 2rem;
-            font-size: 1rem;
-            border-bottom: 0.5px solid #ccc;
-          }
-          p,
-          li {
-            margin-bottom: 1rem;
-            line-height: 2rem;
-          }
-          a {
-            color: #92d7ca;
-          }
-          img {
-            width: 100%;
-            height: auto;
-          }
-        }
-
-        .close-button-wrapper {
-          width: 100%;
-          display: flex;
-          justify-content: flex-end;
-        }
-
-        .close-button {
-          text-align: right;
-          margin-bottom: 1rem;
-          color: #ccc;
-          cursor: pointer;
-        }
-
-        @media screen and (max-width: 600px) {
-          .content-header {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-          }
-        }
-      `}</style>
     </>
   );
 };
