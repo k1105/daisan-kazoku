@@ -2,6 +2,7 @@ import React from "react";
 import Tag from "./Tag";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+import { CopyLink } from "@/components/CopyLink";
 
 type Props = {
   elem: News | undefined;
@@ -83,6 +84,9 @@ const AnnouncementItem = ({ elem }: Props) => {
             dangerouslySetInnerHTML={{ __html: elem.content ?? "" }}
           />
           <div className="close-button-wrapper">
+            <CopyLink
+              link={`https://daisan-kazoku.com/announcement/${elem.id}`}
+            />
             <a className="close-button" onClick={() => setIsOpen(false)}>
               閉じる
             </a>

@@ -15,7 +15,7 @@ interface WorkPageProps {
 
 const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
   return (
-    <Layout pageTitle={work.title} headline="お知らせ">
+    <Layout pageTitle={work.title}>
       <AnnouncementItem elem={work} />
       <style jsx>{`
         .image-container {
@@ -59,13 +59,39 @@ const WorkPage: NextPage<WorkPageProps> = ({ work }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const data = await client.get({ endpoint: "news" });
+  const limit = 100; // 一度に取得する件数
+  let offset = 0;
+  let allContents: News[] = [];
+  let hasMore = true;
 
-  const paths = data.contents.map((work: News) => ({
-    params: { slug: work.id },
-  }));
+  try {
+    // ページネーションで全データを取得
+    while (hasMore) {
+      const data = await client.get({
+        endpoint: "news",
+        queries: { limit, offset },
+      });
 
-  return { paths, fallback: false };
+      // データを追加
+      allContents = [...allContents, ...data.contents];
+
+      // 次のページがあるか判定
+      hasMore = data.contents.length === limit;
+      offset += limit;
+    }
+
+    // `id` を使ってパスを生成
+    const paths = allContents.map((work) => ({
+      params: { slug: work.id }, // URL のパスに使用するパラメータ
+    }));
+
+    console.log("Generated paths:", paths);
+
+    return { paths, fallback: false }; // 静的生成のみ
+  } catch (error) {
+    console.error("Error fetching data in getStaticPaths:", error);
+    return { paths: [], fallback: false }; // エラー時は空リスト
+  }
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
