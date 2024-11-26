@@ -44,6 +44,20 @@
   }
 }
 
+.profileContainer {
+  display: flex;
+  gap: 5rem;
+  margin-bottom: 5rem;
+  .position {
+    width: 5rem;
+    font-size: 0.8rem;
+  }
+  .description {
+    line-height: 1.8rem;
+    margin-bottom: 2rem;
+  }
+}
+
 .gray {
   background-color: var(--gray);
   padding-top: 200px;
@@ -177,6 +191,13 @@
 }
 
 @media screen and (max-width: 600px) {
+  .profileContainer {
+    width: 100%;
+    .description {
+      line-height: 1.5rem;
+    }
+  }
+
   .jumbotron,
   .blockContainer {
     gap: 0rem;

@@ -20,25 +20,108 @@ const About = () => {
               <h1 className={styles.headline}>Vision</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <h2>「いつか忘れる」居場所になる</h2>
+              <h2>どんな家族も生きやすい社会を構築する</h2>
               <p>
-                第1の家族（本人の家族）か第2の家族（友達・学校・地域）のどこかに居場所を見つけてもらえるように。第3の家族は、それをサポートする裏方です。
-                第3の家族は居場所ではありません。なるべく早く第3の家族を卒業して、大人になったら忘れて欲しいです。
+                第3の家族は、親が悪いとも思っていません。一方で、「親ガチャ」「毒親」といった言葉が流行るのは、若者から見てそういった社会になっているからでしょう。親も子も揺らぎがあり、それを受け止められるような社会構築を目指します。
               </p>
             </div>
           </div>
+
+          <BlockContainer color={"green"}>
+            <div className={styles.leftSideItem}>
+              <h1 className={styles.headline}>やること</h1>
+            </div>
+            <div className={styles.rightSideItem}>
+              <section>
+                <h2>自分の居場所を見つけるプラットフォーム</h2>
+                <h3>1：Web事業</h3>
+                <p>悩みを吐き出し、手札を増やす。</p>
+                <div
+                  className={styles.serviceCardContainer}
+                  style={{ margin: "20px 0" }}
+                >
+                  <ServiceCard
+                    title="gedokun"
+                    path="/service/gedokun"
+                    image="/img/gedokun_mv.png"
+                  />
+                  <ServiceCard
+                    title="nigeruno"
+                    path="/service/nigeruno"
+                    image="/img/nigeruno_mv.png"
+                  />
+                </div>
+
+                <h3>2：イベント事業</h3>
+                <p>点と点を繋いで生きていく。</p>
+                <div
+                  className={styles.serviceCardContainer}
+                  style={{ margin: "20px 0" }}
+                >
+                  <ServiceCard
+                    title="家庭環境データ"
+                    path="/service/katei-kankyo-data"
+                    image="/img/katei-data.jpg"
+                  />
+                  <ServiceCard
+                    title="裏母の日"
+                    path="/service/urahaha"
+                    image="/img/urahaha.png"
+                  />
+                  <ServiceCard
+                    title="音楽ライブ"
+                    path="/service/daisan-live"
+                    image="/img/live.png"
+                  />
+                </div>
+              </section>
+              <section>
+                <h2>問題を根本的に解決するための社会構築</h2>
+                <h3>はざまの声を集める</h3>
+                <p>
+                  今まで一人一人が抱えていた声を、第3の家族のプラットフォームを通じてかたちにします。見えなかった社会問題を可視化します。
+                </p>
+                <h3>政策・文化提言</h3>
+                <p>
+                  はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
+                </p>
+              </section>
+            </div>
+          </BlockContainer>
 
           <BlockContainer>
             <div className={styles.leftSideItem}>
               <h1 className={styles.headline}>コンセプト</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <h2>「第3の家族」という存在を作る</h2>
-              <p>
-                第1の家族（本人の家族）か第2の家族（友達・学校・地域）のどこかに居場所を見つけてもらえるように。第3の家族は、それをサポートする裏方です。
-                <br />
-                第3の家族は居場所ではありません。なるべく早く第3の家族を卒業して、大人になったら忘れて欲しいです。
-              </p>
+              <section>
+                <h2>寄り添わない支援</h2>
+                <p>
+                  「寄り添い」が大事にされてきた既存の支援の中で取りこぼされてきたはざまの少年少女たちがいます。
+                  <br />
+                  寄り添う居場所に辿り着いてもらうためにも、構えとしては「寄り添わない」。
+                </p>
+              </section>
+
+              <section>
+                <h2>少年少女が「うざい」と思うことはしない</h2>
+                <ul>
+                  <li>支援らしくしない</li>
+                  <ul>
+                    <li>真面目な入り口にしない</li>
+                    <li>最初から指導員・相談員は置かない</li>
+                    <li>温かみのあるデザインにしない</li>
+                  </ul>
+                </ul>
+              </section>
+              <section>
+                <h2>時間に解決させる</h2>
+                <ul>
+                  <li>ふとしたタイミングで前を向ける時が来る。</li>
+                  <li>しんどさが蓄積すると、思うように進めない。</li>
+                  <li>親も子も時間とともに成長する。</li>
+                </ul>
+              </section>
             </div>
           </BlockContainer>
 
@@ -50,9 +133,9 @@ const About = () => {
               <section>
                 <h2>家庭環境問題のはざまで悩む少年少女</h2>
                 <ul className={styles.list}>
-                  <li>家庭が居場所でない少年少女は4人に1人</li>
+                  <li>家庭環境に悩みを抱える少年少女は約20%</li>
                   <li>虐待まではいかず、既存の支援の枠組みに当てはめにくい</li>
-                  <li>中学生〜大学生くらいの男女</li>
+                  <li>小学生〜大学生くらいの男女（メインは中高生）</li>
                 </ul>
               </section>
               <section>
@@ -62,15 +145,15 @@ const About = () => {
               <section>
                 <h2>将来のリスク</h2>
                 <p>
-                  はざまだから何もしなくていいわけではなく、以下のようなリスクがあります。早期介入が重要です。
+                  はざまだから何もしなくていいわけではなく、以下のようなリスクがあります。予防が重要です。
                 </p>
                 <ul className={styles.list}>
-                  <li>自己肯定感の低下</li>
-                  <li>心の病気</li>
-                  <li>依存症（特に人間関係）</li>
+                  <li>虐待に深刻化</li>
+                  <li>精神疾患</li>
                   <li>自傷行為</li>
-                  <li>非行（夜の街・薬）</li>
-                  <li>働くことが困難（体調・コミュニケーションの不得手）</li>
+                  <li>非行</li>
+                  <li>孤独孤立</li>
+                  <li>就労の困難</li>
                   <li>自殺</li>
                 </ul>
               </section>
@@ -89,89 +172,41 @@ const About = () => {
                   <Statement state="自分よりつらい子はもっといる" />
                   <Statement state="大人は信用できない" />
                   <Statement state="どうせ助けてくれない" />
+                  <Statement state="自分で頑張りたい" />
+                  <Statement state="良い子でいたい" />
                 </div>
                 <h3>親が悪いわけではない</h3>
                 <p>
-                  子を育てるのが親だけになりやすい社会、ステータスや評価が求められやすい社会など、親が悪い訳ではなく多様な社会課題に起因しています。親子関係に直接介入することだけが正解ではないでしょう。
+                  子を育てることが親だけになりやすい社会、ステータスや評価が求められやすい社会など、親が悪い訳ではなく多様な社会課題に起因しています。
                 </p>
               </section>
-            </div>
-          </BlockContainer>
-
-          <BlockContainer color={"green"}>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>やること</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <section>
-                <h2>「虐待ほどではない」ときの支援を確立する</h2>
-                <p>
-                  「虐待は189、虐待でないときは第3の家族」というような、虐待ほどでないときの支援プラットフォームの確立を目指します。
-                </p>
-              </section>
-
-              <h3>1：Web事業</h3>
-              <p>社会資源に繋げるプラットフォーム。</p>
-              <div
-                className={styles.serviceCardContainer}
-                style={{ margin: "20px 0" }}
-              >
-                <ServiceCard
-                  title="gedokun"
-                  path="/service/gedokun"
-                  image="/img/gedokun_mv.png"
-                />
-                <ServiceCard
-                  title="nigeruno"
-                  path="/service/nigeruno"
-                  image="/img/nigeruno_mv.png"
-                />
-              </div>
-
-              <h3>2：イベント事業</h3>
-              <p>ハレの裏に居場所を作る対面イベント。</p>
-              <div
-                className={styles.serviceCardContainer}
-                style={{ margin: "20px 0" }}
-              >
-                <ServiceCard
-                  title="家庭環境データ"
-                  path="/service/katei-kankyo-data"
-                  image="/img/katei-data.jpg"
-                />
-                <ServiceCard
-                  title="裏母の日"
-                  path="/service/urahaha"
-                  image="/img/urahaha.png"
-                />
-                <ServiceCard
-                  title="音楽ライブ"
-                  path="/service/daisan-live"
-                  image="/img/live.png"
-                />
-              </div>
             </div>
           </BlockContainer>
 
           <BlockContainer>
             <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>少年少女のその後</h1>
+              <h1 className={styles.headline}>少年少女が見つける居場所</h1>
             </div>
             <div className={styles.rightSideItem}>
               <p>
-                ゴールは人それぞれです。見つける居場所は人でもモノでも自分自身でも。
+                見つける居場所は人それぞれです。人でもモノでも自分自身でも。
               </p>
               <ul className={styles.list}>
                 <li>
-                  受験合格しました。今は親とも落ち着いて話せるようになりました。
+                  受験合格しました。今は親とも落ち着いて話せるようになりました。（当時18歳）
                 </li>
                 <li>
-                  彼氏と結婚しました。親との仲裁にも入ってくれて助かりました。
+                  意外とお父さんに相談してないことに気づいて、話したら味方になってくれました。（当時19歳）
                 </li>
                 <li>
-                  実家にいるけど、親との関係をうまくつくれるようになりました。
+                  実家にいるけど、自分の気持ちを伝えられるようになって、親との関係が改善しました。（当時19歳）
                 </li>
-                <li>身の危険を感じたので公的な支援にお世話になりました。</li>
+                <li>
+                  彼氏と結婚しました。親との仲裁にも入ってくれて助かりました。（当時18歳）
+                </li>
+                <li>
+                  身の危険を感じたので公的な支援にお世話になりました。（当時18歳）
+                </li>
               </ul>
             </div>
           </BlockContainer>
@@ -181,7 +216,7 @@ const About = () => {
               <h1 className={styles.headline}>組織体制</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <div className="profile-container">
+              <div className={styles.profileContainer}>
                 <p className="position">代表</p>
                 <div>
                   <h2>奥村春香</h2>
@@ -392,10 +427,24 @@ const About = () => {
               <ul className={styles.list}>
                 <li>
                   <a
+                    href="https://drive.google.com/file/d/1T7zzgp11uI9OdJaxCvksIdbXhmu7CX6G/view"
+                    className={styles.pdfLink}
+                  >
+                    2023年度（第2期）活動計算書等
+                  </a>
+                  <a
                     href="https://drive.google.com/file/d/1FrUFNWx2S5hh1CRSPyCXEgaSZl6Zvier/view"
                     className={styles.pdfLink}
                   >
                     2022年度（第1期）活動計算書等
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://drive.google.com/file/d/1cikXYCuBAtLl23RehEtnPrrxBgqz7l5e/view"
+                    className={styles.pdfLink}
+                  >
+                    2023年度（第2期）事業報告書
                   </a>
                 </li>
                 <li>
@@ -412,32 +461,6 @@ const About = () => {
             </div>
           </BlockContainer>
         </div>
-        <style jsx>
-          {`
-            .profile-container {
-              display: flex;
-              gap: 5rem;
-              margin-bottom: 5rem;
-              .position {
-                width: 5rem;
-                font-size: 0.8rem;
-              }
-              .description {
-                line-height: 1.8rem;
-                margin-bottom: 2rem;
-              }
-            }
-
-            @media screen and (max-width: 600px) {
-              .profile-container {
-                width: 100%;
-                .description {
-                  line-height: 1.5rem;
-                }
-              }
-            }
-          `}
-        </style>
       </Layout>
     </>
   );
