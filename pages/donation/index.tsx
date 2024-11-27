@@ -128,6 +128,14 @@ export default function Donation() {
               </div>
             </div>
           </BlockContainer>
+
+          <a
+            className="floating-button"
+            href="https://syncable.biz/associate/daisan-kazoku"
+          >
+            <p>寄付はこちら</p>
+            <small>syncableのページへ</small>
+          </a>
         </>
       </Layout>
       <style jsx>{`
@@ -148,6 +156,35 @@ export default function Donation() {
             font-size: 0.8rem;
             line-height: 1rem;
             color: var(--dark-gray);
+          }
+        }
+
+        .floating-button {
+          display: block;
+          cursor: pointer;
+          position: fixed;
+          z-index: 99;
+          bottom: 10vh;
+          right: 5vw;
+          width: 10rem;
+          height: 10rem;
+          background-color: var(--green);
+          border-radius: 5rem;
+          text-align: center;
+          color: white;
+          padding: 3.8rem 0;
+          filter: drop-shadow(0px 0px 10px var(--gray));
+          text-decoration: none;
+          color: white;
+          p {
+            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+          }
+          small {
+            color: var(--gray);
+            line-height: 1rem;
+            font-size: 0.7rem;
           }
         }
       `}</style>
