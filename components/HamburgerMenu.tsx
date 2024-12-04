@@ -110,14 +110,44 @@ export default function HamburgerMenu() {
               </ul>
               <div className={classes.navBottom}>
                 <Link
-                  href="https://syncable.biz/associate/daisan-kazoku"
-                  className={classes.link}
+                  href="/donation"
+                  className={`${classes.link} ${classes.externalLink}`}
                 >
-                  寄付する <ExternalLinkIcon />
+                  寄付する
                 </Link>
-                <Link href="https://daisan-kazoku.net" className={classes.link}>
-                  少年少女はこちら <ExternalLinkIcon />
+                <Link
+                  href="/magazine"
+                  className={`${classes.link} ${classes.externalLink}`}
+                >
+                  <p>メルマガ登録</p>
                 </Link>
+                <Link
+                  href="https://daisan-ticket.studio.site/"
+                  className={`${classes.link} ${classes.externalLink}`}
+                >
+                  <p>第３の家族に協力する</p>
+                  <ExternalLinkIcon
+                    style={{
+                      display: "inline-block",
+                      paddingTop: "-0.2rem",
+                      width: "1.2rem",
+                    }}
+                  />
+                </Link>
+                <Link
+                  href="https://daisan-kazoku.net"
+                  className={`${classes.link} ${classes.externalLink}`}
+                >
+                  <p>少年少女はこちら</p>
+                  <ExternalLinkIcon
+                    style={{
+                      display: "inline-block",
+                      paddingTop: "-0.2rem",
+                      width: "1.2rem",
+                    }}
+                  />
+                </Link>
+
                 <div className="social-icons">
                   <Link href="https://x.com/daisan_kazoku">
                     <SocialX />

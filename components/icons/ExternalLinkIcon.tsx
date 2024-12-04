@@ -1,12 +1,13 @@
-export const ExternalLinkIcon = () => {
+import { SVGProps } from "react";
+
+export const ExternalLinkIcon = (props: SVGProps<SVGSVGElement>) => {
   return (
     <>
       <svg
-        width="19"
-        height="19"
         viewBox="0 0 19 19"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        {...props}
       >
         <circle cx="9.5" cy="9.5" r="9.5" fill="#39B69E" />
         <path d="M5 6H13V14" stroke="white" />

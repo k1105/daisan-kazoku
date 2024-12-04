@@ -3,6 +3,7 @@ import styles from "@/styles/Article.module.scss";
 import BlockContainer from "@/components/BlockContainer";
 import Link from "next/link";
 import { PieChart } from "@/components/PieChart";
+import { FloatingButton } from "@/components/FloatingButton";
 
 export default function Donation() {
   return (
@@ -128,17 +129,19 @@ export default function Donation() {
               </div>
             </div>
           </BlockContainer>
-
-          <a
-            className="floating-button"
-            href="https://syncable.biz/associate/daisan-kazoku"
-          >
-            <p>寄付はこちら</p>
-            <small>syncableのページへ</small>
-          </a>
+          <div className="floating-button-container">
+            <FloatingButton />
+          </div>
         </>
       </Layout>
       <style jsx>{`
+        .floating-button-container {
+          position: fixed;
+          z-index: 99;
+          bottom: 10vh;
+          right: 3vw;
+        }
+
         .section {
           margin-bottom: 4rem;
         }
@@ -159,32 +162,9 @@ export default function Donation() {
           }
         }
 
-        .floating-button {
-          display: block;
-          cursor: pointer;
-          position: fixed;
-          z-index: 99;
-          bottom: 10vh;
-          right: 5vw;
-          width: 10rem;
-          height: 10rem;
-          background-color: var(--green);
-          border-radius: 5rem;
-          text-align: center;
-          color: white;
-          padding: 3.8rem 0;
-          filter: drop-shadow(0px 0px 10px var(--gray));
-          text-decoration: none;
-          color: white;
-          p {
-            font-weight: 700;
-            font-size: 1.2rem;
-            line-height: 1.2rem;
-          }
-          small {
-            color: var(--gray);
-            line-height: 1rem;
-            font-size: 0.7rem;
+        @media screen and (max-width: 600px) {
+          .floating-button-container {
+            right: 5vw;
           }
         }
       `}</style>

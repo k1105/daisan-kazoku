@@ -22,6 +22,13 @@ export const PieChart = ({ numberList }: { numberList: number[] }) => {
           background: conic-gradient(${gradientSegments});
           border-radius: 50%;
         }
+
+        @media screen and (max-width: 600px) {
+          .pie-chart {
+            width: 150px;
+            height: 150px;
+          }
+        }
       `}</style>
     </>
   );

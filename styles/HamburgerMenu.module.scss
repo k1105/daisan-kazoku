@@ -10,9 +10,10 @@
 .navBottom {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  padding-top: 1rem;
+  gap: 1rem;
   .link {
-    font-weight: 100;
+    font-weight: 400;
   }
 }
 
@@ -36,6 +37,13 @@
   color: black;
 }
 
+.externalLink {
+  font-size: 1rem;
+  line-height: 1.2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
 .active {
   color: var(--light-green);
   font-weight: normal;
@@ -57,12 +65,17 @@
     position: fixed;
     width: 100vw;
     margin: 0;
-    padding: 30vh 5vw 0;
+    padding: 22vh 5vw 0;
     top: 0;
     left: 0;
     transition: all 500ms ease-in-out;
     flex-direction: column;
     gap: 5rem;
+  }
+
+  .link {
+    font-size: 1.2rem;
+    line-height: 1rem;
   }
 
   .main {
@@ -77,10 +90,10 @@
   }
 
   .navBottom {
-    gap: 0rem;
+    gap: 0.2rem;
     .link {
       font-size: 1rem;
-      font-weight: 400;
+      font-weight: 300;
     }
   }
 }
