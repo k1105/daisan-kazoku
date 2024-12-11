@@ -432,6 +432,8 @@ const About = () => {
                   >
                     2023年度（第2期）活動計算書等
                   </a>
+                </li>
+                <li>
                   <a
                     href="https://drive.google.com/file/d/1FrUFNWx2S5hh1CRSPyCXEgaSZl6Zvier/view"
                     className={styles.pdfLink}
