@@ -148,7 +148,7 @@ export default function HamburgerMenu() {
                   />
                 </Link>
 
-                <div className="social-icons">
+                <div className={classes.socialIcons}>
                   <Link href="https://x.com/daisan_kazoku">
                     <SocialX />
                   </Link>
@@ -207,24 +207,10 @@ export default function HamburgerMenu() {
           margin: 35vh 10vw 0;
         }
 
-        .social-icons {
-          margin-top: 7rem;
-          font-size: 2rem;
-          display: flex;
-          gap: 0.8rem;
-          color: #777;
-        }
-
         @media screen and (max-width: 600px) {
           .first-view {
             width: 94vw;
             margin: 5vh 3vw;
-          }
-
-          .social-icons {
-            font-size: 1.5rem;
-            gap: 0.6rem;
-            margin-top: 2rem;
           }
         }
       `}</style>

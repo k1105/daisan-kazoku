@@ -1,14 +1,25 @@
 import styles from "@/styles/Home.module.css";
-// import { Announcement } from "@/components/Announcement";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Link from "next/link";
+import { SocialFacebook } from "@/components/icons/SocialFacebook";
+import { SocialX } from "@/components/icons/SocialX";
+import { SocialInstagram } from "@/components/icons/SocialInstagram";
+import hamburgerStyles from "@/styles/HamburgerMenu.module.scss";
 
-// Homeコンポーネント。props経由でデータを受け取る
 const Home = () => {
   const router = useRouter();
   const state = useRef<number>(0);
+  const animationContainer = useRef<HTMLDivElement>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
+  const isScrolling = useRef<boolean>(false);
+  const startY = useRef<number>(0);
+  const [imageSrc, setImageSrc] = useState<string>(
+    "/img/diagram/status01/frame_0.png"
+  );
+  const imageFrameNumerRef = useRef<number>(0);
 
   const delayRedirectTo = (href: string) => {
     if (mainRef.current) mainRef.current.style.opacity = "0";
@@ -17,20 +28,11 @@ const Home = () => {
     }, 300);
     return () => clearTimeout(timer);
   };
-  const mainRef = useRef<HTMLDivElement>(null);
-
-  const isScrolling = useRef<boolean>(false);
-
-  const startY = useRef<number>(0); // タッチ開始時のY座標
-
-  const [imageSrc, setImageSrc] = useState<string>(
-    "/img/diagram/status01/frame_0.png"
-  );
-
-  const imageFrameNumerRef = useRef<number>(0);
 
   useEffect(() => {
-    const stateList = [0, 1, 2, 3, 4, 5, 6, 7]; //number * 100 vh;
+    if (typeof window === "undefined") return; // サーバーサイドでは実行しない
+
+    const stateList = [0, 1, 2, 3, 4, 5, 6, 7];
 
     const handleScroll = (e: WheelEvent) => {
       e.preventDefault();
@@ -42,26 +44,25 @@ const Home = () => {
           ? (state.current + 1) % stateList.length
           : Math.max(state.current - 1, 0);
 
-      console.log(e.deltaY);
       if (mainRef.current) {
         mainRef.current.style.transform = `translate(0, -${
           stateList[state.current] * 100
         }vh)`;
       }
-      // 一定時間後にフラグをリセット
+
       setTimeout(() => {
         isScrolling.current = false;
-      }, 500); // 300ms後に再びスクロールを許可
+      }, 500);
     };
 
     const handleTouchStart = (e: TouchEvent) => {
-      startY.current = e.touches[0].clientY; // タッチ開始時のY座標を記録
+      startY.current = e.touches[0].clientY;
     };
 
     const handleTouchMove = (e: TouchEvent) => {
       e.preventDefault();
-      const moveY = e.touches[0].clientY; // 現在のタッチ位置のY座標
-      const deltaY = moveY - startY.current; // 開始点からの変位
+      const moveY = e.touches[0].clientY;
+      const deltaY = moveY - startY.current;
 
       if (Math.abs(deltaY) < 10 || isScrolling.current) return;
       isScrolling.current = true;
@@ -81,7 +82,7 @@ const Home = () => {
       }, 500);
     };
 
-    setInterval(() => {
+    const interval = setInterval(() => {
       imageFrameNumerRef.current = (imageFrameNumerRef.current + 1) % 63;
       setImageSrc(
         `/img/diagram/status01/frame_${imageFrameNumerRef.current}.png`
@@ -89,17 +90,43 @@ const Home = () => {
     }, 50);
 
     if (mainRef.current) mainRef.current.style.opacity = "1";
+
     window.addEventListener("wheel", handleScroll, { passive: false });
     window.addEventListener("touchstart", handleTouchStart, { passive: false });
     window.addEventListener("touchmove", handleTouchMove, { passive: false });
 
-    // クリーンアップ関数でリスナーを削除
+    // クリーンアップ
     return () => {
+      clearInterval(interval);
       window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
+
+  useEffect(() => {
+    // クライアントサイドのみで動作
+    if (typeof window === "undefined") return;
+
+    // 動的にlottie-webをインポート
+    import("lottie-web").then((lottie) => {
+      if (animationContainer.current) {
+        const animationInstance = lottie.default.loadAnimation({
+          container: animationContainer.current,
+          renderer: "svg",
+          loop: true,
+          autoplay: true,
+          // path: "/json/241295_sp_kv_hand.json",
+          path: "/json/241205_pc_kv_wip.json",
+        });
+
+        return () => {
+          animationInstance.destroy(); // クリーンアップ
+        };
+      }
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -164,10 +191,23 @@ const Home = () => {
                 お問い合わせ
               </a>
             </div>
+            <div className={hamburgerStyles.socialIcons}>
+              <Link href="https://x.com/daisan_kazoku">
+                <SocialX />
+              </Link>
+              <Link href="https://www.instagram.com/daisan_kazoku/">
+                <SocialInstagram />
+              </Link>
+              <Link href="https://www.facebook.com/profile.php?id=61550918296580">
+                <SocialFacebook />
+              </Link>
+            </div>
             {/* <a href="#" className="page-link">
               pdf
             </a> */}
           </div>
+
+          <div ref={animationContainer} className="animation" />
 
           <div className="first-view">
             <p>
@@ -229,6 +269,17 @@ const Home = () => {
 
         <style jsx>
           {`
+            .animation {
+              position: fixed;
+              top: 0;
+              left: 0;
+              z-index: -10;
+              width: 100vw;
+              height: 100vh;
+              transform: scale(1);
+              transform-origin: center;
+            }
+
             .image {
               position: fixed;
               z-index: -1;
