@@ -115,7 +115,9 @@ export default function Layout({
 
       <div className="header">
         <div className="header-left" style={headerStyle}>
-          <Logo />
+          <Link href={"/"}>
+            <Logo />
+          </Link>
         </div>
         <div className="header-right">
           <Link href={"/donation"}>
