@@ -29,7 +29,7 @@ const KateiKankyoData = () => {
         </div>
         <BlockContainer>
           <div className={styles.rightSideItem}>
-            <p>家庭環境問題のリアルをクリエイティブに表現する。</p>
+            <p>家庭環境問題のリアルをビジュアライズする。</p>
             <Link href="https://katei-data.daisan-kazoku.net/">
               <div className={styles.innerLinkWrapper}>
                 <p>Webサイトへ</p>
@@ -72,7 +72,7 @@ const KateiKankyoData = () => {
             <h1 className={styles.headline}>特徴</h1>
           </div>
           <div className={styles.rightSideItem}>
-            <h2>視覚比喩で表現する</h2>
+            <h2>視覚比喩</h2>
             <p>
               例えば、「心の病気を発症しやすくなる」という事象を「崩れそうなジェンガ」で表現します。グラフィックを見て少し考えるような時間をつくります。
             </p>
@@ -99,6 +99,7 @@ const KateiKankyoData = () => {
               <li>
                 「友達がこういう状況にいそうなので、詳しく知れて良かった」
               </li>
+              <li>「これどういう意味？」</li>
             </ul>
           </div>
         </BlockContainer>

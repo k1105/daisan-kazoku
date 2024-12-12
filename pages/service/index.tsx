@@ -1,7 +1,5 @@
-import Image from "next/image";
-import Layout from "../layout";
-import Link from "next/link";
-import ServiceCard from "../about/ServiceCard";
+import Layout from "@/pages/layout";
+import ServiceCard from "@/pages/about/ServiceCard";
 import BlockContainer from "@/components/BlockContainer";
 import styles from "@/styles/Article.module.scss";
 
@@ -14,7 +12,7 @@ const Service = () => {
             <h3>1：Web事業</h3>
           </div>
           <div className={styles.rightSideItem}>
-            <p>社会資源に繋げるプラットフォーム。</p>
+            <p>悩みを吐き出し、手札を増やす。</p>
             <div
               className={styles.serviceCardContainer}
               style={{ margin: "20px 0" }}
@@ -37,7 +35,7 @@ const Service = () => {
             <h3>2：イベント事業</h3>
           </div>
           <div className={styles.rightSideItem}>
-            <p>ハレの裏に居場所を作る対面イベント。</p>
+            <p>点と点を繋いで生きていく。</p>
             <div
               className={styles.serviceCardContainer}
               style={{ margin: "20px 0" }}
@@ -56,6 +54,24 @@ const Service = () => {
                 title="音楽ライブ"
                 path="/service/daisan-live"
                 image="/img/live.png"
+              />
+            </div>
+          </div>
+        </BlockContainer>
+        <BlockContainer>
+          <div className={styles.leftSideItem}>
+            <h3>3：社会構築事業</h3>
+          </div>
+          <div className={styles.rightSideItem}>
+            <p>問題を根本的に解決する。</p>
+            <div
+              className={styles.serviceCardContainer}
+              style={{ margin: "20px 0" }}
+            >
+              <ServiceCard
+                title="社会構築事業"
+                path="/service/shakai-kochiku"
+                image="/ogp.png"
               />
             </div>
           </div>

@@ -75,6 +75,18 @@ const About = () => {
                     image="/img/live.png"
                   />
                 </div>
+                <h3>3：社会構築事業</h3>
+                <p>問題を根本的に解決する。</p>
+                <div
+                  className={styles.serviceCardContainer}
+                  style={{ margin: "20px 0" }}
+                >
+                  <ServiceCard
+                    title="社会構築事業"
+                    path="/service/shakai-kochiku"
+                    image="/ogp.png"
+                  />
+                </div>
               </section>
               <section>
                 <h2>問題を根本的に解決するための社会構築</h2>

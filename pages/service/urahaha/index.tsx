@@ -1,5 +1,5 @@
-import styles from "../../../styles/Article.module.scss";
-import Layout from "../../layout";
+import styles from "@/styles/Article.module.scss";
+import Layout from "@/pages/layout";
 import Link from "next/link";
 import Image from "next/image";
 import BlockContainer from "@/components/BlockContainer";
@@ -33,11 +33,6 @@ const Urahaha = () => {
             <p>
               母の日をどんな気持ちで迎えたらいいのかわからない人のための日。
             </p>
-            <Link href="#">
-              <div className={styles.innerLinkWrapper}>
-                <p>Webサイトへ</p>
-              </div>
-            </Link>
           </div>
         </BlockContainer>
         <BlockContainer>
@@ -60,10 +55,12 @@ const Urahaha = () => {
           <div className={styles.rightSideItem}>
             <h2>当事者同士のゆる座談会</h2>
             <p>
-              過去の話や近況についてゆるゆると話します。話しながら紙をちぎり、最後にみんなで一つの作品を作ります。
+              過去の話や近況についてゆるゆると話します。お互いの家庭環境には深く干渉しません。
             </p>
-            <h2>ありがとうを誰かに伝えるワークショップ</h2>
-            <p>大切な人・動物・モノに向けて、手紙を書きます。</p>
+            <h2>かたちにするワークショップ</h2>
+            <p>
+              何かが解決するわけではありませんが、共に過ごした時間をかたちにします。
+            </p>
           </div>
         </BlockContainer>
         <BlockContainer>
@@ -76,6 +73,7 @@ const Urahaha = () => {
               <li>「母の日がいつもと違う思い出の日になった」</li>
               <li>「自分の想いを話せて良かった」</li>
               <li>「ワークショップが楽しかった」</li>
+              <li>「今となっては笑い話」</li>
             </ul>
             <h2>開催実績</h2>
             <ul className={styles.list}>
