@@ -85,9 +85,11 @@
 .innerLinkWrapper {
   height: 4rem;
   width: 50%;
+  display: inline-block;
   border-radius: 0.5rem;
   border: 1.5px solid #aaa;
   padding: 0 1rem;
+  text-decoration: none;
   p {
     font-weight: 700;
     display: inline;
@@ -98,7 +100,7 @@
 
   p::after {
     position: absolute;
-    top: 0.2rem;
+    top: 0.1rem;
     right: -1.5rem;
     width: 1.2rem;
     height: 1.2rem;
@@ -228,6 +230,10 @@
     li {
       font-size: 0.8rem;
     }
+  }
+
+  .externalLink {
+    font-size: 0.8rem;
   }
 
   .externalLink::after,

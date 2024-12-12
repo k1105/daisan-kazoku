@@ -9,6 +9,7 @@ import DepartmentCard from "./DepartmentCard";
 import ServiceCard from "./ServiceCard";
 import Link from "next/link";
 import BlockContainer from "@/components/BlockContainer";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -223,10 +224,11 @@ const About = () => {
                   <p className="description">
                     活動のきっかけは、大学3年生の時に家庭環境問題が原因で弟を自死で亡くしたことです。私の受験失敗を機に家庭が壊れ、親子喧嘩が絶えない中での出来事でした。1年間は何もできなかったのですが、もとからものづくりが好きだったので、家庭環境に悩む人のための掲示板を試しに作ってみたところ、想像以上に人が集まりました。「つくってくれてありがとう」という嬉しい言葉をもらう一方、集まる悩みの重大さを実感し「もっとやらなければ」と思い、新卒で入社したLINE株式会社を退職し、NPO法人第3の家族を立ち上げました。今は、自身の過去のために活動をやっているという気持ちはなく、はざまの少年少女たちと一緒に揺られながら、より良い状態をつくって行くことに没頭しています。
                   </p>
-                  <Link href="/people/okumura">
-                    <div className={styles.innerLinkWrapper}>
-                      <p>詳細プロフィール</p>
-                    </div>
+                  <Link
+                    href="/people/okumura"
+                    className={styles.innerLinkWrapper}
+                  >
+                    <p>詳細プロフィール</p>
                   </Link>
                 </div>
               </div>
@@ -271,32 +273,56 @@ const About = () => {
               <h1 className={styles.headline}>受賞・採択</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <ul className={styles.list}>
-                <li>
+              <div className="awards-container">
+                <div className="award-wrapper">
+                  <div className="award-logo-wrapper">
+                    <Image
+                      src="/img/award/GOOD DESIGN NEW HOPE AWARD 2022.png"
+                      alt="GOOD DESIGN NEW HOPE AWARD ロゴ"
+                      fill
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+
                   <a
                     href="https://newhope.g-mark.org/award2022.html"
                     className={styles.externalLink}
                   >
                     GOOD DESIGN NEW HOPE AWARD 2022 最優秀賞
                   </a>
-                </li>
-                <li>
+                </div>
+                <div className="award-wrapper">
+                  <div className="award-logo-wrapper">
+                    <Image
+                      src="/img/award/Forbes JAPAN 30 UNDER 30.png"
+                      alt="Forbes JAPAN 30 UNDER 30 ロゴ"
+                      fill
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
                   <a
                     href="https://forbesjapan.com/feat/30under30/2023/honorees/"
                     className={styles.externalLink}
                   >
                     Forbes JAPAN 30 UNDER 30 2023「世界を変える30歳未満」
                   </a>
-                </li>
-                <li>
+                </div>
+              </div>
+
+              {/* <li>
                   <a
                     href="https://100banch.com/projects/daisan-no-kazoku"
                     className={styles.externalLink}
                   >
                     100BANCH 74期
                   </a>
-                </li>
-              </ul>
+                </li> */}
             </div>
           </BlockContainer>
 
@@ -312,7 +338,7 @@ const About = () => {
                     className={styles.externalLink}
                   >
                     新公益連盟
-                  </a>{" "}
+                  </a>
                   加盟団体
                 </li>
                 <li>
@@ -463,6 +489,44 @@ const About = () => {
             </div>
           </BlockContainer>
         </div>
+        <style jsx>{`
+          .description {
+            margin-bottom: 1rem;
+          }
+
+          .awards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5rem;
+          }
+
+          .award-wrapper {
+            display: flex;
+            width: 15rem;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: ceter;
+          }
+          .award-logo-wrapper {
+            width: 15rem;
+            height: 15rem;
+            position: relative;
+          }
+
+          @media screen and (max-width: 600px) {
+            .awards-container {
+              gap: 1rem;
+            }
+            .award-wrapper {
+              width: 10rem;
+            }
+
+            .award-logo-wrapper {
+              width: 10rem;
+              height: 10rem;
+            }
+          }
+        `}</style>
       </Layout>
     </>
   );
