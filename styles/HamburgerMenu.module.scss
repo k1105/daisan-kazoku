@@ -66,6 +66,9 @@
   display: flex;
   gap: 0.8rem;
   color: #777;
+  a {
+    color: #777;
+  }
 }
 
 @media screen and (max-width: 600px) {
