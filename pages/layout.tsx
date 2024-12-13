@@ -98,7 +98,7 @@ export default function Layout({
         />
         <meta
           property="og:description"
-          content="一人でも解決に近づけるような実用的サービス。 家庭環境問題のはざまで悩む少年少女に。 "
+          content="家庭環境問題のはざまの少年少女が自分の居場所を見つけられるように。どんな家族も生きやすい社会を構築する。"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://daisan-kazoku.vercel.app" />
