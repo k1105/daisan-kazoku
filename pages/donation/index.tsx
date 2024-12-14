@@ -195,36 +195,120 @@ export default function Donation() {
                 </p>
               </div>
               <h2>自分の居場所を見つけるプラットフォーム</h2>
-              <h3>1：Web事業</h3>
-              <p>悩みを吐き出し、手札を増やす。</p>
+              <div className="overview-container">
+                <Image
+                  src="/img/overview.png"
+                  alt="第３の家族の全体像"
+                  fill
+                  priority
+                  style={{
+                    objectFit: "contain", // or cover
+                  }}
+                />
+              </div>
+              <div className="service-section">
+                <h3>1：Web事業</h3>
+                <p className="description">悩みを吐き出し、手札を増やす。</p>
+                <div className="service-container">
+                  <div className="service">
+                    <h3>悩みを吐き出す場 &#34;gedokun&#34;</h3>
+                    <p>匿名で悩みを吐き出し、少しだけ前を向ける場。</p>
+                    <div className="thumbnail-container">
+                      <Image
+                        src="/img/donation/gedokun.png"
+                        alt="gedokunのインターフェース"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain", // or cover
+                        }}
+                      />
+                    </div>
+                  </div>
 
-              <h3>2：イベント事業</h3>
-              <p>点と点を繋いで生きていく。</p>
-              <section>
-                <h2>問題を根本的に解決するための社会構築</h2>
-                <h3>はざまの声を集める</h3>
-                <p>
-                  今まで一人一人が抱えていた声を、第3の家族のプラットフォームを通じてかたちにします。見えなかった社会問題を可視化します。
-                </p>
-                <h3>政策・文化提言</h3>
-                <p>
-                  はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
-                </p>
-              </section>
-              <div className="section">
-                <h3>問題を根本的に解決するための社会構築</h3>
-                <p>
-                  <b>はざまの声を集める</b>
-                </p>
-                <p>
-                  今まで一人一人が抱えていた声を、第3の家族のプラットフォームを通じてかたちにします。見えなかった社会問題を可視化します。
-                </p>
-                <p>
-                  <b>政策・文化提言</b>
-                </p>
-                <p>
-                  はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
-                </p>
+                  <div className="service">
+                    <h3>役に立つ手札や経験談 &#34;nigeruno&#34;</h3>
+                    <p>社会資源と経験談を集めた情報サイト。</p>
+                    <div className="thumbnail-container">
+                      <Image
+                        src="/img/donation/nigeruno.png"
+                        alt="nigerunoのインターフェース"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain", // or cover
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <h3>2：イベント事業</h3>
+                <p className="description">点と点を繋いで生きていく。</p>
+                <div className="service-container">
+                  <div className="service">
+                    <h3>こどもの日に行う音楽ライブ</h3>
+                    <p>
+                      同じような仲間とかつて生きづらさを抱えたアーティストで、最高の1日をつくる。
+                    </p>
+                    <div className="thumbnail-container">
+                      <Image
+                        src="/img/live.png"
+                        alt="第３の家族ライブ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain", // or cover
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="service">
+                    <h3>母の日に行う裏母の日</h3>
+                    <p>
+                      母の日をどんな気持ちで迎えたらいいのかわからない人のための日。
+                    </p>
+                    <div className="thumbnail-container">
+                      <Image
+                        src="/img/donation/urahaha-card.png"
+                        alt="裏母の日"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain", // or cover
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <section>
+                  <h2>問題を根本的に解決するための社会構築</h2>
+                  <h3>はざまの声を集める</h3>
+                  <p>
+                    今まで一人一人が抱えていた声を、第3の家族のプラットフォームを通じてかたちにします。見えなかった社会問題を可視化します。
+                  </p>
+                  <h3>政策・文化提言</h3>
+                  <p>
+                    はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
+                  </p>
+                </section>
+                <div className="section">
+                  <h3>問題を根本的に解決するための社会構築</h3>
+                  <p>
+                    <b>はざまの声を集める</b>
+                  </p>
+                  <p>
+                    今まで一人一人が抱えていた声を、第3の家族のプラットフォームを通じてかたちにします。見えなかった社会問題を可視化します。
+                  </p>
+                  <p>
+                    <b>政策・文化提言</b>
+                  </p>
+                  <p>
+                    はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
+                  </p>
+                </div>
               </div>
             </div>
           </BlockContainer>
@@ -276,9 +360,24 @@ export default function Donation() {
             </div>
             <div className={styles.rightSideItem}>
               <h2>「私は一人じゃない、もう少し生きてみる」</h2>
-              <p>
+              <p style={{ marginBottom: "2rem" }}>
                 第3の家族は直接支援は行いませんが、近い仲間とゆるやかに繋がれるような場を設け、次の一歩につなげる情報を提示していくことで、少しずつ前が見えてきます。
               </p>
+
+              <div className="comment-container">
+                <div className="comment bright">
+                  <p>
+                    誰にも言えなかった悩みも、gedokunでみんなから受け入れてもらえたのが嬉しかった。今は大学受験に合格し、親とも落ち着いて話せるようになりました。（当時18歳）
+                  </p>
+                </div>
+                <div className="comment bright">
+                  <p>
+                    お母さんが怖くてずっと我慢してたけど、nigerunoを見ていたら、お父さんに相談していないことに気づかされた。お父さんに相談したら味方になってくれて、お母さんとの関係をうまくつくれるようになりました。
+                    <br />
+                    （当時19歳）
+                  </p>
+                </div>
+              </div>
             </div>
           </BlockContainer>
           <BlockContainer>
@@ -318,8 +417,9 @@ export default function Donation() {
                 1日33円からのご寄付で家庭環境問題のはざまで悩む少年少女たちをご支援いただけます。
                 はざまの少年少女たちが生きやすくなるための社会づくりの力になります。
               </p>
+
               <h3>単発寄付</h3>
-              <p>
+              <p style={{ marginBottom: "2rem" }}>
                 1日33円からのご寄付で家庭環境問題のはざまで悩む少年少女たちをご支援いただけます。
                 はざまの少年少女たちが生きやすくなるための社会づくりの力になります。
               </p>
@@ -332,11 +432,35 @@ export default function Donation() {
             </div>
             <div className={styles.rightSideItem}>
               <h3>第3の家族会議へご招待</h3>
-              <p>
+              <p style={{ marginBottom: "2rem" }}>
                 年1回、第3の家族のこれからについて話し合う第3の家族会議をハイブリッド（対面・オンライン）で開催しています。寄付年度の第3の家族会議にご招待します。
               </p>
+              <div className="thumbnail-container option">
+                <Image
+                  src="/img/donation/reward-1.png"
+                  alt="マンスリーサポーターの集合写真"
+                  fill
+                  priority
+                  style={{
+                    objectFit: "contain", // or cover
+                  }}
+                />
+              </div>
               <h3>メールでの活動報告</h3>
-              <p>月一回程度、活動の報告をメールでお送りさせていただきます。</p>
+              <p style={{ marginBottom: "2rem" }}>
+                月一回程度、活動の報告をメールでお送りさせていただきます。
+              </p>
+              <div className="thumbnail-container option">
+                <Image
+                  src="/img/donation/reward-2.png"
+                  alt="メールのアイコン"
+                  fill
+                  priority
+                  style={{
+                    objectFit: "contain", // or cover
+                  }}
+                />
+              </div>
             </div>
           </BlockContainer>
 
@@ -568,10 +692,44 @@ export default function Donation() {
         .diagram-container {
         }
 
+        .overview-container {
+          height: 15rem;
+          width: 100%;
+          position: relative;
+          margin-bottom: 2rem;
+        }
+
+        .thumbnail-container {
+          height: 20rem;
+          width: 100%;
+          position: relative;
+        }
+
+        .thumbnail-container.option {
+          margin-bottom: 3rem;
+        }
+
         .comment-container {
           display: flex;
           flex-wrap: wrap;
           gap: 1rem;
+        }
+
+        .service-section {
+          .description {
+            margin-bottom: 2rem;
+          }
+        }
+
+        .service-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          margin-bottom: 2rem;
+        }
+
+        .service {
+          width: 20rem;
         }
 
         .comment {
@@ -579,6 +737,11 @@ export default function Donation() {
           width: 20rem;
           padding: 2rem;
           background-color: var(--light-gray);
+        }
+
+        .comment.bright {
+          background-color: white;
+          border: 1px solid var(--green);
         }
 
         .qa-wrapper {
