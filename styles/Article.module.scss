@@ -194,6 +194,8 @@
 
 @media screen and (max-width: 600px) {
   .profileContainer {
+    flex-direction: column;
+    gap: 0.5rem;
     width: 100%;
     .description {
       line-height: 1.5rem;

@@ -176,7 +176,14 @@ const About = () => {
                 <p style={{ marginBottom: "3rem" }}>
                   問題の程度としてもはざまであり、思春期やモラトリアム期間の少年少女たちには、以下のような複雑な心境があります。
                 </p>
-                <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+                <div
+                  style={{
+                    textAlign: "center",
+                    marginBottom: "2rem",
+                    width: "40rem",
+                    maxWidth: "90vw",
+                  }}
+                >
                   <Statement state="大ごとにしたくない" />
                   <Statement state="友達に知られたくない" />
                   <br />
@@ -230,7 +237,7 @@ const About = () => {
             </div>
             <div className={styles.rightSideItem}>
               <div className={styles.profileContainer}>
-                <p className="position">代表</p>
+                <p>代表</p>
                 <div>
                   <h2>奥村春香</h2>
                   <p className="description">
