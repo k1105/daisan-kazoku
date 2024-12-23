@@ -118,9 +118,9 @@ const About = () => {
 
               <section>
                 <h2>少年少女が「うざい」と思うことはしない</h2>
-                <ul>
+                <ul className={styles.list}>
                   <li>支援らしくしない</li>
-                  <ul>
+                  <ul className={styles.list}>
                     <li>真面目な入り口にしない</li>
                     <li>最初から指導員・相談員は置かない</li>
                     <li>温かみのあるデザインにしない</li>
@@ -129,7 +129,7 @@ const About = () => {
               </section>
               <section>
                 <h2>時間に解決させる</h2>
-                <ul>
+                <ul className={styles.list}>
                   <li>ふとしたタイミングで前を向ける時が来る。</li>
                   <li>しんどさが蓄積すると、思うように進めない。</li>
                   <li>親も子も時間とともに成長する。</li>
