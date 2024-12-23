@@ -211,23 +211,33 @@ const About = () => {
               <p>
                 見つける居場所は人それぞれです。人でもモノでも自分自身でも。
               </p>
-              <ul className={styles.list}>
-                <li>
-                  受験合格しました。今は親とも落ち着いて話せるようになりました。（当時18歳）
-                </li>
-                <li>
-                  意外とお父さんに相談してないことに気づいて、話したら味方になってくれました。（当時19歳）
-                </li>
-                <li>
-                  実家にいるけど、自分の気持ちを伝えられるようになって、親との関係が改善しました。（当時19歳）
-                </li>
-                <li>
-                  彼氏と結婚しました。親との仲裁にも入ってくれて助かりました。（当時18歳）
-                </li>
-                <li>
-                  身の危険を感じたので公的な支援にお世話になりました。（当時18歳）
-                </li>
-              </ul>
+              <div className={styles.commentContainer}>
+                <div className={`${styles.comment} ${styles.bright}`}>
+                  <p>
+                    受験合格しました。今は親とも落ち着いて話せるようになりました。（当時18歳）
+                  </p>
+                </div>
+                <div className={`${styles.comment} ${styles.bright}`}>
+                  <p>
+                    意外とお父さんに相談してないことに気づいて、話したら味方になってくれました。（当時19歳）
+                  </p>
+                </div>
+                <div className={`${styles.comment} ${styles.bright}`}>
+                  <p>
+                    実家にいるけど、自分の気持ちを伝えられるようになって、親との関係が改善しました。（当時19歳）
+                  </p>
+                </div>
+                <div className={`${styles.comment} ${styles.bright}`}>
+                  <p>
+                    彼氏と結婚しました。親との仲裁にも入ってくれて助かりました。（当時18歳）
+                  </p>
+                </div>
+                <div className={`${styles.comment} ${styles.bright}`}>
+                  <p>
+                    身の危険を感じたので公的な支援にお世話になりました。（当時18歳）
+                  </p>
+                </div>
+              </div>
             </div>
           </BlockContainer>
 

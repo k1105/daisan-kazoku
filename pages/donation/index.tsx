@@ -84,14 +84,14 @@ export default function Donation() {
               <h1 className={styles.headline}>体験談</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <div className="comment-container">
-                <div className="comment">
+              <div className={styles.commentContainer}>
+                <div className={styles.comment}>
                   <p>
                     テストの点が悪いと、<b>「才能ないね、本当にうちの子？」</b>
                     と言われる。でも<b>それ以外の時は普通</b>の家族って感じだし‥
                   </p>
                 </div>
-                <div className="comment">
+                <div className={styles.comment}>
                   <p>
                     <b>自分は女で、好きな子も女の子。</b>
                     <br />
@@ -100,7 +100,7 @@ export default function Donation() {
                     帰ったら<b>「気持ち悪い」</b>って言われた…
                   </p>
                 </div>
-                <div className="comment">
+                <div className={styles.comment}>
                   <p>
                     <b>親が最近仲悪くて、</b>私が寝室に戻った後に
                     <br />
@@ -110,7 +110,7 @@ export default function Donation() {
                     私なんていなければよかったんだ…
                   </p>
                 </div>
-                <div className="comment">
+                <div className={styles.comment}>
                   <p>
                     服を買う時も、進路を決める時も、何から何まで親が先回りして用意して、
                     <br />
@@ -119,7 +119,7 @@ export default function Donation() {
                     <b>優しさなんだろうけど、自分は何もできないやつだな</b>って…
                   </p>
                 </div>
-                <div className="comment">
+                <div className={styles.comment}>
                   <p>
                     妹には優しいのに、俺には勉強も厳しいし、怒られてばっかり。
                     <br />
@@ -162,14 +162,14 @@ export default function Donation() {
                 </p>
               </div>
 
-              <div className="comment-container">
-                <div className="comment">
+              <div className={styles.commentContainer}>
+                <div className={styles.comment}>
                   <p>トー横に行ったら、なんとかなるかな…</p>
                 </div>
-                <div className="comment">
+                <div className={styles.comment}>
                   <p>薬を飲めば楽になれるのかな…？</p>
                 </div>
-                <div className="comment">
+                <div className={styles.comment}>
                   <p>親に後悔させてやる…！</p>
                 </div>
               </div>
@@ -364,13 +364,13 @@ export default function Donation() {
                 第3の家族は直接支援は行いませんが、近い仲間とゆるやかに繋がれるような場を設け、次の一歩につなげる情報を提示していくことで、少しずつ前が見えてきます。
               </p>
 
-              <div className="comment-container">
-                <div className="comment bright">
+              <div className={styles.commentContainer}>
+                <div className={`${styles.comment} ${styles.bright}`}>
                   <p>
                     誰にも言えなかった悩みも、gedokunでみんなから受け入れてもらえたのが嬉しかった。今は大学受験に合格し、親とも落ち着いて話せるようになりました。（当時18歳）
                   </p>
                 </div>
-                <div className="comment bright">
+                <div className={`${styles.comment} ${styles.bright}`}>
                   <p>
                     お母さんが怖くてずっと我慢してたけど、nigerunoを見ていたら、お父さんに相談していないことに気づかされた。お父さんに相談したら味方になってくれて、お母さんとの関係をうまくつくれるようになりました。
                     <br />
@@ -709,12 +709,6 @@ export default function Donation() {
           margin-bottom: 3rem;
         }
 
-        .comment-container {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-        }
-
         .service-section {
           .description {
             margin-bottom: 2rem;
@@ -730,18 +724,6 @@ export default function Donation() {
 
         .service {
           width: 20rem;
-        }
-
-        .comment {
-          border-radius: 5px;
-          width: 20rem;
-          padding: 2rem;
-          background-color: var(--light-gray);
-        }
-
-        .comment.bright {
-          background-color: white;
-          border: 1px solid var(--green);
         }
 
         .qa-wrapper {

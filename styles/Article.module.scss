@@ -192,6 +192,25 @@
   }
 }
 
+.commentContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.comment {
+  border-radius: 5px;
+  width: 20rem;
+  padding: 2rem;
+  background-color: var(--light-gray);
+}
+
+.comment.bright {
+  background-color: white;
+  border: 1px solid var(--green);
+}
+
 @media screen and (max-width: 600px) {
   .profileContainer {
     flex-direction: column;
