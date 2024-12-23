@@ -1,13 +1,10 @@
 import styles from "@/styles/Home.module.css";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/router";
+import { ExternalLinkIcon } from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
 import Link from "next/link";
-import { SocialFacebook } from "@/components/icons/SocialFacebook";
-import { SocialX } from "@/components/icons/SocialX";
-import { SocialInstagram } from "@/components/icons/SocialInstagram";
-import hamburgerStyles from "@/styles/HamburgerMenu.module.scss";
 
 const Home = () => {
   const router = useRouter();
@@ -16,10 +13,6 @@ const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);
   const isScrolling = useRef<boolean>(false);
   const startY = useRef<number>(0);
-  const [imageSrc, setImageSrc] = useState<string>(
-    "/img/diagram/status01/frame_0.png"
-  );
-  const imageFrameNumerRef = useRef<number>(0);
 
   const delayRedirectTo = (href: string) => {
     if (mainRef.current) mainRef.current.style.opacity = "0";
@@ -32,7 +25,7 @@ const Home = () => {
   useEffect(() => {
     if (typeof window === "undefined") return; // サーバーサイドでは実行しない
 
-    const stateList = [0, 1, 2, 3, 4, 5, 6, 7];
+    const stateList = [0, 1, 2, 3, 4, 5];
 
     const handleScroll = (e: WheelEvent) => {
       e.preventDefault();
@@ -129,11 +122,8 @@ const Home = () => {
           content="どんな家族も生きやすい社会を構築する。家庭環境問題のはざまの少年少女が自分の居場所を見つけるための、寄り添わない支援。 "
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://daisan-kazoku.vercel.app" />
-        <meta
-          property="og:image"
-          content="https://daisan-kazoku.vercel.app/ogp.png"
-        />
+        <meta property="og:url" content="https://daisan-kazoku.com" />
+        <meta property="og:image" content="https://daisan-kazoku.com/ogp.png" />
         <meta property="og:site_name" content="NPO法人 第３の家族" />
         <meta property="og:locale" content="ja_JP" />
         {/* Twitter Card tags */}
@@ -142,7 +132,7 @@ const Home = () => {
       </Head>
       <main className={styles.main} ref={mainRef}>
         <div className="view-wrapper">
-          <div className="first-view">
+          <div className="first-view top">
             <div className="logo">
               <Image
                 src="/logo.svg"
@@ -169,29 +159,23 @@ const Home = () => {
               </a>
               <a
                 className="page-link"
-                onClick={() => delayRedirectTo("/announcement")}
+                onClick={() => delayRedirectTo("/donation")}
               >
-                お知らせ
-              </a>
-              <a className="page-link" onClick={() => delayRedirectTo("/data")}>
-                データ
-              </a>
-              <a
-                className="page-link"
-                href="mailto:info@daisan-kazoku.net" //href="/contact"
-              >
-                お問い合わせ
+                寄付する
               </a>
             </div>
-            <div className={hamburgerStyles.socialIcons}>
-              <Link href="https://x.com/daisan_kazoku">
-                <SocialX />
-              </Link>
-              <Link href="https://www.instagram.com/daisan_kazoku/">
-                <SocialInstagram />
-              </Link>
-              <Link href="https://www.facebook.com/profile.php?id=61550918296580">
-                <SocialFacebook />
+            <div className="footer-link-container">
+              <Link href="/magazine" className="footer-link">
+                <p>
+                  少年少女はこちら
+                  <ExternalLinkIcon
+                    style={{
+                      display: "inline-block",
+                      width: "0.9rem",
+                      marginLeft: "0.5rem",
+                    }}
+                  />
+                </p>
               </Link>
             </div>
             {/* <a href="#" className="page-link">
@@ -260,7 +244,7 @@ const Home = () => {
               top: 0;
               left: 0;
               z-index: -10;
-              width: 100vw;
+              width: 120vw;
               height: 100vh;
               transform: scale(1);
               transform-origin: center;
@@ -278,26 +262,29 @@ const Home = () => {
               height: 100vh;
               padding: 40vh 5vw;
             }
+
+            .first-view.top {
+              margin: 0 auto;
+            }
+
             .logo {
-              width: 50%;
+              width: 100%;
               height: 100px;
-              margin-bottom: 1rem;
               position: relative;
             }
+
             .link {
-              font-size: 1.2rem;
+              margin-top: 2rem;
               display: flex;
-              flex-direction: column;
+              gap: 1.5rem;
+              justify-content: flex-end;
             }
 
             .page-link {
               cursor: pointer;
               text-decoration: none;
               color: black;
-              font-weight: 100;
-              border-left: 1px solid #ccc;
-              margin-bottom: 1rem;
-              padding-left: 1rem;
+              font-size: 1.4rem;
               transition: all ease 0.5s;
             }
 
@@ -305,9 +292,44 @@ const Home = () => {
               filter: blur(0.5px);
             }
 
+            .footer-link-container {
+              position: fixed;
+              bottom: 5vh;
+              left: 5vw;
+              display: flex;
+              gap: 0.5rem;
+              flex-direction: column;
+              a {
+                color: black;
+                text-decoration: none;
+              }
+            }
+
+            .footer-link {
+              font-size: 1rem;
+            }
+
             @media screen and (max-width: 600px) {
               .logo {
-                width: 70%;
+                width: 90%;
+              }
+
+              .link {
+                flex-direction: column;
+                margin-top: 1rem;
+                gap: 0.6rem;
+              }
+
+              .page-link {
+                font-size: 1.2rem;
+              }
+
+              .footer-link-container {
+                gap: 0rem;
+              }
+
+              .footer-link {
+                font-size: 0.5rem;
               }
 
               .first-view {
