@@ -82,13 +82,6 @@ const Home = () => {
       }, 500);
     };
 
-    const interval = setInterval(() => {
-      imageFrameNumerRef.current = (imageFrameNumerRef.current + 1) % 63;
-      setImageSrc(
-        `/img/diagram/status01/frame_${imageFrameNumerRef.current}.png`
-      );
-    }, 50);
-
     if (mainRef.current) mainRef.current.style.opacity = "1";
 
     window.addEventListener("wheel", handleScroll, { passive: false });
@@ -97,7 +90,6 @@ const Home = () => {
 
     // クリーンアップ
     return () => {
-      clearInterval(interval);
       window.removeEventListener("wheel", handleScroll);
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);

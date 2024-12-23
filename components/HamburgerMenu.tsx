@@ -11,24 +11,10 @@ import { SocialInstagram } from "./icons/SocialInstagram";
 
 export default function HamburgerMenu() {
   const [isVisible, setIsVisible] = useState(false);
-  const navOverlay = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLDivElement>(null);
 
   const router = useRouter();
 
-  const handleClick = () => {
-    setIsVisible(!isVisible);
-  };
-
   useEffect(() => {
-    isVisible
-      ? navOverlay.current?.classList.add("visible")
-      : navOverlay.current?.classList.remove("visible");
-
-    isVisible
-      ? buttonRef.current?.classList.add("open")
-      : buttonRef.current?.classList.remove("open");
-
     isVisible
       ? (document.body.style.overflow = "hidden")
       : (document.body.style.overflow = "auto");
@@ -36,8 +22,11 @@ export default function HamburgerMenu() {
 
   return (
     <>
-      <div ref={buttonRef} className="menu-button" onClick={handleClick} />
-      <div ref={navOverlay} className="nav-overlay">
+      <div
+        className={`menu-button ${isVisible && "open"}`}
+        onClick={() => setIsVisible(!isVisible)}
+      />
+      <div className={`nav-overlay ${isVisible && "visible"}`}>
         <div className="view-wrapper">
           <div className="first-view">
             <nav className={classes.nav}>
