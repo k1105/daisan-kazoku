@@ -5,11 +5,11 @@ import { useRouter } from "next/router";
 import { ExternalLinkIcon } from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
 import Link from "next/link";
+import { TopBackgroundAnimation } from "@/components/animation/TopBackgroundAnimation";
 
 const Home = () => {
   const router = useRouter();
   const state = useRef<number>(0);
-  const animationContainer = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
   const isScrolling = useRef<boolean>(false);
   const startY = useRef<number>(0);
@@ -89,29 +89,6 @@ const Home = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // クライアントサイドのみで動作
-    if (typeof window === "undefined") return;
-
-    // 動的にlottie-webをインポート
-    import("lottie-web").then((lottie) => {
-      if (animationContainer.current) {
-        const animationInstance = lottie.default.loadAnimation({
-          container: animationContainer.current,
-          renderer: "svg",
-          loop: true,
-          autoplay: true,
-          // path: "/json/241295_sp_kv_hand.json",
-          path: "/json/241205_pc_kv_wip.json",
-        });
-
-        return () => {
-          animationInstance.destroy(); // クリーンアップ
-        };
-      }
-    });
-  }, []);
-
   return (
     <>
       <Head>
@@ -182,8 +159,7 @@ const Home = () => {
               pdf
             </a> */}
           </div>
-
-          <div ref={animationContainer} className="animation" />
+          <TopBackgroundAnimation />
 
           <div className="first-view">
             <p>
@@ -239,17 +215,6 @@ const Home = () => {
 
         <style jsx>
           {`
-            .animation {
-              position: fixed;
-              top: 0;
-              left: 0;
-              z-index: -10;
-              width: 120vw;
-              height: 100vh;
-              transform: scale(1);
-              transform-origin: center;
-            }
-
             .image {
               position: fixed;
               z-index: -1;
