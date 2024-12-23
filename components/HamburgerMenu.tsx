@@ -26,6 +26,7 @@ export default function HamburgerMenu() {
         className={`menu-button ${isVisible && "open"}`}
         onClick={() => setIsVisible(!isVisible)}
       />
+      <div className={`document-overlay ${isVisible && "active"}`} />
       <div className={`nav-overlay ${isVisible && "visible"}`}>
         <div className="view-wrapper">
           <div className="first-view">
@@ -166,6 +167,23 @@ export default function HamburgerMenu() {
 
         .menu-button.open {
           background-color: #ddd;
+        }
+
+        .document-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: black;
+          z-index: 0;
+          opacity: 0;
+          pointer-events: none;
+          transition: all 1s ease;
+        }
+
+        .document-overlay.active {
+          opacity: 0.3;
         }
 
         .nav-overlay {
