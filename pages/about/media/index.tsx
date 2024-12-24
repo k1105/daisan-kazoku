@@ -15,6 +15,10 @@ const Media = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <>
       <Layout pageTitle="メディア・登壇・出展一覧">

@@ -142,7 +142,7 @@ const Home = () => {
               </a>
             </div>
             <div className="footer-link-container">
-              <Link href="/magazine" className="footer-link">
+              <Link href="https://daisan-kazoku.net" className="footer-link">
                 <p>
                   少年少女はこちら
                   <ExternalLinkIcon

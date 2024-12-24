@@ -30,11 +30,6 @@ const DaisanLive = () => {
         <BlockContainer>
           <div className={styles.rightSideItem}>
             <p>次の一歩に繋げるための音楽ライブ。</p>
-            <Link href="#">
-              <div className={styles.innerLinkWrapper}>
-                <p>Webサイトへ</p>
-              </div>
-            </Link>
           </div>
         </BlockContainer>
         <BlockContainer>
