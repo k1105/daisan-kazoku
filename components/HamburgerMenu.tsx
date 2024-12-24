@@ -43,6 +43,9 @@ export default function HamburgerMenu() {
                     className={`${classes.link} ${
                       router.pathname === "/about" ? classes.active : ""
                     }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
                   >
                     第３の家族とは
                   </Link>
@@ -53,6 +56,9 @@ export default function HamburgerMenu() {
                     className={`${classes.link} ${
                       router.pathname === "/service" ? classes.active : ""
                     }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
                   >
                     事業内容
                   </Link>
@@ -63,6 +69,9 @@ export default function HamburgerMenu() {
                     className={`${classes.link} ${
                       router.pathname === "/announcement" ? classes.active : ""
                     }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
                   >
                     お知らせ
                   </Link>
@@ -83,6 +92,9 @@ export default function HamburgerMenu() {
                     className={`${classes.link} ${
                       router.pathname === "/data" ? classes.active : ""
                     }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
                   >
                     データ
                   </Link>
@@ -93,6 +105,9 @@ export default function HamburgerMenu() {
                     className={`${classes.link} ${
                       router.pathname === "/contact" ? classes.active : ""
                     }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
                   >
                     お問い合わせ
                   </Link>
@@ -102,12 +117,18 @@ export default function HamburgerMenu() {
                 <Link
                   href="/donation"
                   className={`${classes.link} ${classes.externalLink}`}
+                  onClick={() => {
+                    setIsVisible(!isVisible);
+                  }}
                 >
                   寄付する
                 </Link>
                 <Link
                   href="/magazine"
                   className={`${classes.link} ${classes.externalLink}`}
+                  onClick={() => {
+                    setIsVisible(!isVisible);
+                  }}
                 >
                   <p>メルマガ登録</p>
                 </Link>
