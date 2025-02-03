@@ -14,7 +14,6 @@ export async function getStaticProps() {
       initialData: response.contents || [],
       totalCount: response.totalCount || 0,
     },
-    // revalidate: 60, // ISR: 60秒ごとに再生成
   };
 }
 

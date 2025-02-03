@@ -6,6 +6,8 @@ import { ExternalLinkIcon } from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
 import Link from "next/link";
 import { TopBackgroundAnimation } from "@/components/animation/TopBackgroundAnimation";
+import Layout from "./layout";
+import HamburgerMenu from "@/components/HamburgerMenu";
 
 const Home = () => {
   const router = useRouter();

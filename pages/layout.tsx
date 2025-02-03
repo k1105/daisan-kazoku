@@ -173,6 +173,7 @@ export default function Layout({
 
           .header-right {
             display: flex;
+            align-items: center;
             gap: 2rem;
             line-height: 40px;
             a {

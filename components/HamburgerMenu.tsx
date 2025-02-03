@@ -23,9 +23,12 @@ export default function HamburgerMenu() {
   return (
     <>
       <div
-        className={`menu-button ${isVisible && "open"}`}
         onClick={() => setIsVisible(!isVisible)}
-      />
+        className="button-container"
+      >
+        <div className={`menu-button ${isVisible && "open"}`} />
+        <p>Menu</p>
+      </div>
       <div className={`document-overlay ${isVisible && "active"}`} />
       <div className={`nav-overlay ${isVisible && "visible"}`}>
         <div className="view-wrapper">
@@ -176,14 +179,24 @@ export default function HamburgerMenu() {
         </div>
       </div>
       <style jsx>{`
+        .button-container {
+          z-index: 10;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          p {
+            line-height: 1rem;
+          }
+        }
+
         .menu-button {
-          width: 40px;
-          height: 40px;
+          width: 1rem;
+          height: 1rem;
           border-radius: 50%;
           background: var(--dark-gray);
+          mix-blend-mode: difference;
           cursor: pointer;
-          transition: background-color 1s ease-in;
-          z-index: 10;
+          transition: background-color 300ms ease-in;
         }
 
         .menu-button.open {
