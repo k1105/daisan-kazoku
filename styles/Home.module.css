@@ -4,9 +4,9 @@
   /* height: 100vh; */
   overflow: hidden;
   overscroll-behavior-y: none;
-  opacity: 0;
+  opacity: 1;
   font-family: var(--line-seed);
-  transition: opacity 0.3s ease, transform 0.7s ease;
+  transition: opacity 0.3s ease;
 }
 
 .container {

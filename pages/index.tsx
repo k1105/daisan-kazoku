@@ -6,7 +6,6 @@ import { ExternalLinkIcon } from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
 import Link from "next/link";
 import { TopBackgroundAnimation } from "@/components/animation/TopBackgroundAnimation";
-import Layout from "./layout";
 import HamburgerMenu from "@/components/HamburgerMenu";
 
 const Home = () => {
@@ -15,6 +14,8 @@ const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);
   const isScrolling = useRef<boolean>(false);
   const startY = useRef<number>(0);
+  const lastDeltaY = useRef<number>(0);
+  const lastUpdatedAt = useRef<number>(Date.now());
 
   const delayRedirectTo = (href: string) => {
     if (mainRef.current) mainRef.current.style.opacity = "0";
@@ -31,20 +32,39 @@ const Home = () => {
 
     const handleScroll = (e: WheelEvent) => {
       e.preventDefault();
-      if (Math.abs(e.deltaY) < 50 || isScrolling.current) return;
+      // console.log(
+      //   "deltaY: ",
+      //   e.deltaY,
+      //   "gap: ",
+      //   e.deltaY - lastDeltaY.current,
+      //   "lastDeltaY: ",
+      //   lastDeltaY.current,
+      //   "timedelta: ",
+      //   Date.now() - lastUpdatedAt.current
+      // );
 
-      isScrolling.current = true;
-      state.current =
-        e.deltaY > 0
-          ? (state.current + 1) % stateList.length
-          : Math.max(state.current - 1, 0);
+      if (
+        Date.now() - lastUpdatedAt.current > 350 &&
+        Math.abs(e.deltaY) > 10 &&
+        !isScrolling.current &&
+        e.deltaY * (e.deltaY - lastDeltaY.current) > 0
+      ) {
+        lastUpdatedAt.current = Date.now();
+        isScrolling.current = true;
+        state.current =
+          e.deltaY > 0
+            ? (state.current + 1) % stateList.length
+            : Math.max(state.current - 1, 0);
 
-      if (mainRef.current) {
-        mainRef.current.style.transform = `translate(0, -${
-          stateList[state.current] * 100
-        }vh)`;
+        if (mainRef.current) {
+          mainRef.current.style.transform = `translate(0, -${
+            stateList[state.current] * 100
+          }vh)`;
+        }
       }
 
+      lastDeltaY.current = e.deltaY;
+      console.log(lastDeltaY.current);
       setTimeout(() => {
         isScrolling.current = false;
       }, 500);
@@ -109,8 +129,14 @@ const Home = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@daisan_kazoku" />
       </Head>
-      <main className={styles.main} ref={mainRef}>
-        <div className="view-wrapper">
+      <main className={styles.main}>
+        <div className="header">
+          <div className="header-left"></div>
+          <div className="header-right">
+            <HamburgerMenu />
+          </div>
+        </div>
+        <div className="view-wrapper" ref={mainRef}>
           <div className="first-view top">
             <div className="logo">
               <Image
@@ -142,27 +168,11 @@ const Home = () => {
               >
                 寄付する
               </a>
-            </div>
-            <div className="footer-link-container">
-              <Link href="https://daisan-kazoku.net" className="footer-link">
-                <p>
-                  少年少女はこちら
-                  <ExternalLinkIcon
-                    style={{
-                      display: "inline-block",
-                      width: "0.9rem",
-                      marginLeft: "0.5rem",
-                    }}
-                  />
-                </p>
-              </Link>
-            </div>
+            </div>{" "}
             {/* <a href="#" className="page-link">
               pdf
             </a> */}
           </div>
-          <TopBackgroundAnimation />
-
           <div className="first-view">
             <p>
               「家に居場所がない」少年少女は4人に1人。
@@ -214,9 +224,55 @@ const Home = () => {
             </p>
           </div>
         </div>
+        <TopBackgroundAnimation />
+        <div className="footer-link-container">
+          <Link href="https://daisan-kazoku.net" className="footer-link">
+            <p>
+              少年少女はこちら
+              <ExternalLinkIcon
+                style={{
+                  display: "inline-block",
+                  width: "0.9rem",
+                  marginLeft: "0.5rem",
+                }}
+              />
+            </p>
+          </Link>
+        </div>
 
         <style jsx>
           {`
+            .header {
+              display: flex;
+              width: 94vw;
+              z-index: 120;
+              position: fixed;
+              top: 30px;
+              right: 3vw;
+              justify-content: space-between;
+
+              .header-left {
+                width: 200px;
+                margin-top: 10px;
+                transition: all 500ms ease;
+              }
+
+              .header-right {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                line-height: 40px;
+                a {
+                  text-decoration: none;
+                  color: black;
+                }
+              }
+            }
+
+            .view-wrapper {
+              transition: opacity 0.5s ease, transform 0.7s ease;
+              opacity: 0;
+            }
             .image {
               position: fixed;
               z-index: -1;
@@ -228,6 +284,10 @@ const Home = () => {
               width: 40vw;
               height: 100vh;
               padding: 40vh 5vw;
+              p {
+                line-height: 3rem;
+                font-size: 1.2rem;
+              }
             }
 
             .first-view.top {
@@ -303,6 +363,17 @@ const Home = () => {
                 width: 100vw;
                 height: 100vh;
                 padding-top: 30vh;
+              }
+
+              .header-link {
+                display: none;
+              }
+
+              .header {
+                .header-left {
+                  width: 150px;
+                  z-index: 99;
+                }
               }
             }
           `}
