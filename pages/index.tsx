@@ -32,16 +32,6 @@ const Home = () => {
 
     const handleScroll = (e: WheelEvent) => {
       e.preventDefault();
-      // console.log(
-      //   "deltaY: ",
-      //   e.deltaY,
-      //   "gap: ",
-      //   e.deltaY - lastDeltaY.current,
-      //   "lastDeltaY: ",
-      //   lastDeltaY.current,
-      //   "timedelta: ",
-      //   Date.now() - lastUpdatedAt.current
-      // );
 
       if (
         Date.now() - lastUpdatedAt.current > 350 &&

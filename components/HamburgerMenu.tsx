@@ -104,7 +104,7 @@ export default function HamburgerMenu() {
                 </li>
                 <li className={classes.list}>
                   <Link
-                    href="mailto:info@daisan-kazoku.net" //href="/contact"
+                    href="/contact"
                     className={`${classes.link} ${
                       router.pathname === "/contact" ? classes.active : ""
                     }`}
