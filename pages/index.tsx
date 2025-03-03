@@ -1,6 +1,6 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Home.module.scss";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, cloneElement } from "react";
 import { useRouter } from "next/router";
 import { ExternalLinkIcon } from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
@@ -9,15 +9,215 @@ import { TopBackgroundAnimation } from "@/components/animation/TopBackgroundAnim
 import HamburgerMenu from "@/components/HamburgerMenu";
 import { DownArrowAnimation } from "@/components/animation/DownArrowAnimation";
 
+// ------------------------------------
+// 1) セクションの中身を配列化
+//    （クローンしやすいように）
+// ------------------------------------
+const baseSections = [
+  // index:0 (トップ/ロゴセクション)
+  <div className={`${styles.firstView} ${styles.top}`} key="0">
+    <div className={styles.logo}>
+      <Image
+        src="/logo.svg"
+        fill
+        priority
+        style={{ objectFit: "contain" }}
+        alt="第３の家族"
+      />
+    </div>
+    <div className={styles.link}>
+      <a className={styles.pageLink}>第３の家族とは</a>
+      <a className={styles.pageLink}>事業内容</a>
+      <a className={styles.pageLink}>寄付する</a>
+    </div>
+    <div className={styles.animationWrapper}>
+      <DownArrowAnimation />
+    </div>
+  </div>,
+
+  // index:1
+  <div className={styles.firstView} key="1">
+    <p>
+      <span className={styles.segment}>「家に居場所がない」少年少女は</span>
+      <span className={styles.segment}>4人に1人。</span>
+      <br />
+      <span className={styles.segment}>数は多くても明るみに出ないのは、</span>
+      <span className={styles.segment}>周囲から気づきにくく、</span>
+      <br />
+      <span className={styles.segment}>本人も助けを求めるべきか</span>
+      <span className={styles.segment}>わからないから。</span>
+    </p>
+  </div>,
+
+  // index:2
+  <div className={styles.firstView} key="2">
+    <p>
+      <span className={styles.segment}>虐待ってほどではない気がする。</span>
+      <span className={styles.segment}>
+        でも、親との関係に違和感を感じたり、
+      </span>
+      <span className={styles.segment}>傷ついている。</span>
+      <span className={styles.segment}>でも、嫌いとは言い切れない。</span>
+      <span className={styles.segment}>自分の親だし…。</span>
+    </p>
+  </div>,
+
+  // index:3
+  <div className={styles.firstView} key="3">
+    <p>
+      <span className={styles.segment}>その後に</span>
+      <span className={styles.segment}>虐待・</span>
+      <span className={styles.segment}>精神疾患・</span>
+      <span className={styles.segment}>非行・</span>
+      <span className={styles.segment}>孤独孤立・</span>
+      <span className={styles.segment}>自殺につながる</span>
+      <span className={styles.segment}>可能性があります。</span>
+      <br />
+      <span className={styles.segment}>顕在化した後の支援はあるけど、</span>
+      <span className={styles.segment}>もっと予防できないでしょうか？</span>
+    </p>
+  </div>,
+
+  // index:4
+  <div className={styles.firstView} key="4">
+    <p>
+      <span className={styles.segment}>そこで、第1の家族（本人の家族）</span>
+      <br />
+      <span className={styles.segment}>または、第2の家族</span>
+      <span className={styles.segment}>（友達・学校・地域）で</span>
+      <span className={styles.segment}>
+        自分の居場所を見つけてもらえるような、
+      </span>
+      <span className={styles.segment}>第3の家族として存在します。</span>
+    </p>
+  </div>,
+
+  // index:5
+  <div className={styles.firstView} key="5">
+    <p>
+      <span className={styles.segment}>
+        大切にしていることは「寄り添わない」。
+      </span>
+      <span className={styles.segment}>支援らしくない構え方で、</span>
+      <span className={styles.segment}>今まで取りこぼされてきた</span>
+      <span className={styles.segment}>はざまの少年少女たちに</span>
+      <span className={styles.segment}>アプローチします。</span>
+      <br />
+      <span className={styles.segment}>はざまの少年少女たちが</span>
+      <span className={styles.segment}>自分の居場所を見つけられるように。</span>
+    </p>
+  </div>,
+];
+
+// 上下にクローンを追加して「8要素」に拡張
+const extendedSections = [
+  // 先頭に "最後" のクローン
+  <div className={styles.firstView} key="clone-head">
+    {/* clone: baseSections[5] の中身を再利用 */}
+    {baseSections[5].props.children}
+  </div>,
+  // 中間に本物6要素
+  ...baseSections,
+  // 末尾に "最初" のクローン
+  <div className={`${styles.firstView} ${styles.top}`} key="clone-tail">
+    {/* clone: baseSections[0] の中身を再利用 */}
+    {baseSections[0].props.children}
+  </div>,
+];
+
 const Home = () => {
   const router = useRouter();
-  const state = useRef<number>(0);
-  const mainRef = useRef<HTMLDivElement>(null);
-  const isScrolling = useRef<boolean>(false);
-  const startY = useRef<number>(0);
-  const lastDeltaY = useRef<number>(0);
-  const lastUpdatedAt = useRef<number>(Date.now());
 
+  // スライド位置: extendedSections（8要素）のうちどこにいるか
+  // 初期値 = 1 → (クローンではなく)実際の先頭セクションを表示
+  const [currentIndex, setCurrentIndex] = useState<number>(1);
+
+  // スクロールなどの判定用Ref
+  const isScrolling = useRef<boolean>(false);
+  const lastUpdatedAt = useRef<number>(Date.now());
+  const startY = useRef<number>(0);
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  // PCなどのホイールスクロール時の遷移
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+
+      const now = Date.now();
+      // 一定時間経過＆ある程度のスクロール量 かつ 現在スクロール中でなければ
+      if (
+        now - lastUpdatedAt.current > 350 &&
+        Math.abs(e.deltaY) > 10 &&
+        !isScrolling.current
+      ) {
+        lastUpdatedAt.current = now;
+        isScrolling.current = true;
+
+        // deltaY>0: 下方向スクロール → index+1, それ以外 → index-1
+        setCurrentIndex((prev) =>
+          Math.max(
+            0,
+            Math.min(
+              prev + (e.deltaY > 0 ? 1 : -1),
+              extendedSections.length - 1
+            )
+          )
+        );
+
+        setTimeout(() => {
+          isScrolling.current = false;
+        }, 500);
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  // スマホ等のタッチ操作時の遷移
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      startY.current = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      e.preventDefault();
+      if (isScrolling.current) return;
+
+      const moveY = e.touches[0].clientY;
+      const deltaY = moveY - startY.current;
+
+      if (Math.abs(deltaY) < 10) return;
+
+      isScrolling.current = true;
+      setCurrentIndex((prev) =>
+        Math.max(
+          0,
+          Math.min(prev + (deltaY < 0 ? 1 : -1), extendedSections.length - 1)
+        )
+      );
+
+      setTimeout(() => {
+        isScrolling.current = false;
+      }, 500);
+    };
+
+    window.addEventListener("touchstart", handleTouchStart, { passive: false });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
+
+  // クリック時にページ遷移するもの（fade outするアニメ用）
   const delayRedirectTo = (href: string) => {
     if (mainRef.current) mainRef.current.style.opacity = "0";
     const timer = setTimeout(() => {
@@ -26,79 +226,70 @@ const Home = () => {
     return () => clearTimeout(timer);
   };
 
+  // currentIndexが変わったらtransformを更新
   useEffect(() => {
-    if (typeof window === "undefined") return; // サーバーサイドでは実行しない
+    const el = mainRef.current;
+    if (!el) return;
 
-    const stateList = [0, 1, 2, 3, 4, 5];
+    el.style.transform = `translateY(-${currentIndex * 100}vh)`;
+  }, [currentIndex]);
 
-    const handleScroll = (e: WheelEvent) => {
-      e.preventDefault();
+  // transitionが終わったら、クローンにいるかどうかチェックして即座に本物へジャンプ
+  useEffect(() => {
+    const el = mainRef.current;
+    if (!el) return;
 
-      if (
-        Date.now() - lastUpdatedAt.current > 350 &&
-        Math.abs(e.deltaY) > 10 &&
-        !isScrolling.current &&
-        e.deltaY * (e.deltaY - lastDeltaY.current) > 0
-      ) {
-        lastUpdatedAt.current = Date.now();
-        isScrolling.current = true;
-        state.current =
-          e.deltaY > 0
-            ? (state.current + 1) % stateList.length
-            : Math.max(state.current - 1, 0);
+    // transition: transform 0.7s ease; はCSSで設定
+    const handleTransitionEnd = () => {
+      // extendedSections.length = 8 → index範囲は 0～7
+      // 0番 → (最後のクローン) → 本物の最後 (6) へ瞬時に戻す
+      if (currentIndex === 0) {
+        // 1) transition無効化
+        el.style.transition = "none";
 
-        if (mainRef.current) {
-          mainRef.current.style.transform = `translate(0, -${
-            stateList[state.current] * 100
-          }vh)`;
-        }
+        // 2) 1フレーム目で “setState(ジャンプ)”
+        requestAnimationFrame(() => {
+          setCurrentIndex(baseSections.length); // 6
+
+          // 3) 2フレーム目で transition 復帰
+          requestAnimationFrame(() => {
+            el.style.transition = "transform 0.5s ease";
+          });
+        });
       }
+      // 7番 → (最初のクローン) → 本物の最初 (1) へ瞬時に戻す
+      else if (currentIndex === extendedSections.length - 1) {
+        // 1) transition無効化
+        el.style.transition = "none";
 
-      lastDeltaY.current = e.deltaY;
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 500);
-    };
+        // 2) 1フレーム目で “setState(ジャンプ)”
+        requestAnimationFrame(() => {
+          setCurrentIndex(1); // 6
 
-    const handleTouchStart = (e: TouchEvent) => {
-      startY.current = e.touches[0].clientY;
-    };
-
-    const handleTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
-      const moveY = e.touches[0].clientY;
-      const deltaY = moveY - startY.current;
-
-      if (Math.abs(deltaY) < 10 || isScrolling.current) return;
-      isScrolling.current = true;
-      state.current =
-        deltaY < 0
-          ? (state.current + 1) % stateList.length
-          : Math.max(state.current - 1, 0);
-
-      if (mainRef.current) {
-        mainRef.current.style.transform = `translate(0, -${
-          stateList[state.current] * 100
-        }vh)`;
+          // 3) 2フレーム目で transition 復帰
+          requestAnimationFrame(() => {
+            el.style.transition = "transform 0.5s ease";
+          });
+        });
       }
-
-      setTimeout(() => {
-        isScrolling.current = false;
-      }, 500);
     };
 
-    if (mainRef.current) mainRef.current.style.opacity = "1";
-
-    window.addEventListener("wheel", handleScroll, { passive: false });
-    window.addEventListener("touchstart", handleTouchStart, { passive: false });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
-
-    // クリーンアップ
+    el.addEventListener("transitionend", handleTransitionEnd);
     return () => {
-      window.removeEventListener("wheel", handleScroll);
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchmove", handleTouchMove);
+      el.removeEventListener("transitionend", handleTransitionEnd);
     };
+  }, [currentIndex]);
+
+  // 初回マウント時にフェードイン
+  useEffect(() => {
+    const el = mainRef.current;
+    if (el) {
+      el.style.opacity = "1";
+      el.style.transition = "none";
+      requestAnimationFrame(() => {
+        el.style.transition = "transform 0.5s ease";
+      });
+    }
   }, []);
 
   return (
@@ -119,119 +310,47 @@ const Home = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@daisan_kazoku" />
       </Head>
+
       <main className={styles.main}>
-        <div className="header">
-          <div className="header-left"></div>
-          <div className="header-right">
+        {/* Header */}
+        <div className={styles.header}>
+          <div className={styles.headerLeft}></div>
+          <div className={styles.headerRight}>
             <HamburgerMenu />
           </div>
         </div>
-        <div className="view-wrapper" ref={mainRef}>
-          <div className="first-view top">
-            <div className="logo">
-              <Image
-                src="/logo.svg"
-                fill
-                priority
-                style={{
-                  objectFit: "contain",
-                }}
-                alt="第３の家族"
-              />
-            </div>
-            <div className="link">
-              <a
-                className="page-link"
-                onClick={() => delayRedirectTo("/about")}
-              >
-                第３の家族とは
-              </a>
-              <a
-                className="page-link"
-                onClick={() => delayRedirectTo("/service")}
-              >
-                事業内容
-              </a>
-              <a
-                className="page-link"
-                onClick={() => delayRedirectTo("/donation")}
-              >
-                寄付する
-              </a>
-            </div>
-            <div className="animation-wrapper">
-              <DownArrowAnimation />
-            </div>
-          </div>
-          <div className="first-view">
-            <p>
-              <span className="segment">「家に居場所がない」少年少女は</span>
-              <span className="segment">4人に1人。</span>
-              <br />
-              <span className="segment">数は多くても明るみに出ないのは、</span>
-              <span className="segment">周囲から気づきにくく、</span>
-              <br />
-              <span className="segment">本人も助けを求めるべきか</span>
-              <span className="segment">わからないから。</span>
-            </p>
-          </div>
-          <div className="first-view">
-            <p>
-              <span className="segment">虐待ってほどではない気がする。</span>
-              <span className="segment">
-                でも、親との関係に違和感を感じたり、
-              </span>
-              <span className="segment">傷ついている。</span>
-              <span className="segment">でも、嫌いとは言い切れない。</span>
-              <span className="segment">自分の親だし…。</span>
-            </p>
-          </div>
-          <div className="first-view">
-            <p>
-              <span className="segment">その後に</span>
-              <span className="segment">虐待・</span>
-              <span className="segment">精神疾患・</span>
-              <span className="segment">非行・</span>
-              <span className="segment">孤独孤立・</span>
-              <span className="segment">自殺につながる</span>
-              <span className="segment">可能性があります。</span>
-              <br />
-              <span className="segment">顕在化した後の支援はあるけど、</span>
-              <span className="segment">もっと予防できないでしょうか？</span>
-            </p>
-          </div>
-          <div className="first-view">
-            <p>
-              <span className="segment">そこで、第1の家族（本人の家族）</span>
-              <span className="segment">または、第2の家族</span>
-              <span className="segment">（友達・学校・地域）で</span>
-              <span className="segment">
-                自分の居場所を見つけてもらえるような、
-              </span>
-              <span className="segment">第3の家族として存在します。</span>
-            </p>
-          </div>
 
-          <div className="first-view">
-            <p>
-              <span className="segment">
-                大切にしていることは「寄り添わない」。
-              </span>
-              <span className="segment">支援らしくない構え方で、</span>
-              <span className="segment">今まで取りこぼされてきた</span>
-              <span className="segment">はざまの少年少女たちに</span>
-              <span className="segment">アプローチします。</span>
-              <br />
-              <span className="segment">はざまの少年少女たちが</span>
-              <span className="segment">
-                自分の居場所を見つけられるように。
-              </span>
-            </p>
-          </div>
+        {/* 2) view-wrapper に expandedSections を並べる */}
+        <div
+          className={styles.viewWrapper}
+          ref={mainRef}
+          style={{ transition: "transform 0.5s ease" }}
+        >
+          {extendedSections.map((section, idx) => {
+            // ここでリンクのクリックを差し込む例（トップのリンクのみ遷移を差し込む等）
+            // ただし先頭クローン(0番)と末尾クローン(7番)にも全く同じ要素が入るので
+            // onClickで delayRedirectTo を使いたいなら
+            // baseSections[0] とか baseSections[5] 側を工夫してください
+            return (
+              <div key={idx} style={{ width: "100%", height: "100%" }}>
+                {
+                  // トップセクションの3つのリンクだけ挙動を差し替える例
+                  // → ただしクローンでも同じ中身になるので注意
+                  idx === 1 // 1番が本物のトップ
+                    ? cloneElement(section, {
+                        children: <>{section.props.children}</>,
+                      })
+                    : section
+                }
+              </div>
+            );
+          })}
         </div>
+
         <TopBackgroundAnimation />
-        <div className="footer-link-container">
-          <Link href="https://daisan-kazoku.net" className="footer-link">
+
+        <div className={styles.footerLinkContainer}>
+          <Link href="https://daisan-kazoku.net" className={styles.footerLink}>
             <p>
               少年少女はこちら
               <ExternalLinkIcon
@@ -244,167 +363,7 @@ const Home = () => {
             </p>
           </Link>
         </div>
-
-        <style jsx>
-          {`
-            .header {
-              display: flex;
-              width: 94vw;
-              z-index: 120;
-              position: fixed;
-              top: 30px;
-              right: 3vw;
-              justify-content: space-between;
-
-              .header-left {
-                width: 200px;
-                margin-top: 10px;
-                transition: all 500ms ease;
-              }
-
-              .header-right {
-                display: flex;
-                align-items: center;
-                gap: 2rem;
-                line-height: 40px;
-                a {
-                  text-decoration: none;
-                  color: black;
-                }
-              }
-            }
-
-            .animation-wrapper {
-              position: absolute;
-              bottom: 6rem;
-              left: 0;
-              width: 100%;
-              display: flex;
-              justify-content: center;
-            }
-
-            .view-wrapper {
-              transition: opacity 0.5s ease, transform 0.7s ease;
-              opacity: 0;
-            }
-            .image {
-              position: fixed;
-              z-index: -1;
-              top: 20vh;
-              right: 0;
-              text-align: right;
-            }
-            .first-view {
-              width: 40vw;
-              height: 100vh;
-              padding: 40vh 5vw;
-              p {
-                line-height: 3rem;
-                font-size: 1.2rem;
-              }
-            }
-
-            .first-view.top {
-              margin: 0 auto;
-              position: relative;
-            }
-
-            .logo {
-              width: 100%;
-              height: 100px;
-              position: relative;
-            }
-
-            .link {
-              margin-top: 2rem;
-              display: flex;
-              gap: 1.5rem;
-              justify-content: flex-end;
-            }
-
-            .page-link {
-              cursor: pointer;
-              text-decoration: none;
-              color: black;
-              font-size: 1.4rem;
-              transition: all ease 0.5s;
-            }
-
-            .page-link:hover {
-              filter: blur(0.5px);
-            }
-
-            .footer-link-container {
-              position: fixed;
-              bottom: 5vh;
-              left: 5vw;
-              display: flex;
-              gap: 0.5rem;
-              flex-direction: column;
-              a {
-                color: black;
-                text-decoration: none;
-              }
-            }
-
-            .footer-link {
-              font-size: 1rem;
-            }
-
-            .segment {
-              display: inline-block;
-            }
-
-            @media screen and (max-width: 600px) {
-              .logo {
-                width: 90%;
-              }
-
-              .link {
-                flex-direction: column;
-                margin-top: 1rem;
-                gap: 0.6rem;
-              }
-
-              .page-link {
-                font-size: 1.2rem;
-              }
-
-              .footer-link-container {
-                gap: 0rem;
-              }
-
-              .footer-link {
-                font-size: 0.5rem;
-              }
-
-              .first-view {
-                width: 100vw;
-                height: 100vh;
-                padding-top: 30vh;
-                p {
-                  line-height: 2.5rem;
-                  font-size: 1rem;
-                }
-              }
-
-              .header-link {
-                display: none;
-              }
-
-              .header {
-                .header-left {
-                  width: 150px;
-                  z-index: 99;
-                }
-              }
-            }
-          `}
-        </style>
       </main>
-      {/* <div className="image">
-        <Image src={imageSrc} alt="diagram/status01" width={500} height={500} />
-      </div> */}
     </>
   );
 };
