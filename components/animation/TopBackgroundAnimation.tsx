@@ -38,18 +38,23 @@ export const TopBackgroundAnimation = () => {
 
   return (
     <>
-      <div
-        ref={animationContainer}
-        className={`animation ${isActive && "active"}`}
-      />
+      <div className="animation-wrapper">
+        <div
+          ref={animationContainer}
+          className={`animation ${isActive && "active"}`}
+        />
+      </div>
+
       <style jsx>{`
-        .animation {
+        .animation-wrapper {
           position: fixed;
           top: 0;
           left: 0;
           z-index: -10;
-          width: ${innerSize.w / innerSize.h < 16 / 9 ? "100vw" : "178vw"};
-          height: ${innerSize.w / innerSize.h < 16 / 9 ? "178vh" : "100vh"};
+          width: ${innerSize.w / innerSize.h > 16 / 9 ? "100vw" : "178vh"};
+          height: ${innerSize.w / innerSize.h > 16 / 9 ? "178vw" : "100vh"};
+        }
+        .animation {
           transform: scale(1);
           transform-origin: center;
           transition: opacity 5s ease;
@@ -62,8 +67,8 @@ export const TopBackgroundAnimation = () => {
 
         @media screen and (max-width: 600px) {
           .animation {
-            width: ${innerSize.w / innerSize.h < 9 / 16 ? "100vw" : "178vw"};
-            height: ${innerSize.w / innerSize.h < 9 / 16 ? "178vh" : "100vh"};
+            width: ${innerSize.w / innerSize.h < 9 / 16 ? "100vh" : "178vw"};
+            height: ${innerSize.w / innerSize.h < 9 / 16 ? "178vh" : "100vw"};
           }
         }
       `}</style>
