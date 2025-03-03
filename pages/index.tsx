@@ -7,6 +7,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { TopBackgroundAnimation } from "@/components/animation/TopBackgroundAnimation";
 import HamburgerMenu from "@/components/HamburgerMenu";
+import { DownArrowAnimation } from "@/components/animation/DownArrowAnimation";
 
 const Home = () => {
   const router = useRouter();
@@ -54,7 +55,6 @@ const Home = () => {
       }
 
       lastDeltaY.current = e.deltaY;
-      console.log(lastDeltaY.current);
       setTimeout(() => {
         isScrolling.current = false;
       }, 500);
@@ -158,18 +158,22 @@ const Home = () => {
               >
                 寄付する
               </a>
-            </div>{" "}
-            {/* <a href="#" className="page-link">
-              pdf
-            </a> */}
+            </div>
+            <div className="animation-wrapper">
+              <DownArrowAnimation />
+            </div>
           </div>
           <div className="first-view">
             <p>
-              「家に居場所がない」少年少女は4人に1人。
+              <span className="segment">
+                「家に居場所がない」少年少女は4人に1人。
+              </span>
               <br />
-              数は多くても明るみに出ないのは、周囲から気づきにくく、
+              <span className="segment">数は多くても明るみに出ないのは、</span>
+              <span className="segment">周囲から気づきにくく、</span>
               <br />
-              本人も助けを求めるべきかわからないから。
+              <span className="segment">本人も助けを求めるべきか</span>
+              <span className="segment">わからないから。</span>
             </p>
           </div>
           <div className="first-view">
@@ -259,6 +263,15 @@ const Home = () => {
               }
             }
 
+            .animation-wrapper {
+              position: absolute;
+              bottom: 6rem;
+              left: 0;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+            }
+
             .view-wrapper {
               transition: opacity 0.5s ease, transform 0.7s ease;
               opacity: 0;
@@ -282,6 +295,7 @@ const Home = () => {
 
             .first-view.top {
               margin: 0 auto;
+              position: relative;
             }
 
             .logo {
@@ -324,6 +338,10 @@ const Home = () => {
 
             .footer-link {
               font-size: 1rem;
+            }
+
+            .segment {
+              display: inline-block;
             }
 
             @media screen and (max-width: 600px) {
