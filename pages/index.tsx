@@ -165,9 +165,8 @@ const Home = () => {
           </div>
           <div className="first-view">
             <p>
-              <span className="segment">
-                「家に居場所がない」少年少女は4人に1人。
-              </span>
+              <span className="segment">「家に居場所がない」少年少女は</span>
+              <span className="segment">4人に1人。</span>
               <br />
               <span className="segment">数は多くても明るみに出ないのは、</span>
               <span className="segment">周囲から気づきにくく、</span>
@@ -178,43 +177,55 @@ const Home = () => {
           </div>
           <div className="first-view">
             <p>
-              虐待ってほどではない気がする。
-              <br />
-              でも、親との関係に違和感を感じたり、傷ついている。
-              <br />
-              でも、嫌いとは言い切れない。自分の親だし…。
+              <span className="segment">虐待ってほどではない気がする。</span>
+              <span className="segment">
+                でも、親との関係に違和感を感じたり、
+              </span>
+              <span className="segment">傷ついている。</span>
+              <span className="segment">でも、嫌いとは言い切れない。</span>
+              <span className="segment">自分の親だし…。</span>
             </p>
           </div>
           <div className="first-view">
             <p>
-              その後に虐待・精神疾患・非行・
+              <span className="segment">その後に</span>
+              <span className="segment">虐待・</span>
+              <span className="segment">精神疾患・</span>
+              <span className="segment">非行・</span>
+              <span className="segment">孤独孤立・</span>
+              <span className="segment">自殺につながる</span>
+              <span className="segment">可能性があります。</span>
               <br />
-              孤独孤立・自殺につながる可能性があります。
-              <br />
-              顕在化した後の支援はあるけど、もっと予防できないでしょうか？
+              <span className="segment">顕在化した後の支援はあるけど、</span>
+              <span className="segment">もっと予防できないでしょうか？</span>
             </p>
           </div>
           <div className="first-view">
             <p>
-              そこで、第1の家族（本人の家族）
-              <br />
-              または、第2の家族（友達・学校・地域）
-              <br />
-              で自分の居場所を見つけてもらえるような、
-              <br />
-              第3の家族として存在します。
+              <span className="segment">そこで、第1の家族（本人の家族）</span>
+              <span className="segment">または、第2の家族</span>
+              <span className="segment">（友達・学校・地域）で</span>
+              <span className="segment">
+                自分の居場所を見つけてもらえるような、
+              </span>
+              <span className="segment">第3の家族として存在します。</span>
             </p>
           </div>
 
           <div className="first-view">
             <p>
-              大切にしていることは「寄り添わない」。 支援らしくない構え方で、
+              <span className="segment">
+                大切にしていることは「寄り添わない」。
+              </span>
+              <span className="segment">支援らしくない構え方で、</span>
+              <span className="segment">今まで取りこぼされてきた</span>
+              <span className="segment">はざまの少年少女たちに</span>
+              <span className="segment">アプローチします。</span>
               <br />
-              今まで取りこぼされてきたはざまの少年少女たちに
-              <br />
-              アプローチします。
-              <br />
-              はざまの少年少女たちが自分の居場所を見つけられるように。
+              <span className="segment">はざまの少年少女たちが</span>
+              <span className="segment">
+                自分の居場所を見つけられるように。
+              </span>
             </p>
           </div>
         </div>
@@ -371,6 +382,10 @@ const Home = () => {
                 width: 100vw;
                 height: 100vh;
                 padding-top: 30vh;
+                p {
+                  line-height: 2.5rem;
+                  font-size: 1rem;
+                }
               }
 
               .header-link {
