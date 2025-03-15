@@ -5,11 +5,11 @@ import Table from "./Table";
 import CardContainer from "./CardContainer";
 import ArticleCard from "./ArticleCard";
 import Statement from "./Statement";
-import DepartmentCard from "./DepartmentCard";
 import ServiceCard from "./ServiceCard";
 import Link from "next/link";
 import BlockContainer from "@/components/BlockContainer";
 import Image from "next/image";
+import Organization from "./Organization";
 
 const About = () => {
   return (
@@ -23,7 +23,14 @@ const About = () => {
             <div className={styles.rightSideItem}>
               <h2>どんな家族も生きやすい社会を構築する</h2>
               <p>
-                第3の家族は、親が悪いとも思っていません。一方で、「親ガチャ」「毒親」といった言葉が流行るのは、若者から見てそういった社会になっているからでしょう。親も子も揺らぎがあり、それを受け止められるような社会構築を目指します。
+                <span className={styles.segment}>
+                  第3の家族は、親が悪いとも思っていません。
+                </span>
+                <span className={styles.segment}>
+                  一方で、「親ガチャ」「毒親」といった言葉が流行るのは、
+                </span>
+                <span className={styles.segment}></span>
+                若者から見てそういった社会になっているからでしょう。親も子も揺らぎがあり、それを受け止められるような社会構築を目指します。
               </p>
             </div>
           </div>
@@ -39,7 +46,7 @@ const About = () => {
                 <p>悩みを吐き出し、手札を増やす。</p>
                 <div
                   className={styles.serviceCardContainer}
-                  style={{ margin: "20px 0" }}
+                  style={{margin: "20px 0"}}
                 >
                   <ServiceCard
                     title="gedokun"
@@ -57,7 +64,7 @@ const About = () => {
                 <p>点と点を繋いで生きていく。</p>
                 <div
                   className={styles.serviceCardContainer}
-                  style={{ margin: "20px 0" }}
+                  style={{margin: "20px 0"}}
                 >
                   <ServiceCard
                     title="家庭環境データ"
@@ -79,7 +86,7 @@ const About = () => {
                 <p>問題を根本的に解決する。</p>
                 <div
                   className={styles.serviceCardContainer}
-                  style={{ margin: "20px 0" }}
+                  style={{margin: "20px 0"}}
                 >
                   <ServiceCard
                     title="社会構築事業"
@@ -173,7 +180,7 @@ const About = () => {
               <section>
                 <h2>問題の難しさ</h2>
                 <h3>少年少女の複雑な心境</h3>
-                <p style={{ marginBottom: "3rem" }}>
+                <p style={{marginBottom: "3rem"}}>
                   問題の程度としてもはざまであり、思春期やモラトリアム期間の少年少女たちには、以下のような複雑な心境があります。
                 </p>
                 <div
@@ -242,50 +249,7 @@ const About = () => {
           </BlockContainer>
 
           <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>組織体制</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <div className={styles.profileContainer}>
-                <p>代表</p>
-                <div>
-                  <h2>奥村春香</h2>
-                  <p className="description">
-                    活動のきっかけは、大学3年生の時に家庭環境問題が原因で弟を自死で亡くしたことです。私の受験失敗を機に家庭が壊れ、親子喧嘩が絶えない中での出来事でした。1年間は何もできなかったのですが、もとからものづくりが好きだったので、家庭環境に悩む人のための掲示板を試しに作ってみたところ、想像以上に人が集まりました。「つくってくれてありがとう」という嬉しい言葉をもらう一方、集まる悩みの重大さを実感し「もっとやらなければ」と思い、新卒で入社したLINE株式会社を退職し、NPO法人第3の家族を立ち上げました。今は、自身の過去のために活動をやっているという気持ちはなく、はざまの少年少女たちと一緒に揺られながら、より良い状態をつくって行くことに没頭しています。
-                  </p>
-                  <Link
-                    href="/people/okumura"
-                    className={styles.innerLinkWrapper}
-                  >
-                    <p>詳細プロフィール</p>
-                  </Link>
-                </div>
-              </div>
-
-              <DepartmentCard
-                en="Designer"
-                name="デザインチーム"
-                description="グラフィック・サイトのデザイン（UI）・イベントのディレクションなどを行います。"
-              />
-
-              <DepartmentCard
-                en="Engineer"
-                name="開発チーム"
-                description="サイトの開発・データ分析を行います。論文発表も行います。"
-              />
-
-              <DepartmentCard
-                en="Former Suffer"
-                name="元当事者チーム"
-                description="自分たちの経験から、今悩む少年少女たちに何ができるかを考えます。"
-              />
-
-              <DepartmentCard
-                en="Back Office"
-                name="事務局"
-                description="第3の家族のバックオフィスを担当します。"
-              />
-            </div>
+            <Organization />
           </BlockContainer>
 
           <BlockContainer>
@@ -343,15 +307,6 @@ const About = () => {
                   </a>
                 </div>
               </div>
-
-              {/* <li>
-                  <a
-                    href="https://100banch.com/projects/daisan-no-kazoku"
-                    className={styles.externalLink}
-                  >
-                    100BANCH 74期
-                  </a>
-                </li> */}
             </div>
           </BlockContainer>
 
@@ -388,7 +343,7 @@ const About = () => {
               <h1 className={styles.headline}>助成金情報</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <ul className={styles.list} style={{ marginBottom: "2rem" }}>
+              <ul className={styles.list} style={{marginBottom: "2rem"}}>
                 <li>2023年度 花王社会起業塾</li>
                 <li>2023年度 SVP東京 投資・協働先</li>
                 <li>
@@ -519,10 +474,6 @@ const About = () => {
           </BlockContainer>
         </div>
         <style jsx>{`
-          .description {
-            margin-bottom: 1rem;
-          }
-
           .awards-container {
             display: flex;
             flex-wrap: wrap;

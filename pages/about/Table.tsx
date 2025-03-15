@@ -53,6 +53,7 @@ const Table = () => {
         td {
           border-bottom: 1px solid var(--gray);
           padding: 10px;
+          padding-bottom: 1rem;
         }
 
         tr {

@@ -1,13 +1,11 @@
-import { FC, FormEventHandler, useId, useState } from "react";
+import {FC, FormEventHandler, useEffect, useId, useState} from "react";
+import styles from "@/styles/components/Form.module.scss";
 
 declare global {
   interface Window {
     grecaptcha: {
       ready: (callback: () => void) => void;
-      execute: (
-        siteKey: string,
-        options: { action: string }
-      ) => Promise<string>;
+      execute: (siteKey: string, options: {action: string}) => Promise<string>;
     };
   }
 }
@@ -25,6 +23,21 @@ export const Form: FC = () => {
   const [role, setRole] = useState("企業の方");
   const [text, setText] = useState("");
   const [agree, setAgree] = useState(false);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsFormValid(
+      title.trim() !== "" &&
+        name.trim() !== "" &&
+        email.trim() !== "" &&
+        confirmEmail.trim() !== "" &&
+        tel.trim() !== "" &&
+        role.trim() !== "" &&
+        text.trim() !== "" &&
+        agree &&
+        email === confirmEmail
+    );
+  }, [title, name, email, confirmEmail, tel, role, text, agree]);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -91,13 +104,13 @@ export const Form: FC = () => {
 
   return (
     <>
-      <div className="main">
+      <div className={styles.main}>
         <form onSubmit={onSubmit}>
-          <div className="form-item">
+          <div className={styles.formItem}>
             <label htmlFor="subject">
-              お問い合わせ種別<span className="required">*</span>
+              お問い合わせ種別<span className={styles.required}>*</span>
             </label>
-            <div className="select-box">
+            <div className={styles.selectBox}>
               {/* ★ valueを日本語に合わせる */}
               <select
                 name="subject"
@@ -118,9 +131,9 @@ export const Form: FC = () => {
             </div>
           </div>
 
-          <div className="form-item">
+          <div className={styles.formItem}>
             <label htmlFor={`${id}_name`}>
-              お名前<span className="required">*</span>
+              お名前<span className={styles.required}>*</span>
             </label>
             <input
               type="text"
@@ -133,7 +146,7 @@ export const Form: FC = () => {
             />
           </div>
 
-          <div className="form-item">
+          <div className={styles.formItem}>
             <label htmlFor={`${id}_companyName`}>会社名</label>
             <input
               type="text"
@@ -145,9 +158,9 @@ export const Form: FC = () => {
             />
           </div>
 
-          <div className="form-item">
+          <div className={styles.formItem}>
             <label htmlFor={`${id}_email`}>
-              メールアドレス<span className="required">*</span>
+              メールアドレス<span className={styles.required}>*</span>
             </label>
             <input
               type="email"
@@ -160,9 +173,10 @@ export const Form: FC = () => {
             />
           </div>
 
-          <div className="form-item">
+          <div className={styles.formItem}>
             <label htmlFor={`${id}_confirmEmail`}>
-              確認のため再度ご入力ください<span className="required">*</span>
+              確認のため再度ご入力ください
+              <span className={styles.required}>*</span>
             </label>
             <input
               type="email"
@@ -175,9 +189,9 @@ export const Form: FC = () => {
             />
           </div>
 
-          <div className="form-item">
+          <div className={styles.formItem}>
             <label htmlFor={`${id}_tel`}>
-              電話番号<span className="required">*</span>
+              電話番号<span className={styles.required}>*</span>
             </label>
             <input
               type="tel"
@@ -190,11 +204,11 @@ export const Form: FC = () => {
             />
           </div>
 
-          <div className="form-item">
+          <div className={styles.formItem}>
             <label>
-              属性<span className="required">*</span>
+              属性<span className={styles.required}>*</span>
             </label>
-            <div className="select-box">
+            <div className={styles.selectBox}>
               {/* ★ role も日本語に合わせる */}
               <select
                 name="attribute"
@@ -212,9 +226,9 @@ export const Form: FC = () => {
             </div>
           </div>
 
-          <div className="form-item">
+          <div className={styles.formItem}>
             <label htmlFor={`${id}_text`}>
-              お問い合わせ内容<span className="required">*</span>
+              お問い合わせ内容<span className={styles.required}>*</span>
             </label>
             <textarea
               id={`${id}_text`}
@@ -225,13 +239,14 @@ export const Form: FC = () => {
             />
           </div>
 
-          <div className="form-item">
-            <p className="note">
+          <div className={styles.formItem}>
+            <p className={styles.note}>
               ご登録いただいた個人情報は、適正に管理・取り扱いをさせていただきます。活動の報告・案内のメールをお送りする場合もございますが、ご了承いただければ幸いです。
             </p>
-            <div>
-              <label htmlFor={`${id}_agree`}>
+            <div className={styles.agreeContainer}>
+              <label htmlFor={`${id}_agree`} className={styles.checkboxLabel}>
                 <input
+                  className={styles.checkbox}
                   type="checkbox"
                   id={`${id}_agree`}
                   name="agree"
@@ -244,43 +259,19 @@ export const Form: FC = () => {
             </div>
           </div>
 
-          <input type="submit" value="送信" />
+          <input
+            type="submit"
+            value="送信"
+            className={isFormValid ? "active" : ""}
+          />
         </form>
       </div>
 
       <style jsx>{`
-        h1 {
-          font-weight: 100;
-          margin-bottom: 3rem;
-        }
-        .main {
-          width: 40vw;
-          margin: 3rem auto;
-        }
-        .form {
-          display: flex;
-          flex-direction: column;
-        }
-
         label {
           margin-bottom: 0.4rem;
         }
 
-        .form-item {
-          display: flex;
-          flex-direction: column;
-          margin-bottom: 2rem;
-        }
-
-        .required {
-          color: red;
-        }
-
-        .select-box {
-          position: relative;
-
-          display: flex;
-        }
         select {
           width: 100%;
           height: 56px;
@@ -303,6 +294,15 @@ export const Form: FC = () => {
           font-size: 1rem;
           font-weight: bold;
           width: 100%;
+          background: var(--green);
+          border: none;
+          color: var(--light-gray);
+          border-radius: 5px;
+          opacity: 0.5;
+
+          &.active {
+            opacity: 1;
+          }
         }
 
         label[for="agree"] {
@@ -319,18 +319,6 @@ export const Form: FC = () => {
           border-radius: 10px;
           border: 1px solid #ddd;
           padding: 16px;
-        }
-
-        .note {
-          font-size: 0.9rem;
-          line-height: 1.2rem;
-          margin-bottom: 2rem;
-        }
-
-        @media screen and (max-width: 600px) {
-          .main {
-            width: 94vw;
-          }
         }
       `}</style>
     </>
