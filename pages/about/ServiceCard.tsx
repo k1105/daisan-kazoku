@@ -49,7 +49,7 @@ const ServiceCard = ({
             text-decoration: none;
             font-weight: 400;
             font-size: 0.9rem;
-            font-weight: 700;
+            font-weight: 400;
             transition: all 0.3s ease;
           }
 
