@@ -52,21 +52,22 @@ const Table = () => {
         th,
         td {
           border-bottom: 1px solid var(--gray);
-          padding: 10px;
-          padding-bottom: 1rem;
+          padding-bottom: 2rem;
+          padding-top: 2rem;
         }
 
         tr {
-          height: 2rem;
+          height: 5rem;
           background-color: white;
         }
         th {
           font-weight: normal;
-          font-size: 0.9rem;
+          font-size: 0.8rem;
+          color: var(--dark-gray);
+          font-weight: 600;
           width: 20%;
           vertical-align: top;
           text-align: left;
-          color: #9a9a9a;
         }
 
         @media screen and (max-width: 600px) {

@@ -134,12 +134,6 @@ const KateiKankyoData = () => {
               <li>2024.04 横浜駅西口 Niigoひろば</li>
               <li>2024.05 寛政中学校</li>
             </ul>
-            <p>展示開催のご依頼はお問い合わせよりご連絡ください。</p>
-            <p>
-              <a href="https://www.notion.so/481e97f5f67f44f785cef105cf06b40f?pvs=21">
-                お問い合わせ
-              </a>
-            </p>
           </div>
         </BlockContainer>
         <style jsx>{`
