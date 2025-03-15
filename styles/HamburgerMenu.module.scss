@@ -1,3 +1,76 @@
+.buttonContainer {
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  p {
+    line-height: 1rem;
+  }
+}
+
+.menuButton {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--dark-gray);
+  mix-blend-mode: difference;
+  transition: background-color 300ms ease-in;
+}
+
+.menuButton.open {
+  background-color: #ddd;
+}
+
+.menuTitle {
+  user-select: none;
+}
+
+.documentOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s ease;
+}
+
+.documentOverlay.active {
+  opacity: 0.3;
+}
+
+.navOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  clip-path: circle(0% at calc(97vw - 20px) 55px);
+  transition: clip-path 1s ease-in-out;
+}
+
+.navOverlay.visible {
+  clip-path: circle(200% at calc(97vw - 20px) 55px);
+}
+
+.viewWrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.firstView {
+  margin: 35vh 10vw 0;
+}
+
 .nav {
   padding-top: 3vh;
   padding-left: 3vw;
@@ -72,6 +145,11 @@
 }
 
 @media screen and (max-width: 600px) {
+  .firstView {
+    width: 94vw;
+    margin: 5vh 3vw;
+  }
+
   .nav {
     position: fixed;
     width: 100vw;
