@@ -36,53 +36,14 @@
   color: black;
 }
 
-.animationWrapper {
-  position: absolute;
-  bottom: 6rem;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
 .viewWrapper {
   opacity: 0;
-  transition: opacity 0.5s ease;
 }
 
-.firstView {
+.viewPort {
   width: 40vw;
   height: 100vh;
   padding: 40vh 5vw;
-}
-
-.firstView.top {
-  margin: 0 auto;
-  position: relative;
-}
-
-.logo {
-  width: 100%;
-  height: 100px;
-  position: relative;
-}
-
-.link {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1.5rem;
-  justify-content: flex-end;
-}
-
-.pageLink {
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-  font-size: 1.4rem;
-  transition: all ease 0.5s;
-}
-.pageLink:hover {
-  filter: blur(0.5px);
 }
 
 .footerLinkContainer {
@@ -108,24 +69,13 @@
 }
 
 @media screen and (max-width: 600px) {
-  .logo {
-    width: 90%;
-  }
-  .link {
-    flex-direction: column;
-    margin-top: 1rem;
-    gap: 0.6rem;
-  }
-  .pageLink {
-    font-size: 1.2rem;
-  }
   .footerLinkContainer {
     gap: 0rem;
   }
   .footerLink {
     font-size: 0.5rem;
   }
-  .firstView {
+  .viewPort {
     width: 100vw;
     height: 100vh;
     padding-top: 30vh;

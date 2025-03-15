@@ -1,0 +1,70 @@
+.viewPort {
+  width: 40vw;
+  height: 100vh;
+  padding: 40vh 5vw;
+}
+
+.viewPort.top {
+  margin: 0 auto;
+  position: relative;
+}
+
+.subTitle {
+  margin-bottom: 1rem;
+  color: #888;
+}
+
+.logo {
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+
+.link {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: flex-end;
+}
+
+.pageLink {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-size: 1.4rem;
+  transition: all ease 0.5s;
+}
+.pageLink:hover {
+  filter: blur(0.5px);
+}
+
+.animationWrapper {
+  position: absolute;
+  bottom: 6rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .viewPort {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 30vh;
+  }
+  .subTitle {
+    font-size: 0.8rem;
+  }
+  .logo {
+    width: 90%;
+  }
+  .link {
+    flex-direction: column;
+    margin-top: 1rem;
+    gap: 0.6rem;
+  }
+  .pageLink {
+    font-size: 1.2rem;
+  }
+}

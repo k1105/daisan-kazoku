@@ -1,5 +1,4 @@
 import styles from "@/styles/Home.module.scss";
-import Image from "next/image";
 import { useEffect, useRef, useState, cloneElement } from "react";
 import { useRouter } from "next/router";
 import { ExternalLinkIcon } from "@/components/icons/ExternalLinkIcon";
@@ -7,36 +6,11 @@ import Head from "next/head";
 import Link from "next/link";
 import { TopBackgroundAnimation } from "@/components/animation/TopBackgroundAnimation";
 import HamburgerMenu from "@/components/HamburgerMenu";
-import { DownArrowAnimation } from "@/components/animation/DownArrowAnimation";
+import { FirstView } from "@/components/FirstView";
 
-// ------------------------------------
-// 1) セクションの中身を配列化
-//    （クローンしやすいように）
-// ------------------------------------
 const baseSections = [
-  // index:0 (トップ/ロゴセクション)
-  <div className={`${styles.firstView} ${styles.top}`} key="0">
-    <div className={styles.logo}>
-      <Image
-        src="/logo.svg"
-        fill
-        priority
-        style={{ objectFit: "contain" }}
-        alt="第３の家族"
-      />
-    </div>
-    <div className={styles.link}>
-      <a className={styles.pageLink}>第３の家族とは</a>
-      <a className={styles.pageLink}>事業内容</a>
-      <a className={styles.pageLink}>寄付する</a>
-    </div>
-    <div className={styles.animationWrapper}>
-      <DownArrowAnimation />
-    </div>
-  </div>,
-
-  // index:1
-  <div className={styles.firstView} key="1">
+  <FirstView key="0" />,
+  <div className={styles.viewPort} key="1">
     <p>
       <span className={styles.segment}>「家に居場所がない」少年少女は</span>
       <span className={styles.segment}>4人に1人。</span>
@@ -49,8 +23,7 @@ const baseSections = [
     </p>
   </div>,
 
-  // index:2
-  <div className={styles.firstView} key="2">
+  <div className={styles.viewPort} key="2">
     <p>
       <span className={styles.segment}>虐待ってほどではない気がする。</span>
       <span className={styles.segment}>
@@ -62,8 +35,7 @@ const baseSections = [
     </p>
   </div>,
 
-  // index:3
-  <div className={styles.firstView} key="3">
+  <div className={styles.viewPort} key="3">
     <p>
       <span className={styles.segment}>その後に</span>
       <span className={styles.segment}>虐待・</span>
@@ -78,8 +50,7 @@ const baseSections = [
     </p>
   </div>,
 
-  // index:4
-  <div className={styles.firstView} key="4">
+  <div className={styles.viewPort} key="4">
     <p>
       <span className={styles.segment}>そこで、第1の家族（本人の家族）</span>
       <br />
@@ -92,8 +63,7 @@ const baseSections = [
     </p>
   </div>,
 
-  // index:5
-  <div className={styles.firstView} key="5">
+  <div className={styles.viewPort} key="5">
     <p>
       <span className={styles.segment}>
         大切にしていることは「寄り添わない」。
@@ -112,24 +82,19 @@ const baseSections = [
 // 上下にクローンを追加して「8要素」に拡張
 const extendedSections = [
   // 先頭に "最後" のクローン
-  <div className={styles.firstView} key="clone-head">
-    {/* clone: baseSections[5] の中身を再利用 */}
+  <div className={styles.viewPort} key="clone-head">
     {baseSections[5].props.children}
   </div>,
   // 中間に本物6要素
   ...baseSections,
   // 末尾に "最初" のクローン
-  <div className={`${styles.firstView} ${styles.top}`} key="clone-tail">
-    {/* clone: baseSections[0] の中身を再利用 */}
+  <div className={`${styles.viewPort} ${styles.top}`} key="clone-tail">
     {baseSections[0].props.children}
   </div>,
 ];
 
 const Home = () => {
   const router = useRouter();
-
-  // スライド位置: extendedSections（8要素）のうちどこにいるか
-  // 初期値 = 1 → (クローンではなく)実際の先頭セクションを表示
   const [currentIndex, setCurrentIndex] = useState<number>(1);
 
   // スクロールなどの判定用Ref
@@ -324,7 +289,7 @@ const Home = () => {
         <div
           className={styles.viewWrapper}
           ref={mainRef}
-          style={{ transition: "transform 0.5s ease" }}
+          style={{ opacity: 0, transition: "all 0.5s ease" }}
         >
           {extendedSections.map((section, idx) => {
             // ここでリンクのクリックを差し込む例（トップのリンクのみ遷移を差し込む等）
