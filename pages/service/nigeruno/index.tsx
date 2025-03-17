@@ -1,4 +1,4 @@
-import styles from "../../../styles/Article.module.scss";
+import styles from "@/styles/Service.module.scss";
 import Layout from "../../layout";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,9 +44,22 @@ const Nigeruno = () => {
           <div className={styles.rightSideItem}>
             <h2>使える手札を見つけよう</h2>
             <p>
-              多様な社会資源や経験者の情報を集め、自分の居場所を見つけるための一歩を踏み出せるようにすることを目指します。
+              <span className={styles.segment}>
+                多様な社会資源や経験者の情報を集め、
+              </span>
+              <span className={styles.segment}>
+                自分の居場所を見つけるための一歩を
+              </span>
+              <span className={styles.segment}>
+                踏み出せるようにすることを目指します。
+              </span>
               <br />
-              「家か学校」という限られた選択肢ではなく、多様な「手札」を増やすことを目指します。
+              <span className={styles.segment}>
+                「家か学校」という限られた選択肢ではなく、
+              </span>
+              <span className={styles.segment}>
+                多様な「手札」を増やすことを目指します。
+              </span>
             </p>
           </div>
         </BlockContainer>

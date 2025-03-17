@@ -2,11 +2,11 @@
 "use client";
 import Link from "next/link";
 import styles from "../styles/Layout.module.css";
-import { useRouter } from "next/router";
+import {useRouter} from "next/router";
 import Head from "next/head";
-import { CSSProperties, useEffect, useState } from "react";
+import {CSSProperties, useEffect, useState} from "react";
 import HamburgerMenu from "@/components/HamburgerMenu";
-import { Logo } from "@/components/Logo";
+import {Logo} from "@/components/Logo";
 
 const useParentPageInfo = (path: string) => {
   const segments = path.split("/").filter((segment) => segment);
@@ -21,13 +21,13 @@ const useParentPageInfo = (path: string) => {
   // 親のタイトルを取得するためのロジックを実装（仮の実装例）
   const parentTitle = getTitleFromPath(parentPath); // ここは自分で実装する必要があります
 
-  return { parentTitle, parentPath };
+  return {parentTitle, parentPath};
 };
 
 const getTitleFromPath = (path: string): string => {
   // ここにパスからタイトルを取得するロジックを実装
   // 例えば、静的に定義するか、ルックアップテーブルを使用するなど
-  const titleMap: { [key: string]: string } = {
+  const titleMap: {[key: string]: string} = {
     "/": "トップ",
     "/about": "第３の家族とは",
     "/announcement": "お知らせ",
@@ -136,7 +136,7 @@ export default function Layout({
               <h1 className={styles.headline}>{headline}</h1>
             </div>
           ) : (
-            <div style={{ marginTop: "20rem" }}></div>
+            <div className={styles.pageTopSpacer} />
           )}
 
           {children}

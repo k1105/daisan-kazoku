@@ -1,6 +1,6 @@
-export const PieChart = ({ numberList }: { numberList: number[] }) => {
+export const PieChart = ({numberList}: {numberList: number[]}) => {
   let sum = 0;
-  const gradientColors = ["#aaa", "#ddd", "#cc65fe", "#ffce56"]; // 必要に応じて色を追加
+  const gradientColors = ["#e29be8", "#aaa"]; // 必要に応じて色を追加
 
   const gradientSegments = numberList
     .map((number, index) => {

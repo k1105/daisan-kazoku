@@ -1,12 +1,11 @@
 import Layout from "../layout";
-import styles from "@/styles/Article.module.scss";
+import styles from "@/styles/Donation.module.scss";
 import BlockContainer from "@/components/BlockContainer";
 import Link from "next/link";
-import { PieChart } from "@/components/PieChart";
-import { FloatingButton } from "@/components/FloatingButton";
+import {PieChart} from "@/components/PieChart";
+import {FloatingButton} from "@/components/FloatingButton";
 import ArticleCard from "../about/ArticleCard";
 import Image from "next/image";
-import ServiceCard from "../about/ServiceCard";
 
 export default function Donation() {
   return (
@@ -15,43 +14,41 @@ export default function Donation() {
         <>
           <div className={styles.jumbotron}>
             <h2>
-              どんな家族も
+              <span className={styles.segment}>どんな家族も</span>
+              <span className={styles.segment}>生きやすい社会を</span>
               <br />
-              生きやすい社会を
-              <br />
-              構築するために
-              <br />
-              ご寄付をお願いします。
+              <span className={styles.segment}>構築するために、</span>
+              <span className={styles.segment}>ご寄付をお願いします。</span>
             </h2>
           </div>
 
-          <BlockContainer>
+          <BlockContainer color="gray">
             <div className={styles.leftSideItem}></div>
             <div className={styles.rightSideItem}>
-              <h2>
-                「あの子の家、なんかありそう」
-                <br />
-                という知り合いいませんでしたか？
-              </h2>
-              <p>
-                家庭が居場所でないと答える少年少女は4人に1人。
-                <br />
-                第3の家族は<b>とても身近な社会問題</b>に取り組んでいます。
-                <br />
-                家庭環境問題というと遠く感じるかもしれませんが、
-                <br />
-                <b>
-                  知り合いに「あいつの家厳しそう」「たまにあの子しんどそう」
-                </b>
-                <br />
-                <b>といった知り合いはいませんでしたか？</b>
-              </p>
-            </div>
-          </BlockContainer>
-          <BlockContainer>
-            <div className={styles.leftSideItem}></div>
-            <div className={styles.rightSideItem}>
-              <div className="section">
+              <div className={styles.section}>
+                <h2>
+                  <span className={styles.segment}>
+                    「あの子の家、なんかありそう」
+                  </span>
+                  <span className={styles.segment}>という知り合い、</span>
+                  <span className={styles.segment}>いませんでしたか？</span>
+                </h2>
+                <p>
+                  家庭が居場所でないと答える少年少女は4人に1人。
+                  <br />
+                  第3の家族は<b>とても身近な社会問題</b>に取り組んでいます。
+                  <br />
+                  家庭環境問題というと遠く感じるかもしれませんが、
+                  <br />
+                  <b>
+                    知り合いに「あいつの家厳しそう」「たまにあの子しんどそう」
+                  </b>
+                  <br />
+                  <b>といった知り合いはいませんでしたか？</b>
+                </p>
+              </div>
+
+              <div className={styles.section}>
                 <h2>「別に殴られてないし、虐待ってほどではない」</h2>
                 <p>虐待ほどではない「はざま」があります。</p>
               </div>
@@ -77,100 +74,107 @@ export default function Donation() {
                 </li>
                 <p>メンタルヘルスや性のあり方に寄り添ってもらえない。</p>
               </ul>
-            </div>
-          </BlockContainer>
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>体験談</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <div className={styles.commentContainer}>
-                <div className={styles.comment}>
-                  <p>
-                    テストの点が悪いと、<b>「才能ないね、本当にうちの子？」</b>
-                    と言われる。でも<b>それ以外の時は普通</b>の家族って感じだし‥
-                  </p>
-                </div>
-                <div className={styles.comment}>
-                  <p>
-                    <b>自分は女で、好きな子も女の子。</b>
-                    <br />
-                    こないだ手を繋いで帰っていたら、お母さんに見られてたみたいで、
-                    <br />
-                    帰ったら<b>「気持ち悪い」</b>って言われた…
-                  </p>
-                </div>
-                <div className={styles.comment}>
-                  <p>
-                    <b>親が最近仲悪くて、</b>私が寝室に戻った後に
-                    <br />
-                    <b>「子どもがこうなったのはお前のせいだ」と揉めている</b>
-                    のを聞いちゃった。
-                    <br />
-                    私なんていなければよかったんだ…
-                  </p>
-                </div>
-                <div className={styles.comment}>
-                  <p>
-                    服を買う時も、進路を決める時も、何から何まで親が先回りして用意して、
-                    <br />
-                    結局親に全部決められる…
-                    <br />
-                    <b>優しさなんだろうけど、自分は何もできないやつだな</b>って…
-                  </p>
-                </div>
-                <div className={styles.comment}>
-                  <p>
-                    妹には優しいのに、俺には勉強も厳しいし、怒られてばっかり。
-                    <br />
-                    気づいたら、俺を置いてみんなで出かけに行ってたみたい。
-                    <br />
-                    <b>俺のこと嫌いなんだろうな…</b>
-                  </p>
+              <div className={styles.section}>
+                <h1 className={styles.headline}>体験談</h1>
+                <div className={styles.commentContainer}>
+                  <div className={styles.comment}>
+                    <p>
+                      テストの点が悪いと、
+                      <b>「才能ないね、本当にうちの子？」</b>
+                      と言われる。でも<b>それ以外の時は普通</b>
+                      の家族って感じだし‥
+                    </p>
+                  </div>
+                  <div className={styles.comment}>
+                    <p>
+                      <b>自分は女で、好きな子も女の子。</b>
+                      <br />
+                      こないだ手を繋いで帰っていたら、お母さんに見られてたみたいで、
+                      <br />
+                      帰ったら<b>「気持ち悪い」</b>って言われた…
+                    </p>
+                  </div>
+                  <div className={styles.comment}>
+                    <p>
+                      <b>親が最近仲悪くて、</b>私が寝室に戻った後に
+                      <br />
+                      <b>「子どもがこうなったのはお前のせいだ」と揉めている</b>
+                      のを聞いちゃった。
+                      <br />
+                      私なんていなければよかったんだ…
+                    </p>
+                  </div>
+                  <div className={styles.comment}>
+                    <p>
+                      服を買う時も、進路を決める時も、何から何まで親が先回りして用意して、
+                      <br />
+                      結局親に全部決められる…
+                      <br />
+                      <b>優しさなんだろうけど、自分は何もできないやつだな</b>
+                      って…
+                    </p>
+                  </div>
+                  <div className={styles.comment}>
+                    <p>
+                      妹には優しいのに、俺には勉強も厳しいし、怒られてばっかり。
+                      <br />
+                      気づいたら、俺を置いてみんなで出かけに行ってたみたい。
+                      <br />
+                      <b>俺のこと嫌いなんだろうな…</b>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </BlockContainer>
-          <BlockContainer>
-            <div className={styles.leftSideItem}></div>
-            <div className={styles.rightSideItem}>
-              <h2>誰にも相談しない間に、極端な選択肢の可能性</h2>
-              <p style={{ marginBottom: "2rem" }}>
-                第3の家族には、既存の支援を使っていない少年少女が多くいます。
-                <br />
-                そして、彼ら・彼女らは将来に困難を抱えうるリスクを抱えています。
-              </p>
-              <div className="diagram-list">
-                <p>
-                  第3の家族のユーザーのうち、
+              <div className={styles.section}>
+                <h2>誰にも相談しない間に、極端な選択肢の可能性</h2>
+                <p style={{marginBottom: "4rem"}}>
+                  第3の家族には、既存の支援を使っていない少年少女が多くいます。
                   <br />
-                  公的支援を使っていない人は
-                  <br />
-                  約8割
+                  そして、彼ら・彼女らは将来に困難を抱えうるリスクを抱えています。
                 </p>
-                <div className="diagram-container">
-                  <PieChart numberList={[80, 20]} />
-                </div>
-              </div>
-              <div className="diagram-list">
-                <p>
-                  逆境的小児期体験（ACE）の点数が高い （平均2.8点）。
-                  <wbr />
-                  将来、メンタルヘルスや自殺などのリスクが
-                  <wbr />
-                  高くなる可能性あり。
-                </p>
-              </div>
-
-              <div className={styles.commentContainer}>
-                <div className={styles.comment}>
-                  <p>トー横に行ったら、なんとかなるかな…</p>
-                </div>
-                <div className={styles.comment}>
-                  <p>薬を飲めば楽になれるのかな…？</p>
-                </div>
-                <div className={styles.comment}>
-                  <p>親に後悔させてやる…！</p>
+                <div className={styles.diagramContainer}>
+                  <div className={styles.diagramList}>
+                    <p className={styles.diagramCaption}>
+                      <span className={styles.segment}>
+                        第3の家族のユーザーのうち、
+                      </span>
+                      <span className={styles.segment}>
+                        公的支援を使っていない人は約8割
+                      </span>
+                    </p>
+                    <div className={styles.diagramWrapper}>
+                      <div className={styles.overlapText}>
+                        <p style={{fontSize: "2rem", lineHeight: "4rem"}}>
+                          80<span style={{fontSize: "1.2rem"}}>%</span>
+                        </p>
+                      </div>
+                      <PieChart numberList={[80, 20]} />
+                    </div>
+                  </div>
+                  <div className={styles.diagramList}>
+                    <p className={styles.diagramCaption}>
+                      <span className={styles.segment}>
+                        逆境的小児期体験（ACE）の点数が高い （平均2.8点）。
+                      </span>
+                      <span className={styles.segment}>
+                        将来、メンタルヘルスや自殺などのリスクが
+                      </span>
+                      <span className={styles.segment}>
+                        高くなる可能性あり。
+                      </span>
+                    </p>
+                    <div className={styles.commentContainer}>
+                      <div className={styles.comment}>
+                        <p>トー横に行ったら、なんとかなるかな…</p>
+                      </div>
+                      <div className={styles.comment}>
+                        <p>薬を飲めば楽になれるのかな…？</p>
+                      </div>
+                      <div className={styles.comment}>
+                        <p>親に後悔させてやる…！</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -179,7 +183,7 @@ export default function Donation() {
             <div className={styles.leftSideItem}></div>
             <div className={styles.rightSideItem}>
               <h2>どんな家族も生きやすい社会を構築するために</h2>
-              <div className="section">
+              <div className={styles.section}>
                 <p>
                   第3の家族は、親が悪いとも思っていません。
                   <br />
@@ -188,32 +192,43 @@ export default function Donation() {
                   親も子も揺らぎがあり、それを受け止められるような社会構築を目指します。
                 </p>
               </div>
-              <div className="section">
-                <h3>居場所を見つけるためのプラットフォーム</h3>
-                <p>
+            </div>
+          </BlockContainer>
+          <BlockContainer>
+            <div className={styles.leftSideItem}>
+              <h1 className={styles.headline}>やること</h1>
+            </div>
+
+            <div className={styles.rightSideItem}>
+              <h2>自分の居場所を見つけるプラットフォーム</h2>
+              <div>
+                <p style={{marginBottom: "2rem"}}>
                   はざまの少年少女たちが居場所を見つけるためのプラットフォームを運営しています。
                 </p>
+                <div className={styles.overviewContainer}>
+                  <Image
+                    src="/img/overview.png"
+                    alt="第３の家族の全体像"
+                    fill
+                    priority
+                    style={{
+                      objectFit: "contain", // or cover
+                    }}
+                  />
+                </div>
               </div>
-              <h2>自分の居場所を見つけるプラットフォーム</h2>
-              <div className="overview-container">
-                <Image
-                  src="/img/overview.png"
-                  alt="第３の家族の全体像"
-                  fill
-                  priority
-                  style={{
-                    objectFit: "contain", // or cover
-                  }}
-                />
-              </div>
-              <div className="service-section">
+              <div className={styles.serviceSection}>
                 <h3>1：Web事業</h3>
-                <p className="description">悩みを吐き出し、手札を増やす。</p>
-                <div className="service-container">
-                  <div className="service">
-                    <h3>悩みを吐き出す場 &#34;gedokun&#34;</h3>
-                    <p>匿名で悩みを吐き出し、少しだけ前を向ける場。</p>
-                    <div className="thumbnail-container">
+                <p className={styles.description}>
+                  悩みを吐き出し、手札を増やす。
+                </p>
+                <div className={styles.serviceContainer}>
+                  <div className={styles.service}>
+                    <div>
+                      <h3>悩みを吐き出す場 &#34;gedokun&#34;</h3>
+                      <p>匿名で悩みを吐き出し、少しだけ前を向ける場。</p>
+                    </div>
+                    <div className={styles.thumbnailContainer}>
                       <Image
                         src="/img/donation/gedokun.png"
                         alt="gedokunのインターフェース"
@@ -226,10 +241,12 @@ export default function Donation() {
                     </div>
                   </div>
 
-                  <div className="service">
-                    <h3>役に立つ手札や経験談 &#34;nigeruno&#34;</h3>
-                    <p>社会資源と経験談を集めた情報サイト。</p>
-                    <div className="thumbnail-container">
+                  <div className={styles.service}>
+                    <div>
+                      <h3>役に立つ手札や経験談 &#34;nigeruno&#34;</h3>
+                      <p>社会資源と経験談を集めた情報サイト。</p>
+                    </div>
+                    <div className={styles.thumbnailContainer}>
                       <Image
                         src="/img/donation/nigeruno.png"
                         alt="nigerunoのインターフェース"
@@ -244,39 +261,43 @@ export default function Donation() {
                 </div>
 
                 <h3>2：イベント事業</h3>
-                <p className="description">点と点を繋いで生きていく。</p>
-                <div className="service-container">
-                  <div className="service">
-                    <h3>こどもの日に行う音楽ライブ</h3>
-                    <p>
-                      同じような仲間とかつて生きづらさを抱えたアーティストで、最高の1日をつくる。
-                    </p>
-                    <div className="thumbnail-container">
+                <p className={styles.description}>点と点を繋いで生きていく。</p>
+                <div className={styles.serviceContainer}>
+                  <div className={styles.service}>
+                    <div>
+                      <h3>こどもの日に行う音楽ライブ</h3>
+                      <p>
+                        同じような仲間とかつて生きづらさを抱えたアーティストで、最高の1日をつくる。
+                      </p>
+                    </div>
+                    <div className={styles.thumbnailContainer}>
                       <Image
                         src="/img/live.png"
                         alt="第３の家族ライブ"
                         fill
                         priority
                         style={{
-                          objectFit: "contain", // or cover
+                          objectFit: "cover", // or cover
                         }}
                       />
                     </div>
                   </div>
 
-                  <div className="service">
-                    <h3>母の日に行う裏母の日</h3>
-                    <p>
-                      母の日をどんな気持ちで迎えたらいいのかわからない人のための日。
-                    </p>
-                    <div className="thumbnail-container">
+                  <div className={styles.service}>
+                    <div>
+                      <h3>母の日に行う裏母の日</h3>
+                      <p>
+                        母の日をどんな気持ちで迎えたらいいのかわからない人のための日。
+                      </p>
+                    </div>
+                    <div className={styles.thumbnailContainer}>
                       <Image
                         src="/img/donation/urahaha-card.png"
                         alt="裏母の日"
                         fill
                         priority
                         style={{
-                          objectFit: "contain", // or cover
+                          objectFit: "cover", // or cover
                         }}
                       />
                     </div>
@@ -294,21 +315,6 @@ export default function Donation() {
                     はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
                   </p>
                 </section>
-                <div className="section">
-                  <h3>問題を根本的に解決するための社会構築</h3>
-                  <p>
-                    <b>はざまの声を集める</b>
-                  </p>
-                  <p>
-                    今まで一人一人が抱えていた声を、第3の家族のプラットフォームを通じてかたちにします。見えなかった社会問題を可視化します。
-                  </p>
-                  <p>
-                    <b>政策・文化提言</b>
-                  </p>
-                  <p>
-                    はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
-                  </p>
-                </div>
               </div>
             </div>
           </BlockContainer>
@@ -319,17 +325,20 @@ export default function Donation() {
               <p>
                 はざまの少年少女たちは、従来からある「寄り添う支援」で取りこぼされてきました。そこには、以下のような複雑な心境がありました。
               </p>
-              <ul className={styles.list}>
-                <li>
-                  「大ごとにしたくない」「友達に知られたくない」「心配かけたくない」
-                </li>
-                <li>
-                  「自分は支援してもらうほどではない」「自分よりつらい子はもっといる」
-                </li>
-                <li>「大人は信用できない」「どうせ助けてくれない」</li>
-                <li>「自分で頑張りたい」「良い子でいたい」</li>
-              </ul>
-              <p style={{ margin: "2rem 0" }}>
+              <div className={styles.balloonContainer}>
+                <p className={styles.balloon}>大ごとにしたくない</p>
+                <p className={styles.balloon}>友達に知られたくない</p>
+                <p className={styles.balloon}>心配かけたくない</p>
+                <p className={styles.balloon}>
+                  自分は支援してもらうほどではない
+                </p>
+                <p className={styles.balloon}>自分よりつらい子はもっといる</p>
+                <p className={styles.balloon}>大人は信用できない</p>
+                <p className={styles.balloon}>どうせ助けてくれない</p>
+                <p className={styles.balloon}>自分で頑張りたい</p>
+                <p className={styles.balloon}>良い子でいたい</p>
+              </div>
+              <p style={{margin: "2rem 0"}}>
                 そこで、第3の家族は「寄り添わない支援」をつくります。
                 <br />
                 寄り添わない支援では、以下のことを大切にしています。
@@ -345,7 +354,7 @@ export default function Donation() {
                   <li>温かみのあるデザインにしない</li>
                 </ul>
               </ul>
-              <h3 style={{ marginTop: "2rem" }}>2. 時間に解決させる</h3>
+              <h3 style={{marginTop: "2rem"}}>2. 時間に解決させる</h3>
 
               <ul className={styles.list}>
                 <li>ふとしたタイミングで前を向ける時が来る。</li>
@@ -360,7 +369,7 @@ export default function Donation() {
             </div>
             <div className={styles.rightSideItem}>
               <h2>「私は一人じゃない、もう少し生きてみる」</h2>
-              <p style={{ marginBottom: "2rem" }}>
+              <p style={{marginBottom: "2rem"}}>
                 第3の家族は直接支援は行いませんが、近い仲間とゆるやかに繋がれるような場を設け、次の一歩につなげる情報を提示していくことで、少しずつ前が見えてきます。
               </p>
 
@@ -412,17 +421,37 @@ export default function Donation() {
               <h1 className={styles.headline}>オプション</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <h3>マンスリーサポーター</h3>
-              <p style={{ marginBottom: "2rem" }}>
-                1日33円からのご寄付で家庭環境問題のはざまで悩む少年少女たちをご支援いただけます。
-                はざまの少年少女たちが生きやすくなるための社会づくりの力になります。
-              </p>
+              <div className={styles.supporterTypeContainer}>
+                <div className={styles.supporterType}>
+                  <h3>マンスリーサポーター</h3>
+                  <small>monthly supporter</small>
+                  <p style={{marginBottom: "2rem"}}>
+                    1日33円からのご寄付で家庭環境問題のはざまで悩む少年少女たちをご支援いただけます。
+                    はざまの少年少女たちが生きやすくなるための社会づくりの力になります。
+                  </p>
 
-              <h3>単発寄付</h3>
-              <p style={{ marginBottom: "2rem" }}>
-                1日33円からのご寄付で家庭環境問題のはざまで悩む少年少女たちをご支援いただけます。
-                はざまの少年少女たちが生きやすくなるための社会づくりの力になります。
-              </p>
+                  <Link
+                    className={styles.donationLink}
+                    href="https://syncable.biz/associate/daisan-kazoku/donate"
+                  >
+                    寄付ページへ
+                  </Link>
+                </div>
+                <div className={styles.supporterType}>
+                  <h3>単発寄付</h3>
+                  <small>one-time donation</small>
+                  <p style={{marginBottom: "2rem"}}>
+                    1日33円からのご寄付で家庭環境問題のはざまで悩む少年少女たちをご支援いただけます。
+                    はざまの少年少女たちが生きやすくなるための社会づくりの力になります。
+                  </p>
+                  <Link
+                    className={styles.donationLink}
+                    href="https://syncable.biz/associate/daisan-kazoku/donate"
+                  >
+                    寄付ページへ
+                  </Link>
+                </div>
+              </div>
             </div>
           </BlockContainer>
 
@@ -432,10 +461,10 @@ export default function Donation() {
             </div>
             <div className={styles.rightSideItem}>
               <h3>第3の家族会議へご招待</h3>
-              <p style={{ marginBottom: "2rem" }}>
+              <p style={{marginBottom: "2rem"}}>
                 年1回、第3の家族のこれからについて話し合う第3の家族会議をハイブリッド（対面・オンライン）で開催しています。寄付年度の第3の家族会議にご招待します。
               </p>
-              <div className="thumbnail-container option">
+              <div className={`${styles.thumbnailContainer} ${styles.option}`}>
                 <Image
                   src="/img/donation/reward-1.png"
                   alt="マンスリーサポーターの集合写真"
@@ -447,10 +476,10 @@ export default function Donation() {
                 />
               </div>
               <h3>メールでの活動報告</h3>
-              <p style={{ marginBottom: "2rem" }}>
+              <p style={{marginBottom: "2rem"}}>
                 月一回程度、活動の報告をメールでお送りさせていただきます。
               </p>
-              <div className="thumbnail-container option">
+              <div className={`${styles.thumbnailContainer} ${styles.option}`}>
                 <Image
                   src="/img/donation/reward-2.png"
                   alt="メールのアイコン"
@@ -469,7 +498,7 @@ export default function Donation() {
             <div className={styles.rightSideItem}>
               <h2>なぜ寄付が必要か</h2>
               <h3>少年少女向けサービスで収益化できない</h3>
-              <p style={{ marginBottom: "2rem" }}>
+              <p style={{marginBottom: "2rem"}}>
                 第3の家族の<b>サービスの利用は主に「中学生〜高校生」</b>です。
                 <b>有料サービスにしたら使ってもらえなくなる</b>ことはもちろん、
                 <b>「悩んでいる自分達を利用してビジネスをしている」</b>
@@ -498,9 +527,9 @@ export default function Donation() {
                 <br />
                 日々、試行錯誤を重ねています。
               </p>
-              <div className="awards-container">
-                <div className="award-wrapper">
-                  <div className="award-logo-wrapper">
+              <div className={styles.awardsContainer}>
+                <div className={styles.awardWrapper}>
+                  <div className={styles.awardLogoWrapper}>
                     <Image
                       src="/img/award/GOOD DESIGN NEW HOPE AWARD 2022.png"
                       alt="GOOD DESIGN NEW HOPE AWARD ロゴ"
@@ -519,8 +548,8 @@ export default function Donation() {
                     GOOD DESIGN NEW HOPE AWARD 2022 最優秀賞
                   </a>
                 </div>
-                <div className="award-wrapper">
-                  <div className="award-logo-wrapper">
+                <div className={styles.awardWrapper}>
+                  <div className={styles.awardLogoWrapper}>
                     <Image
                       src="/img/award/Forbes JAPAN 30 UNDER 30.png"
                       alt="Forbes JAPAN 30 UNDER 30 ロゴ"
@@ -585,24 +614,26 @@ export default function Donation() {
               <h1 className={styles.headline}>よくいただく質問</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <div className="qa-wrapper">
-                <p className="question">
+              <div className={styles.qaWrapper}>
+                <p className={styles.question}>
                   Q. 定額の寄付を止めることはできますか？
                 </p>
-                <p className="answer">
+                <p className={styles.answer}>
                   A. はい。いつでもマイページからご解約できます。
                 </p>
               </div>
-              <div className="qa-wrapper">
-                <p className="question">Q. 領収書はもらえますか？</p>
-                <p className="answer">
+              <div className={styles.qaWrapper}>
+                <p className={styles.question}>Q. 領収書はもらえますか？</p>
+                <p className={styles.answer}>
                   A.
                   はい。寄付のお申し込み時に「領収書の発行を希望する」をご選択すると発行することができます。
                 </p>
               </div>
-              <div className="qa-wrapper">
-                <p className="question">Q. 寄附金控除は適応されますか？</p>
-                <p className="answer">
+              <div className={styles.qaWrapper}>
+                <p className={styles.question}>
+                  Q. 寄附金控除は適応されますか？
+                </p>
+                <p className={styles.answer}>
                   A. 現在は寄付控除は適応されません。
                   <br />
                   令和6年度より、認定NPO法人申請向けて活動しています。
@@ -616,14 +647,14 @@ export default function Donation() {
             </div>
             <div className={styles.rightSideItem}>
               <h2>法人・団体からの寄付をご検討中の方へ</h2>
-              <p style={{ marginBottom: "2rem" }}>
+              <p style={{marginBottom: "2rem"}}>
                 法人・団体様からの寄付も一口100,000円から受け付けております。
                 <br />
                 お問い合わせよりご連絡ください。
               </p>
-              <Link href="mailto:info@daisan-kazoku.net">
+              <Link href="/contact">
                 <div className={styles.innerLinkWrapper}>
-                  <p>お問い合わせ</p>
+                  <p className={styles.linkText}>お問い合わせ</p>
                 </div>
               </Link>
             </div>
@@ -633,7 +664,7 @@ export default function Donation() {
               <h1 className={styles.headline}>ごあいさつ</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <div className="greeting">
+              <div className={styles.greeting}>
                 <p>
                   第3の家族の活動に興味を持ってくださり、誠にありがとうございます。
                   <wbr />
@@ -652,10 +683,10 @@ export default function Donation() {
                 </p>
               </div>
 
-              <div className="profile-container">
-                <p className="subtitle">NPO法人第3の家族 代表</p>
-                <p className="name">奥村春香</p>
-                <p className="description">
+              <div className={styles.profileContainer}>
+                <p className={styles.subtitle}>NPO法人第3の家族 代表</p>
+                <p className={styles.name}>奥村春香</p>
+                <p className={styles.description}>
                   NPO法人第3の家族代表。弟の自死をきっかけに活動を始める。LINE株式会社Product
                   Designerを経て、学生時代から続けていた第3の家族を2023年にNPO法人化。Forbes
                   JAPAN 30 UNDER 30
@@ -664,139 +695,11 @@ export default function Donation() {
               </div>
             </div>
           </BlockContainer>
-          <div className="floating-button-container">
+          <div className={styles.floatingButtonContainer}>
             <FloatingButton />
           </div>
         </>
       </Layout>
-      <style jsx>{`
-        .floating-button-container {
-          position: fixed;
-          z-index: 99;
-          bottom: 5vh;
-          right: 3vw;
-        }
-
-        .section {
-          margin-bottom: 4rem;
-        }
-        .diagram-list {
-          display: flex;
-          flex-direction: column;
-          gap: 3rem;
-          p {
-            font-size: 1.2rem;
-          }
-          margin-bottom: 3rem;
-        }
-        .diagram-container {
-        }
-
-        .overview-container {
-          height: 15rem;
-          width: 100%;
-          position: relative;
-          margin-bottom: 2rem;
-        }
-
-        .thumbnail-container {
-          height: 20rem;
-          width: 100%;
-          position: relative;
-        }
-
-        .thumbnail-container.option {
-          margin-bottom: 3rem;
-        }
-
-        .service-section {
-          .description {
-            margin-bottom: 2rem;
-          }
-        }
-
-        .service-container {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-          margin-bottom: 2rem;
-        }
-
-        .service {
-          width: 20rem;
-        }
-
-        .qa-wrapper {
-          margin-bottom: 1rem;
-          .question {
-            padding: 1rem;
-            background-color: var(--light-gray);
-          }
-          .answer {
-            padding: 1rem;
-          }
-        }
-
-        .greeting {
-          margin-bottom: 2rem;
-        }
-
-        .profile-container {
-          border: 1px solid var(--light-gray);
-          padding: 1rem;
-          .subtitle {
-            font-size: 0.8rem;
-            color: var(--dark-gray);
-          }
-          .name {
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-          }
-
-          .description {
-            line-height: 1.3rem;
-            margin-bottom: 1rem;
-          }
-        }
-
-        .awards-container {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5rem;
-        }
-
-        .award-wrapper {
-          display: flex;
-          width: 15rem;
-          flex-direction: column;
-          gap: 1rem;
-          text-align: ceter;
-        }
-        .award-logo-wrapper {
-          width: 15rem;
-          height: 15rem;
-          position: relative;
-        }
-
-        @media screen and (max-width: 600px) {
-          .awards-container {
-            gap: 1rem;
-          }
-          .award-wrapper {
-            width: 10rem;
-          }
-
-          .award-logo-wrapper {
-            width: 10rem;
-            height: 10rem;
-          }
-
-          .floating-button-container {
-            right: 5vw;
-          }
-        }
-      `}</style>
     </>
   );
 }

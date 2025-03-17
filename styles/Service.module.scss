@@ -1,0 +1,332 @@
+.leftSideItem {
+  width: 10rem;
+}
+.rightSideItem {
+  max-width: 70vw;
+}
+
+.jumbotron,
+.blockContainer {
+  p {
+    font-size: 0.9rem;
+    line-height: 1.8rem;
+    max-width: 32rem;
+  }
+  display: flex;
+  gap: 10rem;
+}
+
+.jumbotron {
+  margin-bottom: 200px;
+
+  h2 {
+    font-weight: normal;
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+  }
+}
+
+.blockContainer {
+  margin: 0 -5vw;
+  padding: 100px 5vw 70px;
+  // overflow-x: hidden;
+
+  /* 背景用のブラー */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%; /* 中心基準 */
+    transform: translateX(-50%); /* 中央から均等に広がるように */
+    width: 100vw; /* ビューポート幅を超える */
+    height: 100%;
+    background: inherit; /* 親の背景を継承 */
+
+    /* 滑らかなグラデーション */
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 1%,
+      rgba(0, 0, 0, 0.3) 2%,
+      rgba(0, 0, 0, 0.7) 4%,
+      rgba(0, 0, 0, 1) 5%,
+      rgba(0, 0, 0, 1) 95%,
+      rgba(0, 0, 0, 0.7) 96%,
+      rgba(0, 0, 0, 0.3) 98%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.1) 1%,
+      rgba(0, 0, 0, 0.3) 2%,
+      rgba(0, 0, 0, 0.7) 4%,
+      rgba(0, 0, 0, 1) 5%,
+      rgba(0, 0, 0, 1) 95%,
+      rgba(0, 0, 0, 0.7) 96%,
+      rgba(0, 0, 0, 0.3) 98%,
+      rgba(0, 0, 0, 0) 100%
+    );
+
+    z-index: -1;
+  }
+
+  h2 {
+    font-weight: normal;
+    margin-bottom: 1.2rem;
+  }
+
+  h3 {
+    font-weight: normal;
+    margin-bottom: 1rem;
+  }
+
+  section {
+    margin-bottom: 5rem;
+  }
+}
+
+.segment {
+  display: inline-block;
+}
+
+.serviceTitle {
+  font-weight: 100;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.profileContainer {
+  display: flex;
+  gap: 5rem;
+  margin-bottom: 5rem;
+  .position {
+    width: 5rem;
+    font-size: 0.8rem;
+  }
+  .description {
+    line-height: 1.8rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.gray {
+  padding-top: 200px;
+  h1,
+  h2,
+  h3,
+  li,
+  p {
+    color: black;
+  }
+  &::before {
+    background-color: var(--gray);
+  }
+}
+
+.green {
+  padding-top: 200px;
+  h1,
+  h2,
+  h3,
+  li,
+  p {
+    color: white;
+  }
+  &::before {
+    background-color: var(--green);
+  }
+}
+
+.innerLinkWrapper {
+  height: 4rem;
+  width: 20rem;
+  max-width: 60vw;
+  display: inline-block;
+  border-radius: 0.5rem;
+  border: 1.5px solid #aaa;
+  padding: 0 1rem;
+  text-decoration: none;
+  p {
+    font-weight: 700;
+    display: inline;
+    color: #333;
+    line-height: 4rem;
+    position: relative;
+  }
+
+  p::after {
+    position: absolute;
+    top: 0.1rem;
+    right: -1.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    background-image: url("../public/img/svg/arrow-right.svg");
+    background-size: contain;
+    content: "";
+  }
+}
+
+.innerLinkWrapper:hover {
+  border-color: var(--light-green);
+}
+
+.externalLink,
+.pdfLink {
+  font-weight: 400;
+  margin-right: 2rem;
+  position: relative;
+  text-decoration: none;
+  color: black;
+  text-underline-position: below;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  transition: all 0.2s ease;
+}
+
+.externalLink:hover,
+.pdfLink:hover {
+  color: var(--light-green);
+}
+
+.externalLink::after,
+.pdfLink::after {
+  position: absolute;
+  content: "";
+  bottom: 0.1rem;
+  right: -1.5rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  background-size: contain;
+}
+
+.pdfLink::after {
+  background-image: url("../public/img/svg/pdf-icon.svg");
+}
+
+.externalLink::after {
+  background-image: url("../public/img/svg/external-link.svg");
+}
+
+.headline {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #777;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.articleCardContainer {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.serviceCardContainer {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.list {
+  list-style: none;
+  margin-top: 2rem;
+  li {
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  li::before {
+    position: absolute;
+    content: "";
+    top: 0.2rem;
+    left: -2rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+}
+
+.description {
+  margin-bottom: 3rem;
+  line-height: 2rem;
+}
+
+.cardContainer {
+  h2 {
+    font-size: 1.2rem;
+  }
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  .card {
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    padding: 1rem;
+    width: 22%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profileContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    .description {
+      line-height: 1.5rem;
+    }
+  }
+
+  .jumbotron,
+  .blockContainer {
+    gap: 1rem;
+    flex-direction: column;
+    .rightSideItem {
+      width: 100%;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+  .jumbotron {
+    flex-direction: column-reverse;
+    margin-bottom: 100px;
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      width: 100%;
+    }
+  }
+
+  .innerLinkWrapper {
+    width: 100%;
+  }
+
+  .list {
+    li {
+      font-size: 0.8rem;
+    }
+  }
+
+  .externalLink {
+    font-size: 0.8rem;
+  }
+
+  .externalLink::after,
+  .pdfLink::after {
+    right: -1.3rem;
+    width: 1rem;
+    height: 1rem;
+  }
+  .cardContainer {
+    .card {
+      width: 100%;
+    }
+  }
+}

@@ -1,6 +1,5 @@
-import styles from "@/styles/Article.module.scss";
+import styles from "@/styles/Service.module.scss";
 import Layout from "@/pages/layout";
-import Link from "next/link";
 import Image from "next/image";
 import BlockContainer from "@/components/BlockContainer";
 

@@ -1,4 +1,4 @@
-import styles from "@/styles/Article.module.scss";
+import styles from "@/styles/Service.module.scss";
 import Layout from "../../layout";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,18 +7,27 @@ import BlockContainer from "@/components/BlockContainer";
 const Gedokun = () => {
   return (
     <>
-      <Layout pageTitle="gedokun" headline="gedokun">
+      <Layout pageTitle="gedokun">
         <div className={styles.jumbotron}>
+          <div>
+            <h1 className={styles.serviceTitle}>gedokun</h1>
+            <p>匿名で悩みを吐き出し、少しだけ前を向ける場。</p>
+            <Link href="https://daisan-kazoku.net/gedokun">
+              <div className={styles.innerLinkWrapper}>
+                <p className={styles.linkText}>Webサイトへ</p>
+              </div>
+            </Link>
+          </div>
           <div
             style={{
               width: "100%",
               height: "auto",
-              aspectRatio: "21/9",
+              aspectRatio: "4/3",
               position: "relative",
             }}
           >
             <Image
-              src="/img/gedokun_mv.png"
+              src="/img/gedokun_4_3.png"
               fill
               priority
               style={{
@@ -29,28 +38,29 @@ const Gedokun = () => {
           </div>
         </div>
         <BlockContainer>
-          <div className={styles.leftSideItem}></div>
-          <div className={styles.rightSideItem}>
-            <p>匿名で悩みを吐き出し、少しだけ前を向ける場。</p>
-            <Link href="https://daisan-kazoku.net/gedokun">
-              <div className={styles.innerLinkWrapper}>
-                <p>Webサイトへ</p>
-              </div>
-            </Link>
-          </div>
-        </BlockContainer>
-        <BlockContainer>
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>コンセプト</h1>
           </div>
           <div className={styles.rightSideItem}>
             <h2>まずは一人にさせない</h2>
             <p>
-              人には言えない悩みも、込み上げてくる気持ちも、すぐに投稿できるようにします。
+              <span className={styles.segment}>
+                人には言えない悩みも、込み上げてくる気持ちも、
+              </span>
+              <span className={styles.segment}>
+                すぐに投稿できるようにします。
+              </span>
               <br />
-              同じように悩んでいる仲間と、遠くでゆるやかに繋がります。
+              <span className={styles.segment}>
+                同じように悩んでいる仲間と、遠くでゆるやかに繋がります。
+              </span>
               <br />
-              gedokunにできることは小さいですが、まずは一人にさせないことを目指します。
+              <span className={styles.segment}>
+                gedokunにできることは小さいですが、
+              </span>
+              <span className={styles.segment}>
+                まずは一人にさせないことを目指します。
+              </span>
             </p>
           </div>
         </BlockContainer>
@@ -59,22 +69,32 @@ const Gedokun = () => {
             <h1 className={styles.headline}>特徴</h1>
           </div>
           <div className={styles.rightSideItem}>
-            <h2>ユーザー登録・返信機能なし</h2>
-            <p>
-              シンプルに悩みを吐き出すだけの場所です。学校や地域の施設の端末から使う少年少女もいます。
-            </p>
-            <h2>ボタンでゆるやかに呼応</h2>
-            <p>
-              リアクションボタンで反応を返せます。どんな投稿にも否定も肯定もしませんが、「ここにいるよ」ということを伝えます。
-            </p>
-            <h2>次の手札をさりげなく伝える</h2>
-            <p>
-              投稿内容に応じて、近い経験談や手札をさりげなく提示します。次の一歩を踏み出すための機会をつくります。
-            </p>
-            <h2>具体的な手段は制限</h2>
-            <p>
-              どんな感情の投稿にも制限はかけていませんが、自殺方法や連絡先などの具体的な情報はNGワードとして投稿できないようになっています。
-            </p>
+            <div className={styles.cardContainer}>
+              <div className={styles.card}>
+                <h2>ユーザー登録・返信機能なし</h2>
+                <p>
+                  シンプルに悩みを吐き出すだけの場所です。学校や地域の施設の端末から使う少年少女もいます。
+                </p>
+              </div>
+              <div className={styles.card}>
+                <h2>ボタンでゆるやかに呼応</h2>
+                <p>
+                  リアクションボタンで反応を返せます。どんな投稿にも否定も肯定もしませんが、「ここにいるよ」ということを伝えます。
+                </p>
+              </div>
+              <div className={styles.card}>
+                <h2>次の手札をさりげなく伝える</h2>
+                <p>
+                  投稿内容に応じて、近い経験談や手札をさりげなく提示します。次の一歩を踏み出すための機会をつくります。
+                </p>
+              </div>
+              <div className={styles.card}>
+                <h2>具体的な手段は制限</h2>
+                <p>
+                  どんな感情の投稿にも制限はかけていませんが、自殺方法や連絡先などの具体的な情報はNGワードとして投稿できないようになっています。
+                </p>
+              </div>
+            </div>
           </div>
         </BlockContainer>
         <BlockContainer>
