@@ -1,7 +1,7 @@
 // app/posts/layout.tsx
 "use client";
 import Link from "next/link";
-import styles from "../styles/Layout.module.css";
+import styles from "../styles/Layout.module.scss";
 import {useRouter} from "next/router";
 import Head from "next/head";
 import {CSSProperties, useEffect, useState} from "react";
@@ -113,18 +113,30 @@ export default function Layout({
         <meta name="twitter:site" content="@daisan_kazoku" />
       </Head>
 
-      <div className="header">
-        <div className="header-left" style={headerStyle}>
-          <Link href={"/"}>
-            <Logo />
-          </Link>
+      <div className={styles.header}>
+        <div className={styles.headerLeft} style={headerStyle}>
+          <div className={styles.logo}>
+            <Link href={"/"}>
+              <Logo />
+            </Link>
+          </div>
+          {parentPageInfo && (
+            <div className={styles.navigation}>
+              <p>
+                <Link href={parentPageInfo!.parentPath}>
+                  {parentPageInfo?.parentTitle}
+                </Link>
+                / {pageTitle}
+              </p>
+            </div>
+          )}
         </div>
-        <div className="header-right">
+        <div className={styles.headerRight}>
           <Link href={"/donation"}>
-            <p className="header-link">寄付する</p>
+            <p className={styles.headerLink}>寄付する</p>
           </Link>
           <Link href={"https://daisan-kazoku.net/gedokun"}>
-            <p className="header-link">少年少女はこちら</p>
+            <p className={styles.headerLink}>少年少女はこちら</p>
           </Link>
           <HamburgerMenu />
         </div>
@@ -155,47 +167,6 @@ export default function Layout({
           </div>
         )}
       </footer>
-      <style jsx>{`
-        .header {
-          display: flex;
-          width: 94vw;
-          z-index: 120;
-          position: fixed;
-          top: 30px;
-          right: 3vw;
-          justify-content: space-between;
-
-          .header-left {
-            width: 200px;
-            margin-top: 10px;
-            transition: all 500ms ease;
-          }
-
-          .header-right {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            line-height: 40px;
-            a {
-              text-decoration: none;
-              color: black;
-            }
-          }
-        }
-
-        @media screen and (max-width: 600px) {
-          .header-link {
-            display: none;
-          }
-
-          .header {
-            .header-left {
-              width: 150px;
-              z-index: 99;
-            }
-          }
-        }
-      `}</style>
     </>
   );
 }
