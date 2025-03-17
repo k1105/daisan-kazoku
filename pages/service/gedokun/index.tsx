@@ -68,31 +68,44 @@ const Gedokun = () => {
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>特徴</h1>
           </div>
-          <div className={styles.rightSideItem}>
-            <div className={styles.cardContainer}>
-              <div className={styles.card}>
-                <h2>ユーザー登録・返信機能なし</h2>
-                <p>
-                  シンプルに悩みを吐き出すだけの場所です。学校や地域の施設の端末から使う少年少女もいます。
-                </p>
+          <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
+            <div className={styles.flexContainer}>
+              <div className={styles.cardContainer}>
+                <div className={styles.card}>
+                  <h2>ユーザー登録・返信機能なし</h2>
+                  <p>
+                    シンプルに悩みを吐き出すだけの場所です。学校や地域の施設の端末から使う少年少女もいます。
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <h2>ボタンでゆるやかに呼応</h2>
+                  <p>
+                    リアクションボタンで反応を返せます。どんな投稿にも否定も肯定もしませんが、「ここにいるよ」ということを伝えます。
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <h2>次の手札をさりげなく伝える</h2>
+                  <p>
+                    投稿内容に応じて、近い経験談や手札をさりげなく提示します。次の一歩を踏み出すための機会をつくります。
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <h2>具体的な手段は制限</h2>
+                  <p>
+                    どんな感情の投稿にも制限はかけていませんが、自殺方法や連絡先などの具体的な情報はNGワードとして投稿できないようになっています。
+                  </p>
+                </div>
               </div>
-              <div className={styles.card}>
-                <h2>ボタンでゆるやかに呼応</h2>
-                <p>
-                  リアクションボタンで反応を返せます。どんな投稿にも否定も肯定もしませんが、「ここにいるよ」ということを伝えます。
-                </p>
-              </div>
-              <div className={styles.card}>
-                <h2>次の手札をさりげなく伝える</h2>
-                <p>
-                  投稿内容に応じて、近い経験談や手札をさりげなく提示します。次の一歩を踏み出すための機会をつくります。
-                </p>
-              </div>
-              <div className={styles.card}>
-                <h2>具体的な手段は制限</h2>
-                <p>
-                  どんな感情の投稿にも制限はかけていませんが、自殺方法や連絡先などの具体的な情報はNGワードとして投稿できないようになっています。
-                </p>
+              <div className={styles.insertImageWrapper}>
+                <Image
+                  src="/img/gedokun_4_3_feature.png"
+                  fill
+                  priority
+                  style={{
+                    objectFit: "contain",
+                  }}
+                  alt="gedokunの特徴"
+                />
               </div>
             </div>
           </div>

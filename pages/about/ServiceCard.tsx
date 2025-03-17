@@ -61,7 +61,7 @@ const ServiceCard = ({
         .image-wrapper {
           position: relative;
           width: 300px;
-          height: 170px;
+          aspect-ratio: 4/3;
           background-color: #eee;
           margin-bottom: 0.5rem;
         }
@@ -71,7 +71,7 @@ const ServiceCard = ({
           top: 0;
           left: 0;
           width: 300px;
-          height: 170px;
+          aspect-ratio: 4/3;
           box-sizing: border-box;
           background-color: rgba(146, 215, 202, 0.8);
           padding: 15px;

@@ -4,6 +4,22 @@
 .rightSideItem {
   max-width: 70vw;
 }
+.fullWidth {
+  width: 70vw;
+}
+
+.insertImageWrapper {
+  width: 40vw;
+  height: auto;
+  aspect-ratio: 4/3;
+  position: relative;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+}
 
 .jumbotron,
 .blockContainer {
@@ -241,10 +257,10 @@
   li::before {
     position: absolute;
     content: "";
-    top: 0.2rem;
+    top: 0.4rem;
     left: -2rem;
-    width: 1rem;
-    height: 1rem;
+    width: 0.7rem;
+    height: 0.7rem;
     border-radius: 50%;
     background-color: #ccc;
   }
@@ -267,7 +283,7 @@
     border: 1px solid var(--gray);
     border-radius: 5px;
     padding: 1rem;
-    width: 22%;
+    width: 16vw;
   }
 }
 
@@ -279,6 +295,22 @@
     .description {
       line-height: 1.5rem;
     }
+  }
+
+  .flexContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .rightSideItem {
+    max-width: 100%;
+  }
+  .fullWidth {
+    width: 100%;
+  }
+
+  .insertImageWrapper {
+    width: 100%;
   }
 
   .jumbotron,

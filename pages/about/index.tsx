@@ -51,12 +51,12 @@ const About = () => {
                   <ServiceCard
                     title="gedokun"
                     path="/service/gedokun"
-                    image="/img/gedokun_mv.png"
+                    image="/img/gedokun_4_3.png"
                   />
                   <ServiceCard
                     title="nigeruno"
                     path="/service/nigeruno"
-                    image="/img/nigeruno_mv.png"
+                    image="/img/nigeruno_4_3.png"
                   />
                 </div>
 
@@ -69,17 +69,17 @@ const About = () => {
                   <ServiceCard
                     title="家庭環境データ"
                     path="/service/katei-kankyo-data"
-                    image="/img/katei-data.jpg"
+                    image="/img/katei-data_4_3.png"
                   />
                   <ServiceCard
                     title="裏母の日"
                     path="/service/urahaha"
-                    image="/img/urahaha.png"
+                    image="/img/urahaha_4_3.png"
                   />
                   <ServiceCard
                     title="音楽ライブ"
                     path="/service/daisan-live"
-                    image="/img/live.png"
+                    image="/img/live_4_3.png"
                   />
                 </div>
                 <h3>3：社会構築事業</h3>

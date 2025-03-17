@@ -6,34 +6,33 @@ import BlockContainer from "@/components/BlockContainer";
 const Urahaha = () => {
   return (
     <>
-      <Layout pageTitle="裏母の日" headline="裏母の日">
-        <div
-          style={{
-            width: "100%",
-            height: "auto",
-            aspectRatio: "4/3",
-            marginBottom: "2rem",
-            position: "relative",
-          }}
-        >
-          <Image
-            src="/img/urahaha.png"
-            fill
-            priority
-            style={{
-              objectFit: "contain",
-            }}
-            alt="裏母の日のサムネイル画像"
-          />
-        </div>
-
-        <BlockContainer>
-          <div className={styles.rightSideItem}>
+      <Layout pageTitle="裏母の日">
+        <div className={styles.jumbotron}>
+          <div>
+            <h1 className={styles.serviceTitle}>裏母の日</h1>
             <p>
               母の日をどんな気持ちで迎えたらいいのかわからない人のための日。
             </p>
           </div>
-        </BlockContainer>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/urahaha_4_3.png"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="裏母の日のサムネイル画像"
+            />
+          </div>
+        </div>
         <BlockContainer>
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>コンセプト</h1>
@@ -51,15 +50,31 @@ const Urahaha = () => {
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>特徴</h1>
           </div>
-          <div className={styles.rightSideItem}>
-            <h2>当事者同士のゆる座談会</h2>
-            <p>
-              過去の話や近況についてゆるゆると話します。お互いの家庭環境には深く干渉しません。
-            </p>
-            <h2>かたちにするワークショップ</h2>
-            <p>
-              何かが解決するわけではありませんが、共に過ごした時間をかたちにします。
-            </p>
+          <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
+            <div className={styles.flexContainer}>
+              <div>
+                <h2>当事者同士のゆる座談会</h2>
+                <p>
+                  過去の話や近況についてゆるゆると話します。お互いの家庭環境には深く干渉しません。
+                </p>
+                <h2>かたちにするワークショップ</h2>
+                <p>
+                  何かが解決するわけではありませんが、共に過ごした時間をかたちにします。
+                </p>
+              </div>
+              <div className={styles.insertImageWrapper}>
+                <Image
+                  src="/img/urahaha_4_3_feature.png"
+                  fill
+                  priority
+                  style={{
+                    objectFit: "contain",
+                    borderRadius: "10px",
+                  }}
+                  alt="音楽ライブのサムネイル画像"
+                />
+              </div>
+            </div>
           </div>
         </BlockContainer>
         <BlockContainer>

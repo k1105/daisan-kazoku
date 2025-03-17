@@ -7,60 +7,75 @@ import BlockContainer from "@/components/BlockContainer";
 const Nigeruno = () => {
   return (
     <>
-      <Layout pageTitle="nigeruno" headline="nigeruno">
-        <div
-          style={{
-            width: "100%",
-            height: "auto",
-            aspectRatio: "4/3",
-            marginBottom: "2rem",
-            position: "relative",
-          }}
-        >
-          <Image
-            src="/img/nigeruno_mv.png"
-            fill
-            priority
-            style={{
-              objectFit: "contain",
-            }}
-            alt="nigerunoのサムネイル画像"
-          />
-        </div>
-        <BlockContainer>
-          <div className={styles.rightSideItem}>
+      <Layout pageTitle="nigeruno">
+        <div className={styles.jumbotron}>
+          <div>
+            <h1 className={styles.serviceTitle}>nigeruno</h1>
             <p>社会資源と経験談を集めた情報サイト。</p>
             <Link href="https://daisan-kazoku.net/nigeruno">
               <div className={styles.innerLinkWrapper}>
-                <p>Webサイトへ</p>
+                <p className={styles.linkText}>Webサイトへ</p>
               </div>
             </Link>
           </div>
-        </BlockContainer>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/nigeruno_4_3.png"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="nigerunoのサムネイル画像"
+            />
+          </div>
+        </div>
         <BlockContainer>
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>コンセプト</h1>
           </div>
-          <div className={styles.rightSideItem}>
-            <h2>使える手札を見つけよう</h2>
-            <p>
-              <span className={styles.segment}>
-                多様な社会資源や経験者の情報を集め、
-              </span>
-              <span className={styles.segment}>
-                自分の居場所を見つけるための一歩を
-              </span>
-              <span className={styles.segment}>
-                踏み出せるようにすることを目指します。
-              </span>
-              <br />
-              <span className={styles.segment}>
-                「家か学校」という限られた選択肢ではなく、
-              </span>
-              <span className={styles.segment}>
-                多様な「手札」を増やすことを目指します。
-              </span>
-            </p>
+          <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
+            <div className={styles.flexContainer}>
+              <div>
+                <h2>使える手札を見つけよう</h2>
+                <p>
+                  <span className={styles.segment}>
+                    多様な社会資源や経験者の情報を集め、
+                  </span>
+                  <span className={styles.segment}>
+                    自分の居場所を見つけるための一歩を
+                  </span>
+                  <span className={styles.segment}>
+                    踏み出せるようにすることを目指します。
+                  </span>
+                  <br />
+                  <span className={styles.segment}>
+                    「家か学校」という限られた選択肢ではなく、
+                  </span>
+                  <span className={styles.segment}>
+                    多様な「手札」を増やすことを目指します。
+                  </span>
+                </p>
+              </div>
+              <div className={styles.insertImageWrapper}>
+                <Image
+                  src="/img/nigeruno_4_3_feature.png"
+                  fill
+                  priority
+                  style={{
+                    objectFit: "contain",
+                  }}
+                  alt="nigerunoの特徴"
+                />
+              </div>
+            </div>
           </div>
         </BlockContainer>
         <BlockContainer>
@@ -72,24 +87,38 @@ const Nigeruno = () => {
             <p>
               公的な支援から身近な頼れる人まで、幅広く紹介しています。以下は紹介する情報の一例です。
             </p>
-            <h3>公的な支援</h3>
-            <ul className={styles.list}>
-              <li>児童相談所</li>
-              <li>電話相談</li>
-              <li>役所の窓口</li>
-            </ul>
-            <h3>民間サービス</h3>
-            <ul className={styles.list}>
-              <li>シェアハウス</li>
-              <li>留学制度</li>
-              <li>メンタルクリニック</li>
-            </ul>
-            <h3>頼れる身近な人</h3>
-            <ul className={styles.list}>
-              <li>学校の先生</li>
-              <li>親戚</li>
-              <li>親の友達</li>
-            </ul>
+
+            <div className={styles.cardContainer}>
+              <div className={styles.card}>
+                <h3>公的な支援</h3>
+                <ul className={styles.list}>
+                  <li>児童相談所</li>
+                  <li>電話相談</li>
+                  <li>役所の窓口</li>
+                </ul>
+              </div>
+              <div className={styles.card}>
+                <h3>民間サービス</h3>
+                <ul className={styles.list}>
+                  <li>シェアハウス</li>
+                  <li>留学制度</li>
+                  <li>メンタルクリニック</li>
+                </ul>
+              </div>
+              <div className={styles.card}>
+                <h3>頼れる身近な人</h3>
+                <ul className={styles.list}>
+                  <li>学校の先生</li>
+                  <li>親戚</li>
+                  <li>親の友達</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </BlockContainer>
+        <BlockContainer>
+          <div className={styles.leftSideItem}></div>
+          <div className={styles.rightSideItem}>
             <h2>経験者の人生の紹介</h2>
             <p>
               かつて家庭環境問題に悩んだ経験者が、どのようにして今の人生を歩んでいるかを解説しています。

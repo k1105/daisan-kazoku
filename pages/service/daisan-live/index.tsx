@@ -1,37 +1,37 @@
-import styles from "../../../styles/Article.module.scss";
+import styles from "@/styles/Service.module.scss";
 import Layout from "../../layout";
-import Link from "next/link";
 import Image from "next/image";
 import BlockContainer from "@/components/BlockContainer";
 
 const DaisanLive = () => {
   return (
     <>
-      <Layout pageTitle="音楽ライブ" headline="音楽ライブ">
-        <div
-          style={{
-            width: "100%",
-            height: "auto",
-            aspectRatio: "4/3",
-            marginBottom: "2rem",
-            position: "relative",
-          }}
-        >
-          <Image
-            src="/img/live.png"
-            fill
-            priority
-            style={{
-              objectFit: "contain",
-            }}
-            alt="音楽ライブのサムネイル画像"
-          />
-        </div>
-        <BlockContainer>
-          <div className={styles.rightSideItem}>
+      <Layout pageTitle="音楽ライブ">
+        <div className={styles.jumbotron}>
+          <div>
+            <h1 className={styles.serviceTitle}>音楽ライブ</h1>
             <p>次の一歩に繋げるための音楽ライブ。</p>
           </div>
-        </BlockContainer>
+          <div
+            style={{
+              width: "100%",
+              height: "auto",
+              aspectRatio: "4/3",
+              position: "relative",
+            }}
+          >
+            <Image
+              src="/img/live_4_3.png"
+              fill
+              priority
+              style={{
+                objectFit: "contain",
+              }}
+              alt="音楽ライブのサムネイル画像"
+            />
+          </div>
+        </div>
+
         <BlockContainer>
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>コンセプト</h1>
