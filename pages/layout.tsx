@@ -2,31 +2,14 @@
 "use client";
 import Link from "next/link";
 import styles from "../styles/Layout.module.scss";
-import {useRouter} from "next/router";
+import {usePathname} from "next/navigation";
 import Head from "next/head";
 import {CSSProperties, useEffect, useState} from "react";
 import HamburgerMenu from "@/components/HamburgerMenu";
 import {Logo} from "@/components/Logo";
 
-const useParentPageInfo = (path: string) => {
-  const segments = path.split("/").filter((segment) => segment);
-
-  if (segments.length === 0) {
-    return null; // ルートパスの場合は親が存在しない
-  }
-
-  // 親のパスを生成
-  const parentPath = "/" + segments.slice(0, -1).join("/");
-
-  // 親のタイトルを取得するためのロジックを実装（仮の実装例）
-  const parentTitle = getTitleFromPath(parentPath); // ここは自分で実装する必要があります
-
-  return {parentTitle, parentPath};
-};
-
 const getTitleFromPath = (path: string): string => {
-  // ここにパスからタイトルを取得するロジックを実装
-  // 例えば、静的に定義するか、ルックアップテーブルを使用するなど
+  // 基本のタイトルマッピング
   const titleMap: {[key: string]: string} = {
     "/": "トップ",
     "/about": "第３の家族とは",
@@ -34,9 +17,61 @@ const getTitleFromPath = (path: string): string => {
     "/people": "メンバー",
     "/media": "メディア",
     "/service": "事業内容",
+    "/data": "データ",
+    "/donation": "寄付する",
+    "/contact": "お問い合わせ",
   };
 
-  return titleMap[path] || "Unknown Title";
+  // マッピングに存在する場合はそのタイトルを返す
+  if (titleMap[path]) {
+    return titleMap[path];
+  }
+
+  // パスをセグメントに分割
+  const segments = path.split("/").filter(Boolean);
+
+  // 最後のセグメントを取得
+  const lastSegment = segments[segments.length - 1];
+
+  // 最後のセグメントをタイトルとして使用
+  // ハイフンをスペースに変換し、各単語の先頭を大文字に
+  return lastSegment
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
+const useParentPageInfo = (path: string | null) => {
+  if (!path) {
+    return null;
+  }
+
+  const segments = path.split("/").filter((segment) => segment);
+
+  if (segments.length === 0) {
+    return null; // ルートパスの場合は親が存在しない
+  }
+
+  // ルートパスに到達するまで再帰的に親パスを取得
+  const breadcrumbs = [];
+  let currentPath = "";
+
+  // ルートパスを追加
+  breadcrumbs.push({
+    title: getTitleFromPath("/"),
+    path: "/",
+  });
+
+  // 各セグメントのパスを追加（最後のセグメントは除く）
+  for (let i = 0; i < segments.length - 1; i++) {
+    currentPath += "/" + segments[i];
+    breadcrumbs.push({
+      title: getTitleFromPath(currentPath),
+      path: currentPath,
+    });
+  }
+
+  return breadcrumbs;
 };
 
 export default function Layout({
@@ -48,9 +83,10 @@ export default function Layout({
   pageTitle: string;
   headline?: string;
 }) {
-  const router = useRouter();
-  const path = router.pathname;
-  const parentPageInfo = useParentPageInfo(path);
+  const path = usePathname();
+  console.log("Current path:", path); // デバッグ用ログ
+  const parentPageInfo = useParentPageInfo(path || "");
+  console.log("Parent page info:", parentPageInfo); // デバッグ用ログ
 
   const [headerStyle, setHeaderStyle] = useState<CSSProperties>({
     opacity: 1,
@@ -123,10 +159,13 @@ export default function Layout({
           {parentPageInfo && (
             <div className={styles.navigation}>
               <p>
-                <Link href={parentPageInfo!.parentPath}>
-                  {parentPageInfo?.parentTitle}
-                </Link>
-                / {pageTitle}
+                {parentPageInfo.map((crumb, index) => (
+                  <span key={crumb.path}>
+                    <Link href={crumb.path}>{crumb.title}</Link>
+                    {index < parentPageInfo.length - 1 ? " / " : " / "}
+                  </span>
+                ))}
+                {pageTitle}
               </p>
             </div>
           )}
@@ -159,10 +198,13 @@ export default function Layout({
         {parentPageInfo && (
           <div className={styles.topicPath} style={footerStyle}>
             <p>
-              <Link href={parentPageInfo!.parentPath}>
-                {parentPageInfo?.parentTitle}
-              </Link>
-              &gt; {pageTitle}
+              {parentPageInfo.map((crumb, index) => (
+                <span key={crumb.path}>
+                  <Link href={crumb.path}>{crumb.title}</Link>
+                  {index < parentPageInfo.length - 1 ? " > " : " > "}
+                </span>
+              ))}
+              {pageTitle}
             </p>
           </div>
         )}
