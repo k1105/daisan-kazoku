@@ -1,12 +1,12 @@
 import styles from "@/styles/Home.module.scss";
-import { useEffect, useRef, useState, cloneElement } from "react";
-import { useRouter } from "next/router";
-import { ExternalLinkIcon } from "@/components/icons/ExternalLinkIcon";
+import {useEffect, useRef, useState, cloneElement} from "react";
+import {useRouter} from "next/router";
+import {ExternalLinkIcon} from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
 import Link from "next/link";
-import { TopBackgroundAnimation } from "@/components/animation/TopBackgroundAnimation";
+import {TopBackgroundAnimation} from "@/components/animation/TopBackgroundAnimation";
 import HamburgerMenu from "@/components/HamburgerMenu";
-import { FirstView } from "@/components/FirstView";
+import {FirstView} from "@/components/FirstView";
 
 const baseSections = [
   <FirstView key="0" />,
@@ -137,7 +137,7 @@ const Home = () => {
       }
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
+    window.addEventListener("wheel", handleWheel, {passive: false});
     return () => {
       window.removeEventListener("wheel", handleWheel);
     };
@@ -173,8 +173,8 @@ const Home = () => {
       }, 500);
     };
 
-    window.addEventListener("touchstart", handleTouchStart, { passive: false });
-    window.addEventListener("touchmove", handleTouchMove, { passive: false });
+    window.addEventListener("touchstart", handleTouchStart, {passive: false});
+    window.addEventListener("touchmove", handleTouchMove, {passive: false});
 
     return () => {
       window.removeEventListener("touchstart", handleTouchStart);
@@ -260,11 +260,11 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>NPO法人第3の家族 | どんな家族も生きやすい社会を構築する</title>
+        <title>NPO法人第3の家族 | 寄り添わない支援</title>
         <meta property="og:title" content="NPO法人 第３の家族" />
         <meta
           property="og:description"
-          content="どんな家族も生きやすい社会を構築する。家庭環境問題のはざまの少年少女が自分の居場所を見つけるための、寄り添わない支援。 "
+          content="はざまの少年少女が生きたいと思える社会をつくる。寄り添わない支援。Web事業を中心に、オフラインイベントや研究も行う。"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://daisan-kazoku.com" />
@@ -289,7 +289,7 @@ const Home = () => {
         <div
           className={styles.viewWrapper}
           ref={mainRef}
-          style={{ opacity: 0, transition: "all 0.5s ease" }}
+          style={{opacity: 0, transition: "all 0.5s ease"}}
         >
           {extendedSections.map((section, idx) => {
             // ここでリンクのクリックを差し込む例（トップのリンクのみ遷移を差し込む等）
@@ -297,7 +297,7 @@ const Home = () => {
             // onClickで delayRedirectTo を使いたいなら
             // baseSections[0] とか baseSections[5] 側を工夫してください
             return (
-              <div key={idx} style={{ width: "100%", height: "100%" }}>
+              <div key={idx} style={{width: "100%", height: "100%"}}>
                 {
                   // トップセクションの3つのリンクだけ挙動を差し替える例
                   // → ただしクローンでも同じ中身になるので注意

@@ -277,10 +277,23 @@
     }
   }
 
+  .blockContainer {
+    .green,
+    .gray {
+      padding-top: 0;
+    }
+  }
+
   .jumbotron,
   .blockContainer {
     gap: 0rem;
     flex-direction: column;
+
+    &::before {
+      left: 2.5vw;
+      width: 95vw;
+    }
+
     .rightSideItem {
       width: 100%;
     }

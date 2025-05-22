@@ -153,7 +153,7 @@ export default function Layout({
         <div className={styles.headerLeft} style={headerStyle}>
           <div className={styles.logo}>
             <Link href={"/"}>
-              <Logo />
+              <Logo style={{fill: "black"}} />
             </Link>
           </div>
           {parentPageInfo && (

@@ -1,10 +1,13 @@
-export const Logo = () => {
+import {SVGProps} from "react";
+
+export const Logo = (props: SVGProps<SVGSVGElement>) => {
   return (
     <>
       <svg
         id="daisan"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 166.12 31.53"
+        {...props}
       >
         <defs></defs>
         <g id="main">
@@ -44,17 +47,6 @@ export const Logo = () => {
           </g>
         </g>
       </svg>
-      <style jsx>{`
-        #daisan {
-          fill: black;
-        }
-
-        @media screen and (max-width: 600px) {
-          #daisan {
-            // fill: white;
-          }
-        }
-      `}</style>
     </>
   );
 };

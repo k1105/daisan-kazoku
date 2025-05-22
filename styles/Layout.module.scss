@@ -22,12 +22,16 @@
 
 .header {
   display: flex;
-  width: 94vw;
+  width: 100vw;
   z-index: 120;
   position: fixed;
-  top: 30px;
-  right: 3vw;
+  top: 0;
+  right: 0;
+
+  padding: 0.5rem 3vw;
   justify-content: space-between;
+  backdrop-filter: blur(10px);
+  // mix-blend-mode: difference;
 
   .headerLeft {
     margin-top: 10px;
