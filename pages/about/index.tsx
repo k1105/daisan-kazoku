@@ -421,14 +421,56 @@ const About = () => {
               <h1 className={styles.headline}>助成金情報</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <ul className={styles.list} style={{marginBottom: "2rem"}}>
-                <li>2023年度 花王社会起業塾</li>
-                <li>2023年度 SVP東京 投資・協働先</li>
-                <li>
-                  赤い羽根
-                  ポスト・コロナ（新型感染症）社会に向けた福祉活動応援キャンペーン(第8回)
-                </li>
-              </ul>
+              <div className="awards-container">
+                <div className="award-wrapper">
+                  <div className="award-logo-wrapper">
+                    <Image
+                      src="/img/REEP.png"
+                      alt="REEP ロゴ"
+                      fill
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+                  <p>2023年度 SVP東京 投資・協働先</p>
+                </div>
+                <div className="award-wrapper">
+                  <div className="award-logo-wrapper">
+                    <Image
+                      src="/img/kao.png"
+                      alt="花王 ロゴ"
+                      fill
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+
+                  <p>2023年度 花王社会起業塾</p>
+                </div>
+
+                <div className="award-wrapper">
+                  <div className="award-logo-wrapper">
+                    <Image
+                      src="/img/akai-hane.png"
+                      alt="赤い羽根 ロゴ"
+                      fill
+                      priority
+                      style={{
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+                  <p>
+                    2023年度 赤い羽根
+                    ポスト・コロナ（新型感染症）社会に向けた福祉活動応援キャンペーン(第8回)
+                  </p>
+                </div>
+              </div>
+
               <Link href="/about/grant">
                 <div className={styles.innerLinkWrapper}>
                   <p>助成金情報詳細</p>
