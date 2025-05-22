@@ -35,39 +35,11 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 50%; /* 中心基準 */
-    transform: translateX(-50%); /* 中央から均等に広がるように */
-    width: 100vw; /* ビューポート幅を超える */
+    left: 1vw;
+    width: 98vw;
     height: 100%;
-    background: inherit; /* 親の背景を継承 */
-
-    /* 滑らかなグラデーション */
-    mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.1) 1%,
-      rgba(0, 0, 0, 0.3) 2%,
-      rgba(0, 0, 0, 0.7) 4%,
-      rgba(0, 0, 0, 1) 5%,
-      rgba(0, 0, 0, 1) 95%,
-      rgba(0, 0, 0, 0.7) 96%,
-      rgba(0, 0, 0, 0.3) 98%,
-      rgba(0, 0, 0, 0) 100%
-    );
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.1) 1%,
-      rgba(0, 0, 0, 0.3) 2%,
-      rgba(0, 0, 0, 0.7) 4%,
-      rgba(0, 0, 0, 1) 5%,
-      rgba(0, 0, 0, 1) 95%,
-      rgba(0, 0, 0, 0.7) 96%,
-      rgba(0, 0, 0, 0.3) 98%,
-      rgba(0, 0, 0, 0) 100%
-    );
-
     z-index: -1;
+    border-radius: 0.5rem;
   }
 
   h2 {
@@ -254,6 +226,35 @@
   width: 20rem;
   padding: 2rem;
   background-color: var(--light-gray);
+}
+
+.commentUpper {
+  width: 20rem;
+  padding: 1.2rem;
+  border-radius: 5px;
+  background-color: var(--green);
+  color: white;
+}
+
+.commentLower {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  p {
+    background-color: var(--light-gray);
+    padding: 0 1rem;
+    height: 2rem;
+    line-height: 2rem;
+    border-radius: 1rem;
+  }
+  .profileImage {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-left: -1rem;
+    margin-top: -2rem;
+    background-color: var(--light-gray);
+  }
 }
 
 .comment.bright {

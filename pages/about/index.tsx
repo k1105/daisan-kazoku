@@ -1,5 +1,5 @@
 import Layout from "../layout";
-import styles from "@/styles/Article.module.scss";
+import styles from "@/styles/About.module.scss";
 
 import Table from "./Table";
 import CardContainer from "./CardContainer";
@@ -10,7 +10,7 @@ import Link from "next/link";
 import BlockContainer from "@/components/BlockContainer";
 import Image from "next/image";
 import Organization from "./Organization";
-
+import {FukidashiBottom} from "@/components/icons/FukidashiBottom";
 const About = () => {
   return (
     <>
@@ -219,30 +219,108 @@ const About = () => {
                 見つける居場所は人それぞれです。人でもモノでも自分自身でも。
               </p>
               <div className={styles.commentContainer}>
-                <div className={`${styles.comment} ${styles.bright}`}>
-                  <p>
-                    受験合格しました。今は親とも落ち着いて話せるようになりました。（当時18歳）
-                  </p>
+                <div>
+                  <div className={styles.commentUpper}>
+                    <p>
+                      受験合格しました。
+                      <br />
+                      <span className={styles.segment}>
+                        今は親とも落ち着いて話せるように
+                      </span>
+                      <span className={styles.segment}>なりました。</span>
+                    </p>
+                  </div>
+                  <div className={styles.commentLower}>
+                    <p>Aさん 当時18歳</p>
+                    <FukidashiBottom
+                      style={{
+                        width: "2rem",
+                        height: "2rem",
+                        fill: "var(--green)",
+                        marginTop: "-0.5rem",
+                        marginRight: "1rem",
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className={`${styles.comment} ${styles.bright}`}>
-                  <p>
-                    意外とお父さんに相談してないことに気づいて、話したら味方になってくれました。（当時19歳）
-                  </p>
+                <div>
+                  <div className={styles.commentUpper}>
+                    <p>
+                      <span className={styles.segment}>
+                        意外とお父さんに相談してないことに気づいて、
+                      </span>
+                      <span className={styles.segment}>
+                        話したら味方になってくれました。
+                      </span>
+                    </p>
+                  </div>
+                  <div className={styles.commentLower}>
+                    <p>Bさん 当時19歳</p>
+                    <FukidashiBottom
+                      style={{
+                        width: "2rem",
+                        height: "2rem",
+                        fill: "var(--green)",
+                        marginTop: "-0.5rem",
+                        marginRight: "1rem",
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className={`${styles.comment} ${styles.bright}`}>
-                  <p>
-                    実家にいるけど、自分の気持ちを伝えられるようになって、親との関係が改善しました。（当時19歳）
-                  </p>
+                <div>
+                  <div className={styles.commentUpper}>
+                    <p>
+                      実家にいるけど、自分の気持ちを伝えられるようになって、親との関係が改善しました。
+                    </p>
+                  </div>
+                  <div className={styles.commentLower}>
+                    <p>Cさん 当時19歳</p>
+                    <FukidashiBottom
+                      style={{
+                        width: "2rem",
+                        height: "2rem",
+                        fill: "var(--green)",
+                        marginTop: "-0.5rem",
+                        marginRight: "1rem",
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className={`${styles.comment} ${styles.bright}`}>
-                  <p>
-                    彼氏と結婚しました。親との仲裁にも入ってくれて助かりました。（当時18歳）
-                  </p>
+                <div>
+                  <div className={styles.commentUpper}>
+                    <p>
+                      彼氏と結婚しました。親との仲裁にも入ってくれて助かりました。
+                    </p>
+                  </div>
+                  <div className={styles.commentLower}>
+                    <p>Aさん 当時18歳</p>
+                    <FukidashiBottom
+                      style={{
+                        width: "2rem",
+                        height: "2rem",
+                        fill: "var(--green)",
+                        marginTop: "-0.5rem",
+                        marginRight: "1rem",
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className={`${styles.comment} ${styles.bright}`}>
-                  <p>
-                    身の危険を感じたので公的な支援にお世話になりました。（当時18歳）
-                  </p>
+                <div>
+                  <div className={styles.commentUpper}>
+                    <p>身の危険を感じたので公的な支援にお世話になりました。</p>
+                  </div>
+                  <div className={styles.commentLower}>
+                    <p>Bさん 当時18歳</p>
+                    <FukidashiBottom
+                      style={{
+                        width: "2rem",
+                        height: "2rem",
+                        fill: "var(--green)",
+                        marginTop: "-0.5rem",
+                        marginRight: "2rem",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

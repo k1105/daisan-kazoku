@@ -1,5 +1,5 @@
 import DepartmentCard from "./DepartmentCard";
-import styles from "@/styles/Article.module.scss";
+import styles from "@/styles/About.module.scss";
 import Link from "next/link";
 
 const Organization = () => {

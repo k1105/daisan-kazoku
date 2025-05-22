@@ -2,9 +2,13 @@ import Image from "next/image";
 import styles from "@/styles/Announcement.module.scss";
 
 const ArticleBody = ({
+  imageWidth,
+  imageHeight,
   imageUrl,
   content,
 }: {
+  imageWidth: number | null;
+  imageHeight: number | null;
   imageUrl: string | null;
   content: string;
 }) => {
@@ -13,8 +17,9 @@ const ArticleBody = ({
       {imageUrl && (
         <div
           style={{
-            width: "100%",
             height: "300px",
+            aspectRatio:
+              imageWidth && imageHeight ? imageWidth / imageHeight : undefined,
             marginBottom: "2rem",
             position: "relative",
           }}
@@ -32,7 +37,7 @@ const ArticleBody = ({
       )}
       <div
         className={styles.content}
-        dangerouslySetInnerHTML={{ __html: content ?? "" }}
+        dangerouslySetInnerHTML={{__html: content ?? ""}}
       />
     </div>
   );

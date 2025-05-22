@@ -1,6 +1,6 @@
 import Layout from "../layout";
-import { useState } from "react";
-import styles from "@/styles/Article.module.scss";
+import {useState} from "react";
+import styles from "@/styles/About.module.scss";
 import BlockContainer from "@/components/BlockContainer";
 
 const Magazine = () => {
@@ -101,7 +101,7 @@ const Magazine = () => {
                   </div>
                   <div
                     aria-hidden="true"
-                    style={{ position: "absolute", left: "-5000px" }}
+                    style={{position: "absolute", left: "-5000px"}}
                   >
                     <input
                       type="text"

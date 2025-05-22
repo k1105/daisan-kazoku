@@ -1,8 +1,8 @@
 import React from "react";
 import Tag from "./Tag";
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
-import { CopyLink } from "@/components/CopyLink";
+import {useState, useRef, useEffect} from "react";
+import {CopyLink} from "@/components/CopyLink";
 import styles from "@/styles/Announcement.module.scss";
 import ArticleHeader from "./ArticleHeader";
 import ArticleBody from "./ArticleBody";
@@ -13,7 +13,7 @@ type Props = {
   onToggle: (id: string) => void;
 };
 
-const AnnouncementItem = ({ elem, isOpen, onToggle }: Props) => {
+const AnnouncementItem = ({elem, isOpen, onToggle}: Props) => {
   const [contentHeight, setContentHeight] = useState<number>(0);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -55,6 +55,8 @@ const AnnouncementItem = ({ elem, isOpen, onToggle }: Props) => {
         >
           <ArticleBody
             imageUrl={elem.ogp ? elem.ogp.url : null}
+            imageWidth={elem.ogp ? elem.ogp.width : null}
+            imageHeight={elem.ogp ? elem.ogp.height : null}
             content={elem.content}
           />
           <div className={styles.optionsWrapper}>

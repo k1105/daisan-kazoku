@@ -1,5 +1,5 @@
 import Layout from "../../layout";
-import styles from "../../../styles/Article.module.scss";
+import styles from "../../../styles/About.module.scss";
 import BlockContainer from "@/components/BlockContainer";
 
 export default function Okumura() {

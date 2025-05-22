@@ -1,4 +1,4 @@
-import styles from "../../../styles/Article.module.scss";
+import styles from "../../../styles/About.module.scss";
 import Layout from "../../layout";
 import BlockContainer from "@/components/BlockContainer";
 

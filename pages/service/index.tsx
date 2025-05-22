@@ -1,7 +1,7 @@
 import Layout from "@/pages/layout";
 import ServiceCard from "@/pages/about/ServiceCard";
 import BlockContainer from "@/components/BlockContainer";
-import styles from "@/styles/Article.module.scss";
+import styles from "@/styles/About.module.scss";
 
 const Service = () => {
   return (
