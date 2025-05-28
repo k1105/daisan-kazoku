@@ -231,7 +231,9 @@ const About = () => {
                     </p>
                   </div>
                   <div className={styles.commentLower}>
-                    <p>Aさん 当時18歳</p>
+                    <p>
+                      gedokunユーザー <small>当時18歳</small>
+                    </p>
                     <FukidashiBottom
                       style={{
                         width: "2rem",
@@ -255,7 +257,9 @@ const About = () => {
                     </p>
                   </div>
                   <div className={styles.commentLower}>
-                    <p>Bさん 当時19歳</p>
+                    <p>
+                      nigerunoユーザー <small>当時19歳</small>
+                    </p>
                     <FukidashiBottom
                       style={{
                         width: "2rem",
@@ -274,7 +278,9 @@ const About = () => {
                     </p>
                   </div>
                   <div className={styles.commentLower}>
-                    <p>Cさん 当時19歳</p>
+                    <p>
+                      nigerunoユーザー <small>当時19歳</small>
+                    </p>
                     <FukidashiBottom
                       style={{
                         width: "2rem",
@@ -293,7 +299,9 @@ const About = () => {
                     </p>
                   </div>
                   <div className={styles.commentLower}>
-                    <p>Aさん 当時18歳</p>
+                    <p>
+                      gedokunユーザー <small>当時18歳</small>
+                    </p>
                     <FukidashiBottom
                       style={{
                         width: "2rem",
@@ -310,7 +318,9 @@ const About = () => {
                     <p>身の危険を感じたので公的な支援にお世話になりました。</p>
                   </div>
                   <div className={styles.commentLower}>
-                    <p>Bさん 当時18歳</p>
+                    <p>
+                      gedokunユーザー <small>当時18歳</small>
+                    </p>
                     <FukidashiBottom
                       style={{
                         width: "2rem",
@@ -434,7 +444,10 @@ const About = () => {
                       }}
                     />
                   </div>
-                  <p>2023年度 SVP東京 投資・協働先</p>
+                  <p>
+                    休眠預金事業 2023
+                    年度早期介入助成ICTを核とした早期介入のエコシステムの構築
+                  </p>
                 </div>
                 <div className="award-wrapper">
                   <div className="award-logo-wrapper">
@@ -598,6 +611,7 @@ const About = () => {
             display: flex;
             flex-wrap: wrap;
             gap: 5rem;
+            margin-bottom: 2rem;
           }
 
           .award-wrapper {
