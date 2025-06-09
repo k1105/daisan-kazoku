@@ -16,7 +16,7 @@ const ArticleCard = ({headline, image, url, date}: Props) => {
           <div
             style={{
               width: "100%",
-              height: "220px",
+              aspectRatio: "4/3",
               marginBottom: "1rem",
               position: "relative",
             }}

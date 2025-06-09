@@ -17,7 +17,7 @@ const Organization = () => {
             fill
             priority
             style={{
-              objectFit: "contain",
+              objectFit: "cover",
             }}
           />
         </div>
