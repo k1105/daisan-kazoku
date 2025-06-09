@@ -75,6 +75,12 @@
   }
 }
 
+.profileImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
 .gray {
   padding-top: 200px;
   h1,
@@ -270,7 +276,11 @@
   line-height: 2rem;
 }
 
-@media screen and (max-width: 960px) {
+.serviceCardDescription {
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1024px) {
   .profileContainer {
     flex-direction: column;
     gap: 0.5rem;

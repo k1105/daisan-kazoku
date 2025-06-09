@@ -509,16 +509,14 @@ const About = () => {
                   date="2023.12"
                   headline="NHK NEWS
                   おはよう日本「”家にいると苦しい”から脱出するための「あなたを助ける手札」」"
-                  url="https://www.nhk.jp/p/ohayou/ts/QLP4RZ8ZY3/blog/bl/pzvl7wDPqn/bp/pkZZqxOXmk/"
-                  image="https://daisan-kazoku.vercel.app/ogp.png"
+                  url="#"
+                  image="https://images.microcms-assets.io/assets/91a2d34a6239451d904d539ac5884d96/c89c82d17a16456f8ba4927a897733f8/nhk-ohayou.png"
                 />
                 <ArticleCard
-                  date="2024.02"
-                  headline='Yahoo! JAPAN
-                  SDGs「4人に1人の若者が「家に居場所がない」。"寄り添わない"支援で生き抜くための手札を
-                  #豊かな未来を創る人」'
-                  url="https://sdgs.yahoo.co.jp/originals/198.html"
-                  image="https://daisan-kazoku.vercel.app/ogp.png"
+                  date="2024.12"
+                  headline="ハートネットＴＶ♯家しんどい〜家族の悩み ゆったり語ろう〜"
+                  url="#"
+                  image="https://images.microcms-assets.io/assets/91a2d34a6239451d904d539ac5884d96/66c99f483cd046f6b9415ea970a9805b/heart-net.png"
                 />
               </div>
               <Link href="/about/media">

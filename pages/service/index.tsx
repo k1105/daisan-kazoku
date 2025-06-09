@@ -12,11 +12,10 @@ const Service = () => {
             <h3>1：Web事業</h3>
           </div>
           <div className={styles.rightSideItem}>
-            <p>悩みを吐き出し、手札を増やす。</p>
-            <div
-              className={styles.serviceCardContainer}
-              style={{margin: "20px 0"}}
-            >
+            <p className={styles.serviceCardDescription}>
+              悩みを吐き出し、手札を増やす。
+            </p>
+            <div className={styles.serviceCardContainer}>
               <ServiceCard
                 title="gedokun"
                 path="/service/gedokun"
@@ -35,11 +34,10 @@ const Service = () => {
             <h3>2：イベント事業</h3>
           </div>
           <div className={styles.rightSideItem}>
-            <p>点と点を繋いで生きていく。</p>
-            <div
-              className={styles.serviceCardContainer}
-              style={{margin: "20px 0"}}
-            >
+            <p className={styles.serviceCardDescription}>
+              点と点を繋いで生きていく。
+            </p>
+            <div className={styles.serviceCardContainer}>
               <ServiceCard
                 title="家庭環境データ"
                 path="/service/katei-kankyo-data"
@@ -63,11 +61,10 @@ const Service = () => {
             <h3>3：社会構築事業</h3>
           </div>
           <div className={styles.rightSideItem}>
-            <p>問題を根本的に解決する。</p>
-            <div
-              className={styles.serviceCardContainer}
-              style={{margin: "20px 0"}}
-            >
+            <p className={styles.serviceCardDescription}>
+              問題を根本的に解決する。
+            </p>
+            <div className={styles.serviceCardContainer}>
               <ServiceCard
                 title="社会構築事業"
                 path="/service/shakai-kochiku"

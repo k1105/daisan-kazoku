@@ -1,7 +1,7 @@
 import DepartmentCard from "./DepartmentCard";
 import styles from "@/styles/About.module.scss";
 import Link from "next/link";
-
+import Image from "next/image";
 const Organization = () => {
   return (
     <>
@@ -10,6 +10,17 @@ const Organization = () => {
         <h1 className={styles.headline}>組織体制</h1>
       </div>
       <div className={styles.rightSideItem}>
+        <div className={styles.profileImageWrapper}>
+          <Image
+            src="/ogp.png"
+            alt="第3の家族 プロフィール"
+            fill
+            priority
+            style={{
+              objectFit: "contain",
+            }}
+          />
+        </div>
         <div className={styles.profileContainer}>
           <p>代表</p>
           <div>

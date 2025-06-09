@@ -81,6 +81,20 @@
   justify-content: center;
 }
 
+@media screen and (max-width: 1024px) {
+  .viewPort {
+    width: 60vw;
+  }
+
+  .link {
+    margin-bottom: 2rem;
+  }
+
+  .pageLink {
+    font-size: 1.2rem;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .viewPort {
     width: 100vw;
@@ -104,6 +118,7 @@
   .link {
     flex-direction: column;
     margin-top: 1rem;
+    margin-bottom: 0;
     gap: 0.6rem;
     bottom: 30vh;
   }
@@ -113,5 +128,9 @@
     &::before {
       top: 0.3rem;
     }
+  }
+
+  .animationWrapper {
+    justify-content: flex-end;
   }
 }

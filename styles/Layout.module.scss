@@ -87,13 +87,12 @@
   margin-top: 20rem;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1024px) {
   .headerLink {
     display: none;
   }
 
   .header {
-    padding: 0.5rem 5vw;
     .headerLeft {
       width: 150px;
       z-index: 99;
@@ -170,5 +169,11 @@
 
   .pageTopSpacer {
     margin-top: 10rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 0.5rem 5vw;
   }
 }

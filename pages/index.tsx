@@ -182,15 +182,6 @@ const Home = () => {
     };
   }, []);
 
-  // クリック時にページ遷移するもの（fade outするアニメ用）
-  const delayRedirectTo = (href: string) => {
-    if (mainRef.current) mainRef.current.style.opacity = "0";
-    const timer = setTimeout(() => {
-      router.push(href);
-    }, 300);
-    return () => clearTimeout(timer);
-  };
-
   // currentIndexが変わったらtransformを更新
   useEffect(() => {
     const el = mainRef.current;
