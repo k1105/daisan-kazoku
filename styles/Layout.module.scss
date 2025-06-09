@@ -61,19 +61,6 @@
   }
 }
 
-@media screen and (max-width: 600px) {
-  .headerLink {
-    display: none;
-  }
-
-  .header {
-    .headerLeft {
-      width: 150px;
-      z-index: 99;
-    }
-  }
-}
-
 .circle {
   position: fixed;
   top: 30px;
@@ -100,9 +87,17 @@
   margin-top: 20rem;
 }
 
-@media screen and (max-width: 600px) {
-  .main {
-    width: 90vw;
+@media screen and (max-width: 960px) {
+  .headerLink {
+    display: none;
+  }
+
+  .header {
+    padding: 0.5rem 5vw;
+    .headerLeft {
+      width: 150px;
+      z-index: 99;
+    }
   }
 
   .headlineContainer {
@@ -112,6 +107,10 @@
   .headline {
     line-height: 40vh;
     font-size: 2rem;
+  }
+
+  .main {
+    width: 90vw;
   }
 
   .logo {

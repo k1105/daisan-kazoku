@@ -343,6 +343,14 @@
   .list {
     li {
       font-size: 0.8rem;
+      line-height: 1.6rem;
+    }
+
+    li::before {
+      top: 0.35rem;
+      left: -1.5rem;
+      width: 0.8rem;
+      height: 0.8rem;
     }
   }
 

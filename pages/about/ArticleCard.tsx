@@ -8,7 +8,7 @@ type Props = {
   date: string | null;
 };
 
-const ArticleCard = ({ headline, image, url, date }: Props) => {
+const ArticleCard = ({headline, image, url, date}: Props) => {
   return (
     <>
       <a href={url ? url : "#"} className="container">
@@ -39,7 +39,7 @@ const ArticleCard = ({ headline, image, url, date }: Props) => {
         .container {
           border-radius: 10px;
           display: block;
-          width: 350px;
+          width: 300px;
           margin-bottom: 20px;
         }
 

@@ -101,16 +101,31 @@ export default function Layout({
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      setHeaderStyle({
-        opacity: currentScrollY > lastScrollY ? 0 : 1,
-        filter: currentScrollY > lastScrollY ? "blur(30px)" : "blur(0px)",
-        pointerEvents: currentScrollY > lastScrollY ? "none" : "auto",
-      });
+      const viewportHeight = window.innerHeight;
+      const threshold = viewportHeight * 0.5; // 50vh
 
-      setFooterStyle({
-        transform:
-          currentScrollY > lastScrollY ? "translateY(3rem)" : "translateY(0)",
-      });
+      // スクロール位置が50vh未満の場合は常に表示
+      if (currentScrollY < threshold) {
+        setHeaderStyle({
+          opacity: 1,
+          filter: "blur(0px)",
+          pointerEvents: "auto",
+        });
+        setFooterStyle({
+          transform: "translateY(0)",
+        });
+      } else {
+        // 50vh以上の場合のみ、スクロール方向に応じて表示/非表示を切り替え
+        setHeaderStyle({
+          opacity: currentScrollY > lastScrollY ? 0 : 1,
+          filter: currentScrollY > lastScrollY ? "blur(20px)" : "blur(0px)",
+          pointerEvents: currentScrollY > lastScrollY ? "none" : "auto",
+        });
+        setFooterStyle({
+          transform:
+            currentScrollY > lastScrollY ? "translateY(3rem)" : "translateY(0)",
+        });
+      }
       lastScrollY = window.scrollY;
     };
 

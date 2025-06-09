@@ -58,7 +58,7 @@
 
 .content {
   max-width: 40rem;
-  padding: 3rem 0;
+  padding: 1rem 0;
 
   h1 {
     margin-bottom: 3rem;
@@ -113,7 +113,8 @@
 
 @media screen and (max-width: 600px) {
   .contentHeader {
-    font-size: 1rem;
+    font-weight: normal;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
   }
   .table {

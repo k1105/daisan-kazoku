@@ -190,6 +190,8 @@
 
 .serviceCardContainer {
   overflow-x: auto;
+  display: flex;
+  flex-wrap: wrap;
   white-space: nowrap;
 }
 
@@ -268,7 +270,7 @@
   line-height: 2rem;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 960px) {
   .profileContainer {
     flex-direction: column;
     gap: 0.5rem;
@@ -320,6 +322,13 @@
   .list {
     li {
       font-size: 0.8rem;
+      line-height: 1.6rem;
+    }
+    li::before {
+      top: 0.35rem;
+      left: -1.5rem;
+      width: 0.8rem;
+      height: 0.8rem;
     }
   }
 
