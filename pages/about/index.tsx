@@ -515,7 +515,7 @@ const About = () => {
                 <ArticleCard
                   date="2024.12"
                   headline="ハートネットＴＶ♯家しんどい〜家族の悩み ゆったり語ろう〜"
-                  url="#"
+                  url="https://www.nhk.jp/p/heart-net/ts/J89PNQQ4QW/episode/te/37LZJXXQK4/"
                   image="https://images.microcms-assets.io/assets/91a2d34a6239451d904d539ac5884d96/66c99f483cd046f6b9415ea970a9805b/heart-net.png"
                 />
               </div>
