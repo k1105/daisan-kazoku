@@ -252,6 +252,10 @@ const Home = () => {
     <>
       <Head>
         <title>NPO法人第3の家族 | 寄り添わない支援</title>
+        <meta
+          name="description"
+          content="はざまの少年少女が生きたいと思える社会をつくる。寄り添わない支援。Web事業を中心に、オフラインイベントや研究も行う。"
+        />
         <meta property="og:title" content="NPO法人 第３の家族" />
         <meta
           property="og:description"
