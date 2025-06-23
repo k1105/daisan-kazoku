@@ -15,6 +15,11 @@
   gap: 10rem;
 }
 
+.item {
+  margin-bottom: 5rem;
+  max-width: 55vw;
+}
+
 .jumbotron {
   margin-bottom: 200px;
 
@@ -352,5 +357,12 @@
     right: -1.3rem;
     width: 1rem;
     height: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .item {
+    max-width: 100%;
+    margin-bottom: 3rem;
   }
 }

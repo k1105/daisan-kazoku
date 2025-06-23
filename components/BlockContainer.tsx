@@ -4,11 +4,14 @@ import styles from "@/styles/About.module.scss";
 const BlockContainer: React.FC<{
   children: React.ReactNode;
   color?: "green" | "gray";
-}> = ({children, color}) => {
-  const [isVisible, setIsVisible] = useState(false);
+  animation?: boolean;
+}> = ({children, color, animation = true}) => {
+  const [isVisible, setIsVisible] = useState(!animation);
   const domRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    if (!animation) return; // アニメーションが無効の場合は早期リターン
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,15 +29,15 @@ const BlockContainer: React.FC<{
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [animation]);
 
   return (
     <div
-      className={`${styles.blockContainer} fade-in-section ${
-        isVisible ? "is-visible" : ""
-      } ${color == "gray" ? styles.gray : ""} ${
-        color == "green" ? styles.green : ""
-      }`}
+      className={`${styles.blockContainer} ${
+        animation ? "fade-in-section" : ""
+      } ${isVisible ? "is-visible" : ""} ${
+        color == "gray" ? styles.gray : ""
+      } ${color == "green" ? styles.green : ""}`}
       ref={domRef}
     >
       {children}
