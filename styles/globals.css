@@ -16,9 +16,27 @@
   --red: ;
 }
 
+/* スクロールバーを非表示にする */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scroll-behavior: smooth; /* スムーズスクロール */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
 body {
   background-color: white;
   transition: all 1s ease;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth; /* スムーズスクロール */
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 @media screen and (max-width: 600px) {

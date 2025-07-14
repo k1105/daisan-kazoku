@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import {useEffect, useRef, useState} from "react";
 
 export const TopBackgroundAnimation = () => {
-  const [innerSize, setInnerSize] = useState<{ w: number; h: number }>({
+  const [innerSize, setInnerSize] = useState<{w: number; h: number}>({
     w: 0,
     h: 0,
   });
@@ -12,7 +12,7 @@ export const TopBackgroundAnimation = () => {
     // クライアントサイドのみで動作
     if (typeof window === "undefined") return;
 
-    setInnerSize({ w: window.innerWidth, h: window.innerHeight });
+    setInnerSize({w: window.innerWidth, h: window.innerHeight});
 
     // 動的にlottie-webをインポート
     import("lottie-web").then((lottie) => {

@@ -3,7 +3,11 @@ import Link from "next/link";
 import {DownArrowAnimation} from "./animation/DownArrowAnimation";
 import styles from "@/styles/components/FirstView.module.scss";
 
-export const FirstView = () => {
+interface FirstViewProps {
+  showArrow?: boolean;
+}
+
+export const FirstView = ({ showArrow = true }: FirstViewProps) => {
   return (
     <>
       <div className={`${styles.viewPort} ${styles.top}`} key="0">
@@ -24,9 +28,11 @@ export const FirstView = () => {
         </div>
         <p className={styles.subTitle}>Web・イベント・研究事業</p>
 
-        <div className={styles.animationWrapper}>
-          <DownArrowAnimation />
-        </div>
+        {showArrow && (
+          <div className={styles.animationWrapper}>
+            <DownArrowAnimation />
+          </div>
+        )}
       </div>
 
       <div className={styles.pageLinkContainer}>
