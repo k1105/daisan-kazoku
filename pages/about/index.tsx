@@ -526,39 +526,6 @@ const About = () => {
               </Link>
             </div>
           </BlockContainer>
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>定款・諸規程</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <ul className={styles.list}>
-                <li>
-                  <a
-                    href="https://drive.google.com/file/d/1l7ols46aMudmrzikGKUFP3qcmhx3JJz5/view"
-                    className={styles.pdfLink}
-                  >
-                    定款
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://drive.google.com/file/d/1Pd-YaX4j6XSO6mgTSyGQFf6xQQ94yFDP/view"
-                    className={styles.pdfLink}
-                  >
-                    サービス利用規約
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://drive.google.com/file/d/1IX0AHYZBKvxX5DllXdJH3gMyXv_-0UGm/view"
-                    className={styles.pdfLink}
-                  >
-                    プライバシーポリシー
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </BlockContainer>
 
           <BlockContainer>
             <div className={styles.leftSideItem}>

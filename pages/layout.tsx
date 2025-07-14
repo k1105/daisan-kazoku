@@ -223,6 +223,27 @@ export default function Layout({
             </p>
           </div>
         )}
+        <div className={styles.footer}>
+          <div className={styles.footerContent}>
+            <div className={styles.footerLinks}>
+              <a
+                href="https://drive.google.com/file/d/1l7ols46aMudmrzikGKUFP3qcmhx3JJz5/view"
+                className={styles.footerLink}
+              >
+                定款
+              </a>
+              <Link href="/about/privacy-policy" className={styles.footerLink}>
+                プライバシーポリシー
+              </Link>
+              <Link href="/about/term-of-service" className={styles.footerLink}>
+                利用規約
+              </Link>
+            </div>
+            <div className={styles.footerOrganization}>
+              NPO法人 第３の家族
+            </div>
+          </div>
+        </div>
       </footer>
     </>
   );

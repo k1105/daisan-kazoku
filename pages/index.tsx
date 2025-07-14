@@ -363,7 +363,7 @@ const Home = () => {
           start: "bottom 50%",
           end: "bottom top",
           scrub: true,
-          onUpdate: (self) => {
+          onUpdate: (self: any) => {
             // アニメーション完了後のみフェードアウトを適用
             if (completedSections.has(index)) {
               gsap.to(chars, {
