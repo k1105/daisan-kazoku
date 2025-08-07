@@ -1,8 +1,8 @@
 import styles from "@/styles/Home.module.scss";
-import {useEffect, useRef, useState, cloneElement} from "react";
-import {useRouter} from "next/router";
+import {useEffect, useRef} from "react";
 import {ExternalLinkIcon} from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
+import Script from "next/script";
 import Link from "next/link";
 import {TopBackgroundAnimation} from "@/components/animation/TopBackgroundAnimation";
 import HamburgerMenu from "@/components/HamburgerMenu";
@@ -407,6 +407,19 @@ const Home = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@daisan_kazoku" />
       </Head>
+
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-P39BNFHKK3"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-P39BNFHKK3');
+        `}
+      </Script>
 
       <main className={styles.main}>
         {/* Header */}
