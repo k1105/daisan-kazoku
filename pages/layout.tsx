@@ -84,9 +84,7 @@ export default function Layout({
   headline?: string;
 }) {
   const path = usePathname();
-  console.log("Current path:", path); // デバッグ用ログ
   const parentPageInfo = useParentPageInfo(path || "");
-  console.log("Parent page info:", parentPageInfo); // デバッグ用ログ
 
   const [headerStyle, setHeaderStyle] = useState<CSSProperties>({
     opacity: 1,
@@ -239,9 +237,7 @@ export default function Layout({
                 利用規約
               </Link>
             </div>
-            <div className={styles.footerOrganization}>
-              NPO法人 第３の家族
-            </div>
+            <div className={styles.footerOrganization}>NPO法人 第３の家族</div>
           </div>
         </div>
       </footer>

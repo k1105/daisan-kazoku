@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.scss";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {ExternalLinkIcon} from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
 import Script from "next/script";
@@ -275,6 +275,15 @@ const loopedSections = [
 const Home = () => {
   const mainRef = useRef<HTMLDivElement>(null);
   const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [animationPhase, setAnimationPhase] = useState<number>(0);
+
+  // アニメーション完了時のコールバック
+  const handleAnimationComplete = (sectionIndex: number) => {
+    console.log(
+      `🎬 Background animation completed for section ${sectionIndex}`
+    );
+    // 自動連続実行を削除 - セクション表示時のみトリガー
+  };
 
   // ScrollTriggerを使用した文字アニメーション
   useEffect(() => {
@@ -328,6 +337,21 @@ const Home = () => {
             onComplete: () => {
               completedSections.add(index);
               isAnimating = false;
+
+              // セクション表示時に背景アニメーションをトリガー
+              if (index > 0 && index <= 4) {
+                // セクション1-4に対応するアニメーション
+                console.log(
+                  `📝 Section ${index} animation completed, triggering background animation`
+                );
+                if (
+                  typeof window !== "undefined" &&
+                  (window as any).triggerBackgroundAnimation
+                ) {
+                  (window as any).triggerBackgroundAnimation(index - 1); // 0-based index
+                }
+              }
+
               setTimeout(() => {
                 processQueue(); // 次のアニメーションを処理
               }, 200);
@@ -444,7 +468,7 @@ const Home = () => {
           ))}
         </div>
 
-        <TopBackgroundAnimation />
+        <TopBackgroundAnimation onSectionVisible={handleAnimationComplete} />
 
         <div className={styles.stickyFooterLink}>
           <Link href="https://daisan-kazoku.net" className={styles.footerLink}>
