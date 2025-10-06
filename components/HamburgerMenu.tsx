@@ -119,7 +119,7 @@ export default function HamburgerMenu() {
                 </li>
               </ul>
               <div className={styles.navBottom}>
-                <Link
+                <a
                   href="/donation"
                   className={`${styles.link} ${styles.externalLink}`}
                   onClick={() => {
@@ -127,7 +127,7 @@ export default function HamburgerMenu() {
                   }}
                 >
                   寄付する
-                </Link>
+                </a>
                 <Link
                   href="/magazine"
                   className={`${styles.link} ${styles.externalLink}`}
