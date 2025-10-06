@@ -43,9 +43,9 @@ export const FirstView = ({ showArrow = true }: FirstViewProps) => {
           <Link href={"/service"} className={styles.pageLink}>
             事業内容
           </Link>
-          <Link href={"/donation"} className={styles.pageLink}>
+          <a href={"/donation"} className={styles.pageLink}>
             寄付する
-          </Link>
+          </a>
         </div>
       </div>
     </>
