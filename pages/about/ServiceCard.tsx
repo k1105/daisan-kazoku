@@ -80,7 +80,7 @@ const ServiceCard = ({
           opacity: 0;
           transition: all 0.3s ease;
           p {
-            font-size: 2rem;
+            font-size: 1.5rem;
           }
         }
 
@@ -89,7 +89,19 @@ const ServiceCard = ({
         }
 
         @media screen and (max-width: 600px) {
+          .image-wrapper{
+            min-width: 100%;
+            width: 100%;
+          }
+          .container{
+            min-width: 100%;
+            width: 100%;
+            margin-right: 0;
+          }
+          .hover-effect:hover {
+          opacity: 0;
         }
+      }
       `}</style>
     </>
   );

@@ -7,7 +7,7 @@ const Table = () => {
         <tbody>
           <tr>
             <th>名称</th>
-            <td>特定非営利活動法人第３の家族</td>
+            <td>認定NPO法人第３の家族</td>
           </tr>
           <tr>
             <th>設立</th>
@@ -28,19 +28,19 @@ const Table = () => {
           <tr>
             <th>提供サービス</th>
             <td>
-              掲示板サイト：gedokun
+              コミュニティサイト：gedokun
               <br />
               情報サイト：nigeruno
               <br />
               調査事業：家庭環境データ
               <br />
-              イベント：Dai3 LIVE・裏母の日
+              オンライン・オフラインイベント
             </td>
           </tr>
           <tr>
             <th>活動内容</th>
             <td>
-              家庭環境問題のはざまの子ども・若者が社会資源に繋がるためのプラットフォームを運営する。
+              悩みを抱え込む子ども・若者が健全に成長できるWebプラットフォームを構築する。
             </td>
           </tr>
         </tbody>
@@ -66,18 +66,27 @@ const Table = () => {
           color: var(--dark-gray);
           font-weight: 600;
           width: 20%;
-          vertical-align: top;
+          vertical-align: center;
           text-align: left;
         }
 
         @media screen and (max-width: 600px) {
           table {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
           }
           th {
-            font-size: 0.6rem;
+            font-size: 0.7rem;
+            padding-right: 1rem;
+            width: 5.5rem;
           }
+          td,th{
+            padding-bottom: 1rem;
+            padding-top: 1rem;
         }
+          tr {
+          height: 4rem;
+          }
+          } 
       `}</style>
     </>
   );

@@ -164,14 +164,23 @@
   }
 }
 
+@media screen and (min-width: 600px) and (max-width: 1024px)  {
+  .contentHeader {
+    margin-left: 0;
+}
+  .table {
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .contentHeader {
-    font-weight: normal;
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
   .table {
     margin-left: 0;
+    font-size: 0.9rem;
   }
 }
 

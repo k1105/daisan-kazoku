@@ -57,9 +57,6 @@
   .diagramWrapper {
     position: relative;
   }
-  .diagramCaption {
-    // border-bottom: 1px solid var(--gray);
-  }
 
   .diagramList {
     width: 40%;
@@ -83,7 +80,7 @@
 
 .blockContainer {
   margin: 0 -5vw;
-  padding: 100px 5vw 70px;
+  padding: 6rem 5vw ;
   // overflow-x: hidden;
 
   /* 背景用のブラー */

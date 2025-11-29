@@ -277,6 +277,8 @@ export const Form: FC = () => {
           height: 56px;
           padding: 16px;
           font-size: 1rem;
+          border-radius: 10px;
+          border-color:#ddd;
         }
 
         input[type="text"],

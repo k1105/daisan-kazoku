@@ -1,4 +1,5 @@
 import Layout from "../layout";
+
 import styles from "@/styles/About.module.scss";
 
 import Table from "./Table";
@@ -21,562 +22,513 @@ const About = () => {
               <h1 className={styles.headline}>Vision</h1>
             </div>
             <div className={styles.rightSideItem}>
-              <h2>どんな家族も生きやすい社会を構築する</h2>
+              <h2  className={styles.mlNarrow}><span className={styles.mlNarrowSp}>「どうしようもない」を</span><br className={styles.br}/>抱える少年少女が<br/><span className={styles.mlNarrowSp}>「大丈夫」になるまで</span><br className={styles.br}/>一人にさせない</h2>
               <p>
                 <span className={styles.segment}>
-                  第3の家族は、親が悪いとも思っていません。
+                  解決が難しいこと、正論ではどうにもならないこと、やり場のない思い。
                 </span>
                 <span className={styles.segment}>
-                  一方で、「親ガチャ」「毒親」といった言葉が流行るのは、
+                  「どうしようもない」ことを「大丈夫」と思えるまで一緒にいる。
                 </span>
-                <span className={styles.segment}></span>
-                若者から見てそういった社会になっているからでしょう。親も子も揺らぎがあり、それを受け止められるような社会構築を目指します。
+                <span className={styles.segment}>
+                  自分なりの答えを見つける、別の道を探す、それでも生きたいと思える。
+                </span>
               </p>
             </div>
           </div>
-
+          <BlockContainer  color={"gray"}>
+            <div className={styles.leftSideItem}>
+              <h1 className={styles.headline}>対象</h1>
+            </div>
+            <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
+              <h2>どうしようもないを<br className={styles.br}/>抱える少年少女</h2>
+              <p>
+                いろんな社会構造のしわよせから、家庭環境・学校問題・精神疾患などの問題に。問題の大小も種類もそれぞれですが、共通するのは「どうしようもない」気持ち。
+              </p>
+              <div  className={styles.blockContainerColumnNarrow}>
+              <ul className={styles.list}>
+                <li>過干渉、理想の押し付け、過教育、きょうだい比較</li>
+                <li>両親の不仲、親または子の精神疾患・発達障害</li>
+                <li>虐待、いじめ、不登校、ヤングケアラー、LGBTQ+、貧困</li>
+              </ul>
+              <div
+                style={{
+                  width: "100%",
+                  maxWidth:"1300px",
+                  height: "auto",
+                  aspectRatio: "1200/767",
+                  marginTop: "1rem",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src="/img/user.png"
+                  fill
+                  priority
+                  alt="gedokunの支援モデル"
+                />
+              </div>
+             <div className={styles.flexContainer}>
+                <div className={styles.cardContainer}>
+                  <div className={styles.card}>
+                    <h2>自殺の増加</h2>
+                    <p>
+                      こどもの自殺は上昇傾向。2024年は過去最多の529人。
+                    </p>
+                  </div>
+                  <div className={styles.card}>
+                    <h2>虐待の世代間連鎖</h2>
+                    <p>
+                      虐待は、親、祖父母と続いている場合が多く、未だ連鎖が続いている。
+                    </p>
+                  </div>
+                  <div className={styles.card}>
+                    <h2>不登校の増加</h2>
+                    <p>
+                      不登校は増加傾向。2024年度は過去最多の35万人。
+                    </p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </BlockContainer>
           <BlockContainer color={"green"}>
             <div className={styles.leftSideItem}>
               <h1 className={styles.headline}>やること</h1>
             </div>
             <div className={styles.rightSideItem}>
               <section>
-                <h2>自分の居場所を見つけるプラットフォーム</h2>
-                <h3>1：Web事業</h3>
-                <p>悩みを吐き出し、手札を増やす。</p>
-                <div
-                  className={styles.serviceCardContainer}
-                  style={{margin: "20px 0"}}
-                >
-                  <ServiceCard
-                    title="gedokun"
-                    path="/service/gedokun"
-                    image="/img/gedokun_4_3.png"
-                  />
-                  <ServiceCard
-                    title="nigeruno"
-                    path="/service/nigeruno"
-                    image="/img/nigeruno_4_3.png"
-                  />
-                </div>
-
-                <h3>2：イベント事業</h3>
-                <p>点と点を繋いで生きていく。</p>
-                <div
-                  className={styles.serviceCardContainer}
-                  style={{margin: "20px 0"}}
-                >
-                  <ServiceCard
-                    title="家庭環境データ"
-                    path="/service/katei-kankyo-data"
-                    image="/img/katei-data_4_3.png"
-                  />
-                  <ServiceCard
-                    title="裏母の日"
-                    path="/service/urahaha"
-                    image="/img/urahaha_4_3.png"
-                  />
-                  <ServiceCard
-                    title="音楽ライブ"
-                    path="/service/daisan-live"
-                    image="/img/live_4_3.png"
-                  />
-                </div>
-                <h3>3：社会構築事業</h3>
-                <p>問題を根本的に解決する。</p>
-                <div
-                  className={styles.serviceCardContainer}
-                  style={{margin: "20px 0"}}
-                >
-                  <ServiceCard
-                    title="社会構築事業"
-                    path="/service/shakai-kochiku"
-                    image="/ogp.png"
-                  />
-                </div>
+                <h2>第1の家族か第2の家族に<br />居場所を見つける</h2>
+                <p>
+                  <span className={styles.segment}>
+                    第1の家族は「本人の家族」、第2の家族は「地域社会」
+                  </span>
+                  <span className={styles.segment}>
+                    第3の家族は「顔の見えない他者」。
+                  </span>
+                  <span className={styles.segment}>
+                    最終的には手が届くところに拠り所を見つけられるように。
+                  </span>
+                </p>
               </section>
-              <section>
-                <h2>問題を根本的に解決するための社会構築</h2>
-                <h3>はざまの声を集める</h3>
-                <p>
-                  今まで一人一人が抱えていた声を、第3の家族のプラットフォームを通じてかたちにします。見えなかった社会問題を可視化します。
-                </p>
-                <h3>政策・文化提言</h3>
-                <p>
-                  はざまの声をもとに、政策・文化・都市計画などのシステムへの提言を目指していきます。
-                </p>
+              <section  className={styles.rightSideItemContarner}>
+                <div>
+                  <h3>1：Web事業</h3>
+                  <div
+                    className={styles.serviceCardContainer}
+                    style={{margin: "16px 0"}}
+                  >
+                    <ServiceCard
+                      title="gedokun"
+                      path="/service/gedokun"
+                      image="/img/gedokun_4_3.png"
+                    />
+                    <ServiceCard
+                      title="nigeruno"
+                      path="/service/nigeruno"
+                      image="/img/nigeruno_4_3.png"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h3>2：イベント事業</h3>
+                  <div
+                    className={styles.serviceCardContainer}
+                    style={{margin: "16px 0"}}
+                  >
+                    <ServiceCard
+                      title="裏〇〇の日"
+                      path="/service/ura"
+                      image="/img/urahaha_4_3.png"
+                    />
+                    <ServiceCard
+                      title="インフルエンサーコラボ"
+                      path="/service/entertainment"
+                      image="/img/live_4_3.png"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h3>3：みんなで世界を変える</h3>
+                    <div
+                    className={styles.serviceCardContainer}
+                    style={{margin: "16px 0"}}
+                    >
+                    <ServiceCard
+                    title="第3の家族会議"
+                    path="/service/daisan-kaigi"
+                    image="/img/daisan-kaigi.png"
+                        />
+                    <ServiceCard
+                      title="家庭環境データ"
+                      path="/service/katei-kankyo-data"
+                      image="/img/katei-data_4_3.png"
+                    />
+                    <ServiceCard
+                      title="登壇・出演"
+                      path="/service/appearances"
+                      image="/img/appearances.png"
+                    />
+                    </div>
+                </div>
               </section>
             </div>
           </BlockContainer>
-
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>コンセプト</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <section>
+          <div  className={styles.blockContainerColumn}>
+            <BlockContainer>
+              <div className={styles.leftSideItem}>
+                <h1 className={styles.headline}>コンセプト1</h1>
+              </div>
+              <div className={styles.rightSideItem}>
                 <h2>寄り添わない支援</h2>
                 <p>
-                  「寄り添い」が大事にされてきた既存の支援の中で取りこぼされてきたはざまの少年少女たちがいます。
+                  <span className={styles.segment}>
+                    既存の支援に繋がらない少年少女に対して、
+                  </span>
                   <br />
-                  寄り添う居場所に辿り着いてもらうためにも、構えとしては「寄り添わない」。
-                </p>
-              </section>
-
-              <section>
-                <h2>少年少女が「うざい」と思うことはしない</h2>
-                <ul className={styles.list}>
-                  <li>支援らしくしない</li>
-                  <ul className={styles.list}>
-                    <li>真面目な入り口にしない</li>
-                    <li>最初から指導員・相談員は置かない</li>
-                    <li>温かみのあるデザインにしない</li>
-                  </ul>
-                </ul>
-              </section>
-              <section>
-                <h2>時間に解決させる</h2>
-                <ul className={styles.list}>
-                  <li>ふとしたタイミングで前を向ける時が来る。</li>
-                  <li>しんどさが蓄積すると、思うように進めない。</li>
-                  <li>親も子も時間とともに成長する。</li>
-                </ul>
-              </section>
-            </div>
-          </BlockContainer>
-
-          <BlockContainer color={"gray"}>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>対象者</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <section>
-                <h2>家庭環境問題のはざまで悩む少年少女</h2>
-                <ul className={styles.list}>
-                  <li>家庭環境に悩みを抱える少年少女は約20%</li>
-                  <li>虐待まではいかず、既存の支援の枠組みに当てはめにくい</li>
-                  <li>小学生〜大学生くらいの男女（メインは中高生）</li>
-                </ul>
-              </section>
-              <section>
-                <h2>対象者の悩み</h2>
-                <CardContainer />
-              </section>
-              <section>
-                <h2>将来のリスク</h2>
-                <p>
-                  はざまだから何もしなくていいわけではなく、以下のようなリスクがあります。予防が重要です。
-                </p>
-                <ul className={styles.list}>
-                  <li>虐待に深刻化</li>
-                  <li>精神疾患</li>
-                  <li>自傷行為</li>
-                  <li>非行</li>
-                  <li>孤独孤立</li>
-                  <li>就労の困難</li>
-                  <li>自殺</li>
-                </ul>
-              </section>
-              <section>
-                <h2>問題の難しさ</h2>
-                <h3>少年少女の複雑な心境</h3>
-                <p style={{marginBottom: "3rem"}}>
-                  問題の程度としてもはざまであり、思春期やモラトリアム期間の少年少女たちには、以下のような複雑な心境があります。
-                </p>
-                <div
-                  style={{
-                    textAlign: "center",
-                    marginBottom: "2rem",
-                    width: "40rem",
-                    maxWidth: "90vw",
-                  }}
-                >
-                  <Statement state="大ごとにしたくない" />
-                  <Statement state="友達に知られたくない" />
+                  <span className={styles.segment}>
+                    大人が専門的に支援をするのではなく、
+                  </span>
                   <br />
-                  <Statement state="心配かけたくない" />
-                  <Statement state="自分は支援してもらうほどではない" />
-                  <Statement state="自分よりつらい子はもっといる" />
-                  <Statement state="大人は信用できない" />
-                  <Statement state="どうせ助けてくれない" />
-                  <Statement state="自分で頑張りたい" />
-                  <Statement state="良い子でいたい" />
-                </div>
-                <h3>親が悪いわけではない</h3>
-                <p>
-                  子を育てることが親だけになりやすい社会、ステータスや評価が求められやすい社会など、親が悪い訳ではなく多様な社会課題に起因しています。
+                  <span className={styles.segment}>
+                    少年少女やかつて悩んだ先輩との共助の輪をつくります。
+                  </span>
+                  <br />
+                  <span className={styles.segment}>
+                    「信じてもいいな」と思ってもらえるまで、小さくあの手この手を尽くします。
+                  </span>
                 </p>
-              </section>
-            </div>
-          </BlockContainer>
-
-          <BlockContainer>
+              </div>
+            </BlockContainer>
+            <BlockContainer>
+              <div className={styles.leftSideItem}>
+                <h1 className={styles.headline}>コンセプト2</h1>
+              </div>
+              <div className={styles.rightSideItem}>
+                <h2>今 ＜ 未来の根本的解決</h2>
+                <p>
+                  <span className={styles.segment}>
+                    少年少女の問題は複雑に絡み合い、ときに解決困難。
+                  </span>
+                  <br />
+                  <span className={styles.segment}>
+                    根本的解決が難しいときは、まずはやり過ごせるように。
+                  </span>
+                  <br />
+                  <span className={styles.segment}>
+                    彼ら彼女らが大人になったときに、楽しく生きれる、問題を連鎖させないように、未来の根本的解決をすることを目指します。
+                  </span>
+                </p>
+              </div>
+            </BlockContainer>
+          </div>
+          <BlockContainer  color={"gray"}>
             <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>少年少女が見つける居場所</h1>
+              <h1 className={styles.headline}>めざすこと</h1>
             </div>
-            <div className={styles.rightSideItem}>
+            <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
+              <h2><span className={styles.mlNarrow}>「大丈夫」を見つけ</span><br/>第1の家族か第2の家族へ</h2>
               <p>
-                見つける居場所は人それぞれです。人でもモノでも自分自身でも。
+                <span className={styles.segment}>
+                  まずはしんどい状況でも「大丈夫」と思えるような、
+                </span>
+                <span className={styles.segment}>
+                  自分なりの答えを見つける、別の道を探す、それでも生きたいと思える。
+                </span>
+                <span className={styles.segment}>
+                  そこから、自分の手が届く範囲に拠り所を手に入れます。
+                </span>
               </p>
-              <div className={styles.commentContainer}>
-                <div>
-                  <div className={styles.commentUpper}>
-                    <p>
-                      受験合格しました。
-                      <br />
-                      <span className={styles.segment}>
-                        今は親とも落ち着いて話せるように
-                      </span>
-                      <span className={styles.segment}>なりました。</span>
-                    </p>
-                  </div>
-                  <div className={styles.commentLower}>
-                    <p>
-                      gedokunユーザー <small>当時18歳</small>
-                    </p>
-                    <FukidashiBottom
-                      style={{
-                        width: "2rem",
-                        height: "2rem",
-                        fill: "var(--green)",
-                        marginTop: "-0.5rem",
-                        marginRight: "1rem",
-                      }}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className={styles.commentUpper}>
-                    <p>
-                      <span className={styles.segment}>
-                        意外とお父さんに相談してないことに気づいて、
-                      </span>
-                      <span className={styles.segment}>
-                        話したら味方になってくれました。
-                      </span>
-                    </p>
-                  </div>
-                  <div className={styles.commentLower}>
-                    <p>
-                      nigerunoユーザー <small>当時19歳</small>
-                    </p>
-                    <FukidashiBottom
-                      style={{
-                        width: "2rem",
-                        height: "2rem",
-                        fill: "var(--green)",
-                        marginTop: "-0.5rem",
-                        marginRight: "1rem",
-                      }}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className={styles.commentUpper}>
-                    <p>
-                      実家にいるけど、自分の気持ちを伝えられるようになって、親との関係が改善しました。
-                    </p>
-                  </div>
-                  <div className={styles.commentLower}>
-                    <p>
-                      nigerunoユーザー <small>当時19歳</small>
-                    </p>
-                    <FukidashiBottom
-                      style={{
-                        width: "2rem",
-                        height: "2rem",
-                        fill: "var(--green)",
-                        marginTop: "-0.5rem",
-                        marginRight: "1rem",
-                      }}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className={styles.commentUpper}>
-                    <p>
-                      彼氏と結婚しました。親との仲裁にも入ってくれて助かりました。
-                    </p>
-                  </div>
-                  <div className={styles.commentLower}>
-                    <p>
-                      gedokunユーザー <small>当時18歳</small>
-                    </p>
-                    <FukidashiBottom
-                      style={{
-                        width: "2rem",
-                        height: "2rem",
-                        fill: "var(--green)",
-                        marginTop: "-0.5rem",
-                        marginRight: "1rem",
-                      }}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <div className={styles.commentUpper}>
-                    <p>身の危険を感じたので公的な支援にお世話になりました。</p>
-                  </div>
-                  <div className={styles.commentLower}>
-                    <p>
-                      gedokunユーザー <small>当時18歳</small>
-                    </p>
-                    <FukidashiBottom
-                      style={{
-                        width: "2rem",
-                        height: "2rem",
-                        fill: "var(--green)",
-                        marginTop: "-0.5rem",
-                        marginRight: "2rem",
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </BlockContainer>
-
-          <BlockContainer>
-            <Organization />
-          </BlockContainer>
-
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>団体概要</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <Table />
-            </div>
-          </BlockContainer>
-
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>受賞・採択</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <div className="awards-container">
-                <div className="award-wrapper">
-                  <div className="award-logo-wrapper">
-                    <Image
-                      src="/img/award/GOOD DESIGN NEW HOPE AWARD 2022.png"
-                      alt="GOOD DESIGN NEW HOPE AWARD ロゴ"
-                      fill
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                  </div>
-
-                  <a
-                    href="https://newhope.g-mark.org/award2022.html"
-                    className={styles.externalLink}
-                  >
-                    GOOD DESIGN NEW HOPE AWARD 2022 最優秀賞
-                  </a>
-                </div>
-                <div className="award-wrapper">
-                  <div className="award-logo-wrapper">
-                    <Image
-                      src="/img/award/Forbes JAPAN 30 UNDER 30.png"
-                      alt="Forbes JAPAN 30 UNDER 30 ロゴ"
-                      fill
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                  </div>
-                  <a
-                    href="https://forbesjapan.com/feat/30under30/2023/honorees/"
-                    className={styles.externalLink}
-                  >
-                    Forbes JAPAN 30 UNDER 30 2023「世界を変える30歳未満」
-                  </a>
-                </div>
-              </div>
-            </div>
-          </BlockContainer>
-
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>ネットワーク</h1>
-            </div>
-            <div className={styles.rightSideItem}>
+              <div  className={styles.blockContainerColumnNarrow}>
               <ul className={styles.list}>
-                <li>
-                  <a
-                    href="https://www.shinkoren.or.jp/"
-                    className={styles.externalLink}
-                  >
-                    新公益連盟
-                  </a>
-                  加盟団体
-                </li>
-                <li>
-                  <a
-                    href="https://icf.mri.co.jp/"
-                    className={styles.externalLink}
-                  >
-                    未来共創イニシアティブ
-                  </a>
-                  一般会員
-                </li>
+                <li>母の過干渉がしんどかったけど、「自分は自分、親は親」だと思えた。自分の気持ちを伝え、今は落ち着いて話せるようになった。</li>
+                <li>不登校で友達がいなかったけど、gedokunでみんなと一緒になれた。話すことに少し自信が持てた。今は通信制高校をがんばっている。</li>
+                <li>教育に厳しいけど、自分も医者になりたいし、親の仕事は尊敬している。無理しすぎず頑張ることにした。受験が終わり、今は家族仲が良くなった。</li>
+                <li>殴られるのは当たり前だと思っていたけど、虐待だということを知り、児童相談所に連絡した。今は施設で暮らしている。</li>
               </ul>
-            </div>
-          </BlockContainer>
-
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>助成金情報</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <div className="awards-container">
-                <div className="award-wrapper">
-                  <div className="award-logo-wrapper">
-                    <Image
-                      src="/img/REEP.png"
-                      alt="REEP ロゴ"
-                      fill
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                  </div>
-                  <p>
-                    休眠預金事業 2023
-                    年度早期介入助成ICTを核とした早期介入のエコシステムの構築
-                  </p>
-                </div>
-                <div className="award-wrapper">
-                  <div className="award-logo-wrapper">
-                    <Image
-                      src="/img/kao.png"
-                      alt="花王 ロゴ"
-                      fill
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                  </div>
-
-                  <p>2023年度 花王社会起業塾</p>
-                </div>
-
-                <div className="award-wrapper">
-                  <div className="award-logo-wrapper">
-                    <Image
-                      src="/img/akai-hane.png"
-                      alt="赤い羽根 ロゴ"
-                      fill
-                      priority
-                      style={{
-                        objectFit: "contain",
-                      }}
-                    />
-                  </div>
-                  <p>
-                    2023年度 赤い羽根
-                    ポスト・コロナ（新型感染症）社会に向けた福祉活動応援キャンペーン(第8回)
-                  </p>
-                </div>
-              </div>
-
-              <Link href="/about/grant">
-                <div className={styles.innerLinkWrapper}>
-                  <p>助成金情報詳細</p>
-                </div>
-              </Link>
-            </div>
-          </BlockContainer>
-
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>メディア・登壇・出展</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <div className={styles.articleCardContainer}>
-                <ArticleCard
-                  date="2023.08"
-                  headline="Forbes
-                  JAPAN「自分の居場所はほかにもある。家庭環境に悩む若者を支える」"
-                  url="https://forbesjapan.com/articles/detail/65699"
-                  image="/img/article-thumbnail/forbesJP.webp"
-                />
-                <ArticleCard
-                  date="2023.12"
-                  headline="NHK NEWS
-                  おはよう日本「”家にいると苦しい”から脱出するための「あなたを助ける手札」」"
-                  url="#"
-                  image="https://images.microcms-assets.io/assets/91a2d34a6239451d904d539ac5884d96/c89c82d17a16456f8ba4927a897733f8/nhk-ohayou.png"
-                />
-                <ArticleCard
-                  date="2024.12"
-                  headline="ハートネットＴＶ♯家しんどい〜家族の悩み ゆったり語ろう〜"
-                  url="https://www.nhk.jp/p/heart-net/ts/J89PNQQ4QW/episode/te/37LZJXXQK4/"
-                  image="https://images.microcms-assets.io/assets/91a2d34a6239451d904d539ac5884d96/66c99f483cd046f6b9415ea970a9805b/heart-net.png"
+              <div
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  aspectRatio: "1920/1080",
+                  marginTop: "1rem",
+                  position: "relative",
+                  maxWidth:"1300px"
+                }}
+              >
+                <Image
+                  src="/img/kv.png"
+                  fill
+                  priority
+                  alt="gedokunの支援モデル"
                 />
               </div>
-              <Link href="/about/media">
-                <div className={styles.innerLinkWrapper}>
-                  <p>メディア・登壇・出展一覧</p>
-                </div>
-              </Link>
+              </div>
             </div>
           </BlockContainer>
+          <div  className={styles.blockContainerColumn}>
 
-          <BlockContainer>
-            <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>収支報告</h1>
-            </div>
-            <div className={styles.rightSideItem}>
-              <ul className={styles.list}>
-                <li>
-                  <a
-                    href="https://drive.google.com/file/d/1T7zzgp11uI9OdJaxCvksIdbXhmu7CX6G/view"
-                    className={styles.pdfLink}
-                  >
-                    2023年度（第2期）活動計算書等
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://drive.google.com/file/d/1FrUFNWx2S5hh1CRSPyCXEgaSZl6Zvier/view"
-                    className={styles.pdfLink}
-                  >
-                    2022年度（第1期）活動計算書等
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://drive.google.com/file/d/1cikXYCuBAtLl23RehEtnPrrxBgqz7l5e/view"
-                    className={styles.pdfLink}
-                  >
-                    2023年度（第2期）事業報告書
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://drive.google.com/file/d/1lkr0S-2GXQ-HHljjkHNB1q6NeapmgA0W/view"
-                    className={styles.pdfLink}
-                  >
-                    2022年度（第1期）事業報告書
-                  </a>
-                </li>
-                {/* <li>2024年度（第2期）活動計算書等.pdf</li>
-              <li>2024年度（第2期）事業報告書.pdf</li> */}
-              </ul>
-            </div>
-          </BlockContainer>
+            <BlockContainer>
+              <Organization />
+            </BlockContainer>
+
+            <BlockContainer>
+              <div className={styles.leftSideItem}>
+                <h1 className={styles.headline}>団体概要</h1>
+              </div>
+              <div className={styles.rightSideItem}>
+                <Table />
+              </div>
+            </BlockContainer>
+            <BlockContainer>
+              <div className={styles.leftSideItem}>
+                <h1 className={styles.headline}>受賞</h1>
+              </div>
+              <div className={styles.rightSideItem}>
+                <div className="awards-container">
+                  <div className="award-wrapper">
+                    <div className="award-logo-wrapper">
+                      <Image
+                        src="/img/award/GOOD DESIGN NEW HOPE AWARD 2022.png"
+                        alt="GOOD DESIGN NEW HOPE AWARD ロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+
+                    <a
+                      href="https://newhope.g-mark.org/award2022.html"
+                      className={styles.externalLink}
+                    >
+                      GOOD DESIGN NEW HOPE AWARD 2022 最優秀賞
+                    </a>
+                  </div>
+                  <div className="award-wrapper">
+                    <div className="award-logo-wrapper">
+                      <Image
+                        src="/img/award/Forbes JAPAN 30 UNDER 30.png"
+                        alt="Forbes JAPAN 30 UNDER 30 ロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+                    <a
+                      href="https://forbesjapan.com/feat/30under30/2023/honorees/"
+                      className={styles.externalLink}
+                    >
+                      Forbes JAPAN 30 UNDER 30 2023「世界を変える30歳未満」
+                    </a>
+                  </div>
+                  <div className="award-wrapper">
+                    <div className="award-logo-wrapper">
+                      <Image
+                        src="/img/award/jci.jpg"
+                        alt="横浜市男女共同参画貢献表彰"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+                    <a
+                      href="https://www.jaycee.or.jp/toyp/project/%E5%A5%A5%E6%9D%91%E6%98%A5%E9%A6%99/"
+                      className={styles.externalLink}
+                    >
+                      第39回 青年版国民栄誉賞 文部科学大臣賞
+                    </a>
+                  </div>
+                  <div className="award-wrapper">
+                    <div className="award-logo-wrapper">
+                      <Image
+                        src="/img/award/yokohama-award.jpg"
+                        alt="横浜市男女共同参画貢献表彰"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+                    <a
+                      href="https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/danjo/koken/koukensha.html"
+                      className={styles.externalLink}
+                    >
+                      横浜市男女共同参画貢献表彰 令和６年度 ユース賞
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </BlockContainer>
+            <BlockContainer>
+              <div className={styles.leftSideItem}>
+                <h1 className={styles.headline}>メディア</h1>
+              </div>
+              <div className={styles.rightSideItem}>
+                <div className={styles.articleCardContainer}>
+                  <ArticleCard
+                    date="2023.08"
+                    headline="Forbes
+                    JAPAN「自分の居場所はほかにもある。家庭環境に悩む若者を支える」"
+                    url="https://forbesjapan.com/articles/detail/65699"
+                    image="/img/article-thumbnail/forbesJP.webp"
+                  />
+                  <ArticleCard
+                    date="2025.09"
+                    headline="朝日新聞 朝刊
+                    ネットだけに本音 子どもの自殺分析"
+                    url="#"
+                    image="https://images.microcms-assets.io/assets/91a2d34a6239451d904d539ac5884d96/c0014f1c945c425ebab3907436eba105/%E6%9C%9D%E6%97%A5%E6%96%B0%E8%81%9E.png"
+                  />
+                  <ArticleCard
+                    date="2024.12"
+                    headline="ハートネットＴＶ♯家しんどい〜家族の悩み ゆったり語ろう〜"
+                    url="https://www.nhk.jp/p/heart-net/ts/J89PNQQ4QW/episode/te/37LZJXXQK4/"
+                    image="https://images.microcms-assets.io/assets/91a2d34a6239451d904d539ac5884d96/66c99f483cd046f6b9415ea970a9805b/heart-net.png"
+                  />
+                </div>
+                <Link href="/about/media">
+                  <div className={styles.innerLinkWrapper}>
+                    <p>メディア・登壇</p>
+                  </div>
+                </Link>
+              </div>
+            </BlockContainer>
+
+            <BlockContainer>
+              <div className={styles.leftSideItem}>
+                <h1 className={styles.headline}>助成金情報</h1>
+              </div>
+              <div className={styles.rightSideItem}>
+                <div className="awards-container">
+                  <div className="award-wrapper">
+                    <div className="award-logo-wrapper">
+                      <Image
+                        src="/img/REEP.png"
+                        alt="REEP ロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+                    <p>
+                      休眠預金事業 2023
+                      年度早期介入助成ICTを核とした早期介入のエコシステムの構築
+                    </p>
+                  </div>
+                  <div className="award-wrapper">
+                    <div className="award-logo-wrapper">
+                      <Image
+                        src="/img/kao.png"
+                        alt="花王 ロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+
+                    <p>2023年度 花王社会起業塾</p>
+                  </div>
+
+                  <div className="award-wrapper">
+                    <div className="award-logo-wrapper">
+                      <Image
+                        src="/img/akai-hane.png"
+                        alt="赤い羽根 ロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+                    </div>
+                    <p>
+                      2023年度 赤い羽根
+                      ポスト・コロナ（新型感染症）社会に向けた福祉活動応援キャンペーン(第8回)
+                    </p>
+                  </div>
+                </div>
+
+                <Link href="/about/grant">
+                  <div className={styles.innerLinkWrapper}>
+                    <p>助成金情報詳細</p>
+                  </div>
+                </Link>
+              </div>
+            </BlockContainer>
+
+            <BlockContainer>
+              <div className={styles.leftSideItem}>
+                <h1 className={styles.headline}>ネットワーク</h1>
+              </div>
+              <div className={styles.rightSideItem}>
+                <ul className={`${styles.list} ${styles.mt0}`}>
+                  <li>
+                    <a
+                      href="https://www.shinkoren.or.jp/"
+                      className={styles.externalLink}
+                    >
+                      新公益連盟
+                    </a>
+                    加盟団体
+                  </li>
+                  <li>
+                    <a
+                      href="https://icf.mri.co.jp/"
+                      className={styles.externalLink}
+                    >
+                      未来共創イニシアティブ
+                    </a>
+                    一般会員
+                  </li>
+                </ul>
+              </div>
+            </BlockContainer>
+            <BlockContainer>
+              <div className={styles.leftSideItem}>
+                <h1 className={styles.headline}>経歴</h1>
+              </div>
+              <div className={styles.rightSideItem}>
+                <ul className={`${styles.list} ${styles.mt0}`}>
+                  <li>2021.03 gedokunリリース</li>
+                  <li>2022.04 nigerunoクラファン</li>
+                  <li>2022.05 nigerunoリリース</li>
+                  <li>2022.07 家庭環境データ2022（旧毒親白書）</li>
+                  <li>2023.03 NPO法人第3の家族設立</li>
+                  <li>2023.05 裏母の日2023</li>
+                  <li>2023.03 NPO法人第3の家族設立</li>
+                  <li>2023.11 家庭環境データ2023</li>
+                  <li>2024.03 第3の家族会議2024</li>
+                  <li>2024.05 Dasi3 Live 2024</li>
+                  <li>2024.05 裏母の日2024</li>
+                  <li>2025.03 第3の家族会議2025</li>
+                  <li>2025.03 gedokun地域オフ会</li>
+                  <li>2025.05 裏母の日2025</li>
+                  <li>2025.07 認定NPO法人化</li>
+                  <li>2025.07 夏休みクラウドファンディング</li>
+                  <li>2025.08 夏休み毎日配信2025</li>
+                </ul>
+              </div>
+            </BlockContainer>
+          </div>
         </div>
         <style jsx>{`
           .awards-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 5rem;
-            margin-bottom: 2rem;
+            gap: 4rem;
+            margin-bottom: 1rem;
           }
 
           .award-wrapper {
@@ -587,22 +539,49 @@ const About = () => {
             text-align: ceter;
           }
           .award-logo-wrapper {
-            width: 15rem;
-            height: 15rem;
             position: relative;
+            aspect-ratio: 1 / 1;
           }
 
-          @media screen and (max-width: 600px) {
+          @media screen and (min-width: 1024px) and (max-width: 1300px) {
             .awards-container {
-              gap: 1rem;
+              gap: 3rem;
+            }
+            .award-wrapper{
+              width: 11rem;
+            }
+          }
+
+
+          @media screen and (min-width: 800px) and (max-width: 1024px) {
+            .awards-container {
+              width: 90vw !important;
+              max-width: 90vw !important;
+              gap: 2rem;
             }
             .award-wrapper {
-              width: 10rem;
+              width: 30%;
             }
 
             .award-logo-wrapper {
-              width: 10rem;
-              height: 10rem;
+              width: 100%;
+            }
+          }
+
+          @media screen and (max-width: 800px) {
+            .awards-container {
+              width: 90vw !important;
+              max-width: 90vw !important;
+              gap: 2rem;
+            }
+            .award-wrapper {
+              width: 44%;
+              
+            }
+
+            .award-logo-wrapper {
+              width: 100%;
+              height: auto;
             }
           }
         `}</style>

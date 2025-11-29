@@ -7,72 +7,70 @@ const Service = () => {
   return (
     <>
       <Layout pageTitle="事業内容" headline="事業内容">
-        <BlockContainer>
-          <div className={styles.leftSideItem}>
-            <h3>1：Web事業</h3>
-          </div>
-          <div className={styles.rightSideItem}>
-            <p className={styles.serviceCardDescription}>
-              悩みを吐き出し、手札を増やす。
-            </p>
-            <div className={styles.serviceCardContainer}>
-              <ServiceCard
-                title="gedokun"
-                path="/service/gedokun"
-                image="/img/gedokun_4_3.png"
-              />
-              <ServiceCard
-                title="nigeruno"
-                path="/service/nigeruno"
-                image="/img/nigeruno_4_3.png"
-              />
+        <div  className={styles.blockContainerColumnNarrow}>
+          <BlockContainer>
+            <div className={styles.leftSideItem}>
+              <h3>1：Web事業</h3>
             </div>
-          </div>
-        </BlockContainer>
-        <BlockContainer>
-          <div className={styles.leftSideItem}>
-            <h3>2：イベント事業</h3>
-          </div>
-          <div className={styles.rightSideItem}>
-            <p className={styles.serviceCardDescription}>
-              点と点を繋いで生きていく。
-            </p>
-            <div className={styles.serviceCardContainer}>
-              <ServiceCard
-                title="家庭環境データ"
-                path="/service/katei-kankyo-data"
-                image="/img/katei-data_4_3.png"
-              />
-              <ServiceCard
-                title="裏母の日"
-                path="/service/urahaha"
+            <div className={styles.rightSideItem}>
+              <div className={styles.serviceCardContainer}>
+                <ServiceCard
+                  title="gedokun"
+                  path="/service/gedokun"
+                  image="/img/gedokun_4_3.png"
+                />
+                <ServiceCard
+                  title="nigeruno"
+                  path="/service/nigeruno"
+                  image="/img/nigeruno_4_3.png"
+                />
+              </div>
+            </div>
+          </BlockContainer>
+          <BlockContainer>
+            <div className={styles.leftSideItem}>
+              <h3>2：イベント事業</h3>
+            </div>
+            <div className={styles.rightSideItem}>
+              <div className={styles.serviceCardContainer}>
+                <ServiceCard
+                  title="裏〇〇の日"
+                  path="/service/ura"
                 image="/img/urahaha_4_3.png"
-              />
-              <ServiceCard
-                title="音楽ライブ"
-                path="/service/daisan-live"
-                image="/img/live_4_3.png"
-              />
+                />
+                <ServiceCard
+                  title="インフルエンサーコラボ"
+                  path="/service/entertainment"
+                  image="/img/live_4_3.png"
+                />
+              </div>
             </div>
-          </div>
-        </BlockContainer>
-        <BlockContainer>
-          <div className={styles.leftSideItem}>
-            <h3>3：社会構築事業</h3>
-          </div>
-          <div className={styles.rightSideItem}>
-            <p className={styles.serviceCardDescription}>
-              問題を根本的に解決する。
-            </p>
-            <div className={styles.serviceCardContainer}>
-              <ServiceCard
-                title="社会構築事業"
-                path="/service/shakai-kochiku"
-                image="/ogp.png"
-              />
+          </BlockContainer>
+          <BlockContainer>
+            <div className={styles.leftSideItem}>
+              <h3>3：みんなで世界を変える</h3>
             </div>
-          </div>
-        </BlockContainer>
+            <div className={styles.rightSideItem}>
+              <div className={styles.serviceCardContainer}>
+                <ServiceCard
+                  title="第3の家族会議"
+                  path="/service/daisan-kaigi"
+                  image="/img/daisan-kaigi.png"
+                      />
+                <ServiceCard
+                  title="家庭環境データ"
+                  path="/service/katei-kankyo-data"
+                  image="/img/katei-data_4_3.png"
+                />
+                <ServiceCard
+                  title="登壇・出演"
+                  path="/service/appearances"
+                  image="/img/appearances.png"
+                />
+              </div>
+            </div>
+          </BlockContainer>
+        </div>
       </Layout>
     </>
   );

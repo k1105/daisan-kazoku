@@ -1,0 +1,180 @@
+import Layout from "../layout";
+import styles from "@/styles/About.module.scss";
+import BlockContainer from "@/components/BlockContainer";
+
+const TermsOfService = () => {
+  return (
+    <>
+      <Layout pageTitle="情報公開" headline="情報公開">
+        <BlockContainer animation={false}>
+          <div className={styles.leftSideItem} />
+          <div className={styles.rightSideItem}>
+            <div className={styles.item}>
+              <h2>年次報告</h2>
+              <ul className={styles.list}>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1hJAHVBix4parAooKf8EpPmiUGdnk42BK/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      2024年度（第3期）活動計算書等
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1T7zzgp11uI9OdJaxCvksIdbXhmu7CX6G/view"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      2023年度（第2期）活動計算書等
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1FrUFNWx2S5hh1CRSPyCXEgaSZl6Zvier/view"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      2022年度（第1期）活動計算書等
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1MgNT9gB8ZAuHbxu0mzuLn_7lY3ck5fDe/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      2024年度（第3期）事業報告書
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1cikXYCuBAtLl23RehEtnPrrxBgqz7l5e/view"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      2023年度（第2期）事業報告書
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1lkr0S-2GXQ-HHljjkHNB1q6NeapmgA0W/view"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      2022年度（第1期）事業報告書
+                    </a>
+                  </li>
+              </ul>
+            </div>
+            <div className={styles.item}>
+              <h2>規程類</h2>
+              <ul className={styles.list}>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/17P6-WvDeLT8736kwobFbZfap7eRLp8I6/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      情報公開に関する規程
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/14ooZRTUF8hnzDxivoe1SiZhfiWNCQHYh/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      コンプライアンスに関する規程
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1yTvLZ49M4URGf4oGfjFv0nNtAG44fheR/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      リスク管理に関する規程
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1kOX5ydQYCVqxrdWsR6VkGsCsAYEy9zzB/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      倫理規程
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1lLxK3vptfUKsYwC7yuV7cPR2-0DfZ6io/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      文書管理に関する規定
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1lXx1PyW7SOP1BeWfa0Nc4UoC88eXSMsP/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      役員の報酬等に関する規程
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1q8vB5NGAfee2NOCMmS0V8xiaMf9yDAvC/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      職員の給与等に関する規程
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1O1Mnu52CN6SahkZgVs97d174DFaZuuAl/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      理事の職務権限に関する規程
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1FAIxGf-Wohr8k-T1NjwbF3r9NeLAxKz9/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      組織（事務局）に関する規程
+                    </a>
+                  </li>
+              </ul>
+            </div>
+           
+          </div>
+        </BlockContainer>
+      </Layout>
+    </>
+  );
+};
+
+export default TermsOfService;

@@ -230,10 +230,10 @@ export default function Layout({
               >
                 定款
               </a>
-              <Link href="/about/privacy-policy" className={styles.footerLink}>
+              <Link href="/privacy-policy" className={styles.footerLink}>
                 プライバシーポリシー
               </Link>
-              <Link href="/about/term-of-service" className={styles.footerLink}>
+              <Link href="/term-of-service" className={styles.footerLink}>
                 利用規約
               </Link>
             </div>

@@ -20,10 +20,11 @@ const DepartmentCard = ({ en, name, description }: Props) => {
         .container {
           display: flex;
           gap: 0rem;
-          margin-bottom: 5rem;
+          margin-bottom: 3rem;
         }
         .position {
           width: 10rem;
+          min-width: 10rem;
           font-size: 0.8rem;
           line-height: 0.5rem;
         }
@@ -31,7 +32,7 @@ const DepartmentCard = ({ en, name, description }: Props) => {
         h1 {
           font-weight: normal;
           font-size: 1.2rem;
-          margin-bottom: 1rem;
+          margin-bottom: 0.2rem;
         }
 
         @media screen and (max-width: 600px) {
@@ -44,6 +45,7 @@ const DepartmentCard = ({ en, name, description }: Props) => {
             color: #9a9a9a;
           }
           h1 {
+            margin-top: 4px;
             font-size: 1.2rem;
           }
           p {

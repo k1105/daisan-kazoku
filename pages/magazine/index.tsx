@@ -1,7 +1,6 @@
 import Layout from "../layout";
 import {useState} from "react";
 import styles from "@/styles/About.module.scss";
-import BlockContainer from "@/components/BlockContainer";
 
 const Magazine = () => {
   const [email, setEmail] = useState("");
@@ -36,9 +35,7 @@ const Magazine = () => {
 
   return (
     <Layout pageTitle="メルマガ登録">
-      <BlockContainer>
-        <div className={styles.leftSideItem}></div>
-        <div className={styles.rightSideItem}>
+        <div className="form_conteiner">
           <div id="mc_embed_shell">
             <div id="mc_embed_signup">
               <form
@@ -125,25 +122,31 @@ const Magazine = () => {
             </div>
           </div>
         </div>
-      </BlockContainer>
 
       <style jsx>{`
+        .form_conteiner{
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          min-width: 100%;
+        }
         .field-group {
           display: flex;
-          width: 45vw;
+          width: 100%;
           justify-content: space-between;
           margin-bottom: 1rem;
+          gap: 2rem;
         }
 
         input {
           height: 3rem;
-          width: 30rem;
+          width: 24rem;
           border-radius: 10px;
           border: 1px solid var(--gray);
           padding: 0 1rem;
           font-size: 1rem;
         }
-
+        
         .information-input-container {
           margin-bottom: 3rem;
         }
@@ -153,7 +156,7 @@ const Magazine = () => {
         }
 
         .submit-button-container {
-          width: 45vw;
+          width: 100%;
           text-align: right;
         }
 
@@ -164,16 +167,18 @@ const Magazine = () => {
           color: white;
         }
 
+
+
         @media screen and (max-width: 600px) {
+        .form_conteiner{
+          padding: 0px 20px;
+        }
           .field-group {
-            width: 90vw;
             flex-direction: column;
             gap: 0.3rem;
           }
-          input {
-            height: 2.5rem;
-            border-radius: 5px;
-            width: 80vw;
+          input{
+                        width: 90vw;
           }
         }
       `}</style>
