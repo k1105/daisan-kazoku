@@ -73,7 +73,7 @@ const Entertainment = () => {
                     パフォーマンスやエールをもらいます。
                   </span>
                 </p>
-                <Link href="https://youtube.com/playlist?list=PLL-bN2IrGfxn2bGXnyofhmDud76g_6H88&si=Aj1y6371uY_K61dK">
+                <Link href="https://youtube.com/playlist?list=PLL-bN2IrGfxn2bGXnyofhmDud76g_6H88&si=Aj1y6371uY_K61dK" target="_blank" rel="noopener">
                   <div className={styles.innerLinkWrapper}>
                     <p className={styles.linkText}>YouTubeへ</p>
                   </div>
@@ -107,7 +107,7 @@ const Entertainment = () => {
                     少年少女の悩みにインフルエンサーが応えます。
                   </span>
                 </p>
-                <Link href="https://www.youtube.com/@GY4Ych">
+                <Link href="https://www.youtube.com/@GY4Ych" target="_blank" rel="noopener">
                   <div className={styles.innerLinkWrapper}>
                     <p className={styles.linkText}>YouTubeへ</p>
                   </div>
@@ -141,7 +141,7 @@ const Entertainment = () => {
                     ひろゆきさんが動画をつくってくれました。
                   </span>
                 </p>
-                <Link href="https://youtu.be/KmCUBDWi6T0?si=TcK6WCpSs-6_uzxa">
+                <Link href="https://youtu.be/KmCUBDWi6T0?si=TcK6WCpSs-6_uzxa" target="_blank" rel="noopener">
                   <div className={styles.innerLinkWrapper}>
                     <p className={styles.linkText}>YouTubeへ</p>
                   </div>

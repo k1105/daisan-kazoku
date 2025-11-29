@@ -15,7 +15,7 @@ const ServiceCard = ({
   return (
     <>
       <div className="container">
-        <Link href={path}>
+         <Link href={path} style={{ textDecoration: "none" }}>
           <div className="image-wrapper">
             <Image
               src={image}
@@ -27,7 +27,7 @@ const ServiceCard = ({
               alt={title}
             />
             <div className="hover-effect">
-              <p>{title}</p>
+              <span style={{ textDecoration: "none" }}>{title}</span>
             </div>
           </div>
 
@@ -46,15 +46,33 @@ const ServiceCard = ({
 
           a {
             color: #aaa;
-            text-decoration: none;
+            text-decoration: none !important;
+            -webkit-text-decoration: none !important;
+            text-decoration-line: none !important;
+            -webkit-text-decoration-line: none !important;
             font-weight: 400;
             font-size: 0.9rem;
-            font-weight: 400;
             transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+          }
+
+          a p {
+            text-decoration: none !important;
+            -webkit-text-decoration: none !important;
+            text-decoration-line: none !important;
+            -webkit-text-decoration-line: none !important;
+            border-bottom: none !important;
           }
 
           a:hover {
             color: black;
+            text-decoration: none !important;
+          }
+
+          a:active,
+          a:focus,
+          a:visited {
+            text-decoration: none !important;
           }
         }
 

@@ -79,6 +79,16 @@ const TermsOfService = () => {
               <ul className={styles.list}>
                   <li>
                     <a
+                      href="https://drive.google.com/file/d/1l7ols46aMudmrzikGKUFP3qcmhx3JJz5/view"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      定款
+                    </a>
+                  </li>
+                  <li>
+                    <a
                       href="https://drive.google.com/file/d/17P6-WvDeLT8736kwobFbZfap7eRLp8I6/view?usp=sharing"
                       className={styles.pdfLink}
                       target="_blank"
@@ -165,6 +175,16 @@ const TermsOfService = () => {
                       rel="noopener"
                     >
                       組織（事務局）に関する規程
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://drive.google.com/file/d/1GaFwIN-Ff-kLiJ5bYzTbujj9NMaE95b0/view?usp=sharing"
+                      className={styles.pdfLink}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      寄付金取扱規程
                     </a>
                   </li>
               </ul>

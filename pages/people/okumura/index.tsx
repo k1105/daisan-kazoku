@@ -61,6 +61,8 @@ export default function Okumura() {
                   <a
                     href="https://bunshun.jp/articles/-/81745#goog_rewarded"
                     className={styles.externalLink}
+                    target="_blank"
+                    rel="noopener"
                   >
                     文春オンライン
                     「第3の家族」代表・奥村春香さんインタビュー #1
@@ -70,6 +72,8 @@ export default function Okumura() {
                   <a
                     href="https://www.asahi.com/sdgs/article/15567768"
                     className={styles.externalLink}
+                    target="_blank"
+                    rel="noopener"
                   >
                     朝日新聞SDGs ACTION!
                     悩んでいる子どもたちへ いつでも立ち寄れる「第3の家族」
@@ -79,6 +83,8 @@ export default function Okumura() {
                   <a
                     href="https://www.japandesign.ne.jp/interview/newhope-1/"
                     className={styles.externalLink}
+                    target="_blank"
+                    rel="noopener"
                   >
                     JDN「少年少女の自立に向けた「第3の存在」を目指して―グッドデザイン・ニューホープ賞最優秀賞」（2023）
                   </a>

@@ -303,6 +303,8 @@ const About = () => {
                     <a
                       href="https://newhope.g-mark.org/award2022.html"
                       className={styles.externalLink}
+                      target="_blank"
+                      rel="noopener"
                     >
                       GOOD DESIGN NEW HOPE AWARD 2022 最優秀賞
                     </a>
@@ -322,6 +324,8 @@ const About = () => {
                     <a
                       href="https://forbesjapan.com/feat/30under30/2023/honorees/"
                       className={styles.externalLink}
+                      target="_blank"
+                      rel="noopener"
                     >
                       Forbes JAPAN 30 UNDER 30 2023「世界を変える30歳未満」
                     </a>
@@ -341,6 +345,8 @@ const About = () => {
                     <a
                       href="https://www.jaycee.or.jp/toyp/project/%E5%A5%A5%E6%9D%91%E6%98%A5%E9%A6%99/"
                       className={styles.externalLink}
+                      target="_blank"
+                      rel="noopener"
                     >
                       第39回 青年版国民栄誉賞 文部科学大臣賞
                     </a>
@@ -360,6 +366,8 @@ const About = () => {
                     <a
                       href="https://www.city.yokohama.lg.jp/city-info/seisaku/torikumi/danjo/koken/koukensha.html"
                       className={styles.externalLink}
+                      target="_blank"
+                      rel="noopener"
                     >
                       横浜市男女共同参画貢献表彰 令和６年度 ユース賞
                     </a>
@@ -478,6 +486,8 @@ const About = () => {
                     <a
                       href="https://www.shinkoren.or.jp/"
                       className={styles.externalLink}
+                      target="_blank"
+                      rel="noopener"
                     >
                       新公益連盟
                     </a>
@@ -487,6 +497,8 @@ const About = () => {
                     <a
                       href="https://icf.mri.co.jp/"
                       className={styles.externalLink}
+                      target="_blank"
+                      rel="noopener"
                     >
                       未来共創イニシアティブ
                     </a>
