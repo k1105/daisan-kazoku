@@ -10,16 +10,8 @@ const KateiKankyoData = () => {
       <Layout pageTitle="家庭環境データ">
         <div className={styles.jumbotron}>
           <div>
-            <h1 className={styles.serviceTitle}>
-              <span className={styles.segment}>家庭環境</span>
-              <span className={styles.segment}>データ</span>
-            </h1>
-            <p>家庭環境問題のリアルをビジュアライズする。</p>{" "}
-            <Link href="https://katei-data.daisan-kazoku.net/">
-              <div className={styles.innerLinkWrapper}>
-                <p className={styles.linkText}>Webサイトへ</p>
-              </div>
-            </Link>
+            <h1 className={styles.serviceTitle}>家庭環境データ</h1>
+            <p>調査・研究事業。</p>
           </div>
           <div
             style={{
@@ -40,65 +32,43 @@ const KateiKankyoData = () => {
             />
           </div>
         </div>
+        <div  className={styles.blockContainerColumn}>
         <BlockContainer>
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>コンセプト</h1>
           </div>
-          <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
-            <h2>立ち止まって考えてみる</h2>
+          <div className={styles.rightSideItem}>
+            <h2>少年少女の声を研究する</h2>
             <p>
-              家の話は身近すぎるが故に自分の傷に気付かないことがあります。実際のデータを「少し気になる」ような表現に落とし込み、立ち止まって考えるきっかけをつくることを目指します。
+              <span className={styles.segment}>
+                少年少女たちは何に悩み、何が必要なのか。
+              </span>
+              <br />
+              <span className={styles.segment}>
+                調査研究から客観的に明らかにします。
+              </span>
             </p>
-            <div
-              style={{
-                width: "100%",
-                height: "auto",
-                aspectRatio: "21/9",
-                marginBottom: "2rem",
-                position: "relative",
-              }}
-            >
-              <Image
-                src="/img/katei-data_map.png"
-                fill
-                priority
-                style={{
-                  objectFit: "contain",
-                }}
-                alt="家庭環境データの画像"
-              />
-            </div>
           </div>
         </BlockContainer>
         <BlockContainer>
           <div className={styles.leftSideItem}>
-            <h1 className={styles.headline}>特徴</h1>
+            <h1 className={styles.headline}>学会発表</h1>
           </div>
           <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
             <div className={styles.flexContainer}>
               <div>
-                <h2>視覚比喩</h2>
-                <p>
-                  例えば、「心の病気を発症しやすくなる」という事象を「崩れそうなジェンガ」で表現します。グラフィックを見て少し考えるような時間をつくります。
-                </p>
-                <h2>少年少女の日常に溶け込む</h2>
-                <p>
-                  学校や街中での展示を行っています。家の悩みに自覚的でない子達でも、ふと立ち止まるようなきっかけをつくります。
-                </p>
-                <h2>周囲の人が手を差し伸べられるように</h2>
-                <p>
-                  家庭環境問題の実態をわかりやすく発信することで、少年少女の周囲にいる人たちが手を差し伸べるようなきっかけをつくることを目指します。
-                </p>
+              <h2>研究者と協力</h2>
+              <ul className={styles.list}>
+                <li>2024.10 第83回公衆衛生学会 ポスター展示「掲示板ネトノグラフィーを用いた家庭環境問題を抱える子ども・若者のペルソナ分析」</li>
+                <li>2025.11 第31回日本子ども虐待防止学会 公募シンポジウム「子どもの⼼理的虐待を明らかにする」</li>
+              </ul>
               </div>
               <div className={styles.insertImageWrapper}>
                 <Image
-                  src="/img/katei-data_4_3_feature.png"
+                  src="/img/research.png"
                   fill
                   priority
-                  style={{
-                    objectFit: "contain",
-                  }}
-                  alt="家庭環境データの特徴"
+                  alt="展示の画像"
                 />
               </div>
             </div>
@@ -106,48 +76,84 @@ const KateiKankyoData = () => {
         </BlockContainer>
         <BlockContainer>
           <div className={styles.leftSideItem}>
-            <h1 className={styles.headline}>利用者の様子</h1>
+            <h1 className={styles.headline}>独自調査</h1>
           </div>
-
-          <div className={styles.rightSideItem}>
-            <h2>参加者からの声</h2>
-            <ul className={styles.list}>
-              <li>「私だけじゃなかったんだ」</li>
-              <li>「普通に可愛い」</li>
-              <li>
-                「友達がこういう状況にいそうなので、詳しく知れて良かった」
-              </li>
-              <li>「これどういう意味？」</li>
-            </ul>
+          <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
+            <div className={styles.flexContainer}>
+              <div>
+                <h2>独自調査とメディアへの提供</h2>
+                <ul className={styles.list}>
+                  <li>
+                    <a
+                      href="https://prtimes.jp/main/html/rd/p/000000019.000120079.html"
+                      className={styles.externalLink}
+                    >
+                      2025.01 親と子の進路希望比較
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://prtimes.jp/main/html/rd/p/000000023.000120079.html"
+                      className={styles.externalLink}
+                    >
+                      2025.08 夏休みが終わる頃この世から消えたい
+                    </a>
+                  </li>
+                </ul>
+                <Link href="/about/media">
+                  <div className={styles.innerLinkWrapper}>
+                    <p>メディア・登壇出展一覧</p>
+                  </div>
+                </Link>
+              </div>
+              <div className={styles.insertImageWrapper}>
+                <Image
+                  src="/img/dodesuka.png"
+                  fill
+                  priority
+                  alt="テレビの画像"
+                />
+              </div>
+            </div>
           </div>
         </BlockContainer>
         <BlockContainer>
           <div className={styles.leftSideItem}>
-            <h1 className={styles.headline}>展示実績</h1>
+            <h1 className={styles.headline}>展示</h1>
           </div>
           <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
             <div className={styles.flexContainer}>
-              <ul className={styles.list}>
-                <li>2023.11 渋谷100BANCH</li>
-                <li>2024.01 横浜市立横浜総合高等学校</li>
-                <li>2024.03 横浜市立戸塚高等学校</li>
-                <li>2024.04 横浜駅西口 Niigoひろば</li>
-                <li>2024.05 寛政中学校</li>
-              </ul>
+              <div>
+                <h2>視覚比喩を用いた表現</h2>
+                <p>
+                  <span className={styles.segment}>
+                    調査した結果をビジュアライズ。
+                  </span>
+                  <span className={styles.segment}>
+                    難しい内容を、ちょっと考えたくなる表現に。
+                  </span>
+                  <span className={styles.segment}>
+                    渋谷や横浜で展示を実施。
+                  </span>
+                </p>
+                <Link href="https://katei-data.daisan-kazoku.net/">
+                  <div className={styles.innerLinkWrapper}>
+                    <p className={styles.linkText}>Webサイトへ</p>
+                  </div>
+                </Link>
+              </div>
               <div className={styles.insertImageWrapper}>
                 <Image
                   src="/img/katei-data.jpg"
                   fill
                   priority
-                  style={{
-                    objectFit: "contain",
-                  }}
-                  alt="家庭環境データの展示のようす"
+                  alt="展示の画像"
                 />
               </div>
             </div>
           </div>
         </BlockContainer>
+        </div>
         <style jsx>{`
           ul {
             margin-top: 0;

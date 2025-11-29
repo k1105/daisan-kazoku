@@ -10,9 +10,12 @@
   --green: #38b69e;
   --blue: #5fb7d6;
   --gray: #d9d9d9;
+  --gray-light: #EFEFEF;
   --dark-gray: #a9a9a9;
   --light-gray: #f3f3f3;
+  ---font-gray: #595959;
   --black: #333;
+  --white: #fff;
   --red: ;
 }
 
@@ -56,4 +59,8 @@ body::-webkit-scrollbar {
   li {
     line-height: 1.9rem;
   }
+}
+
+a{
+    text-decoration: none !important;
 }

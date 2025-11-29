@@ -41,6 +41,7 @@ export default function HamburgerMenu() {
                   <Logo />
                 </Link>
               </div>
+              <div className={styles.blockContainer}>
               <ul className={styles.navLink}>
                 <li className={styles.list}>
                   <Link
@@ -82,16 +83,6 @@ export default function HamburgerMenu() {
                   </Link>
                 </li>
                 <li className={styles.list}>
-                  {/* <Link
-              href="/report"
-              className={`${styles.link} ${
-                router.pathname === "/report" ? styles.active : ""
-              }`}
-            >
-              レポート
-            </Link> */}
-                </li>
-                <li className={styles.list}>
                   <Link
                     href="/data"
                     className={`${styles.link} ${
@@ -118,16 +109,61 @@ export default function HamburgerMenu() {
                   </Link>
                 </li>
               </ul>
-              <div className={styles.navBottom}>
-                <a
-                  href="/donation"
-                  className={`${styles.link} ${styles.externalLink}`}
-                  onClick={() => {
-                    setIsVisible(!isVisible);
-                  }}
-                >
-                  寄付する
-                </a>
+              <ul className={styles.navLink}>
+                <li className={styles.list}>
+                  <Link
+                    href="/about/media"
+                    className={`${styles.linkS} ${
+                      router.pathname === "/about/media" ? styles.active : ""
+                    }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
+                  >
+                    メディア・登壇
+                  </Link>
+                </li>
+                <li className={styles.list}>
+                  <Link
+                    href="/about/grant"
+                    className={`${styles.linkS} ${
+                      router.pathname === "/about/grant" ? styles.active : ""
+                    }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
+                  >
+                    採択助成金
+                  </Link>
+                </li>
+                <li className={styles.list}>
+                  <Link
+                    href="/people/okumura"
+                    className={`${styles.linkS} ${
+                      router.pathname === "/people/okumura" ? styles.active : ""
+                    }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
+                  >
+                    代表プロフィール
+                  </Link>
+                </li>
+                <li className={styles.list}>
+                  <Link
+                    href="/information"
+                    className={`${styles.linkS} ${
+                      router.pathname === "/information" ? styles.active : ""
+                    }`}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
+                  >
+                    情報公開
+                  </Link>
+                </li>
+              </ul>
+              <div  className={`${styles.navBottom} ${styles.mt}`}>
                 <Link
                   href="/magazine"
                   className={`${styles.link} ${styles.externalLink}`}
@@ -141,7 +177,7 @@ export default function HamburgerMenu() {
                   href="https://daisan-ticket.studio.site/"
                   className={`${styles.link} ${styles.externalLink}`}
                 >
-                  <p>第３の家族に協力する</p>
+                  <p>教育・福祉関係の方</p>
                   <ExternalLinkIcon
                     style={{
                       display: "inline-block",
@@ -163,7 +199,11 @@ export default function HamburgerMenu() {
                     }}
                   />
                 </Link>
-
+                <Link href="/donation">
+                  <div className={styles.innerLinkWrapper}>
+                    <p>寄付する</p>
+                  </div>
+                </Link>
                 <div className={styles.socialIcons}>
                   <Link href="https://x.com/daisan_kazoku">
                     <SocialX />
@@ -175,6 +215,7 @@ export default function HamburgerMenu() {
                     <SocialFacebook />
                   </Link>
                 </div>
+              </div>
               </div>
             </nav>
           </div>

@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
 .loadingContainer {
@@ -9,6 +10,10 @@
   flex-wrap: wrap;
   gap: 1rem;
   min-height: 60vh;
+}
+
+.mediaContain{
+  width: 300px !important;
 }
 
 .skeletonItem {
@@ -162,4 +167,17 @@
     font-size: 0.8rem;
     min-width: 2rem;
   }
+
+  .mediaContain{
+  width: 100% !important;
+}
+}
+@media screen  and (min-width: 800px)  and (max-width: 1024px) {
+.container{
+  width: 100% !important;
+}
+
+.mediaContain{
+  width: 300px!important;
+}
 }

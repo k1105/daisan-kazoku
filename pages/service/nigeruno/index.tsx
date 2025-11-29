@@ -11,7 +11,7 @@ const Nigeruno = () => {
         <div className={styles.jumbotron}>
           <div>
             <h1 className={styles.serviceTitle}>nigeruno</h1>
-            <p>社会資源と経験談を集めた情報サイト。</p>
+            <p>つらい状況から「逃げ出す」情報サイト。</p>
             <Link href="https://daisan-kazoku.net/nigeruno">
               <div className={styles.innerLinkWrapper}>
                 <p className={styles.linkText}>Webサイトへ</p>
@@ -37,43 +37,61 @@ const Nigeruno = () => {
             />
           </div>
         </div>
+        <div  className={styles.blockContainerColumn}>
         <BlockContainer>
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>コンセプト</h1>
           </div>
+          <div className={styles.rightSideItem}>
+            <h2>手札を集める</h2>
+            <p>
+              <span className={styles.segment}>
+                「家か学校だけの世界」「死ぬしかない」
+              </span>
+              <br />
+              <span className={styles.segment}>
+                限られた選択肢ではなく、多様な「手札」を増やします。
+              </span>
+            </p>
+          </div>
+        </BlockContainer>
+        <BlockContainer>
+          <div className={styles.leftSideItem}>
+            <h1 className={styles.headline}>掲載情報</h1>
+          </div>
           <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
             <div className={styles.flexContainer}>
-              <div>
-                <h2>使える手札を見つけよう</h2>
-                <p>
-                  <span className={styles.segment}>
-                    多様な社会資源や経験者の情報を集め、
-                  </span>
-                  <span className={styles.segment}>
-                    自分の居場所を見つけるための一歩を
-                  </span>
-                  <span className={styles.segment}>
-                    踏み出せるようにすることを目指します。
-                  </span>
-                  <br />
-                  <span className={styles.segment}>
-                    「家か学校」という限られた選択肢ではなく、
-                  </span>
-                  <span className={styles.segment}>
-                    多様な「手札」を増やすことを目指します。
-                  </span>
-                </p>
-              </div>
-              <div className={styles.insertImageWrapper}>
-                <Image
-                  src="/img/nigeruno_4_3_feature.png"
-                  fill
-                  priority
-                  style={{
-                    objectFit: "contain",
-                  }}
-                  alt="nigerunoの特徴"
-                />
+              <div className={styles.cardContainer}>
+                <div className={styles.card}>
+                  <h2>公的な情報</h2>
+                  <p>
+                    児童相談所や警察など。難しい内容をわかりやすくまとめます。
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <h2>民間団体情報</h2>
+                  <p>
+                    NPOや民間サービスの紹介。
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <h2>自分でできること</h2>
+                  <p>
+                    「親に気持ちを伝える」「依存先を増やす」など、自分でできること。
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <h2>経験談</h2>
+                  <p>
+                    かつて第3の家族を使っていた人の経験談。
+                  </p>
+                </div>
+                <div className={styles.card}>
+                  <h2>コラム</h2>
+                  <p>
+                    落ち入りやすい思考に対して、立ち止まって考えてもらえるように。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -82,74 +100,65 @@ const Nigeruno = () => {
           <div className={styles.leftSideItem}>
             <h1 className={styles.headline}>特徴</h1>
           </div>
-          <div className={styles.rightSideItem}>
-            <h2>多様な社会資源の紹介</h2>
-            <p>
-              公的な支援から身近な頼れる人まで、幅広く紹介しています。以下は紹介する情報の一例です。
-            </p>
-
-            <div className={styles.cardContainer}>
-              <div className={styles.card}>
-                <h3>公的な支援</h3>
-                <ul className={styles.list}>
-                  <li>児童相談所</li>
-                  <li>電話相談</li>
-                  <li>役所の窓口</li>
-                </ul>
+          <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
+            <div className={styles.flexContainer}>
+              <div>
+                <h2>悩んできた人の集合知</h2>
+                <p>
+                  <span className={styles.segment}>
+                    かつて悩んできた人からの情報提供や
+                  </span>
+                  <span className={styles.segment}>
+                    専門家の監修によってできています。
+                  </span>
+                  <span className={styles.segment}>
+                    他の情報サイトよりも当事者目線が特徴です。
+                  </span>
+                </p>
               </div>
-              <div className={styles.card}>
-                <h3>民間サービス</h3>
-                <ul className={styles.list}>
-                  <li>シェアハウス</li>
-                  <li>留学制度</li>
-                  <li>メンタルクリニック</li>
-                </ul>
-              </div>
-              <div className={styles.card}>
-                <h3>頼れる身近な人</h3>
-                <ul className={styles.list}>
-                  <li>学校の先生</li>
-                  <li>親戚</li>
-                  <li>親の友達</li>
-                </ul>
+              <div className={styles.insertImageWrapper}>
+                <Image
+                  src="/img/nigeruno_4_3_feature.png"
+                  fill
+                  priority
+                  alt="nigerunoの特徴"
+                />
               </div>
             </div>
           </div>
         </BlockContainer>
         <BlockContainer>
-          <div className={styles.leftSideItem}></div>
-          <div className={styles.rightSideItem}>
-            <h2>経験者の人生の紹介</h2>
-            <p>
-              かつて家庭環境問題に悩んだ経験者が、どのようにして今の人生を歩んでいるかを解説しています。
-              <br />
-              はざまの問題に対して、どのようにすれば良いか正解がないからこそ。それぞれの人生という一つの解を紹介しています。
-            </p>
-            <h2>公的支援以外の手札も大切</h2>
-            <p>
-              公的な支援制度も紹介していますが、これらに繋げることが一番の目標ではありません。ソフトな手札も使いながら、自分にとってより良い道を探してもらいたいと考えています。即介入・即解決を目指すのではなく、その人のペースで、少しでも良いから前を向けるよう私たちも伴走します。
-            </p>
-          </div>
-        </BlockContainer>
-        <BlockContainer>
           <div className={styles.leftSideItem}>
-            <h1 className={styles.headline}>利用者の様子</h1>
+            <h1 className={styles.headline}>実績</h1>
           </div>
-          <div className={styles.rightSideItem}>
-            <h2>少年少女からの声</h2>
-            <ul className={styles.list}>
-              <li>「こんなにできることあるんだ」</li>
-              <li>
-                「同じような境遇の人の話は聞いたことがなかったので勉強になった」
-              </li>
-              <li>「早く知りたかった」</li>
-            </ul>
-            <h2>利用者数</h2>
-            <ul className={styles.list}>
-              <li>月1,500人</li>
-            </ul>
+          <div className={`${styles.rightSideItem} ${styles.fullWidth}`}>
+            <div className={styles.flexContainer}>
+              <div>
+                <h2>まだ道があると気づけた</h2>
+                <p>
+                  <span className={styles.segment}>
+                    「親に相談できた」「児相に通報できた」
+                  </span>
+                  <span className={styles.segment}>
+                    など、一歩踏み出せた少年少女たちがいます。
+                  </span>
+                  <span className={styles.segment}>
+                    NHKおはよう日本、ハートネットTVで特集されました。
+                  </span>
+                </p>
+              </div>
+              <div className={styles.insertImageWrapper}>
+                <Image
+                  src="/img/nigeruno-nhk.png"
+                  fill
+                  priority
+                  alt="nigerunoの利用者の画像"
+                />
+              </div>
+            </div>
           </div>
         </BlockContainer>
+        </div>
         <style jsx>{`
           ul {
             margin-top: 0;

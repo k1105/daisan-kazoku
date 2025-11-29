@@ -17,7 +17,7 @@ const ArticleCard = ({headline, image, url, date}: Props) => {
             style={{
               width: "100%",
               aspectRatio: "4/3",
-              marginBottom: "1rem",
+              marginBottom: "0.4rem",
               position: "relative",
             }}
           >
@@ -31,15 +31,17 @@ const ArticleCard = ({headline, image, url, date}: Props) => {
               alt="thumbnail"
             />
           </div>
-          <p className="date">{date}</p>
-          <p className="headline">{headline}</p>
+          <div className="article-date">
+            <p className="date">{date}</p>
+            <p className="headline">{headline}</p>
+          </div>
         </div>
       </a>
       <style jsx>{`
         .container {
           border-radius: 10px;
           display: block;
-          width: 300px;
+          width: 100%;
           margin-bottom: 20px;
         }
 
@@ -48,7 +50,8 @@ const ArticleCard = ({headline, image, url, date}: Props) => {
         }
 
         p {
-          margin: 10px;
+          margin-top: 2px;
+          line-height: 1.8;
         }
 
         a {
@@ -61,6 +64,19 @@ const ArticleCard = ({headline, image, url, date}: Props) => {
           color: #ccc;
           text-align: right;
         }
+        .article-date{
+          width: 100%;
+          min-width: 100%;
+          p{
+            width: 100%;
+            min-width: 100%;
+          }
+        }
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+        .container {
+          max-width: 70vw;
+        }
+}
       `}</style>
     </>
   );

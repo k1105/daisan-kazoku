@@ -43,6 +43,21 @@
   opacity: 0.3;
 }
 
+.innerLinkWrapper {
+  display: inline-block;
+  border-radius: 0.5rem;
+  padding: 0.2rem 1.5rem;
+  text-decoration: none;
+  background-color: var(--green);
+  margin-top: 8px;
+  p {
+    display: inline;
+    color: var(--white);
+    position: relative;
+  }
+
+}
+
 .navOverlay {
   position: fixed;
   top: 0;
@@ -65,25 +80,22 @@
 .viewWrapper {
   width: 100vw;
   height: 100vh;
-}
-
-.firstView {
-  margin: 35vh 10vw 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav {
-  padding-top: 3vh;
-  padding-left: 3vw;
   /* background-color: #ddd; */
-  height: 100vh;
   display: flex;
-  gap: 10rem;
+  gap: 8rem;
 }
+
+
 
 .navBottom {
   display: flex;
   flex-direction: column;
-  padding-top: 1rem;
   gap: 1rem;
   .link {
     font-weight: 400;
@@ -91,8 +103,8 @@
 }
 
 .logo {
-  width: 400px;
-  height: 100px;
+  width: 20vw;
+  min-width: 300px;
   margin-bottom: 1rem;
   margin-left: -1rem;
   position: relative;
@@ -104,6 +116,21 @@
   gap: 0.5rem;
 }
 
+.blockContainer{
+  display: flex;
+  flex-direction:row;
+  gap: 5rem;
+}
+
+.linkS{
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: black;
+}
+
+.mt{
+  margin-top: 0.5rem;
+}
 .link {
   font-size: 1.5rem;
   text-decoration: none;
@@ -127,6 +154,7 @@
   list-style: none;
   font-weight: 100;
   transition: all 100ms ease;
+  white-space: nowrap;
 }
 
 .list:hover {
@@ -141,6 +169,16 @@
   color: #777;
   a {
     color: #777;
+  }
+}
+
+@media screen and (min-width: 1024px)and (max-width: 1300px) {
+   .nav{
+    flex-direction: column;
+    gap: 3rem;
+   }
+  .blockContainer{
+      gap: 6rem;
   }
 }
 
@@ -161,7 +199,9 @@
     flex-direction: column;
     gap: 5rem;
   }
-
+  .blockContainer{
+    justify-content: center;
+  }
   .list {
     font-weight: normal;
   }
@@ -169,6 +209,10 @@
   .link {
     font-size: 1.2rem;
     line-height: 1rem;
+  }
+
+  .linkS{
+    font-size: 1rem;
   }
 
   .main {
@@ -183,9 +227,9 @@
   }
 
   .navBottom {
-    gap: 0.6rem;
+    gap: 1.4rem;
     .link {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: normal;
     }
   }
@@ -194,4 +238,48 @@
     gap: 0.6rem;
     margin-top: 2rem;
   }
+
+  .mt{
+    margin-top: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 736px) {
+.nav{
+  text-align: center;
+  padding: 100px 0px 0px;
+}
+.blockContainer{
+  flex-direction: column;
+  gap: 3.5rem;
+}
+.navLink{
+  gap: 1.2em;
+}
+
+  .link {
+    font-size: 1rem;
+  }
+
+  .list{
+    line-height: 1;
+  }
+.linkS{
+  font-size: 0.9rem;
+  color: var(---font-gray) !important;
+}
+.innerLinkWrapper{
+  margin-top: 0.2rem;
+}
+  .navBottom {
+    gap: 1rem;
+    align-items: center;
+    p{
+      line-height: 1;
+    }
+  }
+.socialIcons{
+  margin-top: 0.4rem;
+  gap: 1.5rem;
+}
 }

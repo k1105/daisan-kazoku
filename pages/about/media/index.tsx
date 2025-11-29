@@ -1,8 +1,8 @@
 import Layout from "@/pages/layout";
 import {client} from "@/libs/client";
 import {useState, useEffect, useCallback} from "react";
-import ArticleCard from "@/pages/about/ArticleCard";
 import styles from "./Media.module.scss";
+import ArticleCard from "@/pages/about/ArticleCard";
 
 const Media = () => {
   const [data, setData] = useState<Media[] | null>(null);
@@ -95,7 +95,7 @@ const Media = () => {
     <>
       <Layout pageTitle="メディア・登壇・出展一覧">
         <h1 style={{fontWeight: "100", marginBottom: "3rem"}}>
-          メディア・登壇・出展一覧
+          メディア・登壇
         </h1>
         {isLoading ? (
           <div className={styles.loadingContainer}>
@@ -113,6 +113,7 @@ const Media = () => {
           <>
             <div className={styles.mediaContainer}>
               {data?.map((elem, index) => (
+                <div  className={styles.mediaContain}>
                 <ArticleCard
                   date={elem.date.split("T")[0]}
                   key={index}
@@ -120,6 +121,7 @@ const Media = () => {
                   image={elem.thumbnail ? elem.thumbnail.url : ""}
                   url={elem.link}
                 />
+                </div>
               ))}
             </div>
 
