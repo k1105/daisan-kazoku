@@ -12,7 +12,7 @@ const Nigeruno = () => {
           <div>
             <h1 className={styles.serviceTitle}>nigeruno</h1>
             <p>つらい状況から「逃げ出す」情報サイト。</p>
-            <Link href="https://daisan-kazoku.net/nigeruno">
+            <Link href="https://daisan-kazoku.net/nigeruno" target="_blank" rel="noopener">
               <div className={styles.innerLinkWrapper}>
                 <p className={styles.linkText}>Webサイトへ</p>
               </div>

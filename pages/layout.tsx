@@ -227,6 +227,8 @@ export default function Layout({
               <a
                 href="https://drive.google.com/file/d/1l7ols46aMudmrzikGKUFP3qcmhx3JJz5/view"
                 className={styles.footerLink}
+                target="_blank"
+                rel="noopener"
               >
                 定款
               </a>

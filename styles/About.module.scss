@@ -650,7 +650,7 @@
 
 @media screen and (min-width: 1000px) and (max-width: 1200px) {
   .blockContainerColumn{
-      gap: 10rem;
+      gap: 6rem;
   }
 }
 
@@ -672,5 +672,8 @@
     width: 90vw !important;
     max-width: 90vw !important;
     gap: 0.5rem 1.5rem;
+  }
+  .headline{
+    margin-bottom: 1rem;
   }
 }

@@ -136,7 +136,7 @@ const KateiKankyoData = () => {
                     渋谷や横浜で展示を実施。
                   </span>
                 </p>
-                <Link href="https://katei-data.daisan-kazoku.net/">
+                <Link href="https://katei-data.daisan-kazoku.net/" target="_blank" rel="noopener">
                   <div className={styles.innerLinkWrapper}>
                     <p className={styles.linkText}>Webサイトへ</p>
                   </div>

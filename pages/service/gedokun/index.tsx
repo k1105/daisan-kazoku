@@ -12,7 +12,7 @@ const Gedokun = () => {
           <div>
             <h1 className={styles.serviceTitle}>gedokun</h1>
             <p>悩みを「解毒」する掲示板</p>
-            <Link href="https://daisan-kazoku.net/gedokun">
+            <Link href="https://daisan-kazoku.net/gedokun" target="_blank" rel="noopener">
               <div className={styles.innerLinkWrapper}>
                 <p className={styles.linkText}>Webサイトへ</p>
               </div>

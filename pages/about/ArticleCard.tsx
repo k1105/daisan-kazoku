@@ -11,7 +11,7 @@ type Props = {
 const ArticleCard = ({headline, image, url, date}: Props) => {
   return (
     <>
-      <a href={url ? url : "#"} className="container">
+      <a href={url ? url : "#"} className="container"  target="_blank" rel="noopener">
         <div>
           <div
             style={{
