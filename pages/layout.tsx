@@ -184,9 +184,9 @@ export default function Layout({
           )}
         </div>
         <div className={styles.headerRight}>
-          <Link href={"/donation"}>
+          <a href={"/donation"}>
             <p className={styles.headerLink}>寄付する</p>
-          </Link>
+          </a>
           <Link href={"https://daisan-kazoku.net/gedokun"}>
             <p className={styles.headerLink}>少年少女はこちら</p>
           </Link>
