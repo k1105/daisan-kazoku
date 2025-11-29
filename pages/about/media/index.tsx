@@ -113,10 +113,9 @@ const Media = () => {
           <>
             <div className={styles.mediaContainer}>
               {data?.map((elem, index) => (
-                <div  className={styles.mediaContain}>
+                <div key={index} className={styles.mediaContain}>
                 <ArticleCard
                   date={elem.date.split("T")[0]}
-                  key={index}
                   headline={elem.title}
                   image={elem.thumbnail ? elem.thumbnail.url : ""}
                   url={elem.link}

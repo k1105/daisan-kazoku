@@ -109,12 +109,13 @@ export const TopBackgroundAnimation = ({
       console.log(`🔄 Phase changed to ${currentPhase}, starting animation`);
       playNextAnimation(currentPhase);
     }
-  }, [currentPhase]);
+  }, [currentPhase, playNextAnimation]);
 
   // クリーンアップ
   useEffect(() => {
+    const instances = animationInstances.current;
     return () => {
-      animationInstances.current.forEach((instance) => {
+      instances.forEach((instance) => {
         if (instance && typeof instance.destroy === "function") {
           instance.destroy();
         }
