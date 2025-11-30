@@ -12,9 +12,9 @@ export const FirstView = ({ showArrow = true }: FirstViewProps) => {
     <>
       <div className={`${styles.viewPort} ${styles.top}`} key="0">
         <p className={styles.copy}>
-          <span className={styles.segment}>少年少女が</span>
-          <span className={styles.segment}>生きたいと</span>
-          <span className={styles.segment}>思える社会をつくる。</span>
+          <span className={styles.segment}>「どうしようもない」</span>
+          <span className={styles.segment}>を</span>
+          <span className={styles.segment}>「大丈夫」に</span>
         </p>
 
         <div className={styles.logo}>
@@ -26,7 +26,7 @@ export const FirstView = ({ showArrow = true }: FirstViewProps) => {
             alt="第３の家族"
           />
         </div>
-        <p className={styles.subTitle}>Web・イベント・研究事業</p>
+        <p className={styles.subTitle}>認定NPO法人第3の家族</p>
 
         {showArrow && (
           <div className={styles.animationWrapper}>
