@@ -14,44 +14,14 @@ const baseSections = [
   <div className={styles.viewPort} key="1">
     <p>
       <span className={styles.segment}>
-        {"「家に居場所がない」少年少女は".split("").map((char, i) => (
+        {"少子化なのにも関わらず、".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"4人に1人。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <br />
-      <span className={styles.segment}>
-        {"数は多くても明るみに出ないのは、".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"周囲から気づきにくく、".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <br />
-      <span className={styles.segment}>
-        {"本人も助けを求めるべきか".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"わからないから。".split("").map((char, i) => (
+        {"こどもの自殺、虐待、不登校は増加。".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
@@ -63,35 +33,22 @@ const baseSections = [
   <div className={styles.viewPort} key="2">
     <p>
       <span className={styles.segment}>
-        {"虐待ってほどではない気がする。".split("").map((char, i) => (
+        {"家、学校、病気、価値観、".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"でも、親との関係に違和感を感じたり、".split("").map((char, i) => (
+        {"色々な悩みがあるけど".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
+      <br />
       <span className={styles.segment}>
-        {"傷ついている。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"でも、嫌いとは言い切れない。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"自分の親だし…。".split("").map((char, i) => (
+        {"共通するのは「どうしようもない」".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
@@ -103,49 +60,14 @@ const baseSections = [
   <div className={styles.viewPort} key="3">
     <p>
       <span className={styles.segment}>
-        {"その後に".split("").map((char, i) => (
+        {"繋がりが薄くなりやすく、".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"虐待・".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"精神疾患・".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"非行・".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"孤独孤立・".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"自殺につながる".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"可能性があります。".split("").map((char, i) => (
+        {"個人化した社会の中で".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
@@ -153,14 +75,14 @@ const baseSections = [
       </span>
       <br />
       <span className={styles.segment}>
-        {"顕在化した後の支援はあるけど、".split("").map((char, i) => (
+        {"「どうしようもない」を共有できる場が".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"もっと予防できないでしょうか？".split("").map((char, i) => (
+        {"減っているのかもしれません。".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
@@ -172,29 +94,35 @@ const baseSections = [
   <div className={styles.viewPort} key="4">
     <p>
       <span className={styles.segment}>
-        {"そこで、第1の家族（本人の家族）".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <br />
-      <span className={styles.segment}>
-        {"または、第2の家族".split("").map((char, i) => (
+        {"「どうしようもない」も「大丈夫」".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"（友達・学校・地域）で".split("").map((char, i) => (
+        {"と思えるように。".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"自分の居場所を見つけてもらえるような、".split("").map((char, i) => (
+        {"第1の家族（本人の家族）".split("").map((char, i) => (
+          <span key={i} className={styles.char}>
+            {char}
+          </span>
+        ))}
+      </span>
+      <span className={styles.segment}>
+        {"または第2の家族（地域社会）".split("").map((char, i) => (
+          <span key={i} className={styles.char}>
+            {char}
+          </span>
+        ))}
+      </span>
+      <span className={styles.segment}>
+        {"で居場所を見つけてもらえるような、".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
@@ -213,50 +141,44 @@ const baseSections = [
   <div className={styles.viewPort} key="5">
     <p>
       <span className={styles.segment}>
-        {"大切にしていることは「寄り添わない」。".split("").map((char, i) => (
+        {"そして、少年少女が大人になったときに".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"支援らしくない構え方で、".split("").map((char, i) => (
+        {"問題の負の連鎖が止まるように。".split("").map((char, i) => (
+          <span key={i} className={styles.char}>
+            {char}
+          </span>
+        ))}
+      </span>
+      <br/>
+      <span className={styles.segment}>
+        {"「大人になる前に死にたい」".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"今まで取りこぼされてきた".split("").map((char, i) => (
+        {"世界が終わるように。".split("").map((char, i) => (
+          <span key={i} className={styles.char}>
+            {char}
+          </span>
+        ))}
+      </span>
+      <br/>
+      <span className={styles.segment}>
+        {"未来の問題の".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
         ))}
       </span>
       <span className={styles.segment}>
-        {"はざまの少年少女たちに".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"アプローチします。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <br />
-      <span className={styles.segment}>
-        {"はざまの少年少女たちが".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"自分の居場所を見つけられるように。".split("").map((char, i) => (
+        {"根本的解決を目指します。".split("").map((char, i) => (
           <span key={i} className={styles.char}>
             {char}
           </span>
