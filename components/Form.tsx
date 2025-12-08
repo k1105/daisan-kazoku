@@ -123,8 +123,8 @@ export const Form: FC = () => {
                 <option value="講演・取材について">講演・取材について</option>
                 <option value="連携について">連携について</option>
                 <option value="第3の家族について">第3の家族について</option>
-                <option value="スタッフ応募について">
-                  スタッフ応募について
+                <option value="第3の家族卒業生はこちら">
+                  第3の家族卒業生はこちら
                 </option>
                 <option value="その他">その他</option>
               </select>
