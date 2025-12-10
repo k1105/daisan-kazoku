@@ -19,7 +19,24 @@ const About = () => {
         <div>
           <div className={styles.jumbotron}>
             <div className={styles.leftSideItem}>
-              <h1 className={styles.headline}>Vision</h1>
+              <h1 className={styles.headline}>目指す社会</h1>
+            </div>
+            <div className={styles.rightSideItem}>
+              <h2>後ろを向いたときに<br/>第3の家族がいる社会</h2>
+              <p>
+                <span className={styles.segment}>
+                  傷つきを抱えたときに、1人にさせない。
+                </span>
+                <br/>
+                <span className={styles.segment}>
+                  後ろ向きでも「大丈夫」と思える社会。
+                </span>
+              </p>
+            </div>
+          </div>
+          <div className={styles.jumbotron}>
+            <div className={styles.leftSideItem}>
+              <h1 className={styles.headline}>やること</h1>
             </div>
             <div className={styles.rightSideItem}>
               <h2  className={styles.mlNarrow}><span className={styles.mlNarrowSp}>「どうしようもない」を</span><br className={styles.br}/>抱える少年少女が<br/><span className={styles.mlNarrowSp}>「大丈夫」になるまで</span><br className={styles.br}/>一人にさせない</h2>
