@@ -7,6 +7,7 @@ import Head from "next/head";
 import {CSSProperties, useEffect, useState} from "react";
 import HamburgerMenu from "@/components/HamburgerMenu";
 import {Logo} from "@/components/Logo";
+import Image from "next/image";
 
 const getTitleFromPath = (path: string): string => {
   // 基本のタイトルマッピング
@@ -223,23 +224,64 @@ export default function Layout({
         )}
         <div className={styles.footer}>
           <div className={styles.footerContent}>
-            <div className={styles.footerLinks}>
-              <a
-                href="https://drive.google.com/file/d/1l7ols46aMudmrzikGKUFP3qcmhx3JJz5/view"
-                className={styles.footerLink}
-                target="_blank"
-                rel="noopener"
-              >
-                定款
-              </a>
-              <Link href="/privacy-policy" className={styles.footerLink}>
-                プライバシーポリシー
-              </Link>
-              <Link href="/term-of-service" className={styles.footerLink}>
-                利用規約
-              </Link>
+            <div className={styles.footerContentChild}>
+              <div className={styles.footerLinks}>
+                <Link href="/privacy-policy" className={styles.footerLink}>
+                  プライバシーポリシー
+                </Link>
+                <Link href="/term-of-service" className={styles.footerLink}>
+                  利用規約
+                </Link>
+                <Link href="/specified-commercial-transactions" className={styles.footerLink}>
+                  特定商取引法に基づく表記
+                </Link>
+              </div>
+              <div className={styles.footerImages}>
+                      <Image
+                        src="/img/REEP.png"
+                        alt="REEP ロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                          maxHeight: "50px",
+                          marginLeft: "-8px"
+                        }}
+                      />
+                      <Image
+                        src="/img/award/Forbes JAPAN 30 UNDER 30.png"
+                        alt="Forbes ロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                          maxHeight: "45px"
+                        }}
+                      />
+                      <Image
+                        src="/img/award/GOOD DESIGN NEW HOPE AWARD 2022.png"
+                        alt="ニューホープロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                          maxHeight: "44px"
+                        }}
+                      />
+                      <Image
+                        src="/img/akai-hane.png"
+                        alt="赤い羽根 ロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                          maxHeight: "20px",
+                          marginLeft: "8px"
+                        }}
+                      />
+              </div>
             </div>
-            <div className={styles.footerOrganization}>NPO法人 第３の家族</div>
+            <div className={styles.footerOrganization}>©認定NPO法人 第３の家族</div>
           </div>
         </div>
       </footer>
