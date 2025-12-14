@@ -17,7 +17,7 @@ const SpecifiedCommercialTransactions = () => {
             </div>
 
             <div className={styles.item}>
-              <h2>代表者</h2>
+              <h2>代表者・業務責任者</h2>
               <p>
                 理事長 奥村春香
               </p>
@@ -77,14 +77,16 @@ const SpecifiedCommercialTransactions = () => {
             <div className={styles.item}>
               <h2>支払時期</h2>
               <p>
-                寄付者様の任意の時期
+                寄付のお手続は寄付者様の任意の時期です。
+                クレジット決済の場合、クレジットカード会社が定める引き落し時期となります。
+                クレジット決済以外でのお支払いは、お手続時の決済となります。
               </p>
             </div>
 
             <div className={styles.item}>
               <h2>商品の引渡時期</h2>
               <p>
-                該当なし
+                商品の引き渡しはございません
               </p>
             </div>
 
