@@ -1,6 +1,7 @@
 import Layout from "../../layout";
 import styles from "../../../styles/About.module.scss";
 import BlockContainer from "@/components/BlockContainer";
+import Image from "next/image";
 
 export default function Okumura() {
   return (
@@ -15,6 +16,36 @@ export default function Okumura() {
             <div className={styles.rightSideItem}>
             <h2>奥村春香</h2>
             <h3>認定NPO法人第3の家族理事長</h3>
+            <p className={styles.description}>
+              認定NPO法人第3の家族代表。LINE株式会社Product Designerを経て、学生時代から続けていた第3の家族を2023年にNPO法人化。こども家庭庁居場所部会委員。Forbes JAPAN 30 UNDER 30 2023「世界を変える30歳未満」、青年版国民栄誉賞 文部科学大臣賞、グッドデザイン・ニューホープ賞最優秀賞、横浜市男女共同参画貢献表彰など。
+            </p>
+              <div
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  aspectRatio: "1/1",
+                  marginTop: "2rem",
+                  position: "relative",
+                  maxWidth:"400px"
+                }}
+              >
+                      <Image
+                        src="/img/プロフ写真.jpg"
+                        alt="ニューホープロゴ"
+                        fill
+                        priority
+                        style={{
+                          objectFit: "contain",
+                        }}
+                      />
+              </div>
+            </div>
+          </BlockContainer>
+          <BlockContainer>
+            <div className={styles.leftSideItem}>
+              <h1 className={styles.headline}>活動の背景</h1>
+            </div>
+            <div className={styles.rightSideItem}>
             <p className={styles.description}>
               活動のきっかけは、大学2年生の時に弟を自死で亡くしたことです。1年間は何もできなかったのですが、もとからものづくりが好きだったので、家庭環境に悩む人のための掲示板を試しに作ってみたところ、想像以上に人が集まりました。「つくってくれてありがとう」という嬉しい言葉をもらう一方、集まる悩みの重大さを実感し「もっとやらなければ」と思い、新卒で入社したLINE株式会社を退職し、NPO法人第3の家族を立ち上げました。今は、自身の過去のために活動をやっているという気持ちはなく、はざまの少年少女たちと一緒に揺られながら、より良い状態をつくって行くことに没頭しています。
             </p>
