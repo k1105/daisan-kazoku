@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.scss";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef, useMemo} from "react";
 import {ExternalLinkIcon} from "@/components/icons/ExternalLinkIcon";
 import Head from "next/head";
 import Script from "next/script";
@@ -8,225 +8,155 @@ import {TopBackgroundAnimation} from "@/components/animation/TopBackgroundAnimat
 import HamburgerMenu from "@/components/HamburgerMenu";
 import {FirstView} from "@/components/FirstView";
 import {gsap} from "gsap";
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger"; // 修正: 明示的なインポート推奨
 
-const baseSections = [
-  <FirstView key="0" />,
-  <div className={styles.viewPort} key="1">
-    <p>
-      <span className={styles.segment}>
-        {"少子化なのにも関わらず、".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"こどもの自殺、虐待、不登校は増加。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-    </p>
-  </div>,
+// ==========================================
+// Types & Interfaces
+// ==========================================
 
-  <div className={styles.viewPort} key="2">
-    <p>
-      <span className={styles.segment}>
-        {"家、学校、病気、価値観、".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"色々な悩みがあるけど".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <br />
-      <span className={styles.segment}>
-        {"共通するのは「どうしようもない」".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-    </p>
-  </div>,
+// windowオブジェクトの拡張（any回避）
+interface CustomWindow extends Window {
+  triggerBackgroundAnimation?: (index: number) => void;
+}
+declare let window: CustomWindow;
 
-  <div className={styles.viewPort} key="3">
-    <p>
-      <span className={styles.segment}>
-        {"繋がりが薄くなりやすく、".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"個人化した社会の中で".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <br />
-      <span className={styles.segment}>
-        {"「どうしようもない」を共有できる場が".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"減っているのかもしれません。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-    </p>
-  </div>,
+type SegmentData = {
+  id: number;
+  segments: string[];
+  breaks?: number[];
+};
 
-  <div className={styles.viewPort} key="4">
-    <p>
-      <span className={styles.segment}>
-        {"「どうしようもない」も「大丈夫」".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"と思えるように。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"第1の家族（本人の家族）".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"または第2の家族（地域社会）".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"で居場所を見つけてもらえるような、".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"第3の家族として存在します。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-    </p>
-  </div>,
+// ==========================================
+// Constants (Data)
+// ==========================================
 
-  <div className={styles.viewPort} key="5">
-    <p>
-      <span className={styles.segment}>
-        {"そして、少年少女が大人になったときに".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"問題の負の連鎖が止まるように。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <br/>
-      <span className={styles.segment}>
-        {"「大人になる前に死にたい」".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"世界が終わるように。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <br/>
-      <span className={styles.segment}>
-        {"未来の問題の".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-      <span className={styles.segment}>
-        {"根本的解決を目指します。".split("").map((char, i) => (
-          <span key={i} className={styles.char}>
-            {char}
-          </span>
-        ))}
-      </span>
-    </p>
-  </div>,
+const SECTION_TEXTS: SegmentData[] = [
+  {
+    id: 1,
+    segments: [
+      "少子化なのにも関わらず、",
+      "こどもの自殺、虐待、不登校は増加。",
+    ],
+  },
+  {
+    id: 2,
+    segments: [
+      "家、学校、病気、価値観、",
+      "色々な悩みがあるけど",
+      "共通するのは「どうしようもない」",
+    ],
+    breaks: [1],
+  },
+  {
+    id: 3,
+    segments: [
+      "繋がりが薄くなりやすく、",
+      "個人化した社会の中で",
+      "「どうしようもない」を共有できる場が",
+      "減っているのかもしれません。",
+    ],
+    breaks: [1],
+  },
+  {
+    id: 4,
+    segments: [
+      "「どうしようもない」も「大丈夫」",
+      "と思えるように。",
+      "第1の家族（本人の家族）",
+      "または第2の家族（地域社会）",
+      "で居場所を見つけてもらえるような、",
+      "第3の家族として存在します。",
+    ],
+  },
+  {
+    id: 5,
+    segments: [
+      "そして、少年少女が大人になったときに",
+      "問題の負の連鎖が止まるように。",
+      "「大人になる前に死にたい」",
+      "世界が終わるように。",
+      "未来の問題の",
+      "根本的解決を目指します。",
+    ],
+    breaks: [1, 3],
+  },
 ];
 
-// ループ構造のために最後にFirstViewを追加（矢印なし）
-const loopedSections = [
-  ...baseSections,
-  <FirstView key="loop" showArrow={false} />,
-];
+// ==========================================
+// Sub Components
+// ==========================================
 
-const Home = () => {
-  const mainRef = useRef<HTMLDivElement>(null);
-  const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
-  const [animationPhase, setAnimationPhase] = useState<number>(0);
+const SEOHead = () => (
+  <Head>
+    <title>NPO法人第3の家族 | 寄り添わない支援</title>
+    <meta
+      name="description"
+      content="はざまの少年少女が生きたいと思える社会をつくる。寄り添わない支援。Web事業を中心に、オフラインイベントや研究も行う。"
+    />
+    <meta property="og:title" content="NPO法人 第３の家族" />
+    <meta
+      property="og:description"
+      content="はざまの少年少女が生きたいと思える社会をつくる。寄り添わない支援。Web事業を中心に、オフラインイベントや研究も行う。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://daisan-kazoku.com" />
+    <meta property="og:image" content="https://daisan-kazoku.com/ogp.png" />
+    <meta property="og:site_name" content="NPO法人 第３の家族" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@daisan_kazoku" />
+  </Head>
+);
 
-  // アニメーション完了時のコールバック
-  const handleAnimationComplete = (sectionIndex: number) => {
-    console.log(
-      `🎬 Background animation completed for section ${sectionIndex}`
-    );
-    // 自動連続実行を削除 - セクション表示時のみトリガー
-  };
+// テキストレンダリング用コンポーネント
+const TextSection = ({data}: {data: SegmentData}) => {
+  return (
+    <div className={styles.viewPort}>
+      <p>
+        {data.segments.flatMap((segment, segmentIndex) => [
+          <span className={styles.segment} key={`seg-${segmentIndex}`}>
+            {segment.split("").map((char, i) => (
+              <span key={`char-${i}`} className={styles.char}>
+                {char}
+              </span>
+            ))}
+          </span>,
+          ...(data.breaks?.includes(segmentIndex)
+            ? [<br key={`br-${segmentIndex}`} />]
+            : []),
+        ])}
+      </p>
+    </div>
+  );
+};
 
-  // ScrollTriggerを使用した文字アニメーション
+// ==========================================
+// Custom Hooks (Logic)
+// ==========================================
+
+const useScrollTextAnimation = (
+  sectionsRef: React.MutableRefObject<(HTMLDivElement | null)[]>
+) => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const {ScrollTrigger} = require("gsap/ScrollTrigger");
     gsap.registerPlugin(ScrollTrigger);
 
+    // nullを除外
     const sections = sectionsRef.current.filter(Boolean) as HTMLDivElement[];
     if (sections.length === 0) return;
 
-    // 全ての文字を初期状態に設定
+    // 初期状態セット
     const allChars = document.querySelectorAll(`.${styles.char}`);
     gsap.set(allChars, {opacity: 0, y: 15, filter: "blur(2px)"});
 
-    let animatedSections = new Set<number>();
-    let animationQueue: {index: number; animate: () => void}[] = [];
+    // アニメーション管理変数
+    const animatedSections = new Set<number>();
+    const completedSections = new Set<number>();
+    const animationQueue: {index: number; animate: () => void}[] = [];
     let isAnimating = false;
-    let completedSections = new Set<number>();
 
-    // アニメーションキューを処理する関数
+    // キュー処理
     const processQueue = () => {
       if (isAnimating || animationQueue.length === 0) return;
 
@@ -238,121 +168,123 @@ const Home = () => {
         animate();
       } else {
         isAnimating = false;
-        processQueue(); // 次のアニメーションを処理
+        processQueue();
       }
     };
 
-    // 各セクションの文字アニメーション設定
+    // 各セクションの設定
+    const triggers: ScrollTrigger[] = [];
+
     sections.forEach((section, index) => {
       const chars = section.querySelectorAll(`.${styles.char}`);
+      if (chars.length === 0) return;
 
-      if (chars.length > 0) {
-        // アニメーション関数を作成
-        const animateSection = () => {
+      const animateSection = () => {
+        gsap.to(chars, {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 0.5,
+          stagger: 0.03,
+          ease: "power2.out",
+          onComplete: () => {
+            completedSections.add(index);
+            isAnimating = false;
+
+            // 背景アニメーションのトリガー (index 0はFirstViewなので、1-4が対象)
+            if (index > 0 && index <= 4) {
+              console.log(
+                `📝 Triggering background animation for index: ${index - 1}`
+              );
+              window.triggerBackgroundAnimation?.(index - 1);
+            }
+
+            setTimeout(processQueue, 200);
+          },
+        });
+      };
+
+      // 表示トリガー
+      const enterTrigger = ScrollTrigger.create({
+        trigger: section,
+        start: "top 75%",
+        end: "bottom 50%",
+        onEnter: () => {
+          animationQueue.push({index, animate: animateSection});
+          processQueue();
+        },
+        onEnterBack: () => {
           gsap.to(chars, {
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
-            duration: 0.5,
-            stagger: 0.03,
+            duration: 0.25,
             ease: "power2.out",
-            onComplete: () => {
-              completedSections.add(index);
-              isAnimating = false;
-
-              // セクション表示時に背景アニメーションをトリガー
-              if (index > 0 && index <= 4) {
-                // セクション1-4に対応するアニメーション
-                console.log(
-                  `📝 Section ${index} animation completed, triggering background animation`
-                );
-                if (
-                  typeof window !== "undefined" &&
-                  (window as any).triggerBackgroundAnimation
-                ) {
-                  (window as any).triggerBackgroundAnimation(index - 1); // 0-based index
-                }
-              }
-
-              setTimeout(() => {
-                processQueue(); // 次のアニメーションを処理
-              }, 200);
-            },
           });
-        };
+        },
+      });
+      triggers.push(enterTrigger);
 
-        // ScrollTriggerでセクションの可視状態を監視
-        ScrollTrigger.create({
-          trigger: section,
-          start: "top 75%",
-          end: "bottom 50%",
-          onEnter: () => {
-            // キューに追加
-            animationQueue.push({index, animate: animateSection});
-            processQueue();
-          },
-          onEnterBack: () => {
-            // 戻ってきたときはすぐに表示
+      // フェードアウトトリガー
+      const leaveTrigger = ScrollTrigger.create({
+        trigger: section,
+        start: "bottom 50%",
+        end: "bottom top",
+        scrub: true,
+        onUpdate: (self) => {
+          if (completedSections.has(index)) {
             gsap.to(chars, {
-              opacity: 1,
-              y: 0,
-              filter: "blur(0px)",
-              duration: 0.25,
-              ease: "power2.out",
+              opacity: 1 - Math.pow(self.progress, 0.5) * 0.95,
+              filter: `blur(${self.progress * 0.5}px)`,
+              duration: 0.1,
+              ease: "none",
+              overwrite: "auto", // 競合を防ぐ
             });
-          },
-        });
-
-        // フェードアウト用の別のScrollTrigger
-        ScrollTrigger.create({
-          trigger: section,
-          start: "bottom 50%",
-          end: "bottom top",
-          scrub: true,
-          onUpdate: (self: any) => {
-            // アニメーション完了後のみフェードアウトを適用
-            if (completedSections.has(index)) {
-              gsap.to(chars, {
-                opacity: 1 - Math.pow(self.progress, 0.5) * 0.95, // さらに急激に見えなくなる
-                filter: `blur(${self.progress * 0.5}px)`,
-                duration: 0.1,
-                ease: "none",
-              });
-            }
-          },
-        });
-      }
+          }
+        },
+      });
+      triggers.push(leaveTrigger);
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger: ScrollTrigger) =>
-        trigger.kill()
-      );
+      triggers.forEach((t) => t.kill());
+      // ScrollTrigger.getAll().forEach(t => t.kill()); // 必要に応じて全体削除
     };
-  }, []);
+  }, []); // 依存配列は空でOK（マウント時のみ実行）
+};
+
+// ==========================================
+// Main Component
+// ==========================================
+
+const Home = () => {
+  const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  // アニメーションロジックの呼び出し
+  useScrollTextAnimation(sectionsRef);
+
+  // 表示要素の構成（FirstView + TextSections + Last FirstView）
+  // useMemoを使うことで不要な再計算を防ぐ
+  const contentSections = useMemo(
+    () => [
+      <FirstView key="first-view-top" />,
+      ...SECTION_TEXTS.map((data) => (
+        <TextSection key={`section-${data.id}`} data={data} />
+      )),
+      <FirstView key="first-view-loop" showArrow={false} />,
+    ],
+    []
+  );
+
+  // 背景アニメーション完了時のコールバック
+  const handleAnimationComplete = (sectionIndex: number) => {
+    // 必要に応じてログ出力など
+    // console.log(`🎬 Background animation completed: ${sectionIndex}`);
+  };
 
   return (
     <>
-      <Head>
-        <title>NPO法人第3の家族 | 寄り添わない支援</title>
-        <meta
-          name="description"
-          content="はざまの少年少女が生きたいと思える社会をつくる。寄り添わない支援。Web事業を中心に、オフラインイベントや研究も行う。"
-        />
-        <meta property="og:title" content="NPO法人 第３の家族" />
-        <meta
-          property="og:description"
-          content="はざまの少年少女が生きたいと思える社会をつくる。寄り添わない支援。Web事業を中心に、オフラインイベントや研究も行う。"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://daisan-kazoku.com" />
-        <meta property="og:image" content="https://daisan-kazoku.com/ogp.png" />
-        <meta property="og:site_name" content="NPO法人 第３の家族" />
-        <meta property="og:locale" content="ja_JP" />
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@daisan_kazoku" />
-      </Head>
+      <SEOHead />
 
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-P39BNFHKK3"
@@ -368,7 +300,6 @@ const Home = () => {
       </Script>
 
       <main className={styles.main}>
-        {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerLeft}></div>
           <div className={styles.headerRight}>
@@ -376,8 +307,8 @@ const Home = () => {
           </div>
         </div>
 
-        <div className={styles.viewWrapper} ref={mainRef}>
-          {loopedSections.map((section, idx) => (
+        <div className={styles.viewWrapper}>
+          {contentSections.map((component, idx) => (
             <div
               key={idx}
               ref={(el) => {
@@ -385,7 +316,7 @@ const Home = () => {
               }}
               className={styles.section}
             >
-              {section}
+              {component}
             </div>
           ))}
         </div>
