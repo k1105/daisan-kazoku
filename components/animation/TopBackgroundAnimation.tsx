@@ -1,8 +1,24 @@
-import {useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 
 interface TopBackgroundAnimationProps {
   onSectionVisible?: (sectionIndex: number) => void;
 }
+
+// アニメーションファイルの設定（コンポーネント外に定義）
+const animationFiles = {
+  pc: [
+    "/json/pc/phase_01_1920_1080_3s.json",
+    "/json/pc/phase_02_1920_1080_3s.json",
+    "/json/pc/phase_03_1920_1080_3s.json",
+    "/json/pc/phase_04_1920_1080_3s.json",
+  ],
+  sp: [
+    "/json/sp/phase_01_SP_1080_1920_v002.json",
+    "/json/sp/phase_02_SP_1080_1920_v002.json",
+    "/json/sp/phase_03_SP_1080_1920_v002.json",
+    "/json/sp/phase_04_SP_1080_1920_v002.json",
+  ],
+};
 
 export const TopBackgroundAnimation = ({
   onSectionVisible,
@@ -17,23 +33,7 @@ export const TopBackgroundAnimation = ({
   const animationInstances = useRef<any[]>([]);
   const isAnimating = useRef<boolean>(false);
 
-  // アニメーションファイルの設定
-  const animationFiles = {
-    pc: [
-      "/json/pc/phase_01_1920_1080_3s.json",
-      "/json/pc/phase_02_1920_1080_3s.json",
-      "/json/pc/phase_03_1920_1080_3s.json",
-      "/json/pc/phase_04_1920_1080_3s.json",
-    ],
-    sp: [
-      "/json/sp/phase_01_SP_1080_1920_v002.json",
-      "/json/sp/phase_02_SP_1080_1920_v002.json",
-      "/json/sp/phase_03_SP_1080_1920_v002.json",
-      "/json/sp/phase_04_SP_1080_1920_v002.json",
-    ],
-  };
-
-  const playNextAnimation = async (phase: number) => {
+  const playNextAnimation = useCallback(async (phase: number) => {
     if (phase >= animationFiles.pc.length || isAnimating.current) return;
 
     console.log(`🎬 Starting animation phase ${phase + 1}`);
@@ -81,7 +81,7 @@ export const TopBackgroundAnimation = ({
       console.error("❌ Failed to load lottie animation:", error);
       isAnimating.current = false;
     }
-  };
+  }, []);
 
   // 外部からセクション表示をトリガーする関数
   const triggerAnimation = (sectionIndex: number) => {

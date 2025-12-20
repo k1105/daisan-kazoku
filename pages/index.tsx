@@ -250,7 +250,7 @@ const useScrollTextAnimation = (
       triggers.forEach((t) => t.kill());
       // ScrollTrigger.getAll().forEach(t => t.kill()); // 必要に応じて全体削除
     };
-  }, []); // 依存配列は空でOK（マウント時のみ実行）
+  }, [sectionsRef]);
 };
 
 // ==========================================
