@@ -27,11 +27,35 @@
   position: fixed;
   top: 0;
   right: 0;
-
-  padding: 0.5rem 3vw;
+  padding: 0.5rem 3vw 3rem;
   justify-content: space-between;
-  backdrop-filter: blur(10px);
-  // mix-blend-mode: difference;
+
+  // ★削除: ここに直接書くと境界がくっきりしてしまいます
+  // backdrop-filter: blur(10px);
+
+  // ★追加: 疑似要素で背景ブラー層を作る
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; // コンテンツ（ロゴやリンク）より背面に配置
+
+    // ブラーの適用
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); // Safari対応
+
+    // グラデーションマスクの適用
+    // 黒(見える) -> 透明(見えない) へのグラデーション
+    // 60%の位置まではくっきり、そこから下に向かって徐々に消える設定
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+
+    // 背景色（薄い白など）が必要な場合はここで指定
+    // background-color: rgba(255, 255, 255, 0.1);
+  }
 
   .headerLeft {
     margin-top: 10px;
@@ -192,13 +216,13 @@
   gap: 1rem;
 }
 
-.footerImages{
+.footerImages {
   display: flex;
   align-items: center;
   gap: 4px;
-  img{
-  position: unset !important;
-}
+  img {
+    position: unset !important;
+  }
 }
 
 .footerLinks {
@@ -229,7 +253,7 @@
   .header {
     padding: 0.5rem 5vw;
   }
-  .footer{
+  .footer {
     padding-bottom: 4rem;
   }
 
@@ -250,20 +274,20 @@
   }
 }
 
-@media screen  and (min-width: 1025px) and (max-width: 1200px) {
+@media screen and (min-width: 1025px) and (max-width: 1200px) {
   .pageTopSpacer {
     margin-top: 10rem;
   }
 }
 
 @media screen and (min-width: 1600px) {
-  .main{
+  .main {
     width: 70vw;
   }
 }
 
-@media screen  and (min-width: 600px) and (max-width: 1200px) {
-  .footer{
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+  .footer {
     padding-bottom: 4rem;
   }
 }
