@@ -8,13 +8,12 @@ import {TopBackgroundAnimation} from "@/components/animation/TopBackgroundAnimat
 import HamburgerMenu from "@/components/HamburgerMenu";
 import {FirstView} from "@/components/FirstView";
 import {gsap} from "gsap";
-import {ScrollTrigger} from "gsap/dist/ScrollTrigger"; // 修正: 明示的なインポート推奨
+import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 
 // ==========================================
 // Types & Interfaces
 // ==========================================
 
-// windowオブジェクトの拡張（any回避）
 interface CustomWindow extends Window {
   triggerBackgroundAnimation?: (index: number) => void;
 }
@@ -94,24 +93,19 @@ const SEOHead = () => (
       content="はざまの少年少女が生きたいと思える社会をつくる。寄り添わない支援。Web事業を中心に、オフラインイベントや研究も行う。"
     />
     <meta property="og:title" content="NPO法人 第３の家族" />
-    <meta
-      property="og:description"
-      content="はざまの少年少女が生きたいと思える社会をつくる。寄り添わない支援。Web事業を中心に、オフラインイベントや研究も行う。"
-    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://daisan-kazoku.com" />
     <meta property="og:image" content="https://daisan-kazoku.com/ogp.png" />
     <meta property="og:site_name" content="NPO法人 第３の家族" />
-    <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@daisan_kazoku" />
   </Head>
 );
 
-// テキストレンダリング用コンポーネント
-const TextSection = ({data}: {data: SegmentData}) => {
-  return (
-    <div className={styles.viewPort}>
+const TextSection = ({data}: {data: SegmentData}) => (
+  <div className={styles.viewPort}>
+    {/* グラデーション用のラッパーを追加 */}
+    <div className={styles.textContainer}>
       <p>
         {data.segments.flatMap((segment, segmentIndex) => [
           <span className={styles.segment} key={`seg-${segmentIndex}`}>
@@ -127,8 +121,8 @@ const TextSection = ({data}: {data: SegmentData}) => {
         ])}
       </p>
     </div>
-  );
-};
+  </div>
+);
 
 // ==========================================
 // Custom Hooks (Logic)
@@ -142,64 +136,37 @@ const useScrollTextAnimation = (
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // nullを除外
     const sections = sectionsRef.current.filter(Boolean) as HTMLDivElement[];
     if (sections.length === 0) return;
 
-    // 初期状態セット
+    // 初期化：y位置を減らし、動きをより繊細に
     const allChars = document.querySelectorAll(`.${styles.char}`);
-    gsap.set(allChars, {opacity: 0, y: 15, filter: "blur(2px)"});
+    gsap.set(allChars, {opacity: 0, y: 10, filter: "blur(4px)"});
 
-    // アニメーション管理変数
-    const animatedSections = new Set<number>();
     const completedSections = new Set<number>();
-    const animationQueue: {index: number; animate: () => void}[] = [];
-    let isAnimating = false;
+    const animatedSections = new Set<number>();
 
-    // キュー処理
-    const processQueue = () => {
-      if (isAnimating || animationQueue.length === 0) return;
-
-      isAnimating = true;
-      const {index, animate} = animationQueue.shift()!;
-
-      if (!animatedSections.has(index)) {
-        animatedSections.add(index);
-        animate();
-      } else {
-        isAnimating = false;
-        processQueue();
-      }
-    };
-
-    // 各セクションの設定
     const triggers: ScrollTrigger[] = [];
 
     sections.forEach((section, index) => {
       const chars = section.querySelectorAll(`.${styles.char}`);
       if (chars.length === 0) return;
 
-      const animateSection = () => {
+      const animateText = () => {
         gsap.to(chars, {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
-          duration: 0.5,
-          stagger: 0.03,
+          duration: 1.0,
           ease: "power2.out",
+          // amount: 0.5 で全文字を0.5秒以内に開始（スピーディーかつ上品に）
+          stagger: {
+            amount: 0.5,
+            from: "start",
+          },
+          overwrite: "auto",
           onComplete: () => {
             completedSections.add(index);
-            isAnimating = false;
-
-            // 背景アニメーションのトリガー (index 0はFirstViewなので、1-4が対象)
-            if (index > 0 && index <= 4) {
-              console.log(
-                `📝 Triggering background animation for index: ${index - 1}`
-              );
-              window.triggerBackgroundAnimation?.(index - 1);
-            }
-
-            setTimeout(processQueue, 200);
           },
         });
       };
@@ -207,11 +174,18 @@ const useScrollTextAnimation = (
       // 表示トリガー
       const enterTrigger = ScrollTrigger.create({
         trigger: section,
-        start: "top 75%",
+        start: "top 60%",
         end: "bottom 50%",
         onEnter: () => {
-          animationQueue.push({index, animate: animateSection});
-          processQueue();
+          if (!animatedSections.has(index)) {
+            animatedSections.add(index);
+            animateText();
+          }
+
+          if (index > 0 && index <= SECTION_TEXTS.length) {
+            const targetPhase = index - 1;
+            window.triggerBackgroundAnimation?.(targetPhase);
+          }
         },
         onEnterBack: () => {
           gsap.to(chars, {
@@ -219,8 +193,12 @@ const useScrollTextAnimation = (
             y: 0,
             filter: "blur(0px)",
             duration: 0.25,
-            ease: "power2.out",
+            overwrite: true,
           });
+
+          if (index > 0 && index <= SECTION_TEXTS.length) {
+            window.triggerBackgroundAnimation?.(index - 1);
+          }
         },
       });
       triggers.push(enterTrigger);
@@ -235,10 +213,9 @@ const useScrollTextAnimation = (
           if (completedSections.has(index)) {
             gsap.to(chars, {
               opacity: 1 - Math.pow(self.progress, 0.5) * 0.95,
-              filter: `blur(${self.progress * 0.5}px)`,
+              filter: `blur(${self.progress * 4}px)`,
               duration: 0.1,
-              ease: "none",
-              overwrite: "auto", // 競合を防ぐ
+              overwrite: "auto",
             });
           }
         },
@@ -248,9 +225,8 @@ const useScrollTextAnimation = (
 
     return () => {
       triggers.forEach((t) => t.kill());
-      // ScrollTrigger.getAll().forEach(t => t.kill()); // 必要に応じて全体削除
     };
-  }, [sectionsRef]);
+  }, []);
 };
 
 // ==========================================
@@ -260,11 +236,8 @@ const useScrollTextAnimation = (
 const Home = () => {
   const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-  // アニメーションロジックの呼び出し
   useScrollTextAnimation(sectionsRef);
 
-  // 表示要素の構成（FirstView + TextSections + Last FirstView）
-  // useMemoを使うことで不要な再計算を防ぐ
   const contentSections = useMemo(
     () => [
       <FirstView key="first-view-top" />,
@@ -276,16 +249,9 @@ const Home = () => {
     []
   );
 
-  // 背景アニメーション完了時のコールバック
-  const handleAnimationComplete = (sectionIndex: number) => {
-    // 必要に応じてログ出力など
-    // console.log(`🎬 Background animation completed: ${sectionIndex}`);
-  };
-
   return (
     <>
       <SEOHead />
-
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-P39BNFHKK3"
         strategy="afterInteractive"
@@ -321,7 +287,7 @@ const Home = () => {
           ))}
         </div>
 
-        <TopBackgroundAnimation onSectionVisible={handleAnimationComplete} />
+        <TopBackgroundAnimation />
 
         <div className={styles.stickyFooterLink}>
           <Link href="https://daisan-kazoku.net" className={styles.footerLink}>
