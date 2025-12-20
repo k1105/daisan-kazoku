@@ -202,7 +202,6 @@ export const TopBackgroundAnimation = ({
 
         /* Handアニメーション (Phase 4) - 位置とサイズの調整 */
         .is-hand {
-          /* 垂直方向: 中央より少し下 (60%) に配置 */
           top: 70%;
           transform: translateY(-50%);
 
@@ -211,7 +210,7 @@ export const TopBackgroundAnimation = ({
           left: auto;
 
           /* サイズ: 高さを基準にし、幅はアスペクト比維持で自動調整 */
-          height: 70vh; /* 少し小さくして見切れを防ぐ */
+          height: 85vh; /* 少し小さくして見切れを防ぐ */
           width: auto; /* 高さに合わせる */
           max-width: 90vw; /* スマホなどで幅がはみ出さないように */
 
