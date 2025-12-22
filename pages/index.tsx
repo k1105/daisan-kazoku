@@ -244,7 +244,11 @@ const Home = () => {
       ...SECTION_TEXTS.map((data) => (
         <TextSection key={`section-${data.id}`} data={data} />
       )),
-      <FirstView key="first-view-loop" showArrow={false} />,
+      <FirstView
+        key="first-view-loop"
+        showArrow={false}
+        isBottomLayout={true}
+      />,
     ],
     []
   );
@@ -274,17 +278,25 @@ const Home = () => {
         </div>
 
         <div className={styles.viewWrapper}>
-          {contentSections.map((component, idx) => (
-            <div
-              key={idx}
-              ref={(el) => {
-                sectionsRef.current[idx] = el;
-              }}
-              className={styles.section}
-            >
-              {component}
-            </div>
-          ))}
+          {contentSections.map((component, idx) => {
+            // ▼ 追加: 最後のセクションかどうかを判定
+            const isLastSection = idx === contentSections.length - 1;
+
+            return (
+              <div
+                key={idx}
+                ref={(el) => {
+                  sectionsRef.current[idx] = el;
+                }}
+                // ▼ 修正: 最後のセクションには styles.sectionBottom を追加
+                className={`${styles.section} ${
+                  isLastSection ? styles.sectionBottom : ""
+                }`}
+              >
+                {component}
+              </div>
+            );
+          })}
         </div>
 
         <TopBackgroundAnimation />

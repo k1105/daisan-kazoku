@@ -52,6 +52,7 @@ export const TopBackgroundAnimation = ({
   });
 
   const [targetPhase, setTargetPhase] = useState<number>(-1);
+  const [isWhiteout, setIsWhiteout] = useState<boolean>(false);
   const animationContainers = useRef<(HTMLDivElement | null)[]>([]);
   const animationInstances = useRef<any[]>([]);
   const currentLoadingPhaseRef = useRef<number>(-1);
@@ -106,7 +107,7 @@ export const TopBackgroundAnimation = ({
     [totalPhases]
   );
 
-  // ウィンドウサイズ監視 (クライアントサイドのみで実行)
+  // ウィンドウサイズ監視 (クライアントサイズのみで実行)
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -124,6 +125,41 @@ export const TopBackgroundAnimation = ({
     return () => {
       window.removeEventListener("resize", handleResize);
       delete (window as WindowWithTrigger).triggerBackgroundAnimation;
+    };
+  }, []);
+
+  // SP版でボトム到達時にホワイトアウトを適用
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleScroll = () => {
+      const isSP = window.innerWidth <= 600;
+      if (!isSP) {
+        setIsWhiteout(false);
+        return;
+      }
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+
+      // 下から50vhの位置を計算
+      const thresholdVh = windowHeight * 0.5; // 50vh
+      const thresholdPosition = documentHeight - windowHeight - thresholdVh;
+
+      // 下から50vhの位置に到達したらホワイトアウト
+      const isNearBottom = scrollY >= thresholdPosition;
+
+      setIsWhiteout(isNearBottom);
+    };
+
+    handleScroll(); // 初期実行
+    window.addEventListener("scroll", handleScroll, {passive: true});
+    window.addEventListener("resize", handleScroll, {passive: true});
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
@@ -186,6 +222,12 @@ export const TopBackgroundAnimation = ({
           />
         );
       })}
+      {/* ホワイトアウトオーバーレイ */}
+      <div
+        className={`${styles.whiteoutOverlay} ${
+          isWhiteout ? styles.whiteoutActive : ""
+        }`}
+      />
     </div>
   );
 };

@@ -5,12 +5,21 @@ import styles from "@/styles/components/FirstView.module.scss";
 
 interface FirstViewProps {
   showArrow?: boolean;
+  isBottomLayout?: boolean;
 }
 
-export const FirstView = ({ showArrow = true }: FirstViewProps) => {
+export const FirstView = ({
+  showArrow = true,
+  isBottomLayout = false,
+}: FirstViewProps) => {
   return (
     <>
-      <div className={`${styles.viewPort} ${styles.top}`} key="0">
+      <div
+        className={`${styles.viewPort} ${styles.top} ${
+          isBottomLayout ? styles.bottomLayout : ""
+        }`}
+        key="0"
+      >
         <p className={styles.copy}>
           <span className={styles.segment}>「どうしようもない」</span>
           <span className={styles.segment}>を</span>
@@ -35,8 +44,16 @@ export const FirstView = ({ showArrow = true }: FirstViewProps) => {
         )}
       </div>
 
-      <div className={styles.pageLinkContainer}>
-        <div className={styles.link}>
+      <div
+        className={`${styles.pageLinkContainer} ${
+          isBottomLayout ? styles.bottomLayoutContainer : ""
+        }`}
+      >
+        <div
+          className={`${styles.link} ${
+            isBottomLayout ? styles.bottomLayoutLink : ""
+          }`}
+        >
           <Link href={"/about"} className={styles.pageLink}>
             第３の家族とは
           </Link>

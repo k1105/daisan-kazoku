@@ -61,6 +61,13 @@
   padding: 0;
 }
 
+/* ▼ 追加: 最後のセクション（2回目のFirstView）用のオーバーライド
+   Flexboxの中央揃えを解除し、ブロック要素として配置可能にする */
+.sectionBottom {
+  display: block;
+  position: relative;
+}
+
 .viewPort {
   width: 100%;
   display: flex;
@@ -69,9 +76,7 @@
   pointer-events: none;
 }
 
-/* 【NEW】背景用グラデーションコンテナ 
-   文字の背後にふんわりと白い光を敷く設定
-*/
+/* 背景用グラデーションコンテナ */
 .textContainer {
   pointer-events: auto;
 

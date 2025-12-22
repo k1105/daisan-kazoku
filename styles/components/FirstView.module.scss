@@ -37,6 +37,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  pointer-events: none; /* コンテナ自体がクリックを邪魔しないように */
 }
 
 .link {
@@ -47,6 +48,7 @@
   flex-direction: column;
   gap: 0.7rem;
   justify-content: flex-end;
+  pointer-events: auto; /* リンク部分のみクリック可能に */
 }
 
 .pageLink {
@@ -99,7 +101,7 @@
   .viewPort {
     width: 100vw;
     height: 100vh;
-    padding-top: 25vh;
+    padding-top: 20vh;
   }
   .copy {
     font-size: 1rem;
@@ -132,5 +134,85 @@
 
   .animationWrapper {
     justify-content: flex-end;
+  }
+}
+
+/* -------------------------------------------
+   Bottom Layout (PC版、2回目のFirstViewのみ)
+   セレクタを .viewPort.bottomLayout に変更して優先度を上げます
+------------------------------------------- */
+.viewPort.bottomLayout {
+  /* PC版のみ適用 */
+  @media screen and (min-width: 601px) {
+    /* !important を使わずともクラス連結で優先度勝ちさせます */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    margin: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.9) 40%,
+      rgba(255, 255, 255, 0) 100%
+    );
+
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+
+    .copy {
+      display: block;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .subTitle {
+      display: block;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    .logo {
+      width: 400px;
+      max-width: 90vw;
+      height: 100px;
+      align-self: center;
+    }
+  }
+}
+
+/* コンテナやリンクも同様にクラスを連結して優先度を確保 */
+.pageLinkContainer.bottomLayoutContainer {
+  @media screen and (min-width: 601px) {
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+    left: auto;
+    width: auto;
+    height: auto;
+    z-index: 2;
+  }
+}
+
+.link.bottomLayoutLink {
+  @media screen and (min-width: 601px) {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin: 0;
   }
 }

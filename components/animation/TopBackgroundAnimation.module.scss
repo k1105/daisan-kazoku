@@ -39,11 +39,11 @@
 ------------------------------------------- */
 .isHand {
   position: absolute;
-  left: auto;
-  transform: translateY(-50%); /* 垂直中央揃えの基準 */
+  left: 50%; /* 水平中央揃え */
+  transform: translate(-50%, -30%); /* 水平・垂直中央揃え */
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: center;
 
   /* LottieのSVGがコンテナからはみ出さないようにする設定 */
   :global(svg) {
@@ -55,20 +55,18 @@
   /* =========================================
      【PC】 設定 (601px以上)
      ========================================= */
-  top: 70%; /* 上からの位置 */
-  right: -5%; /* 右端からの位置（マイナスで少し隠すなど） */
-  height: 85vh; /* 高さ基準 */
-  width: auto; /* アスペクト比維持 */
-  max-width: 50vw; /* 横幅が広がりすぎないように制限 */
+  top: 55%; /* 上からの位置 */
+  height: auto; /* 高さ基準 */
+  width: 53vw; /* アスペクト比維持 */
+  min-height: 70vh;
 
   /* =========================================
      【SP】 設定 (600px以下)
      ========================================= */
   @media screen and (max-width: 600px) {
-    top: 60%; /* スマホでの上からの位置 */
-    right: -15%; /* スマホでの右端位置 */
-    height: 50vh; /* スマホでは少し小さくする */
-    max-width: 90vw;
+    top: 55%; /* スマホでの上からの位置 */
+    width: 100vw;
+    transform: translate(-30%, -30%); /* 水平・垂直中央揃え */
   }
 }
 
@@ -89,4 +87,30 @@
 }
 .phase4 {
   z-index: 100;
+}
+
+/* -------------------------------------------
+   Whiteout Effect (SP版のみ)
+------------------------------------------- */
+.whiteoutOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  z-index: 200; /* 全てのアニメーションレイヤーの上に配置 */
+  pointer-events: none;
+  /* SP版でのみ表示 */
+  display: none;
+
+  @media screen and (max-width: 600px) {
+    display: block;
+  }
+}
+
+.whiteoutActive {
+  opacity: 1;
 }
