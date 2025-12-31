@@ -40,7 +40,7 @@
 .isHand {
   position: absolute;
   left: 50%; /* 水平中央揃え */
-  transform: translate(-50%, -30%); /* 水平・垂直中央揃え */
+  transform: translate(0%, -35%); /* 水平・垂直中央揃え */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +57,7 @@
      ========================================= */
   top: 55%; /* 上からの位置 */
   height: auto; /* 高さ基準 */
-  width: 53vw; /* アスペクト比維持 */
+  width: 63vw; /* アスペクト比維持 */
   min-height: 70vh;
 
   /* =========================================
@@ -65,8 +65,8 @@
      ========================================= */
   @media screen and (max-width: 600px) {
     top: 55%; /* スマホでの上からの位置 */
-    width: 100vw;
-    transform: translate(-30%, -30%); /* 水平・垂直中央揃え */
+    width: 150vw;
+    transform: translate(-20%, -40%); /* 水平・垂直中央揃え */
   }
 }
 

@@ -17,7 +17,7 @@ interface WindowWithTrigger extends Window {
 // Configuration
 // ==========================================
 
-const HAND_ANIMATION_PATH = "/json/hand.json";
+const HAND_ANIMATION_PATH = "/json/251231_hand_1515_1323.json";
 
 const ANIMATION_FILES = {
   pc: [
@@ -171,8 +171,6 @@ export const TopBackgroundAnimation = ({
     }
   }, [targetPhase, playAnimation, onSectionVisible]);
 
-  // 背景サイズ計算用（アスペクト比維持ロジック）
-  // ★ここを修正しました★
   const getBackgroundStyle = (isHand: boolean) => {
     // 1. Handの場合はスタイル計算不要
     if (isHand) return {};
