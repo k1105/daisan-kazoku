@@ -171,7 +171,7 @@ export default function HamburgerMenu() {
                     setIsVisible(!isVisible);
                   }}
                 >
-                  <p>メルマガ登録</p>
+                  <p>公式LINE・メルマガ</p>
                 </Link>
                 <Link
                   href="https://daisan-ticket.studio.site/"
