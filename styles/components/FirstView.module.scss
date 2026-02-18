@@ -27,8 +27,7 @@
 .copy {
   margin-bottom: 3rem;
   text-align: center;
-  // font-weight: 100;
-  font-size: 1.2rem;
+font-size: 1.2rem;
 }
 
 .pageLinkContainer {
@@ -37,7 +36,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  pointer-events: none; /* コンテナ自体がクリックを邪魔しないように */
+  pointer-events: none;
 }
 
 .link {
@@ -48,7 +47,7 @@
   flex-direction: column;
   gap: 0.7rem;
   justify-content: flex-end;
-  pointer-events: auto; /* リンク部分のみクリック可能に */
+  pointer-events: auto;
 }
 
 .pageLink {
@@ -137,14 +136,8 @@
   }
 }
 
-/* -------------------------------------------
-   Bottom Layout (PC版、2回目のFirstViewのみ)
-   セレクタを .viewPort.bottomLayout に変更して優先度を上げます
-------------------------------------------- */
 .viewPort.bottomLayout {
-  /* PC版のみ適用 */
   @media screen and (min-width: 601px) {
-    /* !important を使わずともクラス連結で優先度勝ちさせます */
     position: absolute;
     bottom: 0;
     left: 0;
@@ -192,7 +185,6 @@
   }
 }
 
-/* コンテナやリンクも同様にクラスを連結して優先度を確保 */
 .pageLinkContainer.bottomLayoutContainer {
   @media screen and (min-width: 601px) {
     position: absolute;

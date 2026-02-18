@@ -1,3 +1,4 @@
+import {useEffect, useRef} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {DownArrowAnimation} from "./animation/DownArrowAnimation";
@@ -12,6 +13,32 @@ export const FirstView = ({
   showArrow = true,
   isBottomLayout = false,
 }: FirstViewProps) => {
+  const logoContainer = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isBottomLayout) return;
+
+    import("lottie-web").then((lottie) => {
+      if (logoContainer.current) {
+        const animationInstance = lottie.default.loadAnimation({
+          container: logoContainer.current,
+          renderer: "svg",
+          loop: false,
+          autoplay: true,
+          path: "/logo/251231_LOGO_1920_110_white_touka.json",
+          rendererSettings: {
+            preserveAspectRatio: "xMidYMid meet",
+            viewBoxSize: "669 0 580 110",
+          },
+        });
+
+        return () => {
+          animationInstance.destroy();
+        };
+      }
+    });
+  }, [isBottomLayout]);
+
   return (
     <>
       <div
@@ -26,15 +53,19 @@ export const FirstView = ({
           <span className={styles.segment}>「大丈夫」に</span>
         </p>
 
-        <div className={styles.logo}>
-          <Image
-            src="/logo.svg"
-            fill
-            priority
-            style={{objectFit: "contain"}}
-            alt="第３の家族"
-          />
-        </div>
+        {isBottomLayout ? (
+          <div className={styles.logo}>
+            <Image
+              src="/logo.svg"
+              fill
+              priority
+              style={{objectFit: "contain"}}
+              alt="第３の家族"
+            />
+          </div>
+        ) : (
+          <div className={styles.logo} ref={logoContainer} aria-label="第３の家族" />
+        )}
         <p className={styles.subTitle}>認定NPO法人第3の家族</p>
 
         {showArrow && (
