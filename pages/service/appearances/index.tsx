@@ -66,6 +66,8 @@ const Appearances = () => {
                   <a
                     href="https://www.cfa.go.jp/councils/shingikai/kodomo_ibasho"
                     className={styles.externalLink}
+                    target="_blank"
+                    rel="noopener"
                   >
                     令和7年度 こども家庭庁 こどもの居場所部会
                   </a>
@@ -74,6 +76,8 @@ const Appearances = () => {
                   <a
                     href="https://www.cao.go.jp/kodoku_koritsu/torikumi/platform/gaiyou/setsuritsusoukai4.html"
                     className={styles.externalLink}
+                    target="_blank"
+                    rel="noopener"
                   >
                     内閣府 孤独・孤立対策官民連携プラットフォーム 第4回総会
                   </a>
@@ -82,6 +86,8 @@ const Appearances = () => {
                   <a
                     href="http://www.youmonken.org/taikaiyoukou.pdf"
                     className={styles.externalLink}
+                    target="_blank"
+                    rel="noopener"
                   >
                     令和7年度 全国児童養護問題研究会 登壇
                   </a>
@@ -113,6 +119,8 @@ const Appearances = () => {
                   <li>
                     <a
                       href="https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/99d1cd43-94e4-40b2-841a-a8f29a504e84/3e5627ca/20250903_press_99d1cd43-94e4-40b2-841a-a8f29a504e84_02.pdf"
+                      target="_blank"
+                      rel="noopener"
                       className={styles.externalLink}
                     >
                       こども家庭庁 こどもの居場所づくりオールミーティング
