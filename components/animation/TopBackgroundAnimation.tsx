@@ -178,19 +178,18 @@ export const TopBackgroundAnimation = ({
     // 2. SSR時（innerSizeが0の時）は計算せずに空オブジェクトを返す
     if (innerSize.w === 0 || innerSize.h === 0) return {};
 
-    // 3. windowではなくinnerSize stateを使用する
-    const aspect = innerSize.w / innerSize.h;
-    const isWide = aspect > 16 / 9;
-    const isMobilePortrait = aspect < 9 / 16 && innerSize.w <= 600;
-
     if (innerSize.w <= 600) {
-      // SP
+      // SP: 9:16アニメーション
+      // max()でビューポートを常にカバーし、アドレスバーの表示/非表示による
+      // innerHeightの変動に影響されない安定したサイジングを実現
       return {
-        width: isMobilePortrait ? "100vh" : "178vw",
-        height: isMobilePortrait ? "178vh" : "100vw",
+        width: "max(100vw, 56.25vh)",
+        height: "max(100vh, 177.78vw)",
       };
     } else {
-      // PC
+      // PC: 16:9アニメーション
+      const aspect = innerSize.w / innerSize.h;
+      const isWide = aspect > 16 / 9;
       return {
         width: isWide ? "100vw" : "178vh",
         height: isWide ? "178vw" : "100vh",
