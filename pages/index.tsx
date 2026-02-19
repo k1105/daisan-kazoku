@@ -200,6 +200,13 @@ const useScrollTextAnimation = (
             window.triggerBackgroundAnimation?.(index - 1);
           }
         },
+        onLeaveBack: () => {
+          if (index > 0 && index <= SECTION_TEXTS.length) {
+            // このセクションより上に戻った場合、前のフェーズに戻す
+            // index=1 の場合は -1 になり、全レイヤーが非表示になる
+            window.triggerBackgroundAnimation?.(index - 2);
+          }
+        },
       });
       triggers.push(enterTrigger);
 
