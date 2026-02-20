@@ -188,11 +188,10 @@ export const TopBackgroundAnimation = ({
       };
     } else {
       // PC: 16:9アニメーション
-      const aspect = innerSize.w / innerSize.h;
-      const isWide = aspect > 16 / 9;
+      // max()でビューポートを常にカバーし、16:9のアスペクト比を維持
       return {
-        width: isWide ? "100vw" : "178vh",
-        height: isWide ? "178vw" : "100vh",
+        width: "max(100vw, 177.78vh)",
+        height: "max(100vh, 56.25vw)",
       };
     }
   };
